@@ -1,0 +1,12 @@
+{
+  "name": "kronan-price-tracker",
+  "version": "1.0.0",
+  "description": "Daglegar verðmyndir af Krónunni og daglegur listi yfir mestu %-hækkanir og lækkanir.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "run": "node src/index.js"
+  }
+}
