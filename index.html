@@ -223,6 +223,17 @@
     `).join("");
   }
 
+  function renderExtreme(item) {
+    if (!item) return '<div class="empty">Engin gögn</div>';
+    return `
+      <div class="line">
+        <div class="name">${item.name}</div>
+        <div class="percent extreme">${new Intl.NumberFormat("is-IS").format(item.price)} kr</div>
+        <div class="sku">${item.sku}${item.brand ? " · " + item.brand : ""}</div>
+      </div>
+    `;
+  }
+
   function renderMovers(movers) {
     dateLabelEl.textContent = movers.date;
     contentEl.innerHTML = `
@@ -230,6 +241,10 @@
       ${renderList(movers.topIncreases, "up")}
       <div class="section-label down">Mestu lækkanir</div>
       ${renderList(movers.topDecreases, "down")}
+      <div class="section-label">Ódýrasta varan</div>
+      ${renderExtreme(movers.cheapest)}
+      <div class="section-label">Dýrasta varan</div>
+      ${renderExtreme(movers.mostExpensive)}
     `;
   }
 
