@@ -1,0 +1,20 @@
+{
+  "date": "2026-07-26",
+  "comparedTo": null,
+  "productCount": 9463,
+  "changedCount": 0,
+  "topIncreases": [],
+  "topDecreases": [],
+  "cheapest": {
+    "sku": "100269834",
+    "name": "Zozole wafers lemon",
+    "brand": "Zozole",
+    "price": 29
+  },
+  "mostExpensive": {
+    "sku": "00201564",
+    "name": "Kjötborð ungnautalund",
+    "brand": "Kjötborð",
+    "price": 18358
+  }
+}
