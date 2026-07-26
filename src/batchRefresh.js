@@ -19,9 +19,13 @@ export async function batchRefresh(client, skus, { onProgress } = {}) {
   const missing = [];
 
   for (let i = 0; i < batches.length; i++) {
-    const res = await client.batchLookup(batches[i]);
-    for (const p of res.results || []) products.push(mapProduct(p));
-    for (const sku of res.missingSkus || []) missing.push(sku);
+    try {
+      const res = await client.batchLookup(batches[i]);
+      for (const p of res.results || []) products.push(mapProduct(p));
+      for (const sku of res.missingSkus || []) missing.push(sku);
+    } catch (err) {
+      console.log(`  slepping batch ${i + 1}/${batches.length} eftir villu: ${err.message}`);
+    }
     onProgress?.({ done: i + 1, total: batches.length, productCount: products.length });
   }
 

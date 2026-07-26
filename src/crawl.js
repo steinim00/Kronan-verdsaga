@@ -30,21 +30,34 @@ export async function crawlCatalog(client, { onProgress } = {}) {
   // plausibly show up under more than one leaf category.
   const products = new Map();
 
+  const failedSlugs = [];
+
   for (let i = 0; i < leafSlugs.length; i++) {
     const slug = leafSlugs[i];
-    let page = 1;
-    let hasNextPage = true;
+    try {
+      let page = 1;
+      let hasNextPage = true;
 
-    while (hasNextPage) {
-      const data = await client.getCategoryProducts(slug, page);
-      for (const p of data.products || []) {
-        products.set(p.sku, mapProduct(p));
+      while (hasNextPage) {
+        const data = await client.getCategoryProducts(slug, page);
+        for (const p of data.products || []) {
+          products.set(p.sku, mapProduct(p));
+        }
+        hasNextPage = !!data.hasNextPage;
+        page += 1;
       }
-      hasNextPage = !!data.hasNextPage;
-      page += 1;
+    } catch (err) {
+      // Don't let one bad category (even after the client's own retries)
+      // throw away everything collected from every other category.
+      console.log(`  slepping kategoríu "${slug}" eftir villu: ${err.message}`);
+      failedSlugs.push(slug);
     }
 
     onProgress?.({ done: i + 1, total: leafSlugs.length, slug, productCount: products.size });
+  }
+
+  if (failedSlugs.length > 0) {
+    console.log(`${failedSlugs.length} kategoríur klikkuðu og var sleppt: ${failedSlugs.join(", ")}`);
   }
 
   return Array.from(products.values());
