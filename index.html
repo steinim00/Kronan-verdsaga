@@ -209,6 +209,11 @@
     return new Intl.NumberFormat("is-IS").format(n) + " kr";
   }
 
+  function fmtPercent(n) {
+    const formatted = new Intl.NumberFormat("is-IS", { maximumFractionDigits: 2 }).format(Math.abs(n));
+    return (n > 0 ? "+" : n < 0 ? "-" : "") + formatted + "%";
+  }
+
   function renderList(items, direction) {
     if (!items || items.length === 0) {
       return '<div class="empty">Engar breytingar</div>';
@@ -216,7 +221,7 @@
     return items.map((it) => `
       <div class="line ${direction}">
         <div class="name">${it.name}</div>
-        <div class="percent">${it.percent > 0 ? "+" : ""}${it.percent}%</div>
+        <div class="percent">${fmtPercent(it.percent)}</div>
         <div class="sku">${it.sku}${it.brand ? " · " + it.brand : ""}</div>
         <div class="prices">${fmtISK(it.priceBefore)} → ${fmtISK(it.priceAfter)}</div>
       </div>
