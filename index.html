@@ -16,6 +16,7 @@
     --up: #a8351f;
     --down: #2f6f4e;
     --rule: #cfc9b4;
+    --star: #b8912f;
   }
 
   * { box-sizing: border-box; }
@@ -30,9 +31,52 @@
     font-family: "JetBrains Mono", monospace;
     color: var(--ink);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     padding: 48px 16px 96px;
+    gap: 20px;
   }
+
+  .toolbar {
+    width: 100%;
+    max-width: 460px;
+    position: relative;
+  }
+
+  .search-input {
+    width: 100%;
+    font-family: inherit;
+    font-size: 13px;
+    padding: 10px 12px;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .search-input::placeholder { color: var(--ink-faint); }
+
+  .search-results {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    max-height: 280px;
+    overflow-y: auto;
+    z-index: 20;
+    box-shadow: 0 12px 24px -12px rgba(0,0,0,0.35);
+  }
+  .search-results:empty { display: none; }
+
+  .search-result {
+    padding: 8px 12px;
+    font-size: 12px;
+    border-bottom: 1px dotted var(--rule);
+    cursor: pointer;
+  }
+  .search-result:hover { background: var(--paper-edge); }
+  .search-result .sr-name { font-weight: 500; }
+  .search-result .sr-meta { color: var(--ink-faint); font-size: 10px; }
 
   .receipt {
     width: 100%;
@@ -59,10 +103,7 @@
   .receipt::before { top: -13px; background-color: #d8d3c2; }
   .receipt::after { bottom: -13px; transform: scaleY(-1); background-color: #d8d3c2; }
 
-  header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+  header { text-align: center; margin-bottom: 20px; }
 
   .store {
     font-family: "Fraunces", serif;
@@ -110,15 +151,9 @@
     align-items: center;
     gap: 8px;
   }
-
   .section-label.up { color: var(--up); }
   .section-label.down { color: var(--down); }
-
-  .section-label::after {
-    content: "";
-    flex: 1;
-    border-top: 1px dashed var(--rule);
-  }
+  .section-label::after { content: ""; flex: 1; border-top: 1px dashed var(--rule); }
 
   .line {
     display: grid;
@@ -127,41 +162,42 @@
     padding: 8px 0;
     border-bottom: 1px dotted var(--rule);
     font-size: 13px;
+    cursor: pointer;
   }
   .line:last-child { border-bottom: none; }
+  .line:hover .name { text-decoration: underline; }
 
-  .line .name {
-    font-weight: 500;
-    line-height: 1.3;
+  .line .name { font-weight: 500; line-height: 1.3; }
+  .line .badge {
+    font-size: 9px;
+    color: var(--star);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-left: 6px;
   }
-  .line .sku {
-    grid-column: 1;
-    font-size: 10px;
-    color: var(--ink-faint);
-  }
-  .line .prices {
-    grid-column: 2;
-    text-align: right;
-    font-size: 10px;
-    color: var(--ink-faint);
-  }
-  .line .percent {
-    grid-column: 2;
-    text-align: right;
-    font-weight: 700;
-    font-size: 15px;
-  }
+  .line .sku { grid-column: 1; font-size: 10px; color: var(--ink-faint); }
+  .line .prices { grid-column: 2; text-align: right; font-size: 10px; color: var(--ink-faint); }
+  .line .percent { grid-column: 2; text-align: right; font-weight: 700; font-size: 15px; }
   .line.up .percent::before { content: "▲ "; }
   .line.down .percent::before { content: "▼ "; }
   .line.up .percent { color: var(--up); }
   .line.down .percent { color: var(--down); }
 
-  .empty {
-    font-size: 12px;
-    color: var(--ink-faint);
-    padding: 8px 0;
-    font-style: italic;
+  .empty { font-size: 12px; color: var(--ink-faint); padding: 8px 0; font-style: italic; }
+
+  .csv-row { display: flex; gap: 12px; margin-top: 22px; justify-content: center; }
+  .csv-btn {
+    font-family: inherit;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    padding: 6px 10px;
+    cursor: pointer;
   }
+  .csv-btn:hover { background: var(--paper-edge); }
 
   footer {
     margin-top: 26px;
@@ -173,15 +209,62 @@
     letter-spacing: 0.08em;
   }
 
-  .status {
-    text-align: center;
-    padding: 40px 0;
-    font-size: 13px;
-    color: var(--ink-faint);
+  .status { text-align: center; padding: 40px 0; font-size: 13px; color: var(--ink-faint); }
+
+  /* Favorites */
+  .fav-line { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px dotted var(--rule); font-size: 13px; }
+  .fav-line .name { cursor: pointer; }
+  .fav-line .name:hover { text-decoration: underline; }
+  .fav-star-btn { background: none; border: none; cursor: pointer; font-size: 15px; color: var(--star); }
+
+  /* Product detail modal */
+  .modal-backdrop {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(20,18,14,0.55);
+    z-index: 50;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 48px 16px;
+    overflow-y: auto;
   }
+  .modal-backdrop.open { display: flex; }
+
+  .modal {
+    background: var(--paper);
+    max-width: 420px;
+    width: 100%;
+    padding: 24px;
+    position: relative;
+  }
+  .modal-close {
+    position: absolute; top: 10px; right: 14px;
+    background: none; border: none; font-size: 18px; cursor: pointer; color: var(--ink-faint);
+  }
+  .modal h2 { font-family: "Fraunces", serif; font-size: 20px; margin: 0 0 2px; padding-right: 20px; }
+  .modal .modal-meta { font-size: 11px; color: var(--ink-faint); margin-bottom: 14px; }
+  .modal .modal-price { font-size: 24px; font-weight: 700; margin: 10px 0; }
+  .modal .modal-badges { display: flex; gap: 8px; margin-bottom: 10px; }
+  .modal .badge-tag {
+    font-size: 9px; text-transform: uppercase; letter-spacing: 0.05em;
+    border: 1px solid var(--star); color: var(--star); padding: 2px 6px;
+  }
+  .modal svg { width: 100%; height: 120px; margin: 12px 0; }
+  .fav-toggle {
+    font-family: inherit; font-size: 12px; padding: 8px 14px;
+    border: 1px solid var(--star); background: transparent; color: var(--star);
+    cursor: pointer; margin-top: 8px;
+  }
+  .fav-toggle.active { background: var(--star); color: var(--paper); }
 </style>
 </head>
 <body>
+
+  <div class="toolbar">
+    <input class="search-input" id="searchInput" placeholder="Leita að vöru (nafn eða vörunúmer)…" autocomplete="off" />
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
   <div class="receipt">
     <header>
       <div class="store">KRÓNAN</div>
@@ -193,34 +276,237 @@
       <select id="dateSelect" aria-label="Velja dagsetningu"></select>
     </div>
 
-    <div id="content">
-      <div class="status">Sæki gögn…</div>
+    <div id="content"><div class="status">Sæki gögn…</div></div>
+
+    <div class="csv-row">
+      <button class="csv-btn" id="csvMoversBtn">CSV af breytingum</button>
+      <button class="csv-btn" id="csvFullBtn">CSV af öllum verðum</button>
     </div>
 
     <footer>flest vörunúmer · daglegt uppgjör</footer>
+  </div>
+
+  <div class="receipt" id="favoritesCard" style="display:none;">
+    <div class="section-label">★ Mínar vörur</div>
+    <div id="favoritesContent"></div>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div id="modalContent"></div>
+    </div>
   </div>
 
 <script>
   const contentEl = document.getElementById("content");
   const dateLabelEl = document.getElementById("dateLabel");
   const dateSelectEl = document.getElementById("dateSelect");
+  const searchInputEl = document.getElementById("searchInput");
+  const searchResultsEl = document.getElementById("searchResults");
+  const modalBackdrop = document.getElementById("modalBackdrop");
+  const modalContent = document.getElementById("modalContent");
+  const favoritesCard = document.getElementById("favoritesCard");
+  const favoritesContent = document.getElementById("favoritesContent");
 
+  let currentMovers = null;
+  let productIndex = null; // loaded lazily on first search
+
+  // ---------- formatting ----------
   function fmtISK(n) {
     return new Intl.NumberFormat("is-IS").format(n) + " kr";
   }
-
   function fmtPercent(n) {
     const formatted = new Intl.NumberFormat("is-IS", { maximumFractionDigits: 2 }).format(Math.abs(n));
     return (n > 0 ? "+" : n < 0 ? "-" : "") + formatted + "%";
   }
 
-  function renderList(items, direction) {
-    if (!items || items.length === 0) {
-      return '<div class="empty">Engar breytingar</div>';
+  // ---------- favorites (localStorage) ----------
+  const FAV_KEY = "kronan-verdsaga-favorites";
+  function getFavorites() {
+    try { return JSON.parse(localStorage.getItem(FAV_KEY)) || []; } catch { return []; }
+  }
+  function setFavorites(list) {
+    localStorage.setItem(FAV_KEY, JSON.stringify(list));
+  }
+  function isFavorite(sku) {
+    return getFavorites().some((f) => f.sku === sku);
+  }
+  function toggleFavorite(sku, name, brand) {
+    const list = getFavorites();
+    const idx = list.findIndex((f) => f.sku === sku);
+    if (idx >= 0) list.splice(idx, 1);
+    else list.push({ sku, name, brand });
+    setFavorites(list);
+    renderFavorites();
+  }
+
+  async function renderFavorites() {
+    const favs = getFavorites();
+    if (favs.length === 0) { favoritesCard.style.display = "none"; return; }
+    favoritesCard.style.display = "";
+    favoritesContent.innerHTML = '<div class="status" style="padding:12px 0;">Sæki verð…</div>';
+
+    const rows = await Promise.all(favs.map(async (f) => {
+      const hist = await fetchHistory(f.sku);
+      const last = hist.h[hist.h.length - 1];
+      const prev = hist.h[hist.h.length - 2];
+      const price = last ? last[1] : null;
+      let trend = "";
+      if (last && prev && prev[1]) {
+        const pct = ((last[1] - prev[1]) / prev[1]) * 100;
+        if (pct > 0) trend = `<span style="color:var(--up)">▲ ${fmtPercent(pct)}</span>`;
+        else if (pct < 0) trend = `<span style="color:var(--down)">▼ ${fmtPercent(pct)}</span>`;
+      }
+      return `
+        <div class="fav-line">
+          <span class="name" data-sku="${f.sku}" data-name="${f.name}" data-brand="${f.brand || ""}">${f.name}</span>
+          <span>${price != null ? fmtISK(price) : "—"} ${trend}</span>
+        </div>
+      `;
+    }));
+    favoritesContent.innerHTML = rows.join("");
+    favoritesContent.querySelectorAll(".name[data-sku]").forEach((el) => {
+      el.addEventListener("click", () => openProduct(el.dataset.sku, el.dataset.name, el.dataset.brand));
+    });
+  }
+
+  // ---------- data fetching ----------
+  async function fetchHistory(sku) {
+    try {
+      const res = await fetch(`data/history/${sku}.json`);
+      if (!res.ok) return { h: [] };
+      return res.json();
+    } catch {
+      return { h: [] };
     }
+  }
+
+  async function ensureIndexLoaded() {
+    if (productIndex) return productIndex;
+    const res = await fetch("data/products-index.json");
+    productIndex = res.ok ? await res.json() : [];
+    return productIndex;
+  }
+
+  // ---------- search ----------
+  let searchDebounce;
+  searchInputEl.addEventListener("input", () => {
+    clearTimeout(searchDebounce);
+    searchDebounce = setTimeout(runSearch, 150);
+  });
+
+  async function runSearch() {
+    const q = searchInputEl.value.trim().toLowerCase();
+    if (q.length < 2) { searchResultsEl.innerHTML = ""; return; }
+    const index = await ensureIndexLoaded();
+    const matches = index
+      .filter((p) => p.name.toLowerCase().includes(q) || p.sku.includes(q) || (p.brand && p.brand.toLowerCase().includes(q)))
+      .slice(0, 20);
+
+    if (matches.length === 0) {
+      searchResultsEl.innerHTML = '<div class="search-result">Ekkert fannst</div>';
+      return;
+    }
+    searchResultsEl.innerHTML = matches.map((p) => `
+      <div class="search-result" data-sku="${p.sku}" data-name="${p.name.replace(/"/g, '&quot;')}" data-brand="${(p.brand||"").replace(/"/g, '&quot;')}">
+        <div class="sr-name">${p.name}</div>
+        <div class="sr-meta">${p.sku}${p.brand ? " · " + p.brand : ""}</div>
+      </div>
+    `).join("");
+    searchResultsEl.querySelectorAll(".search-result[data-sku]").forEach((el) => {
+      el.addEventListener("click", () => {
+        openProduct(el.dataset.sku, el.dataset.name, el.dataset.brand);
+        searchResultsEl.innerHTML = "";
+        searchInputEl.value = "";
+      });
+    });
+  }
+
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".toolbar")) searchResultsEl.innerHTML = "";
+  });
+
+  // ---------- product detail modal ----------
+  function sparklineSvg(points) {
+    if (points.length < 2) {
+      return '<div class="empty">Ekki næg gögn fyrir línurit ennþá</div>';
+    }
+    const w = 380, h = 110, pad = 6;
+    const prices = points.map((p) => p[1]);
+    const min = Math.min(...prices), max = Math.max(...prices);
+    const range = max - min || 1;
+    const step = (w - pad * 2) / (points.length - 1);
+
+    const coords = points.map((p, i) => {
+      const x = pad + i * step;
+      const y = h - pad - ((p[1] - min) / range) * (h - pad * 2);
+      return [x, y];
+    });
+    const path = coords.map(([x, y], i) => (i === 0 ? `M${x},${y}` : `L${x},${y}`)).join(" ");
+    const last = coords[coords.length - 1];
+
+    return `
+      <svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+        <path d="${path}" fill="none" stroke="#2a2822" stroke-width="2" />
+        <circle cx="${last[0]}" cy="${last[1]}" r="3" fill="#a8351f" />
+      </svg>
+      <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--ink-faint);">
+        <span>${points[0][0]}</span>
+        <span>${points[points.length - 1][0]}</span>
+      </div>
+    `;
+  }
+
+  async function openProduct(sku, name, brand) {
+    modalBackdrop.classList.add("open");
+    modalContent.innerHTML = '<div class="status">Sæki verðsögu…</div>';
+
+    const hist = await fetchHistory(sku);
+    const points = hist.h; // [[date, price, pricePerKiloOrNull], ...]
+    const prices = points.map((p) => p[1]);
+    const currentPrice = prices[prices.length - 1];
+    const low = prices.length ? Math.min(...prices) : null;
+    const high = prices.length ? Math.max(...prices) : null;
+
+    const fav = isFavorite(sku);
+
+    modalContent.innerHTML = `
+      <h2>${name}</h2>
+      <div class="modal-meta">${sku}${brand ? " · " + brand : ""}</div>
+      <div class="modal-price">${currentPrice != null ? fmtISK(currentPrice) : "—"}</div>
+      <div class="modal-badges">
+        ${currentPrice != null && currentPrice === low ? '<span class="badge-tag">Lægsta verð sem sést hefur</span>' : ""}
+        ${currentPrice != null && currentPrice === high && low !== high ? '<span class="badge-tag">Hæsta verð sem sést hefur</span>' : ""}
+      </div>
+      ${sparklineSvg(points)}
+      <button class="fav-toggle ${fav ? "active" : ""}" id="favToggleBtn">
+        ${fav ? "★ Í eftirlæti — fjarlægja" : "☆ Bæta í eftirlæti"}
+      </button>
+    `;
+    document.getElementById("favToggleBtn").addEventListener("click", () => {
+      toggleFavorite(sku, name, brand);
+      openProduct(sku, name, brand); // re-render to flip button state
+    });
+  }
+
+  document.getElementById("modalClose").addEventListener("click", () => modalBackdrop.classList.remove("open"));
+  modalBackdrop.addEventListener("click", (e) => {
+    if (e.target === modalBackdrop) modalBackdrop.classList.remove("open");
+  });
+
+  // ---------- movers rendering ----------
+  function badgeFor(item) {
+    if (item.allTimeLow) return '<span class="badge">nýtt lágmark</span>';
+    if (item.allTimeHigh) return '<span class="badge">nýtt hámark</span>';
+    return "";
+  }
+
+  function renderList(items, direction) {
+    if (!items || items.length === 0) return '<div class="empty">Engar breytingar</div>';
     return items.map((it) => `
-      <div class="line ${direction}">
-        <div class="name">${it.name}</div>
+      <div class="line ${direction}" data-sku="${it.sku}" data-name="${it.name.replace(/"/g,'&quot;')}" data-brand="${(it.brand||"").replace(/"/g,'&quot;')}">
+        <div class="name">${it.name}${badgeFor(it)}</div>
         <div class="percent">${fmtPercent(it.percent)}</div>
         <div class="sku">${it.sku}${it.brand ? " · " + it.brand : ""}</div>
         <div class="prices">${fmtISK(it.priceBefore)} → ${fmtISK(it.priceAfter)}</div>
@@ -231,26 +517,59 @@
   function renderExtreme(item) {
     if (!item) return '<div class="empty">Engin gögn</div>';
     return `
-      <div class="line">
-        <div class="name">${item.name}</div>
-        <div class="percent extreme">${new Intl.NumberFormat("is-IS").format(item.price)} kr</div>
+      <div class="line" data-sku="${item.sku}" data-name="${item.name.replace(/"/g,'&quot;')}" data-brand="${(item.brand||"").replace(/"/g,'&quot;')}">
+        <div class="name">${item.name}${badgeFor(item)}</div>
+        <div class="percent">${fmtISK(item.price)}</div>
         <div class="sku">${item.sku}${item.brand ? " · " + item.brand : ""}</div>
       </div>
     `;
   }
 
+  function renderVolatile(items) {
+    if (!items || items.length === 0) {
+      return '<div class="empty">Ekki nóg gögn ennþá — kemur eftir nokkra daga</div>';
+    }
+    return items.map((it) => `
+      <div class="line" data-sku="${it.sku}" data-name="${it.name.replace(/"/g,'&quot;')}" data-brand="${(it.brand||"").replace(/"/g,'&quot;')}">
+        <div class="name">${it.name}</div>
+        <div class="percent" style="color:var(--star);">${it.changes}×</div>
+        <div class="sku">${it.sku}${it.brand ? " · " + it.brand : ""}</div>
+        <div class="prices">á ${it.days} dögum</div>
+      </div>
+    `).join("");
+  }
+
+  function attachLineClicks(root) {
+    root.querySelectorAll(".line[data-sku]").forEach((el) => {
+      el.addEventListener("click", () => openProduct(el.dataset.sku, el.dataset.name, el.dataset.brand));
+    });
+  }
+
   function renderMovers(movers) {
+    currentMovers = movers;
     dateLabelEl.textContent = movers.date;
+
+    const weightSection = (movers.topWeightIncreases?.length || movers.topWeightDecreases?.length) ? `
+      <div class="section-label up">Hækkanir — kg-verð</div>
+      ${renderList(movers.topWeightIncreases, "up")}
+      <div class="section-label down">Lækkanir — kg-verð</div>
+      ${renderList(movers.topWeightDecreases, "down")}
+    ` : "";
+
     contentEl.innerHTML = `
       <div class="section-label up">Mestu hækkanir (${movers.increasedCount ?? 0})</div>
       ${renderList(movers.topIncreases, "up")}
       <div class="section-label down">Mestu lækkanir (${movers.decreasedCount ?? 0})</div>
       ${renderList(movers.topDecreases, "down")}
+      ${weightSection}
       <div class="section-label">Ódýrasta varan</div>
       ${renderExtreme(movers.cheapest)}
       <div class="section-label">Dýrasta varan</div>
       ${renderExtreme(movers.mostExpensive)}
+      <div class="section-label">★ Óstöðugustu vörurnar</div>
+      ${renderVolatile(movers.mostVolatile)}
     `;
+    attachLineClicks(contentEl);
   }
 
   async function loadDate(date) {
@@ -264,6 +583,41 @@
     }
   }
 
+  // ---------- CSV export ----------
+  function downloadCsv(filename, rows) {
+    const csv = rows.map((row) => row.map((cell) => {
+      const s = String(cell ?? "");
+      return /[",\n;]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+    }).join(";")).join("\n");
+    const blob = new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  document.getElementById("csvMoversBtn").addEventListener("click", () => {
+    if (!currentMovers) return;
+    const rows = [["tegund", "sku", "nafn", "vörumerki", "verð_áður", "verð_eftir", "prósent"]];
+    for (const it of currentMovers.topIncreases || []) rows.push(["hækkun", it.sku, it.name, it.brand, it.priceBefore, it.priceAfter, it.percent]);
+    for (const it of currentMovers.topDecreases || []) rows.push(["lækkun", it.sku, it.name, it.brand, it.priceBefore, it.priceAfter, it.percent]);
+    for (const it of currentMovers.topWeightIncreases || []) rows.push(["kg-hækkun", it.sku, it.name, it.brand, it.priceBefore, it.priceAfter, it.percent]);
+    for (const it of currentMovers.topWeightDecreases || []) rows.push(["kg-lækkun", it.sku, it.name, it.brand, it.priceBefore, it.priceAfter, it.percent]);
+    downloadCsv(`kronan-breytingar-${currentMovers.date}.csv`, rows);
+  });
+
+  document.getElementById("csvFullBtn").addEventListener("click", async () => {
+    if (!currentMovers) return;
+    const res = await fetch(`data/snapshots/${currentMovers.date}.json`);
+    if (!res.ok) return;
+    const snap = await res.json();
+    const rows = [["sku", "nafn", "vörumerki", "verð", "verð_á_kg", "flokkur"]];
+    for (const p of snap.products) rows.push([p.sku, p.name, p.brand, p.price, p.pricePerKilo, p.categoryPath]);
+    downloadCsv(`kronan-verdlisti-${currentMovers.date}.csv`, rows);
+  });
+
+  // ---------- init ----------
   async function init() {
     try {
       const indexRes = await fetch("data/movers/index.json");
@@ -274,11 +628,7 @@
         return;
       }
 
-      dateSelectEl.innerHTML = dates
-        .slice()
-        .reverse()
-        .map((d) => `<option value="${d}">${d}</option>`)
-        .join("");
+      dateSelectEl.innerHTML = dates.slice().reverse().map((d) => `<option value="${d}">${d}</option>`).join("");
       dateSelectEl.addEventListener("change", () => loadDate(dateSelectEl.value));
 
       await loadDate(dates[dates.length - 1]);
@@ -289,6 +639,7 @@
   }
 
   init();
+  renderFavorites();
 </script>
 </body>
 </html>

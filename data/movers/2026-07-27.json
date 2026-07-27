@@ -12,7 +12,9 @@
       "brand": "",
       "priceBefore": 399,
       "priceAfter": 599,
-      "percent": 50.13
+      "percent": 50.13,
+      "allTimeLow": false,
+      "allTimeHigh": true
     },
     {
       "sku": "100247979",
@@ -20,7 +22,9 @@
       "brand": "Pagen",
       "priceBefore": 399,
       "priceAfter": 420,
-      "percent": 5.26
+      "percent": 5.26,
+      "allTimeLow": false,
+      "allTimeHigh": true
     },
     {
       "sku": "100200578",
@@ -28,7 +32,9 @@
       "brand": "Pagen",
       "priceBefore": 399,
       "priceAfter": 420,
-      "percent": 5.26
+      "percent": 5.26,
+      "allTimeLow": false,
+      "allTimeHigh": true
     }
   ],
   "topDecreases": [
@@ -38,19 +44,28 @@
       "brand": "Göteborgs",
       "priceBefore": 589,
       "priceAfter": 349,
-      "percent": -40.75
+      "percent": -40.75,
+      "allTimeLow": true,
+      "allTimeHigh": false
     }
   ],
+  "topWeightIncreases": [],
+  "topWeightDecreases": [],
   "cheapest": {
     "sku": "100269834",
     "name": "Zozole wafers lemon",
     "brand": "Zozole",
-    "price": 29
+    "price": 29,
+    "allTimeLow": true,
+    "allTimeHigh": true
   },
   "mostExpensive": {
     "sku": "00201564",
     "name": "Kjötborð ungnautalund",
     "brand": "Kjötborð",
-    "price": 18358
-  }
+    "price": 18358,
+    "allTimeLow": true,
+    "allTimeHigh": true
+  },
+  "mostVolatile": []
 }

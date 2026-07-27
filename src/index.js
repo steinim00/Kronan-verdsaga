@@ -3,6 +3,8 @@ import { makeClient } from "./client.js";
 import { crawlCatalog } from "./crawl.js";
 import { batchRefresh } from "./batchRefresh.js";
 import { computeMovers } from "./computeMovers.js";
+import { buildIndex } from "./buildIndex.js";
+import { updateHistory } from "./updateHistory.js";
 
 const SNAPSHOT_DIR = new URL("../data/snapshots/", import.meta.url);
 
@@ -59,6 +61,10 @@ async function main() {
     JSON.stringify({ date, products }, null, 2)
   );
   console.log(`Vistaði verðmynd: ${products.length} vörunúmer.`);
+
+  console.log("Uppfæri leitarvísi og verðsögu á vörunúmerum...");
+  await buildIndex(products);
+  await updateHistory(products, date);
 
   const movers = await computeMovers(date);
   if (movers) {
