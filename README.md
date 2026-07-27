@@ -74,10 +74,37 @@ Restin:
    (og uppfærir `data/movers/latest.json` + `data/movers/index.json`).
 3. `index.html` — les þessi JSON-skjöl beint (engin bygging/build-skref
    nauðsynleg) og sýnir niðurstöðuna.
+4. `src/buildIndex.js` — skrifar `data/products-index.json`, létt skrá
+   (bara sku/nafn/vörumerki/flokkur, engin verð) sem framendinn notar
+   fyrir leitina.
+5. `src/updateHistory.js` — bætir daginn við `data/history/<sku>.json`
+   fyrir hverja vöru (þjappað snið: `[dagsetning, verð, verð_á_kg]`), og
+   heldur `data/volatility-stats.json` — hlaupandi teljara á því hversu
+   oft verð hverrar vöru breytist, notað fyrir "óstöðugustu vörur".
+
+## Eiginleikar í mælaborðinu
+
+- **Leit** — sláðu inn nafn/vörunúmer/vörumerki, niðurstöður birtast
+  jafnóðum (notar `products-index.json`).
+- **Verðferill vöru** — smelltu á hvaða vöru sem er (í topp-listunum eða
+  leitinni) til að sjá lítið línurit af verði hennar yfir tíma, ásamt
+  "lægsta/hæsta verð sem sést hefur" merkjum.
+- **Eftirlætisvörur** — stjörnu-takki í vöruglugganum bætir vöru í
+  "Mínar vörur" neðst á síðunni. Vistast í `localStorage` **í vafranum
+  þínum** — fylgir ekki milli tækja/vafra, og er ekki geymt í repo-inu.
+- **Kg-verð fyrir vigtarvörur** — vörur með `chargedByWeight: true`
+  (ávextir, kjöt í lausu o.þ.h.) eru undanskildar aðal-topplistunum og fá
+  sinn eigin samanburð byggðan á `pricePerKilo`, svo pakkningastærð rugli
+  ekki saman við raunverulega verðbreytingu.
+- **Óstöðugustu vörurnar** — vörur sem skipta oftast um verð miðað við
+  fjölda daga sem fylgst hefur verið með þeim. Þarf a.m.k. 3 daga og 2
+  breytingar til að birtast — kemur smám saman í ljós.
+- **CSV útflutningur** — tveir hnappar: breytingar dagsins, eða allur
+  verðlistinn fyrir valda dagsetningu.
 
 ## Athugasemdir / hlutir sem gætu þurft stillingu
 
-- **Hraði:** API-ið leyfir 200 köll á 200 sekúndum. Kóðinn bíður ~600ms
+- **Hraði:** API-ið leyfir 200 köll á 200 sekúndum. Kóðinn bíður ~1,1 sek
   milli kalla til að vera örugglega undir því. Full-labbið getur tekið
   dágóða stund fyrstu keyrsluna og á sunnudögum — GitHub Actions leyfir
   allt að 6 klst. keyrslutíma á ókeypis áætlun, svo það ætti að vera nóg
@@ -89,3 +116,9 @@ Restin:
   `onSale` er `true` — það er ein lína að breyta í `computeMovers.js`.
 - Til að þvinga fram fullt labb á hvaða degi sem er: keyrðu með
   `FORCE_FULL_CRAWL=1` (t.d. í handvirkri Actions-keyrslu).
+- **Repo-stærð yfir tíma:** `data/history/` er eitt skjal á vörunúmer
+  (~9.500 skjöl), og **hvert þeirra breytist í hverri keyrslu** (nýr
+  dagur bætist við). Það þýðir að daglega commit-ið snertir öll þessi
+  skjöl — git höndlar það vel til að byrja með (þjappar vel), en ef þetta
+  keyrir í mörg ár getur repo-ið orðið töluvert stórt. Ekkert að hafa
+  áhyggjur af strax, en vert að vita af.
