@@ -49,6 +49,8 @@ export async function computeMovers(todayDate) {
   let topDecreases = [];
   let comparedTo = null;
   let changedCount = 0;
+  let increasedCount = 0;
+  let decreasedCount = 0;
 
   if (todayIndex === 0) {
     console.log("Þetta er fyrsta verðmyndin — engin fyrri gögn til að bera saman við (en ódýrasta/dýrasta varan er samt reiknuð).");
@@ -80,6 +82,8 @@ export async function computeMovers(todayDate) {
     topDecreases = changes.slice(-3).reverse().filter((c) => c.percent < 0);
     comparedTo = prevDate;
     changedCount = changes.length;
+    increasedCount = changes.filter((c) => c.percent > 0).length;
+    decreasedCount = changes.filter((c) => c.percent < 0).length;
   }
 
   const result = {
@@ -87,6 +91,8 @@ export async function computeMovers(todayDate) {
     comparedTo,
     productCount: today.products.length,
     changedCount,
+    increasedCount,
+    decreasedCount,
     topIncreases,
     topDecreases,
     cheapest,

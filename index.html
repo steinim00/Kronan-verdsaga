@@ -237,9 +237,9 @@
   function renderMovers(movers) {
     dateLabelEl.textContent = movers.date;
     contentEl.innerHTML = `
-      <div class="section-label up">Mestu hækkanir</div>
+      <div class="section-label up">Mestu hækkanir (${movers.increasedCount ?? 0})</div>
       ${renderList(movers.topIncreases, "up")}
-      <div class="section-label down">Mestu lækkanir</div>
+      <div class="section-label down">Mestu lækkanir (${movers.decreasedCount ?? 0})</div>
       ${renderList(movers.topDecreases, "down")}
       <div class="section-label">Ódýrasta varan</div>
       ${renderExtreme(movers.cheapest)}
