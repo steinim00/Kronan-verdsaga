@@ -99,8 +99,6 @@ Restin:
 - **Óstöðugustu vörurnar** — vörur sem skipta oftast um verð miðað við
   fjölda daga sem fylgst hefur verið með þeim. Þarf a.m.k. 3 daga og 2
   breytingar til að birtast — kemur smám saman í ljós.
-- **CSV útflutningur** — tveir hnappar: breytingar dagsins, eða allur
-  verðlistinn fyrir valda dagsetningu.
 
 ## Athugasemdir / hlutir sem gætu þurft stillingu
 

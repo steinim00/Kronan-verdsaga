@@ -185,20 +185,6 @@
 
   .empty { font-size: 12px; color: var(--ink-faint); padding: 8px 0; font-style: italic; }
 
-  .csv-row { display: flex; gap: 12px; margin-top: 22px; justify-content: center; }
-  .csv-btn {
-    font-family: inherit;
-    font-size: 10px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    background: transparent;
-    border: 1px solid var(--rule);
-    color: var(--ink);
-    padding: 6px 10px;
-    cursor: pointer;
-  }
-  .csv-btn:hover { background: var(--paper-edge); }
-
   footer {
     margin-top: 26px;
     padding-top: 14px;
@@ -277,11 +263,6 @@
     </div>
 
     <div id="content"><div class="status">Sæki gögn…</div></div>
-
-    <div class="csv-row">
-      <button class="csv-btn" id="csvMoversBtn">CSV af breytingum</button>
-      <button class="csv-btn" id="csvFullBtn">CSV af öllum verðum</button>
-    </div>
 
     <footer>flest vörunúmer · daglegt uppgjör</footer>
   </div>
@@ -582,40 +563,6 @@
       contentEl.innerHTML = '<div class="status">Fann engin gögn fyrir þennan dag.</div>';
     }
   }
-
-  // ---------- CSV export ----------
-  function downloadCsv(filename, rows) {
-    const csv = rows.map((row) => row.map((cell) => {
-      const s = String(cell ?? "");
-      return /[",\n;]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
-    }).join(";")).join("\n");
-    const blob = new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8;" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url; a.download = filename;
-    document.body.appendChild(a); a.click(); document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  }
-
-  document.getElementById("csvMoversBtn").addEventListener("click", () => {
-    if (!currentMovers) return;
-    const rows = [["tegund", "sku", "nafn", "vörumerki", "verð_áður", "verð_eftir", "prósent"]];
-    for (const it of currentMovers.topIncreases || []) rows.push(["hækkun", it.sku, it.name, it.brand, it.priceBefore, it.priceAfter, it.percent]);
-    for (const it of currentMovers.topDecreases || []) rows.push(["lækkun", it.sku, it.name, it.brand, it.priceBefore, it.priceAfter, it.percent]);
-    for (const it of currentMovers.topWeightIncreases || []) rows.push(["kg-hækkun", it.sku, it.name, it.brand, it.priceBefore, it.priceAfter, it.percent]);
-    for (const it of currentMovers.topWeightDecreases || []) rows.push(["kg-lækkun", it.sku, it.name, it.brand, it.priceBefore, it.priceAfter, it.percent]);
-    downloadCsv(`kronan-breytingar-${currentMovers.date}.csv`, rows);
-  });
-
-  document.getElementById("csvFullBtn").addEventListener("click", async () => {
-    if (!currentMovers) return;
-    const res = await fetch(`data/snapshots/${currentMovers.date}.json`);
-    if (!res.ok) return;
-    const snap = await res.json();
-    const rows = [["sku", "nafn", "vörumerki", "verð", "verð_á_kg", "flokkur"]];
-    for (const p of snap.products) rows.push([p.sku, p.name, p.brand, p.price, p.pricePerKilo, p.categoryPath]);
-    downloadCsv(`kronan-verdlisti-${currentMovers.date}.csv`, rows);
-  });
 
   // ---------- init ----------
   async function init() {
