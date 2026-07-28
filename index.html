@@ -531,16 +531,16 @@
     dateLabelEl.textContent = movers.date;
 
     const weightSection = (movers.topWeightIncreases?.length || movers.topWeightDecreases?.length) ? `
-      <div class="section-label up">Hækkanir — kg-verð</div>
+      <div class="section-label up">Hækkanir — kg-verð (${movers.weightIncreasedCount ?? 0})</div>
       ${renderList(movers.topWeightIncreases, "up")}
-      <div class="section-label down">Lækkanir — kg-verð</div>
+      <div class="section-label down">Lækkanir — kg-verð (${movers.weightDecreasedCount ?? 0})</div>
       ${renderList(movers.topWeightDecreases, "down")}
     ` : "";
 
     contentEl.innerHTML = `
-      <div class="section-label up">Mestu hækkanir (${movers.increasedCount ?? 0})</div>
+      <div class="section-label up">Mestu hækkanir — stk (${movers.increasedCount ?? 0})</div>
       ${renderList(movers.topIncreases, "up")}
-      <div class="section-label down">Mestu lækkanir (${movers.decreasedCount ?? 0})</div>
+      <div class="section-label down">Mestu lækkanir — stk (${movers.decreasedCount ?? 0})</div>
       ${renderList(movers.topDecreases, "down")}
       ${weightSection}
       <div class="section-label">Ódýrasta varan</div>

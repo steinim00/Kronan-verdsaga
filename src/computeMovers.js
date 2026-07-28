@@ -86,6 +86,8 @@ export async function computeMovers(todayDate) {
   let changedCount = 0;
   let increasedCount = 0;
   let decreasedCount = 0;
+  let weightIncreasedCount = 0;
+  let weightDecreasedCount = 0;
 
   if (todayIndex === 0) {
     console.log("Þetta er fyrsta verðmyndin — engin fyrri gögn til að bera saman við.");
@@ -143,6 +145,8 @@ export async function computeMovers(todayDate) {
     changedCount = unitChanges.length + weightChanges.length;
     increasedCount = unitChanges.filter((c) => c.percent > 0).length;
     decreasedCount = unitChanges.filter((c) => c.percent < 0).length;
+    weightIncreasedCount = weightChanges.filter((c) => c.percent > 0).length;
+    weightDecreasedCount = weightChanges.filter((c) => c.percent < 0).length;
 
     // Tag all-time low/high on the items actually shown.
     for (const list of [topIncreases, topDecreases]) {
@@ -161,6 +165,8 @@ export async function computeMovers(todayDate) {
     changedCount,
     increasedCount,
     decreasedCount,
+    weightIncreasedCount,
+    weightDecreasedCount,
     topIncreases,
     topDecreases,
     topWeightIncreases,
