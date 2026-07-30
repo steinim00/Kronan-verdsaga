@@ -4,14 +4,13 @@
   "productCount": 9457,
   "changedCount": 2,
   "increasedCount": 1,
-  "decreasedCount": 0,
-  "weightIncreasedCount": 0,
-  "weightDecreasedCount": 1,
+  "decreasedCount": 1,
   "topIncreases": [
     {
       "sku": "100174011",
       "name": "Aspas grænn 450g",
       "brand": "",
+      "unit": "stk",
       "priceBefore": 1398,
       "priceAfter": 1499,
       "percent": 7.22,
@@ -19,25 +18,17 @@
       "allTimeHigh": true
     }
   ],
-  "topDecreases": [],
-  "topWeightIncreases": [
+  "topDecreases": [
     {
       "sku": "00600679",
       "name": "Fiskverzlun Hafliða ýsuflök roð og beinlaus",
       "brand": "Fiskverzlun Hafliða",
+      "unit": "kg",
       "priceBefore": 3799,
       "priceAfter": 3499,
-      "percent": -7.9
-    }
-  ],
-  "topWeightDecreases": [
-    {
-      "sku": "00600679",
-      "name": "Fiskverzlun Hafliða ýsuflök roð og beinlaus",
-      "brand": "Fiskverzlun Hafliða",
-      "priceBefore": 3799,
-      "priceAfter": 3499,
-      "percent": -7.9
+      "percent": -7.9,
+      "allTimeLow": false,
+      "allTimeHigh": true
     }
   ],
   "cheapest": {
@@ -56,5 +47,22 @@
     "allTimeLow": true,
     "allTimeHigh": true
   },
-  "mostVolatile": []
+  "mostVolatile": [
+    {
+      "sku": "100253423",
+      "name": "sellerírót",
+      "brand": "",
+      "changes": 2,
+      "days": 5,
+      "lastPrice": 259
+    },
+    {
+      "sku": "100253544",
+      "name": "iceberg - jöklasalat",
+      "brand": "",
+      "changes": 2,
+      "days": 5,
+      "lastPrice": 239
+    }
+  ]
 }

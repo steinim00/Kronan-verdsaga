@@ -5,13 +5,12 @@
   "changedCount": 28,
   "increasedCount": 15,
   "decreasedCount": 13,
-  "weightIncreasedCount": 0,
-  "weightDecreasedCount": 0,
   "topIncreases": [
     {
       "sku": "100253363",
       "name": "melóna græn",
       "brand": "",
+      "unit": "stk",
       "priceBefore": 559,
       "priceAfter": 849,
       "percent": 51.88,
@@ -22,6 +21,7 @@
       "sku": "100218388",
       "name": "Aspas grænn búnt 250gr",
       "brand": "",
+      "unit": "stk",
       "priceBefore": 598,
       "priceAfter": 799,
       "percent": 33.61,
@@ -32,9 +32,142 @@
       "sku": "01000593",
       "name": "Blaðlaukur",
       "brand": "",
+      "unit": "stk",
       "priceBefore": 77,
       "priceAfter": 85,
       "percent": 10.39,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100253361",
+      "name": "melóna gul",
+      "brand": "",
+      "unit": "stk",
+      "priceBefore": 349,
+      "priceAfter": 385,
+      "percent": 10.32,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100253496",
+      "name": "Appelsínur",
+      "brand": "",
+      "unit": "stk",
+      "priceBefore": 99,
+      "priceAfter": 109,
+      "percent": 10.1,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100221943",
+      "name": "rósakál premium pk 280",
+      "brand": "",
+      "unit": "stk",
+      "priceBefore": 849,
+      "priceAfter": 899,
+      "percent": 5.89,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100255160",
+      "name": "BelOrta bláber",
+      "brand": "BelOrta",
+      "unit": "stk",
+      "priceBefore": 1189,
+      "priceAfter": 1249,
+      "percent": 5.05,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100237976",
+      "name": "Palmolive sturtusápa nourishing delight honey",
+      "brand": "Palmolive",
+      "unit": "stk",
+      "priceBefore": 650,
+      "priceAfter": 676,
+      "percent": 4,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100269572",
+      "name": "Palmolive sturtugel menn m/pumpu",
+      "brand": "Palmolive",
+      "unit": "stk",
+      "priceBefore": 650,
+      "priceAfter": 676,
+      "percent": 4,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100269573",
+      "name": "Palmolive sturtusápa olive milk m/pumpu",
+      "brand": "Palmolive",
+      "unit": "stk",
+      "priceBefore": 650,
+      "priceAfter": 676,
+      "percent": 4,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100233444",
+      "name": "Colgate 360° Gold Soft",
+      "brand": "Colgate",
+      "unit": "stk",
+      "priceBefore": 250,
+      "priceAfter": 260,
+      "percent": 4,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100246761",
+      "name": "Ajax Universal Wipes 100stk.",
+      "brand": "Ajax",
+      "unit": "stk",
+      "priceBefore": 699,
+      "priceAfter": 726,
+      "percent": 3.86,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100203627",
+      "name": "Ajax alhliða hreinsisprey",
+      "brand": "Ajax",
+      "unit": "stk",
+      "priceBefore": 450,
+      "priceAfter": 466,
+      "percent": 3.56,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100247276",
+      "name": "Hunts tómatsósa squeeze",
+      "brand": "Hunts",
+      "unit": "stk",
+      "priceBefore": 599,
+      "priceAfter": 620,
+      "percent": 3.51,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100253544",
+      "name": "iceberg - jöklasalat",
+      "brand": "",
+      "unit": "stk",
+      "priceBefore": 329,
+      "priceAfter": 339,
+      "percent": 3.04,
       "allTimeLow": false,
       "allTimeHigh": true
     }
@@ -44,6 +177,7 @@
       "sku": "100253498",
       "name": "sítrónur",
       "brand": "",
+      "unit": "stk",
       "priceBefore": 115,
       "priceAfter": 81,
       "percent": -29.57,
@@ -54,6 +188,7 @@
       "sku": "100227575",
       "name": "Bob's Hindber  250g",
       "brand": "Bob's",
+      "unit": "stk",
       "priceBefore": 1189,
       "priceAfter": 898,
       "percent": -24.47,
@@ -64,15 +199,124 @@
       "sku": "100253423",
       "name": "sellerírót",
       "brand": "",
+      "unit": "stk",
       "priceBefore": 359,
       "priceAfter": 298,
       "percent": -16.99,
+      "allTimeLow": false,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "00900372",
+      "name": "Blæjuber í boxi",
+      "brand": "",
+      "unit": "stk",
+      "priceBefore": 549,
+      "priceAfter": 459,
+      "percent": -16.39,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100265982",
+      "name": "Bob's jarðarber 400g",
+      "brand": "Bob's",
+      "unit": "stk",
+      "priceBefore": 998,
+      "priceAfter": 898,
+      "percent": -10.02,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100201843",
+      "name": "Grön Balance alhliða hreingerningalögur",
+      "brand": "Grön Balance",
+      "unit": "stk",
+      "priceBefore": 299,
+      "priceAfter": 290,
+      "percent": -3.01,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100211678",
+      "name": "Heinz bbq sticky top down",
+      "brand": "Heinz",
+      "unit": "stk",
+      "priceBefore": 369,
+      "priceAfter": 358,
+      "percent": -2.98,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100211679",
+      "name": "Heinz bbq classic top down",
+      "brand": "Heinz",
+      "unit": "stk",
+      "priceBefore": 369,
+      "priceAfter": 358,
+      "percent": -2.98,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "04400018",
+      "name": "DDS flórsykur",
+      "brand": "DDS",
+      "unit": "stk",
+      "priceBefore": 190,
+      "priceAfter": 186,
+      "percent": -2.11,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100224747",
+      "name": "Gestus hrísgrjón risotto",
+      "brand": "Gestus",
+      "unit": "stk",
+      "priceBefore": 449,
+      "priceAfter": 440,
+      "percent": -2,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100253499",
+      "name": "greip rautt",
+      "brand": "",
+      "unit": "stk",
+      "priceBefore": 135,
+      "priceAfter": 133,
+      "percent": -1.48,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100250111",
+      "name": "Flash speedmop starter kit",
+      "brand": "Flash",
+      "unit": "stk",
+      "priceBefore": 2999,
+      "priceAfter": 2990,
+      "percent": -0.3,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100260641",
+      "name": "Ideal Fruits bláber 500g",
+      "brand": "Ideal Fruits",
+      "unit": "stk",
+      "priceBefore": 1190,
+      "priceAfter": 1189,
+      "percent": -0.08,
       "allTimeLow": true,
       "allTimeHigh": false
     }
   ],
-  "topWeightIncreases": [],
-  "topWeightDecreases": [],
   "cheapest": {
     "sku": "100269834",
     "name": "Zozole wafers lemon",
@@ -89,5 +333,22 @@
     "allTimeLow": true,
     "allTimeHigh": true
   },
-  "mostVolatile": []
+  "mostVolatile": [
+    {
+      "sku": "100253423",
+      "name": "sellerírót",
+      "brand": "",
+      "changes": 2,
+      "days": 5,
+      "lastPrice": 259
+    },
+    {
+      "sku": "100253544",
+      "name": "iceberg - jöklasalat",
+      "brand": "",
+      "changes": 2,
+      "days": 5,
+      "lastPrice": 239
+    }
+  ]
 }

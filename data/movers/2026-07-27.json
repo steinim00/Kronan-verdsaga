@@ -10,6 +10,7 @@
       "sku": "100248244",
       "name": "Nýjar íslenskar kartöflur 1000g",
       "brand": "",
+      "unit": "stk",
       "priceBefore": 399,
       "priceAfter": 599,
       "percent": 50.13,
@@ -20,6 +21,7 @@
       "sku": "100247979",
       "name": "Pagen snúðar kanil",
       "brand": "Pagen",
+      "unit": "stk",
       "priceBefore": 399,
       "priceAfter": 420,
       "percent": 5.26,
@@ -30,9 +32,32 @@
       "sku": "100200578",
       "name": "Pagen vanillusnúðar",
       "brand": "Pagen",
+      "unit": "stk",
       "priceBefore": 399,
       "priceAfter": 420,
       "percent": 5.26,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100213442",
+      "name": "Floridana gojisafi 330ml",
+      "brand": "Floridana",
+      "unit": "stk",
+      "priceBefore": 329,
+      "priceAfter": 335,
+      "percent": 1.82,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100268275",
+      "name": "Kjörís íssósa jarðarberja",
+      "brand": "Kjörís",
+      "unit": "stk",
+      "priceBefore": 660,
+      "priceAfter": 670,
+      "percent": 1.52,
       "allTimeLow": false,
       "allTimeHigh": true
     }
@@ -42,6 +67,7 @@
       "sku": "100272240",
       "name": "Göteborgs utvalda kex m. sjávarsalti",
       "brand": "Göteborgs",
+      "unit": "stk",
       "priceBefore": 589,
       "priceAfter": 349,
       "percent": -40.75,
@@ -49,8 +75,6 @@
       "allTimeHigh": false
     }
   ],
-  "topWeightIncreases": [],
-  "topWeightDecreases": [],
   "cheapest": {
     "sku": "100269834",
     "name": "Zozole wafers lemon",
@@ -67,5 +91,22 @@
     "allTimeLow": true,
     "allTimeHigh": true
   },
-  "mostVolatile": []
+  "mostVolatile": [
+    {
+      "sku": "100253423",
+      "name": "sellerírót",
+      "brand": "",
+      "changes": 2,
+      "days": 5,
+      "lastPrice": 259
+    },
+    {
+      "sku": "100253544",
+      "name": "iceberg - jöklasalat",
+      "brand": "",
+      "changes": 2,
+      "days": 5,
+      "lastPrice": 239
+    }
+  ]
 }

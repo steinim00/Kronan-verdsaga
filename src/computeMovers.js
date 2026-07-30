@@ -123,8 +123,14 @@ export async function computeMovers(todayDate) {
     }
 
     changes.sort((a, b) => b.percent - a.percent);
-    topIncreases = changes.slice(0, 3);
-    topDecreases = changes.slice(-3).reverse().filter((c) => c.percent < 0);
+    // Keep every mover up to a generous cap, not just the top 3 — the
+    // dashboard shows 3 by default with a "sjá meira" toggle for the rest.
+    const MAX_MOVERS = 50;
+    topIncreases = changes.filter((c) => c.percent > 0).slice(0, MAX_MOVERS);
+    topDecreases = changes
+      .filter((c) => c.percent < 0)
+      .sort((a, b) => a.percent - b.percent)
+      .slice(0, MAX_MOVERS);
 
     comparedTo = prevDate;
     changedCount = changes.length;

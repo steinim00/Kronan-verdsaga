@@ -185,6 +185,24 @@
 
   .empty { font-size: 12px; color: var(--ink-faint); padding: 8px 0; font-style: italic; }
 
+  .see-more-btn {
+    display: block;
+    width: 100%;
+    font-family: inherit;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: none;
+    border: none;
+    border-top: 1px dashed var(--rule);
+    color: var(--ink-faint);
+    padding: 10px 0 4px;
+    margin-top: 2px;
+    cursor: pointer;
+    text-align: center;
+  }
+  .see-more-btn:hover { color: var(--ink); }
+
   footer {
     margin-top: 26px;
     padding-top: 14px;
@@ -502,6 +520,40 @@
     `).join("");
   }
 
+  // Shows the first 3 movers, and — if there are more — a "sjá fleiri"
+  // toggle that reveals the rest without a fresh fetch.
+  const MOVERS_PREVIEW_COUNT = 3;
+  function renderMoversSection(items, direction) {
+    if (!items || items.length === 0) return renderList(items, direction);
+    const visible = items.slice(0, MOVERS_PREVIEW_COUNT);
+    const extra = items.slice(MOVERS_PREVIEW_COUNT);
+    if (extra.length === 0) return `<div class="movers-block">${renderList(visible, direction)}</div>`;
+    return `
+      <div class="movers-block">
+        <div class="movers-visible">${renderList(visible, direction)}</div>
+        <div class="movers-extra" hidden>${renderList(extra, direction)}</div>
+        <button type="button" class="see-more-btn" data-count="${extra.length}">Sjá fleiri (${extra.length})</button>
+      </div>
+    `;
+  }
+
+  function attachSeeMoreToggles(root) {
+    root.querySelectorAll(".see-more-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const block = btn.closest(".movers-block");
+        const extra = block.querySelector(".movers-extra");
+        const collapsed = extra.hasAttribute("hidden");
+        if (collapsed) {
+          extra.removeAttribute("hidden");
+          btn.textContent = "Sýna færri";
+        } else {
+          extra.setAttribute("hidden", "");
+          btn.textContent = `Sjá fleiri (${btn.dataset.count})`;
+        }
+      });
+    });
+  }
+
   function renderExtreme(item) {
     if (!item) return '<div class="empty">Engin gögn</div>';
     return `
@@ -539,9 +591,9 @@
 
     contentEl.innerHTML = `
       <div class="section-label up">Mestu hækkanir (${movers.increasedCount ?? 0})</div>
-      ${renderList(movers.topIncreases, "up")}
+      ${renderMoversSection(movers.topIncreases, "up")}
       <div class="section-label down">Mestu lækkanir (${movers.decreasedCount ?? 0})</div>
-      ${renderList(movers.topDecreases, "down")}
+      ${renderMoversSection(movers.topDecreases, "down")}
       <div class="section-label">Ódýrasta varan</div>
       ${renderExtreme(movers.cheapest)}
       <div class="section-label">Dýrasta varan</div>
@@ -550,6 +602,7 @@
       ${renderVolatile(movers.mostVolatile)}
     `;
     attachLineClicks(contentEl);
+    attachSeeMoreToggles(contentEl);
   }
 
   async function loadDate(date) {
