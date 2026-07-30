@@ -80,14 +80,10 @@ export async function computeMovers(todayDate) {
 
   let topIncreases = [];
   let topDecreases = [];
-  let topWeightIncreases = [];
-  let topWeightDecreases = [];
   let comparedTo = null;
   let changedCount = 0;
   let increasedCount = 0;
   let decreasedCount = 0;
-  let weightIncreasedCount = 0;
-  let weightDecreasedCount = 0;
 
   if (todayIndex === 0) {
     console.log("Þetta er fyrsta verðmyndin — engin fyrri gögn til að bera saman við.");
@@ -96,57 +92,44 @@ export async function computeMovers(todayDate) {
     const prev = await loadSnapshot(prevDate);
     const prevBySku = new Map(prev.products.map((p) => [p.sku, p]));
 
-    const unitChanges = [];
-    const weightChanges = [];
+    const changes = [];
 
     for (const p of today.products) {
       const before = prevBySku.get(p.sku);
       if (!before) continue;
 
-      if (p.chargedByWeight) {
-        // For weight-priced items, package size can shift the sticker
-        // price without the actual per-kilo price changing at all — so
-        // these are tracked separately, using pricePerKilo instead.
-        if (!before.pricePerKilo || !p.pricePerKilo) continue;
-        if (before.pricePerKilo === p.pricePerKilo) continue;
-        const percent = ((p.pricePerKilo - before.pricePerKilo) / before.pricePerKilo) * 100;
-        weightChanges.push({
-          sku: p.sku,
-          name: p.name,
-          brand: p.brand,
-          priceBefore: before.pricePerKilo,
-          priceAfter: p.pricePerKilo,
-          percent: Math.round(percent * 100) / 100,
-        });
-      } else {
-        if (!before.price || !p.price) continue;
-        if (before.price === p.price) continue;
-        const percent = ((p.price - before.price) / before.price) * 100;
-        unitChanges.push({
-          sku: p.sku,
-          name: p.name,
-          brand: p.brand,
-          priceBefore: before.price,
-          priceAfter: p.price,
-          percent: Math.round(percent * 100) / 100,
-        });
-      }
+      // Weight-priced items are compared by pricePerKilo (so a bigger/
+      // smaller package doesn't look like a price change), everything
+      // else by the regular price. The unit shown alongside the price
+      // comes straight from the API's baseComparisonUnit when present.
+      const unit = p.baseComparisonUnit || (p.chargedByWeight ? "kg" : "stk");
+      const useKilo = p.chargedByWeight;
+      const beforeVal = useKilo ? before.pricePerKilo : before.price;
+      const afterVal = useKilo ? p.pricePerKilo : p.price;
+
+      if (!beforeVal || !afterVal) continue;
+      if (beforeVal === afterVal) continue;
+
+      const percent = ((afterVal - beforeVal) / beforeVal) * 100;
+      changes.push({
+        sku: p.sku,
+        name: p.name,
+        brand: p.brand,
+        unit,
+        priceBefore: beforeVal,
+        priceAfter: afterVal,
+        percent: Math.round(percent * 100) / 100,
+      });
     }
 
-    unitChanges.sort((a, b) => b.percent - a.percent);
-    weightChanges.sort((a, b) => b.percent - a.percent);
-
-    topIncreases = unitChanges.slice(0, 3);
-    topDecreases = unitChanges.slice(-3).reverse().filter((c) => c.percent < 0);
-    topWeightIncreases = weightChanges.slice(0, 3);
-    topWeightDecreases = weightChanges.slice(-3).reverse().filter((c) => c.percent < 0);
+    changes.sort((a, b) => b.percent - a.percent);
+    topIncreases = changes.slice(0, 3);
+    topDecreases = changes.slice(-3).reverse().filter((c) => c.percent < 0);
 
     comparedTo = prevDate;
-    changedCount = unitChanges.length + weightChanges.length;
-    increasedCount = unitChanges.filter((c) => c.percent > 0).length;
-    decreasedCount = unitChanges.filter((c) => c.percent < 0).length;
-    weightIncreasedCount = weightChanges.filter((c) => c.percent > 0).length;
-    weightDecreasedCount = weightChanges.filter((c) => c.percent < 0).length;
+    changedCount = changes.length;
+    increasedCount = changes.filter((c) => c.percent > 0).length;
+    decreasedCount = changes.filter((c) => c.percent < 0).length;
 
     // Tag all-time low/high on the items actually shown.
     for (const list of [topIncreases, topDecreases]) {
@@ -165,12 +148,8 @@ export async function computeMovers(todayDate) {
     changedCount,
     increasedCount,
     decreasedCount,
-    weightIncreasedCount,
-    weightDecreasedCount,
     topIncreases,
     topDecreases,
-    topWeightIncreases,
-    topWeightDecreases,
     cheapest: cheapest ? await tagAllTime(cheapest, cheapest.price) : null,
     mostExpensive: mostExpensive ? await tagAllTime(mostExpensive, mostExpensive.price) : null,
     mostVolatile,

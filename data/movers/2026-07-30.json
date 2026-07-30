@@ -4,14 +4,13 @@
   "productCount": 9450,
   "changedCount": 37,
   "increasedCount": 29,
-  "decreasedCount": 6,
-  "weightIncreasedCount": 0,
-  "weightDecreasedCount": 2,
+  "decreasedCount": 8,
   "topIncreases": [
     {
       "sku": "100253362",
       "name": "melóna galía",
       "brand": "",
+      "unit": "stk",
       "priceBefore": 489,
       "priceAfter": 629,
       "percent": 28.63,
@@ -22,6 +21,7 @@
       "sku": "100253789",
       "name": "Vatnsmelóna rauð",
       "brand": "",
+      "unit": "stk",
       "priceBefore": 699,
       "priceAfter": 899,
       "percent": 28.61,
@@ -32,6 +32,7 @@
       "sku": "100253787",
       "name": "Toppkál",
       "brand": "",
+      "unit": "stk",
       "priceBefore": 375,
       "priceAfter": 479,
       "percent": 27.73,
@@ -44,6 +45,7 @@
       "sku": "100253544",
       "name": "iceberg - jöklasalat",
       "brand": "",
+      "unit": "stk",
       "priceBefore": 339,
       "priceAfter": 239,
       "percent": -29.5,
@@ -54,6 +56,7 @@
       "sku": "100253423",
       "name": "sellerírót",
       "brand": "",
+      "unit": "stk",
       "priceBefore": 298,
       "priceAfter": 259,
       "percent": -13.09,
@@ -64,47 +67,12 @@
       "sku": "100253545",
       "name": "bökunarkartöflur",
       "brand": "",
+      "unit": "stk",
       "priceBefore": 99,
       "priceAfter": 89,
       "percent": -10.1,
       "allTimeLow": true,
       "allTimeHigh": false
-    }
-  ],
-  "topWeightIncreases": [
-    {
-      "sku": "100150491",
-      "name": "Kjötborð Grísasteik að hætti Dana",
-      "brand": "Kjötborð",
-      "priceBefore": 2589,
-      "priceAfter": 2580,
-      "percent": -0.35
-    },
-    {
-      "sku": "00201496",
-      "name": "Kjötborð Grísaskankar",
-      "brand": "Kjötborð",
-      "priceBefore": 789,
-      "priceAfter": 759,
-      "percent": -3.8
-    }
-  ],
-  "topWeightDecreases": [
-    {
-      "sku": "00201496",
-      "name": "Kjötborð Grísaskankar",
-      "brand": "Kjötborð",
-      "priceBefore": 789,
-      "priceAfter": 759,
-      "percent": -3.8
-    },
-    {
-      "sku": "100150491",
-      "name": "Kjötborð Grísasteik að hætti Dana",
-      "brand": "Kjötborð",
-      "priceBefore": 2589,
-      "priceAfter": 2580,
-      "percent": -0.35
     }
   ],
   "cheapest": {

@@ -8,6 +8,7 @@ export function mapProduct(p) {
     onSale: !!p.onSale,
     pricePerKilo: p.pricePerKilo ?? null,
     chargedByWeight: !!p.chargedByWeight,
+    baseComparisonUnit: p.baseComparisonUnit ?? null,
     categoryPath: p.categoryPath ?? null,
   };
 }
