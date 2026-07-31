@@ -298,6 +298,31 @@
   .col-up .sku, .col-up .prices { opacity: 0.75; }
   .col-down .sku, .col-down .prices { opacity: 0.75; }
 
+  .cpi-index {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-top: 4px;
+  }
+  .cpi-index-unit {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--ink-faint);
+    margin-left: 6px;
+  }
+  .cpi-month { font-size: 11px; color: var(--ink-faint); margin-top: 2px; }
+  .cpi-rows { margin-top: 14px; display: flex; flex-direction: column; gap: 6px; }
+  .cpi-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    padding-top: 6px;
+    border-top: 1px dotted var(--rule);
+  }
+  .cpi-row span:first-child { color: var(--ink-faint); }
+  .cpi-row span:last-child.up { color: var(--up); font-weight: 700; }
+  .cpi-row span:last-child.down { color: var(--down); font-weight: 700; }
+
   footer {
     margin-top: 26px;
     padding-top: 14px;
@@ -427,6 +452,11 @@
     </div>
 
     <div class="page-sidebar">
+      <div class="receipt" id="cpiCard" style="display:none;">
+        <div class="section-label">Vísitala neysluverðs</div>
+        <div id="cpiContent"></div>
+      </div>
+
       <div class="receipt" id="favoritesCard" style="display:none;">
         <div class="section-label">★ Mínar vörur</div>
         <div id="favoritesContent"></div>
@@ -853,6 +883,51 @@
     renderCalendarGrid();
   }
 
+  const cpiCard = document.getElementById("cpiCard");
+  const cpiContent = document.getElementById("cpiContent");
+  const CPI_MONTH_NAMES = ["janúar","febrúar","mars","apríl","maí","júní","júlí","ágúst","september","október","nóvember","desember"];
+
+  function fmtCpiMonth(m) {
+    // "2026M05" -> "maí 2026"
+    if (!m) return "";
+    const [y, mm] = m.split("M");
+    return `${CPI_MONTH_NAMES[Number(mm) - 1]} ${y}`;
+  }
+  function fmtCpiPercent(p) {
+    if (p === null || p === undefined || Number.isNaN(p)) return "—";
+    const sign = p > 0 ? "+" : "";
+    return `${sign}${p.toFixed(1)}%`.replace(".", ",");
+  }
+  function cpiDirClass(p) {
+    if (p === null || p === undefined) return "";
+    return p > 0 ? "up" : p < 0 ? "down" : "";
+  }
+
+  async function loadCpi() {
+    try {
+      const res = await fetch("data/cpi.json");
+      if (!res.ok) { cpiCard.style.display = "none"; return; }
+      const cpi = await res.json();
+      cpiCard.style.display = "";
+      cpiContent.innerHTML = `
+        <div class="cpi-index">${cpi.index ?? "—"}<span class="cpi-index-unit">stig</span></div>
+        <div class="cpi-month">${fmtCpiMonth(cpi.month)}</div>
+        <div class="cpi-rows">
+          <div class="cpi-row">
+            <span>Mánaðarbreyting</span>
+            <span class="${cpiDirClass(cpi.monthChangePercent)}">${fmtCpiPercent(cpi.monthChangePercent)}</span>
+          </div>
+          <div class="cpi-row">
+            <span>Ársbreyting</span>
+            <span class="${cpiDirClass(cpi.yearChangePercent)}">${fmtCpiPercent(cpi.yearChangePercent)}</span>
+          </div>
+        </div>
+      `;
+    } catch (e) {
+      cpiCard.style.display = "none";
+    }
+  }
+
   // ---------- init ----------
   async function init() {
     try {
@@ -874,6 +949,7 @@
 
   init();
   renderFavorites();
+  loadCpi();
 </script>
 </body>
 </html>

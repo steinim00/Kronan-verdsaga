@@ -5,6 +5,7 @@ import { batchRefresh } from "./batchRefresh.js";
 import { computeMovers } from "./computeMovers.js";
 import { buildIndex } from "./buildIndex.js";
 import { updateHistory } from "./updateHistory.js";
+import { fetchCpi } from "./fetchCpi.js";
 
 const SNAPSHOT_DIR = new URL("../data/snapshots/", import.meta.url);
 
@@ -70,6 +71,17 @@ async function main() {
   if (movers) {
     console.log(`Top hækkanir:`, movers.topIncreases);
     console.log(`Top lækkanir:`, movers.topDecreases);
+  }
+
+  try {
+    console.log("Sæki vísitölu neysluverðs frá Hagstofunni...");
+    const cpi = await fetchCpi();
+    await writeFile(new URL("../data/cpi.json", import.meta.url), JSON.stringify(cpi, null, 2));
+    console.log(`  VNV ${cpi.month}: ${cpi.index} stig (mán. ${cpi.monthChangePercent}%, ár ${cpi.yearChangePercent}%)`);
+  } catch (err) {
+    // Ekki mikilvægt fyrir aðalvirknina — ef Hagstofan er niðri eða
+    // breytir töflunni skal það ekki stoppa daglegu Krónu-keyrsluna.
+    console.log(`  VNV-sókn mistókst (halda samt áfram): ${err.message}`);
   }
 }
 
