@@ -323,6 +323,28 @@
   .cpi-row span:last-child.up { color: var(--up); font-weight: 700; }
   .cpi-row span:last-child.down { color: var(--down); font-weight: 700; }
 
+  .supplier-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 12px;
+    padding: 6px 0;
+    border-bottom: 1px dotted var(--rule);
+  }
+  .supplier-row:last-child { border-bottom: none; }
+  .supplier-row .supplier-name { color: var(--ink); }
+  .supplier-row .supplier-name.unclassified,
+  .supplier-row .supplier-name.private-label { color: var(--ink-faint); font-style: italic; }
+  .supplier-row .supplier-count { color: var(--ink-faint); white-space: nowrap; }
+  .suppliers-note {
+    font-size: 10px;
+    color: var(--ink-faint);
+    margin-top: 10px;
+    line-height: 1.4;
+    font-style: italic;
+  }
+
   footer {
     margin-top: 26px;
     padding-top: 14px;
@@ -455,6 +477,12 @@
       <div class="receipt" id="cpiCard" style="display:none;">
         <div class="section-label">Vísitala neysluverðs</div>
         <div id="cpiContent"></div>
+      </div>
+
+      <div class="receipt" id="suppliersCard" style="display:none;">
+        <div class="section-label">Birgjar í dag</div>
+        <div id="suppliersContent"></div>
+        <div class="suppliers-note">Áætlað út frá vörumerkjanafni — ekki staðfest gögn frá Krónunni.</div>
       </div>
 
       <div class="receipt" id="favoritesCard" style="display:none;">
@@ -770,6 +798,7 @@
   function renderMovers(movers) {
     currentMovers = movers;
     dateLabelEl.textContent = movers.date;
+    renderSupplierBreakdown(movers);
 
     contentEl.innerHTML = `
       <div class="two-col-grid">
@@ -926,6 +955,76 @@
     } catch (e) {
       cpiCard.style.display = "none";
     }
+  }
+
+  // ---------- birgjaflokkun (áætluð, ekki staðfest) ----------
+  // Þessi tafla er byggð á almennri þekkingu á því hvaða móðurfyrirtæki/
+  // birgir stendur á bak við þekkt vörumerki — EKKI á gögnum frá Krónunni.
+  // Hún nær bara yfir algengustu vörumerkin sem sjást í gögnunum; allt
+  // annað lendir í "Óflokkað". Leiðréttu endilega ef eitthvað er rangt.
+  const BRAND_SUPPLIER = {
+    "nivea": "Beiersdorf", "nivea men": "Beiersdorf",
+    "dove": "Unilever", "vaseline": "Unilever", "knorr": "Unilever",
+    "essence": "Cosnova", "catrice": "Cosnova",
+    "maybelline": "L'Oréal", "garnier": "L'Oréal", "elvital": "L'Oréal", "cerave": "L'Oréal",
+    "rimmel": "Coty",
+    "colgate": "Colgate-Palmolive", "palmolive": "Colgate-Palmolive",
+    "gillette": "Procter & Gamble",
+    "coca cola": "Coca-Cola", "monster": "Coca-Cola / Monster Beverage",
+    "pepsi": "PepsiCo",
+    "heinz": "Kraft Heinz",
+    "toro": "Orkla",
+    "fazer": "Fazer",
+    "haribo": "Haribo",
+    "dr. oetker": "Dr. Oetker",
+    "alpro": "Danone",
+    "red bull": "Red Bull GmbH",
+    "san pellegrino": "Nestlé",
+    "rummo": "Rummo",
+    "schar": "Dr. Schär",
+    "ms": "Mjólkursamsalan (MS)", "ísey skyr": "Mjólkursamsalan (MS)",
+    "ss": "Sláturfélag Suðurlands", "goða": "Sláturfélag Suðurlands",
+    "kjarnafæði": "Kjarnafæði Norðlenska",
+    "kjörís": "Kjörís", "emmessís": "Emmessís",
+    "egils": "Ölgerðin", "kristall": "Ölgerðin",
+    "nóa": "Nói Síríus", "freyju": "Nói Síríus",
+    "lýsi": "Lýsi hf.",
+    "duracell": "Procter & Gamble / Berkshire Hathaway",
+    "libero": "Essity",
+    "extra": "Mars",
+  };
+
+  function classifySupplier(brand) {
+    const b = (brand || "").trim();
+    if (!b) return { label: "Ekkert vörumerki (líklega búðarmerki)", cls: "private-label" };
+    const known = BRAND_SUPPLIER[b.toLowerCase()];
+    if (known) return { label: known, cls: "" };
+    return { label: "Óflokkað", cls: "unclassified" };
+  }
+
+  const suppliersCard = document.getElementById("suppliersCard");
+  const suppliersContent = document.getElementById("suppliersContent");
+
+  function renderSupplierBreakdown(movers) {
+    const all = [...(movers.topIncreases || []), ...(movers.topDecreases || [])];
+    if (all.length === 0) { suppliersCard.style.display = "none"; return; }
+
+    const counts = new Map(); // label -> { count, cls }
+    for (const item of all) {
+      const { label, cls } = classifySupplier(item.brand);
+      const entry = counts.get(label) || { count: 0, cls };
+      entry.count += 1;
+      counts.set(label, entry);
+    }
+
+    const rows = [...counts.entries()].sort((a, b) => b[1].count - a[1].count);
+    suppliersCard.style.display = "";
+    suppliersContent.innerHTML = rows.map(([label, { count, cls }]) => `
+      <div class="supplier-row">
+        <span class="supplier-name ${cls}">${label}</span>
+        <span class="supplier-count">${count}</span>
+      </div>
+    `).join("");
   }
 
   // ---------- init ----------
