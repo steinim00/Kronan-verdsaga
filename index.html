@@ -217,6 +217,20 @@
   }
   .see-more-btn:hover { color: var(--ink); }
 
+  .col-up, .col-down {
+    padding: 6px 10px;
+    margin: 0 -10px;
+    border-radius: 6px;
+  }
+  .col-up { background: rgba(168, 53, 31, 0.06); }
+  .col-down { background: rgba(47, 111, 78, 0.06); }
+  .col-up .line { border-bottom-color: rgba(168, 53, 31, 0.15); }
+  .col-down .line { border-bottom-color: rgba(47, 111, 78, 0.15); }
+  .col-up .name, .col-up .sku, .col-up .prices { color: var(--up); }
+  .col-down .name, .col-down .sku, .col-down .prices { color: var(--down); }
+  .col-up .sku, .col-up .prices { opacity: 0.75; }
+  .col-down .sku, .col-down .prices { opacity: 0.75; }
+
   footer {
     margin-top: 26px;
     padding-top: 14px;
@@ -639,11 +653,11 @@
 
     contentEl.innerHTML = `
       <div class="two-col-grid">
-        <section>
+        <section class="col-up">
           <div class="section-label up">Mestu hækkanir (${movers.increasedCount ?? 0})</div>
           ${renderMoversSection(movers.topIncreases, "up")}
         </section>
-        <section>
+        <section class="col-down">
           <div class="section-label down">Mestu lækkanir (${movers.decreasedCount ?? 0})</div>
           ${renderMoversSection(movers.topDecreases, "down")}
         </section>
