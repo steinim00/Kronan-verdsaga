@@ -145,7 +145,9 @@
     padding: 8px 0;
   }
 
-  select {
+  .date-picker { position: relative; }
+
+  .date-picker-toggle {
     font-family: inherit;
     font-size: 11px;
     background: transparent;
@@ -153,7 +155,72 @@
     color: var(--ink);
     text-decoration: underline;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0;
   }
+  .date-picker-toggle .caret { font-size: 9px; text-decoration: none; }
+
+  .date-picker-panel {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    z-index: 20;
+    width: 216px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+    padding: 12px;
+  }
+  .date-picker-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .date-picker-nav button {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--ink);
+    cursor: pointer;
+    padding: 2px 8px;
+    line-height: 1;
+  }
+  .date-picker-nav button:disabled { color: var(--ink-faint); opacity: 0.3; cursor: default; }
+  .date-picker-weekdays, .date-picker-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+  }
+  .date-picker-weekdays span {
+    font-size: 9px;
+    text-align: center;
+    color: var(--ink-faint);
+    padding-bottom: 4px;
+  }
+  .date-picker-grid button {
+    font-family: inherit;
+    font-size: 11px;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    aspect-ratio: 1;
+    cursor: pointer;
+    color: var(--ink-faint);
+  }
+  .date-picker-grid button.has-data { color: var(--ink); cursor: pointer; }
+  .date-picker-grid button:disabled { opacity: 0.3; cursor: default; }
+  .date-picker-grid button.has-data:hover { background: rgba(0,0,0,0.07); }
+  .date-picker-grid button.selected { background: var(--ink); color: var(--paper); font-weight: 700; }
+  .date-picker-grid .empty-cell { visibility: hidden; }
 
   .section-label {
     margin: 22px 0 10px;
@@ -335,7 +402,22 @@
 
         <div class="meta">
           <span id="dateLabel">—</span>
-          <select id="dateSelect" aria-label="Velja dagsetningu"></select>
+          <div class="date-picker" id="datePicker">
+            <button type="button" class="date-picker-toggle" id="dateToggle" aria-haspopup="true" aria-expanded="false">
+              dagatal <span class="caret">▾</span>
+            </button>
+            <div class="date-picker-panel" id="datePanel" hidden>
+              <div class="date-picker-nav">
+                <button type="button" id="prevMonthBtn" aria-label="Fyrri mánuður">‹</button>
+                <span id="monthLabel"></span>
+                <button type="button" id="nextMonthBtn" aria-label="Næsti mánuður">›</button>
+              </div>
+              <div class="date-picker-weekdays">
+                <span>M</span><span>Þ</span><span>M</span><span>F</span><span>F</span><span>L</span><span>S</span>
+              </div>
+              <div class="date-picker-grid" id="dateGrid"></div>
+            </div>
+          </div>
         </div>
 
         <div id="content"><div class="status">Sæki gögn…</div></div>
@@ -362,7 +444,15 @@
 <script>
   const contentEl = document.getElementById("content");
   const dateLabelEl = document.getElementById("dateLabel");
-  const dateSelectEl = document.getElementById("dateSelect");
+  const dateSelectEl = {
+    el: document.getElementById("datePicker"),
+    toggle: document.getElementById("dateToggle"),
+    panel: document.getElementById("datePanel"),
+    grid: document.getElementById("dateGrid"),
+    monthLabel: document.getElementById("monthLabel"),
+    prevBtn: document.getElementById("prevMonthBtn"),
+    nextBtn: document.getElementById("nextMonthBtn"),
+  };
   const searchInputEl = document.getElementById("searchInput");
   const searchResultsEl = document.getElementById("searchResults");
   const modalBackdrop = document.getElementById("modalBackdrop");
@@ -690,6 +780,79 @@
     }
   }
 
+  // ---------- calendar date picker ----------
+  const MONTH_NAMES = ["janúar","febrúar","mars","apríl","maí","júní","júlí","ágúst","september","október","nóvember","desember"];
+  let availableDates = [];
+  let selectedDate = null;
+  let viewYear = 0, viewMonth = 0; // viewMonth is 0-indexed
+
+  function openDatePanel() {
+    dateSelectEl.panel.hidden = false;
+    dateSelectEl.toggle.setAttribute("aria-expanded", "true");
+  }
+  function closeDatePanel() {
+    dateSelectEl.panel.hidden = true;
+    dateSelectEl.toggle.setAttribute("aria-expanded", "false");
+  }
+  dateSelectEl.toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    dateSelectEl.panel.hidden ? openDatePanel() : closeDatePanel();
+  });
+  document.addEventListener("click", (e) => {
+    if (!dateSelectEl.el.contains(e.target)) closeDatePanel();
+  });
+  dateSelectEl.prevBtn.addEventListener("click", () => shiftMonth(-1));
+  dateSelectEl.nextBtn.addEventListener("click", () => shiftMonth(1));
+
+  function shiftMonth(delta) {
+    viewMonth += delta;
+    if (viewMonth < 0) { viewMonth = 11; viewYear--; }
+    if (viewMonth > 11) { viewMonth = 0; viewYear++; }
+    renderCalendarGrid();
+  }
+
+  function renderCalendarGrid() {
+    const first = new Date(viewYear, viewMonth, 1);
+    const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+    const startOffset = (first.getDay() + 6) % 7; // Monday-first
+
+    dateSelectEl.monthLabel.textContent = `${MONTH_NAMES[viewMonth]} ${viewYear}`;
+
+    const minDate = availableDates[0];
+    const maxDate = availableDates[availableDates.length - 1];
+    const minY = +minDate.slice(0, 4), minM = +minDate.slice(5, 7) - 1;
+    const maxY = +maxDate.slice(0, 4), maxM = +maxDate.slice(5, 7) - 1;
+    dateSelectEl.prevBtn.disabled = viewYear < minY || (viewYear === minY && viewMonth <= minM);
+    dateSelectEl.nextBtn.disabled = viewYear > maxY || (viewYear === maxY && viewMonth >= maxM);
+
+    let html = "";
+    for (let i = 0; i < startOffset; i++) html += `<span class="empty-cell"></span>`;
+    for (let day = 1; day <= daysInMonth; day++) {
+      const dateStr = `${viewYear}-${String(viewMonth + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+      const hasData = availableDates.includes(dateStr);
+      const isSelected = dateStr === selectedDate;
+      html += `<button type="button" class="${hasData ? "has-data" : ""} ${isSelected ? "selected" : ""}" data-date="${dateStr}" ${hasData ? "" : "disabled"}>${day}</button>`;
+    }
+    dateSelectEl.grid.innerHTML = html;
+    dateSelectEl.grid.querySelectorAll("button[data-date]:not([disabled])").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        selectedDate = btn.dataset.date;
+        loadDate(selectedDate);
+        closeDatePanel();
+        renderCalendarGrid();
+      });
+    });
+  }
+
+  function initDatePicker(dates) {
+    availableDates = dates.slice().sort();
+    selectedDate = availableDates[availableDates.length - 1];
+    const [y, m] = selectedDate.split("-").map(Number);
+    viewYear = y;
+    viewMonth = m - 1;
+    renderCalendarGrid();
+  }
+
   // ---------- init ----------
   async function init() {
     try {
@@ -701,11 +864,9 @@
         return;
       }
 
-      dateSelectEl.innerHTML = dates.slice().reverse().map((d) => `<option value="${d}">${d}</option>`).join("");
-      dateSelectEl.addEventListener("change", () => loadDate(dateSelectEl.value));
+      initDatePicker(dates);
 
       await loadDate(dates[dates.length - 1]);
-      dateSelectEl.value = dates[dates.length - 1];
     } catch (e) {
       contentEl.innerHTML = '<div class="status">Villa við að sækja gögn.</div>';
     }
