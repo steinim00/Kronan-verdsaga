@@ -43,6 +43,20 @@
     position: relative;
   }
 
+  .page {
+    width: 100%;
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .page-main, .page-sidebar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
   .search-input {
     width: 100%;
     font-family: inherit;
@@ -100,8 +114,8 @@
     background-size: 16px 16px;
     background-color: transparent;
   }
-  .receipt::before { top: -13px; background-color: #d8d3c2; }
-  .receipt::after { bottom: -13px; transform: scaleY(-1); background-color: #d8d3c2; }
+  .receipt::before { top: -13px; background-color: #ddcf9a; }
+  .receipt::after { bottom: -13px; transform: scaleY(-1); background-color: #ddcf9a; }
 
   header { text-align: center; margin-bottom: 20px; }
 
@@ -260,34 +274,68 @@
     cursor: pointer; margin-top: 8px;
   }
   .fav-toggle.active { background: var(--star); color: var(--paper); }
+
+  /* ---------- Desktop layout ---------- */
+  .two-col-grid { display: block; }
+
+  @media (min-width: 860px) {
+    .page {
+      max-width: 980px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      align-items: start;
+      gap: 32px;
+    }
+    .page-main { max-width: none; }
+    .page-sidebar { position: sticky; top: 32px; }
+    .page-main .toolbar,
+    .page-main .receipt {
+      max-width: none;
+    }
+    .receipt { padding: 36px 44px 44px; }
+
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 40px;
+    }
+    .two-col-grid > section:first-child { grid-column: 1; }
+    .two-col-grid > section:last-child { grid-column: 2; }
+  }
 </style>
 </head>
 <body>
 
-  <div class="toolbar">
-    <input class="search-input" id="searchInput" placeholder="Leita að vöru (nafn eða vörunúmer)…" autocomplete="off" />
-    <div class="search-results" id="searchResults"></div>
-  </div>
+  <div class="page">
+    <div class="page-main">
+      <div class="toolbar">
+        <input class="search-input" id="searchInput" placeholder="Leita að vöru (nafn eða vörunúmer)…" autocomplete="off" />
+        <div class="search-results" id="searchResults"></div>
+      </div>
 
-  <div class="receipt">
-    <header>
-      <div class="store">KRÓNAN</div>
-      <div class="subtitle">Verðbreytingar dagsins</div>
-    </header>
+      <div class="receipt">
+        <header>
+          <div class="store">KRÓNAN</div>
+          <div class="subtitle">Verðbreytingar dagsins</div>
+        </header>
 
-    <div class="meta">
-      <span id="dateLabel">—</span>
-      <select id="dateSelect" aria-label="Velja dagsetningu"></select>
+        <div class="meta">
+          <span id="dateLabel">—</span>
+          <select id="dateSelect" aria-label="Velja dagsetningu"></select>
+        </div>
+
+        <div id="content"><div class="status">Sæki gögn…</div></div>
+
+        <footer>flest vörunúmer · daglegt uppgjör</footer>
+      </div>
     </div>
 
-    <div id="content"><div class="status">Sæki gögn…</div></div>
-
-    <footer>flest vörunúmer · daglegt uppgjör</footer>
-  </div>
-
-  <div class="receipt" id="favoritesCard" style="display:none;">
-    <div class="section-label">★ Mínar vörur</div>
-    <div id="favoritesContent"></div>
+    <div class="page-sidebar">
+      <div class="receipt" id="favoritesCard" style="display:none;">
+        <div class="section-label">★ Mínar vörur</div>
+        <div id="favoritesContent"></div>
+      </div>
+    </div>
   </div>
 
   <div class="modal-backdrop" id="modalBackdrop">
@@ -590,14 +638,26 @@
     dateLabelEl.textContent = movers.date;
 
     contentEl.innerHTML = `
-      <div class="section-label up">Mestu hækkanir (${movers.increasedCount ?? 0})</div>
-      ${renderMoversSection(movers.topIncreases, "up")}
-      <div class="section-label down">Mestu lækkanir (${movers.decreasedCount ?? 0})</div>
-      ${renderMoversSection(movers.topDecreases, "down")}
-      <div class="section-label">Ódýrasta varan</div>
-      ${renderExtreme(movers.cheapest)}
-      <div class="section-label">Dýrasta varan</div>
-      ${renderExtreme(movers.mostExpensive)}
+      <div class="two-col-grid">
+        <section>
+          <div class="section-label up">Mestu hækkanir (${movers.increasedCount ?? 0})</div>
+          ${renderMoversSection(movers.topIncreases, "up")}
+        </section>
+        <section>
+          <div class="section-label down">Mestu lækkanir (${movers.decreasedCount ?? 0})</div>
+          ${renderMoversSection(movers.topDecreases, "down")}
+        </section>
+      </div>
+      <div class="two-col-grid">
+        <section>
+          <div class="section-label">Ódýrasta varan</div>
+          ${renderExtreme(movers.cheapest)}
+        </section>
+        <section>
+          <div class="section-label">Dýrasta varan</div>
+          ${renderExtreme(movers.mostExpensive)}
+        </section>
+      </div>
       <div class="section-label">★ Óstöðugustu vörurnar</div>
       ${renderVolatile(movers.mostVolatile)}
     `;
