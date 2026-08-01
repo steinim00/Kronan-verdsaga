@@ -40,6 +40,7 @@ async function updateVolatility(products, date) {
       stats[p.sku] = {
         name: p.name,
         brand: p.brand,
+        category: p.categoryPath ? p.categoryPath.split("/")[0].trim() : null,
         days: 1,
         changes: 0,
         lastPrice: p.price,
@@ -56,6 +57,7 @@ async function updateVolatility(products, date) {
     entry.lastDate = date;
     entry.name = p.name; // keep display fields fresh
     entry.brand = p.brand;
+    entry.category = p.categoryPath ? p.categoryPath.split("/")[0].trim() : entry.category;
   }
 
   await writeFile(VOLATILITY_FILE, JSON.stringify(stats));

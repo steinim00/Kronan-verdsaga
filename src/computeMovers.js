@@ -19,7 +19,13 @@ async function loadSnapshot(date) {
 }
 
 function toPriceEntry(p) {
-  return { sku: p.sku, name: p.name, brand: p.brand, price: p.price };
+  return { sku: p.sku, name: p.name, brand: p.brand, price: p.price, category: topCategory(p.categoryPath) };
+}
+
+// "Ávextir / Bananar, perur og epli / Bananar og perur" -> "Ávextir"
+function topCategory(categoryPath) {
+  if (!categoryPath) return null;
+  return categoryPath.split("/")[0].trim();
 }
 
 function findExtremes(products) {
@@ -60,6 +66,7 @@ async function computeVolatilityTop() {
       sku,
       name: s.name,
       brand: s.brand,
+      category: s.category ?? null,
       changes: s.changes,
       days: s.days,
       lastPrice: s.lastPrice,
@@ -115,6 +122,7 @@ export async function computeMovers(todayDate) {
         sku: p.sku,
         name: p.name,
         brand: p.brand,
+        category: topCategory(p.categoryPath),
         unit,
         priceBefore: beforeVal,
         priceAfter: afterVal,

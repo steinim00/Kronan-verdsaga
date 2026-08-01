@@ -14,7 +14,7 @@
     --ink: #2a2822;
     --ink-faint: #8a8574;
     --up: #a8351f;
-    --down: #2f6f4e;
+    --down: #2860a3;
     --rule: #cfc9b4;
     --star: #b8912f;
   }
@@ -256,7 +256,7 @@
     text-transform: uppercase;
     margin-left: 6px;
   }
-  .line .sku { grid-column: 1; font-size: 10px; color: var(--ink-faint); }
+  .line .meta { grid-column: 1; font-size: 10px; color: var(--ink-faint); }
   .line .prices { grid-column: 2; text-align: right; font-size: 10px; color: var(--ink-faint); }
   .line .percent { grid-column: 2; text-align: right; font-weight: 700; font-size: 15px; }
   .line.up .percent::before { content: "▲ "; }
@@ -290,13 +290,13 @@
     border-radius: 6px;
   }
   .col-up { background: rgba(168, 53, 31, 0.06); }
-  .col-down { background: rgba(47, 111, 78, 0.06); }
+  .col-down { background: rgba(40, 96, 163, 0.06); }
   .col-up .line { border-bottom-color: rgba(168, 53, 31, 0.15); }
-  .col-down .line { border-bottom-color: rgba(47, 111, 78, 0.15); }
-  .col-up .name, .col-up .sku, .col-up .prices { color: var(--up); }
-  .col-down .name, .col-down .sku, .col-down .prices { color: var(--down); }
-  .col-up .sku, .col-up .prices { opacity: 0.75; }
-  .col-down .sku, .col-down .prices { opacity: 0.75; }
+  .col-down .line { border-bottom-color: rgba(40, 96, 163, 0.15); }
+  .col-up .name, .col-up .meta, .col-up .prices { color: var(--up); }
+  .col-down .name, .col-down .meta, .col-down .prices { color: var(--down); }
+  .col-up .meta, .col-up .prices { opacity: 0.75; }
+  .col-down .meta, .col-down .prices { opacity: 0.75; }
 
   .cpi-index {
     font-size: 32px;
@@ -322,28 +322,6 @@
   .cpi-row span:first-child { color: var(--ink-faint); }
   .cpi-row span:last-child.up { color: var(--up); font-weight: 700; }
   .cpi-row span:last-child.down { color: var(--down); font-weight: 700; }
-
-  .supplier-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 8px;
-    font-size: 12px;
-    padding: 6px 0;
-    border-bottom: 1px dotted var(--rule);
-  }
-  .supplier-row:last-child { border-bottom: none; }
-  .supplier-row .supplier-name { color: var(--ink); }
-  .supplier-row .supplier-name.unclassified,
-  .supplier-row .supplier-name.private-label { color: var(--ink-faint); font-style: italic; }
-  .supplier-row .supplier-count { color: var(--ink-faint); white-space: nowrap; }
-  .suppliers-note {
-    font-size: 10px;
-    color: var(--ink-faint);
-    margin-top: 10px;
-    line-height: 1.4;
-    font-style: italic;
-  }
 
   footer {
     margin-top: 26px;
@@ -477,12 +455,6 @@
       <div class="receipt" id="cpiCard" style="display:none;">
         <div class="section-label">Vísitala neysluverðs</div>
         <div id="cpiContent"></div>
-      </div>
-
-      <div class="receipt" id="suppliersCard" style="display:none;">
-        <div class="section-label">Birgjar í dag</div>
-        <div id="suppliersContent"></div>
-        <div class="suppliers-note">Áætlað út frá vörumerkjanafni — ekki staðfest gögn frá Krónunni.</div>
       </div>
 
       <div class="receipt" id="favoritesCard" style="display:none;">
@@ -627,7 +599,7 @@
     searchResultsEl.innerHTML = matches.map((p) => `
       <div class="search-result" data-sku="${p.sku}" data-name="${p.name.replace(/"/g, '&quot;')}" data-brand="${(p.brand||"").replace(/"/g, '&quot;')}">
         <div class="sr-name">${p.name}</div>
-        <div class="sr-meta">${p.sku}${p.brand ? " · " + p.brand : ""}</div>
+        <div class="sr-meta">${[p.categoryPath ? p.categoryPath.split("/")[0].trim() : null, p.brand].filter(Boolean).join(" · ")}</div>
       </div>
     `).join("");
     searchResultsEl.querySelectorAll(".search-result[data-sku]").forEach((el) => {
@@ -718,13 +690,17 @@
     return "";
   }
 
+  function metaLine(it) {
+    return [it.category, it.brand].filter(Boolean).join(" · ");
+  }
+
   function renderList(items, direction) {
     if (!items || items.length === 0) return '<div class="empty">Engar breytingar</div>';
     return items.map((it) => `
       <div class="line ${direction}" data-sku="${it.sku}" data-name="${it.name.replace(/"/g,'&quot;')}" data-brand="${(it.brand||"").replace(/"/g,'&quot;')}">
         <div class="name">${it.name}${badgeFor(it)}</div>
         <div class="percent">${fmtPercent(it.percent)}</div>
-        <div class="sku">${it.sku}${it.brand ? " · " + it.brand : ""}</div>
+        <div class="meta">${metaLine(it)}</div>
         <div class="prices">${fmtISKUnit(it.priceBefore, it.unit)} → ${fmtISKUnit(it.priceAfter, it.unit)}</div>
       </div>
     `).join("");
@@ -770,7 +746,7 @@
       <div class="line" data-sku="${item.sku}" data-name="${item.name.replace(/"/g,'&quot;')}" data-brand="${(item.brand||"").replace(/"/g,'&quot;')}">
         <div class="name">${item.name}${badgeFor(item)}</div>
         <div class="percent">${fmtISK(item.price)}</div>
-        <div class="sku">${item.sku}${item.brand ? " · " + item.brand : ""}</div>
+        <div class="meta">${metaLine(item)}</div>
       </div>
     `;
   }
@@ -783,7 +759,7 @@
       <div class="line" data-sku="${it.sku}" data-name="${it.name.replace(/"/g,'&quot;')}" data-brand="${(it.brand||"").replace(/"/g,'&quot;')}">
         <div class="name">${it.name}</div>
         <div class="percent" style="color:var(--star);">${it.changes}×</div>
-        <div class="sku">${it.sku}${it.brand ? " · " + it.brand : ""}</div>
+        <div class="meta">${metaLine(it)}</div>
         <div class="prices">á ${it.days} dögum</div>
       </div>
     `).join("");
@@ -798,7 +774,6 @@
   function renderMovers(movers) {
     currentMovers = movers;
     dateLabelEl.textContent = movers.date;
-    renderSupplierBreakdown(movers);
 
     contentEl.innerHTML = `
       <div class="two-col-grid">
@@ -955,76 +930,6 @@
     } catch (e) {
       cpiCard.style.display = "none";
     }
-  }
-
-  // ---------- birgjaflokkun (áætluð, ekki staðfest) ----------
-  // Þessi tafla er byggð á almennri þekkingu á því hvaða móðurfyrirtæki/
-  // birgir stendur á bak við þekkt vörumerki — EKKI á gögnum frá Krónunni.
-  // Hún nær bara yfir algengustu vörumerkin sem sjást í gögnunum; allt
-  // annað lendir í "Óflokkað". Leiðréttu endilega ef eitthvað er rangt.
-  const BRAND_SUPPLIER = {
-    "nivea": "Beiersdorf", "nivea men": "Beiersdorf",
-    "dove": "Unilever", "vaseline": "Unilever", "knorr": "Unilever",
-    "essence": "Cosnova", "catrice": "Cosnova",
-    "maybelline": "L'Oréal", "garnier": "L'Oréal", "elvital": "L'Oréal", "cerave": "L'Oréal",
-    "rimmel": "Coty",
-    "colgate": "Colgate-Palmolive", "palmolive": "Colgate-Palmolive",
-    "gillette": "Procter & Gamble",
-    "coca cola": "Coca-Cola", "monster": "Coca-Cola / Monster Beverage",
-    "pepsi": "PepsiCo",
-    "heinz": "Kraft Heinz",
-    "toro": "Orkla",
-    "fazer": "Fazer",
-    "haribo": "Haribo",
-    "dr. oetker": "Dr. Oetker",
-    "alpro": "Danone",
-    "red bull": "Red Bull GmbH",
-    "san pellegrino": "Nestlé",
-    "rummo": "Rummo",
-    "schar": "Dr. Schär",
-    "ms": "Mjólkursamsalan (MS)", "ísey skyr": "Mjólkursamsalan (MS)",
-    "ss": "Sláturfélag Suðurlands", "goða": "Sláturfélag Suðurlands",
-    "kjarnafæði": "Kjarnafæði Norðlenska",
-    "kjörís": "Kjörís", "emmessís": "Emmessís",
-    "egils": "Ölgerðin", "kristall": "Ölgerðin",
-    "nóa": "Nói Síríus", "freyju": "Nói Síríus",
-    "lýsi": "Lýsi hf.",
-    "duracell": "Procter & Gamble / Berkshire Hathaway",
-    "libero": "Essity",
-    "extra": "Mars",
-  };
-
-  function classifySupplier(brand) {
-    const b = (brand || "").trim();
-    if (!b) return { label: "Ekkert vörumerki (líklega búðarmerki)", cls: "private-label" };
-    const known = BRAND_SUPPLIER[b.toLowerCase()];
-    if (known) return { label: known, cls: "" };
-    return { label: "Óflokkað", cls: "unclassified" };
-  }
-
-  const suppliersCard = document.getElementById("suppliersCard");
-  const suppliersContent = document.getElementById("suppliersContent");
-
-  function renderSupplierBreakdown(movers) {
-    const all = [...(movers.topIncreases || []), ...(movers.topDecreases || [])];
-    if (all.length === 0) { suppliersCard.style.display = "none"; return; }
-
-    const counts = new Map(); // label -> { count, cls }
-    for (const item of all) {
-      const { label, cls } = classifySupplier(item.brand);
-      const entry = counts.get(label) || { count: 0, cls };
-      entry.count += 1;
-      counts.set(label, entry);
-    }
-
-    const rows = [...counts.entries()].sort((a, b) => b[1].count - a[1].count);
-    suppliersCard.style.display = "";
-    suppliersContent.innerHTML = rows.map(([label, { count, cls }]) => `
-      <div class="supplier-row">
-        <span class="supplier-name ${cls}">${label}</span>
-        <span class="supplier-count">${count}</span>
-      </div>
-    `).join("");
   }
 
   // ---------- init ----------

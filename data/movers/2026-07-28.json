@@ -10,6 +10,7 @@
       "sku": "100174011",
       "name": "Aspas grænn 450g",
       "brand": "",
+      "category": "Grænmeti",
       "unit": "stk",
       "priceBefore": 1398,
       "priceAfter": 1499,
@@ -23,6 +24,7 @@
       "sku": "00600679",
       "name": "Fiskverzlun Hafliða ýsuflök roð og beinlaus",
       "brand": "Fiskverzlun Hafliða",
+      "category": "Fiskur",
       "unit": "kg",
       "priceBefore": 3799,
       "priceAfter": 3499,
@@ -36,6 +38,7 @@
     "name": "Zozole wafers lemon",
     "brand": "Zozole",
     "price": 29,
+    "category": "Laugardags",
     "allTimeLow": true,
     "allTimeHigh": true
   },
@@ -44,25 +47,55 @@
     "name": "Kjötborð ungnautalund",
     "brand": "Kjötborð",
     "price": 18358,
+    "category": "Kjöt",
     "allTimeLow": true,
     "allTimeHigh": true
   },
   "mostVolatile": [
     {
+      "sku": "100227575",
+      "name": "Bob's Hindber  250g",
+      "brand": "Bob's",
+      "category": null,
+      "changes": 2,
+      "days": 6,
+      "lastPrice": 949
+    },
+    {
+      "sku": "100241819",
+      "name": "Fiskverzlun Hafliða þorskur í hvítlauksmarineringu",
+      "brand": "Fiskverzlun Hafliða",
+      "category": null,
+      "changes": 2,
+      "days": 6,
+      "lastPrice": 2372
+    },
+    {
       "sku": "100253423",
       "name": "sellerírót",
       "brand": "",
+      "category": null,
       "changes": 2,
-      "days": 5,
+      "days": 6,
       "lastPrice": 259
     },
     {
       "sku": "100253544",
       "name": "iceberg - jöklasalat",
       "brand": "",
+      "category": null,
       "changes": 2,
-      "days": 5,
+      "days": 6,
       "lastPrice": 239
+    },
+    {
+      "sku": "100265982",
+      "name": "Bob's jarðarber 400g",
+      "brand": "Bob's",
+      "category": null,
+      "changes": 2,
+      "days": 6,
+      "lastPrice": 989
     }
   ]
 }

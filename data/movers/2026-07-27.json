@@ -10,6 +10,7 @@
       "sku": "100248244",
       "name": "Nýjar íslenskar kartöflur 1000g",
       "brand": "",
+      "category": "Grænmeti",
       "unit": "stk",
       "priceBefore": 399,
       "priceAfter": 599,
@@ -21,6 +22,7 @@
       "sku": "100247979",
       "name": "Pagen snúðar kanil",
       "brand": "Pagen",
+      "category": "Brauð, kökur og kex",
       "unit": "stk",
       "priceBefore": 399,
       "priceAfter": 420,
@@ -32,6 +34,7 @@
       "sku": "100200578",
       "name": "Pagen vanillusnúðar",
       "brand": "Pagen",
+      "category": "Brauð, kökur og kex",
       "unit": "stk",
       "priceBefore": 399,
       "priceAfter": 420,
@@ -43,6 +46,7 @@
       "sku": "100213442",
       "name": "Floridana gojisafi 330ml",
       "brand": "Floridana",
+      "category": "Drykkir",
       "unit": "stk",
       "priceBefore": 329,
       "priceAfter": 335,
@@ -54,6 +58,7 @@
       "sku": "100268275",
       "name": "Kjörís íssósa jarðarberja",
       "brand": "Kjörís",
+      "category": "Laugardags",
       "unit": "stk",
       "priceBefore": 660,
       "priceAfter": 670,
@@ -67,6 +72,7 @@
       "sku": "100272240",
       "name": "Göteborgs utvalda kex m. sjávarsalti",
       "brand": "Göteborgs",
+      "category": "Brauð, kökur og kex",
       "unit": "stk",
       "priceBefore": 589,
       "priceAfter": 349,
@@ -80,6 +86,7 @@
     "name": "Zozole wafers lemon",
     "brand": "Zozole",
     "price": 29,
+    "category": "Laugardags",
     "allTimeLow": true,
     "allTimeHigh": true
   },
@@ -88,25 +95,55 @@
     "name": "Kjötborð ungnautalund",
     "brand": "Kjötborð",
     "price": 18358,
+    "category": "Kjöt",
     "allTimeLow": true,
     "allTimeHigh": true
   },
   "mostVolatile": [
     {
+      "sku": "100227575",
+      "name": "Bob's Hindber  250g",
+      "brand": "Bob's",
+      "category": null,
+      "changes": 2,
+      "days": 6,
+      "lastPrice": 949
+    },
+    {
+      "sku": "100241819",
+      "name": "Fiskverzlun Hafliða þorskur í hvítlauksmarineringu",
+      "brand": "Fiskverzlun Hafliða",
+      "category": null,
+      "changes": 2,
+      "days": 6,
+      "lastPrice": 2372
+    },
+    {
       "sku": "100253423",
       "name": "sellerírót",
       "brand": "",
+      "category": null,
       "changes": 2,
-      "days": 5,
+      "days": 6,
       "lastPrice": 259
     },
     {
       "sku": "100253544",
       "name": "iceberg - jöklasalat",
       "brand": "",
+      "category": null,
       "changes": 2,
-      "days": 5,
+      "days": 6,
       "lastPrice": 239
+    },
+    {
+      "sku": "100265982",
+      "name": "Bob's jarðarber 400g",
+      "brand": "Bob's",
+      "category": null,
+      "changes": 2,
+      "days": 6,
+      "lastPrice": 989
     }
   ]
 }
