@@ -266,6 +266,26 @@
 
   .empty { font-size: 12px; color: var(--ink-faint); padding: 8px 0; font-style: italic; }
 
+  .range-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .range-tab {
+    font-family: inherit;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: none;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 6px 14px;
+    color: var(--ink-faint);
+    cursor: pointer;
+  }
+  .range-tab:hover { color: var(--ink); }
+  .range-tab.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
   .see-more-btn {
     display: block;
     width: 100%;
@@ -458,6 +478,11 @@
               <div class="date-picker-grid" id="dateGrid"></div>
             </div>
           </div>
+        </div>
+
+        <div class="range-tabs" id="rangeTabs">
+          <button type="button" class="range-tab active" data-range="daily">Síðasta sólarhring</button>
+          <button type="button" class="range-tab" data-range="weekly">Síðustu viku</button>
         </div>
 
         <div id="content"><div class="status">Sæki gögn…</div></div>
@@ -791,20 +816,57 @@
     });
   }
 
+  let currentRange = "daily";
+  const rangeTabsEl = document.getElementById("rangeTabs");
+  rangeTabsEl.querySelectorAll(".range-tab").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (btn.dataset.range === currentRange) return;
+      currentRange = btn.dataset.range;
+      rangeTabsEl.querySelectorAll(".range-tab").forEach((b) => b.classList.toggle("active", b === btn));
+      renderRangeView();
+    });
+  });
+
+  function rangeData(movers, range) {
+    if (range === "weekly") return movers.weekly || { comparedTo: null, increasedCount: 0, decreasedCount: 0, topIncreases: [], topDecreases: [] };
+    return movers;
+  }
+
   function renderMovers(movers) {
     currentMovers = movers;
     dateLabelEl.textContent = movers.date;
-    renderCategoryBreakdown(movers);
+    renderRangeView();
+  }
+
+  function renderRangeView() {
+    if (!currentMovers) return;
+    const movers = currentMovers;
+    const rd = rangeData(movers, currentRange);
+    renderCategoryBreakdown(rd);
+
+    if (currentRange === "weekly" && !rd.comparedTo) {
+      contentEl.innerHTML = `
+        <div class="status">Ekki nóg gögn ennþá til að bera saman við síðustu viku — kemur eftir nokkra daga.</div>
+        <div class="section-label">Ódýrasta varan</div>
+        ${renderExtreme(movers.cheapest)}
+        <div class="section-label">Dýrasta varan</div>
+        ${renderExtreme(movers.mostExpensive)}
+        <div class="section-label">★ Óstöðugustu vörurnar</div>
+        ${renderVolatile(movers.mostVolatile)}
+      `;
+      attachLineClicks(contentEl);
+      return;
+    }
 
     contentEl.innerHTML = `
       <div class="two-col-grid">
         <section class="col-up">
-          <div class="section-label up">Mestu hækkanir (${movers.increasedCount ?? 0})</div>
-          ${renderMoversSection(movers.topIncreases, "up")}
+          <div class="section-label up">Mestu hækkanir (${rd.increasedCount ?? 0})</div>
+          ${renderMoversSection(rd.topIncreases, "up")}
         </section>
         <section class="col-down">
-          <div class="section-label down">Mestu lækkanir (${movers.decreasedCount ?? 0})</div>
-          ${renderMoversSection(movers.topDecreases, "down")}
+          <div class="section-label down">Mestu lækkanir (${rd.decreasedCount ?? 0})</div>
+          ${renderMoversSection(rd.topDecreases, "down")}
         </section>
       </div>
       <div class="two-col-grid">

@@ -75,6 +75,67 @@ async function computeVolatilityTop() {
     .slice(0, 5);
 }
 
+const MAX_MOVERS = 50;
+
+// Ber saman tvær verðmyndir og skilar breytingum, hvort sem er dagur-á-dag
+// eða vika-á-viku — sama rökfræði, bara mismunandi "fyrri" verðmynd.
+function diffSnapshots(today, prev) {
+  const prevBySku = new Map(prev.products.map((p) => [p.sku, p]));
+  const changes = [];
+
+  for (const p of today.products) {
+    const before = prevBySku.get(p.sku);
+    if (!before) continue;
+
+    // Weight-priced items are compared by pricePerKilo (so a bigger/
+    // smaller package doesn't look like a price change), everything
+    // else by the regular price. The unit shown alongside the price
+    // comes straight from the API's baseComparisonUnit when present.
+    const unit = p.baseComparisonUnit || (p.chargedByWeight ? "kg" : "stk");
+    const useKilo = p.chargedByWeight;
+    const beforeVal = useKilo ? before.pricePerKilo : before.price;
+    const afterVal = useKilo ? p.pricePerKilo : p.price;
+
+    if (!beforeVal || !afterVal) continue;
+    if (beforeVal === afterVal) continue;
+
+    const percent = ((afterVal - beforeVal) / beforeVal) * 100;
+    changes.push({
+      sku: p.sku,
+      name: p.name,
+      brand: p.brand,
+      category: topCategory(p.categoryPath),
+      unit,
+      priceBefore: beforeVal,
+      priceAfter: afterVal,
+      percent: Math.round(percent * 100) / 100,
+    });
+  }
+
+  changes.sort((a, b) => b.percent - a.percent);
+  const topIncreases = changes.filter((c) => c.percent > 0).slice(0, MAX_MOVERS);
+  const topDecreases = changes
+    .filter((c) => c.percent < 0)
+    .sort((a, b) => a.percent - b.percent)
+    .slice(0, MAX_MOVERS);
+
+  return {
+    changedCount: changes.length,
+    increasedCount: changes.filter((c) => c.percent > 0).length,
+    decreasedCount: changes.filter((c) => c.percent < 0).length,
+    topIncreases,
+    topDecreases,
+  };
+}
+
+async function tagAllTimeOnLists(lists) {
+  for (const list of lists) {
+    for (let i = 0; i < list.length; i++) {
+      list[i] = await tagAllTime(list[i], list[i].priceAfter);
+    }
+  }
+}
+
 export async function computeMovers(todayDate) {
   const dates = await listSnapshotDates();
   const todayIndex = dates.indexOf(todayDate);
@@ -85,71 +146,34 @@ export async function computeMovers(todayDate) {
   const today = await loadSnapshot(todayDate);
   const { cheapest, mostExpensive } = findExtremes(today.products);
 
-  let topIncreases = [];
-  let topDecreases = [];
-  let comparedTo = null;
-  let changedCount = 0;
-  let increasedCount = 0;
-  let decreasedCount = 0;
+  let daily = {
+    comparedTo: null,
+    changedCount: 0,
+    increasedCount: 0,
+    decreasedCount: 0,
+    topIncreases: [],
+    topDecreases: [],
+  };
+  let weekly = { ...daily };
 
   if (todayIndex === 0) {
     console.log("Þetta er fyrsta verðmyndin — engin fyrri gögn til að bera saman við.");
   } else {
     const prevDate = dates[todayIndex - 1];
     const prev = await loadSnapshot(prevDate);
-    const prevBySku = new Map(prev.products.map((p) => [p.sku, p]));
+    daily = { comparedTo: prevDate, ...diffSnapshots(today, prev) };
+    await tagAllTimeOnLists([daily.topIncreases, daily.topDecreases]);
 
-    const changes = [];
-
-    for (const p of today.products) {
-      const before = prevBySku.get(p.sku);
-      if (!before) continue;
-
-      // Weight-priced items are compared by pricePerKilo (so a bigger/
-      // smaller package doesn't look like a price change), everything
-      // else by the regular price. The unit shown alongside the price
-      // comes straight from the API's baseComparisonUnit when present.
-      const unit = p.baseComparisonUnit || (p.chargedByWeight ? "kg" : "stk");
-      const useKilo = p.chargedByWeight;
-      const beforeVal = useKilo ? before.pricePerKilo : before.price;
-      const afterVal = useKilo ? p.pricePerKilo : p.price;
-
-      if (!beforeVal || !afterVal) continue;
-      if (beforeVal === afterVal) continue;
-
-      const percent = ((afterVal - beforeVal) / beforeVal) * 100;
-      changes.push({
-        sku: p.sku,
-        name: p.name,
-        brand: p.brand,
-        category: topCategory(p.categoryPath),
-        unit,
-        priceBefore: beforeVal,
-        priceAfter: afterVal,
-        percent: Math.round(percent * 100) / 100,
-      });
-    }
-
-    changes.sort((a, b) => b.percent - a.percent);
-    // Keep every mover up to a generous cap, not just the top 3 — the
-    // dashboard shows 3 by default with a "sjá meira" toggle for the rest.
-    const MAX_MOVERS = 50;
-    topIncreases = changes.filter((c) => c.percent > 0).slice(0, MAX_MOVERS);
-    topDecreases = changes
-      .filter((c) => c.percent < 0)
-      .sort((a, b) => a.percent - b.percent)
-      .slice(0, MAX_MOVERS);
-
-    comparedTo = prevDate;
-    changedCount = changes.length;
-    increasedCount = changes.filter((c) => c.percent > 0).length;
-    decreasedCount = changes.filter((c) => c.percent < 0).length;
-
-    // Tag all-time low/high on the items actually shown.
-    for (const list of [topIncreases, topDecreases]) {
-      for (let i = 0; i < list.length; i++) {
-        list[i] = await tagAllTime(list[i], list[i].priceAfter);
-      }
+    // Vikusamanburður: notar verðmyndina frá 7 dögum áður ef hún er til.
+    // Ef sagan er styttri en vika enn þá (verkefnið er nýtt) er elsta
+    // verðmyndin notuð í staðinn — svo lengi sem hún er ekki sama og
+    // gærdagsverðmyndin sem daglegi samanburðurinn notar nú þegar.
+    const weeklyIndex = todayIndex - 7 >= 0 ? todayIndex - 7 : (todayIndex >= 2 ? 0 : -1);
+    if (weeklyIndex >= 0) {
+      const weekDate = dates[weeklyIndex];
+      const weekSnap = await loadSnapshot(weekDate);
+      weekly = { comparedTo: weekDate, ...diffSnapshots(today, weekSnap) };
+      await tagAllTimeOnLists([weekly.topIncreases, weekly.topDecreases]);
     }
   }
 
@@ -157,13 +181,21 @@ export async function computeMovers(todayDate) {
 
   const result = {
     date: todayDate,
-    comparedTo,
+    comparedTo: daily.comparedTo,
     productCount: today.products.length,
-    changedCount,
-    increasedCount,
-    decreasedCount,
-    topIncreases,
-    topDecreases,
+    changedCount: daily.changedCount,
+    increasedCount: daily.increasedCount,
+    decreasedCount: daily.decreasedCount,
+    topIncreases: daily.topIncreases,
+    topDecreases: daily.topDecreases,
+    weekly: {
+      comparedTo: weekly.comparedTo,
+      changedCount: weekly.changedCount,
+      increasedCount: weekly.increasedCount,
+      decreasedCount: weekly.decreasedCount,
+      topIncreases: weekly.topIncreases,
+      topDecreases: weekly.topDecreases,
+    },
     cheapest: cheapest ? await tagAllTime(cheapest, cheapest.price) : null,
     mostExpensive: mostExpensive ? await tagAllTime(mostExpensive, mostExpensive.price) : null,
     mostVolatile,
