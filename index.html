@@ -197,19 +197,19 @@
     top: calc(100% + 10px);
     right: 0;
     z-index: 20;
-    width: 216px;
+    width: min(420px, 90vw);
     background: var(--paper);
     border: 1px solid var(--rule);
     border-radius: 8px;
     box-shadow: 0 10px 28px rgba(0,0,0,0.18);
-    padding: 12px;
+    padding: 22px;
   }
   .date-picker-nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 8px;
-    font-size: 11px;
+    margin-bottom: 14px;
+    font-size: 18px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -218,30 +218,30 @@
     background: none;
     border: none;
     font-family: inherit;
-    font-size: 15px;
+    font-size: 26px;
     color: var(--ink);
     cursor: pointer;
-    padding: 2px 8px;
+    padding: 2px 14px;
     line-height: 1;
   }
   .date-picker-nav button:disabled { color: var(--ink-faint); opacity: 0.3; cursor: default; }
   .date-picker-weekdays, .date-picker-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
+    gap: 4px;
   }
   .date-picker-weekdays span {
-    font-size: 9px;
+    font-size: 14px;
     text-align: center;
     color: var(--ink-faint);
-    padding-bottom: 4px;
+    padding-bottom: 8px;
   }
   .date-picker-grid button {
     font-family: inherit;
-    font-size: 11px;
+    font-size: 16px;
     background: none;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     aspect-ratio: 1;
     cursor: pointer;
     color: var(--ink-faint);
@@ -564,7 +564,7 @@
           <span id="dateLabel">—</span>
           <div class="date-picker" id="datePicker">
             <button type="button" class="date-picker-toggle" id="dateToggle" aria-haspopup="true" aria-expanded="false">
-              dagatal <span class="caret">▾</span>
+              Dagatal <span class="caret">▾</span>
             </button>
             <div class="date-picker-panel" id="datePanel" hidden>
               <div class="date-picker-nav">
