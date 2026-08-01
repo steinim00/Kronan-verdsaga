@@ -804,13 +804,18 @@
   });
 
   // ---------- product detail modal ----------
-  function fmtDateShort(dateStr) {
+  function fmtDateLong(dateStr) {
     const DAY_NAMES = ["Sunnudagurinn", "Mánudagurinn", "Þriðjudagurinn", "Miðvikudagurinn", "Fimmtudagurinn", "Föstudagurinn", "Laugardagurinn"];
     const [y, m, d] = dateStr.split("-").map(Number);
     const date = new Date(y, m - 1, d);
     const dayName = DAY_NAMES[date.getDay()];
     const monthName = MONTH_NAMES[m - 1];
     return `${dayName} ${d}. ${monthName}`;
+  }
+
+  function fmtDateShort(dateStr) {
+    const [y, m, d] = dateStr.split("-").map(Number);
+    return `${d}. ${MONTH_NAMES[m - 1]}`;
   }
 
   function sparklineSvg(points) {
@@ -1108,7 +1113,7 @@
 
   function renderMovers(movers) {
     currentMovers = movers;
-    dateLabelEl.textContent = movers.date;
+    dateLabelEl.textContent = fmtDateLong(movers.date);
     renderRangeView();
   }
 
