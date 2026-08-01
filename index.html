@@ -349,9 +349,10 @@
     background: none;
     border: none;
     border-top: 1px dashed var(--rule);
+    border-bottom: 1px dashed var(--rule);
     color: var(--ink-faint);
-    padding: 10px 0 4px;
-    margin-top: 2px;
+    padding: 10px 0;
+    margin: 4px 0 20px;
     cursor: pointer;
     text-align: center;
   }
@@ -1026,8 +1027,8 @@
     `).join("");
   }
 
-  // Shows the first 3 movers, and — if there are more — a "sjá fleiri"
-  // toggle that reveals the rest without a fresh fetch.
+  // Shows the first 4 movers; the rest render hidden and are revealed by
+  // a single shared "sjá fleiri" button below both columns.
   const MOVERS_PREVIEW_COUNT = 4;
   function renderMoversSection(items, direction, sortMode) {
     if (!items || items.length === 0) return renderList(items, direction, sortMode);
@@ -1038,25 +1039,21 @@
       <div class="movers-block">
         <div class="movers-visible">${renderList(visible, direction, sortMode)}</div>
         <div class="movers-extra" hidden>${renderList(extra, direction, sortMode)}</div>
-        <button type="button" class="see-more-btn" data-count="${extra.length}">Sjá fleiri (${extra.length})</button>
       </div>
     `;
   }
 
-  function attachSeeMoreToggles(root) {
-    root.querySelectorAll(".see-more-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const block = btn.closest(".movers-block");
-        const extra = block.querySelector(".movers-extra");
-        const collapsed = extra.hasAttribute("hidden");
-        if (collapsed) {
-          extra.removeAttribute("hidden");
-          btn.textContent = "Sýna færri";
-        } else {
-          extra.setAttribute("hidden", "");
-          btn.textContent = `Sjá fleiri (${btn.dataset.count})`;
-        }
+  function attachSeeMoreToggle(root, totalExtra) {
+    const btn = root.querySelector(".see-more-btn");
+    if (!btn) return;
+    btn.addEventListener("click", () => {
+      const extras = root.querySelectorAll(".movers-extra");
+      const collapsed = extras.length > 0 && extras[0].hasAttribute("hidden");
+      extras.forEach((extra) => {
+        if (collapsed) extra.removeAttribute("hidden");
+        else extra.setAttribute("hidden", "");
       });
+      btn.textContent = collapsed ? "Sýna færri" : `Sjá fleiri (${totalExtra})`;
     });
   }
 
@@ -1150,17 +1147,22 @@
       return;
     }
 
+    const upList = currentSort === "amount" ? rd.topIncreasesByAmount : rd.topIncreases;
+    const downList = currentSort === "amount" ? rd.topDecreasesByAmount : rd.topDecreases;
+    const totalExtra = Math.max((upList?.length || 0) - MOVERS_PREVIEW_COUNT, 0) + Math.max((downList?.length || 0) - MOVERS_PREVIEW_COUNT, 0);
+
     contentEl.innerHTML = `
       <div class="two-col-grid">
         <section class="col-up">
           <div class="section-label up">Mestu hækkanir (${rd.increasedCount ?? 0})</div>
-          ${renderMoversSection(currentSort === "amount" ? rd.topIncreasesByAmount : rd.topIncreases, "up", currentSort)}
+          ${renderMoversSection(upList, "up", currentSort)}
         </section>
         <section class="col-down">
           <div class="section-label down">Mestu lækkanir (${rd.decreasedCount ?? 0})</div>
-          ${renderMoversSection(currentSort === "amount" ? rd.topDecreasesByAmount : rd.topDecreases, "down", currentSort)}
+          ${renderMoversSection(downList, "down", currentSort)}
         </section>
       </div>
+      ${totalExtra > 0 ? `<button type="button" class="see-more-btn">Sjá fleiri (${totalExtra})</button>` : ""}
       <div class="two-col-grid">
         <section>
           <div class="section-label">Ódýrasta varan</div>
@@ -1175,7 +1177,7 @@
       ${renderVolatile(movers.mostVolatile)}
     `;
     attachLineClicks(contentEl);
-    attachSeeMoreToggles(contentEl);
+    attachSeeMoreToggle(contentEl, totalExtra);
     if (directionFilter) runSearch();
   }
 
