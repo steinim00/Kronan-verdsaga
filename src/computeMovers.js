@@ -87,11 +87,9 @@ function diffSnapshots(today, prev) {
     const before = prevBySku.get(p.sku);
     if (!before) continue;
 
-    // Weight-priced items are compared by pricePerKilo (so a bigger/
-    // smaller package doesn't look like a price change), everything
-    // else by the regular price. The unit shown alongside the price
-    // comes straight from the API's baseComparisonUnit when present.
-    const unit = p.baseComparisonUnit || (p.chargedByWeight ? "kg" : "stk");
+    // Weight-priced items use baseComparisonUnit (usually "kg"); everything
+    // else defaults to "stk" regardless of what baseComparisonUnit says.
+    const unit = p.chargedByWeight ? (p.baseComparisonUnit || "kg") : "stk";
     const useKilo = p.chargedByWeight;
     const beforeVal = useKilo ? before.pricePerKilo : before.price;
     const afterVal = useKilo ? p.pricePerKilo : p.price;
