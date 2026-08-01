@@ -14,8 +14,8 @@
     --paper-edge: #ecdfb2;
     --ink: #2a2822;
     --ink-faint: #8a8574;
-    --up: #a8351f;
-    --down: #2860a3;
+    --up: #e53935;
+    --down: #43a047;
     --rule: #cfc9b4;
     --star: #b8912f;
   }
@@ -352,10 +352,10 @@
     margin: 0 -10px;
     border-radius: 6px;
   }
-  .col-up { background: rgba(168, 53, 31, 0.06); }
-  .col-down { background: rgba(40, 96, 163, 0.06); }
-  .col-up .line { border-bottom-color: rgba(168, 53, 31, 0.15); }
-  .col-down .line { border-bottom-color: rgba(40, 96, 163, 0.15); }
+  .col-up { background: rgba(229, 57, 53, 0.06); }
+  .col-down { background: rgba(67, 160, 71, 0.06); }
+  .col-up .line { border-bottom-color: rgba(229, 57, 53, 0.15); }
+  .col-down .line { border-bottom-color: rgba(67, 160, 71, 0.15); }
   .col-up .name, .col-up .meta, .col-up .prices { color: var(--up); }
   .col-down .name, .col-down .meta, .col-down .prices { color: var(--down); }
   .col-up .meta, .col-up .prices { opacity: 0.75; }
@@ -838,7 +838,7 @@
         <svg viewBox="0 0 ${w} ${h}" style="height:${h}px;" preserveAspectRatio="none">
           <path d="${path}" fill="none" stroke="#2a2822" stroke-width="2" />
           ${dots}
-          <circle cx="${last[0]}" cy="${last[1]}" r="3" fill="#a8351f" />
+          <circle cx="${last[0]}" cy="${last[1]}" r="3" fill="#e53935" />
           ${hitAreas}
         </svg>
         <div class="spark-tooltip" id="sparkTooltip"></div>
