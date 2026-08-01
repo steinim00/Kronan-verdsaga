@@ -805,8 +805,12 @@
 
   // ---------- product detail modal ----------
   function fmtDateShort(dateStr) {
-    const [, m, d] = dateStr.split("-").map(Number);
-    return `${d}. ${MONTH_NAMES[m - 1]}`;
+    const DAY_NAMES = ["sunnudagur", "mánudagur", "þriðjudagur", "miðvikudagur", "fimmtudagur", "föstudagur", "laugardagur"];
+    const [y, m, d] = dateStr.split("-").map(Number);
+    const date = new Date(y, m - 1, d);
+    const dayName = DAY_NAMES[date.getDay()];
+    const monthName = MONTH_NAMES[m - 1];
+    return `${dayName}, ${d}. ${monthName}`;
   }
 
   function sparklineSvg(points) {
