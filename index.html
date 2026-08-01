@@ -170,6 +170,8 @@
     color: var(--ink-faint);
     display: flex;
     justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
     border-top: 1px dashed var(--rule);
     border-bottom: 1px dashed var(--rule);
     padding: 8px 0;
@@ -508,7 +510,7 @@
     }
     .page-main { max-width: none; }
     .page-sidebar { position: sticky; top: 32px; }
-    .page-main .toolbar,
+    .page-sidebar .toolbar,
     .page-main .receipt {
       max-width: none;
     }
@@ -539,21 +541,6 @@
 
   <div class="page">
     <div class="page-main">
-      <div class="toolbar">
-        <input class="search-input" id="searchInput" placeholder="Leita að vöru (nafn eða vörunúmer)…" autocomplete="off" />
-        <div class="search-filters" id="searchFilters">
-          <select id="categoryFilter" aria-label="Sía eftir flokki">
-            <option value="">Allir flokkar</option>
-          </select>
-          <div class="direction-filter" id="directionFilter">
-            <button type="button" class="dir-btn active" data-dir="">Allar</button>
-            <button type="button" class="dir-btn" data-dir="up">▲ Hækkað</button>
-            <button type="button" class="dir-btn" data-dir="down">▼ Lækkað</button>
-          </div>
-        </div>
-        <div class="search-results" id="searchResults"></div>
-      </div>
-
       <div class="receipt">
         <header>
           <div class="store">KRÓNAN</div>
@@ -596,6 +583,21 @@
     </div>
 
     <div class="page-sidebar">
+      <div class="toolbar">
+        <input class="search-input" id="searchInput" placeholder="Leita að vöru (nafn eða vörunúmer)…" autocomplete="off" />
+        <div class="search-filters" id="searchFilters">
+          <select id="categoryFilter" aria-label="Sía eftir flokki">
+            <option value="">Allir flokkar</option>
+          </select>
+          <div class="direction-filter" id="directionFilter">
+            <button type="button" class="dir-btn active" data-dir="">Allar</button>
+            <button type="button" class="dir-btn" data-dir="up">▲ Hækkað</button>
+            <button type="button" class="dir-btn" data-dir="down">▼ Lækkað</button>
+          </div>
+        </div>
+        <div class="search-results" id="searchResults"></div>
+      </div>
+
       <div class="receipt" id="cpiCard" style="display:none;">
         <div class="section-label">Vísitala neysluverðs</div>
         <div id="cpiContent"></div>
