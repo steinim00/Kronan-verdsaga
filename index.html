@@ -324,31 +324,19 @@
   .cpi-row span:last-child.down { color: var(--down); font-weight: 700; }
 
   .category-row {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 32px 32px;
     align-items: baseline;
-    gap: 6px;
+    gap: 4px;
     font-size: 12px;
-    padding: 6px 0;
+    padding: 7px 0;
     border-bottom: 1px dotted var(--rule);
   }
   .category-row:last-child { border-bottom: none; }
   .category-row .category-name { color: var(--ink); }
-  .category-row .category-count { white-space: nowrap; font-size: 11px; font-weight: 700; }
-  .category-col.up .category-count { color: var(--up); }
-  .category-col.down .category-count { color: var(--down); }
-  .category-cols {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 16px;
-  }
-  .category-col-label {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--ink-faint);
-    margin-bottom: 4px;
-  }
+  .category-row .category-count { white-space: nowrap; font-size: 11px; font-weight: 700; text-align: right; }
+  .category-row .category-count.up { color: var(--up); }
+  .category-row .category-count.down { color: var(--down); }
 
   footer {
     margin-top: 26px;
@@ -969,43 +957,31 @@
   const categoriesContent = document.getElementById("categoriesContent");
 
   function renderCategoryBreakdown(movers) {
-    const upCounts = new Map();
-    const downCounts = new Map();
+    const counts = new Map(); // category -> { up, down }
     for (const it of movers.topIncreases || []) {
       const cat = it.category || "Óflokkað";
-      upCounts.set(cat, (upCounts.get(cat) || 0) + 1);
+      const entry = counts.get(cat) || { up: 0, down: 0 };
+      entry.up += 1;
+      counts.set(cat, entry);
     }
     for (const it of movers.topDecreases || []) {
       const cat = it.category || "Óflokkað";
-      downCounts.set(cat, (downCounts.get(cat) || 0) + 1);
+      const entry = counts.get(cat) || { up: 0, down: 0 };
+      entry.down += 1;
+      counts.set(cat, entry);
     }
 
-    if (upCounts.size === 0 && downCounts.size === 0) { categoriesCard.style.display = "none"; return; }
+    if (counts.size === 0) { categoriesCard.style.display = "none"; return; }
 
-    const renderCol = (counts, dir, symbol) => {
-      const rows = [...counts.entries()].sort((a, b) => b[1] - a[1]);
-      if (rows.length === 0) return `<div class="empty">Engar</div>`;
-      return rows.map(([name, count]) => `
-        <div class="category-row">
-          <span class="category-name">${name}</span>
-          <span class="category-count">${symbol}${count}</span>
-        </div>
-      `).join("");
-    };
-
+    const rows = [...counts.entries()].sort((a, b) => (b[1].up + b[1].down) - (a[1].up + a[1].down));
     categoriesCard.style.display = "";
-    categoriesContent.innerHTML = `
-      <div class="category-cols">
-        <div class="category-col up">
-          <div class="category-col-label">Hækka</div>
-          ${renderCol(upCounts, "up", "▲")}
-        </div>
-        <div class="category-col down">
-          <div class="category-col-label">Lækka</div>
-          ${renderCol(downCounts, "down", "▼")}
-        </div>
+    categoriesContent.innerHTML = rows.map(([name, { up, down }]) => `
+      <div class="category-row">
+        <span class="category-name">${name}</span>
+        <span class="category-count up">${up > 0 ? `▲${up}` : ""}</span>
+        <span class="category-count down">${down > 0 ? `▼${down}` : ""}</span>
       </div>
-    `;
+    `).join("");
   }
 
   // ---------- init ----------
