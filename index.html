@@ -832,7 +832,7 @@
 
   // Shows the first 3 movers, and — if there are more — a "sjá fleiri"
   // toggle that reveals the rest without a fresh fetch.
-  const MOVERS_PREVIEW_COUNT = 3;
+  const MOVERS_PREVIEW_COUNT = 4;
   function renderMoversSection(items, direction) {
     if (!items || items.length === 0) return renderList(items, direction);
     const visible = items.slice(0, MOVERS_PREVIEW_COUNT);
