@@ -69,6 +69,35 @@
   }
   .search-input::placeholder { color: var(--ink-faint); }
 
+  .search-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+  }
+  #categoryFilter {
+    font-family: inherit;
+    font-size: 10px;
+    background: var(--paper);
+    color: var(--ink);
+    border: 1px solid var(--rule);
+    padding: 4px 6px;
+    max-width: 140px;
+  }
+  .direction-filter { display: flex; gap: 4px; }
+  .dir-btn {
+    font-family: inherit;
+    font-size: 10px;
+    background: none;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 4px 10px;
+    color: var(--ink-faint);
+    cursor: pointer;
+  }
+  .dir-btn:hover { color: var(--ink); }
+  .dir-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
   .search-results {
     position: absolute;
     top: calc(100% + 4px);
@@ -287,6 +316,19 @@
   .range-tab:hover { color: var(--ink); }
   .range-tab.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 
+  .sort-tabs { display: flex; gap: 10px; margin-bottom: 14px; }
+  .sort-tab {
+    font-family: inherit;
+    font-size: 10px;
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--ink-faint);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .sort-tab.active { color: var(--ink); font-weight: 700; text-decoration: none; }
+
   .see-more-btn {
     display: block;
     width: 100%;
@@ -318,6 +360,7 @@
   .col-down .name, .col-down .meta, .col-down .prices { color: var(--down); }
   .col-up .meta, .col-up .prices { opacity: 0.75; }
   .col-down .meta, .col-down .prices { opacity: 0.75; }
+  .col-up .cat-link:hover, .col-down .cat-link:hover { opacity: 1; text-decoration-style: solid; }
 
   .cpi-index {
     font-size: 32px;
@@ -358,6 +401,13 @@
   .category-row .category-count { white-space: nowrap; font-size: 11px; font-weight: 700; text-align: right; }
   .category-row .category-count.up { color: var(--up); }
   .category-row .category-count.down { color: var(--down); }
+
+  .category-link, .cat-link {
+    cursor: pointer;
+    text-decoration: underline dotted;
+    text-underline-offset: 2px;
+  }
+  .category-link:hover, .cat-link:hover { color: var(--ink); text-decoration-style: solid; }
 
   footer {
     margin-top: 26px;
@@ -491,6 +541,16 @@
     <div class="page-main">
       <div class="toolbar">
         <input class="search-input" id="searchInput" placeholder="Leita að vöru (nafn eða vörunúmer)…" autocomplete="off" />
+        <div class="search-filters" id="searchFilters">
+          <select id="categoryFilter" aria-label="Sía eftir flokki">
+            <option value="">Allir flokkar</option>
+          </select>
+          <div class="direction-filter" id="directionFilter">
+            <button type="button" class="dir-btn active" data-dir="">Allar</button>
+            <button type="button" class="dir-btn" data-dir="up">▲ Hækkað</button>
+            <button type="button" class="dir-btn" data-dir="down">▼ Lækkað</button>
+          </div>
+        </div>
         <div class="search-results" id="searchResults"></div>
       </div>
 
@@ -523,6 +583,10 @@
         <div class="range-tabs" id="rangeTabs">
           <button type="button" class="range-tab active" data-range="daily">Síðasta sólarhring</button>
           <button type="button" class="range-tab" data-range="weekly">Síðustu viku</button>
+        </div>
+        <div class="sort-tabs" id="sortTabs">
+          <button type="button" class="sort-tab active" data-sort="percent">Raða eftir %</button>
+          <button type="button" class="sort-tab" data-sort="amount">Raða eftir kr.</button>
         </div>
 
         <div id="content"><div class="status">Sæki gögn…</div></div>
@@ -593,6 +657,12 @@
     const formatted = new Intl.NumberFormat("is-IS", { maximumFractionDigits: 2 }).format(Math.abs(n));
     return (n > 0 ? "+" : n < 0 ? "-" : "") + formatted + "%";
   }
+  function fmtAmount(n, unit) {
+    const formatted = new Intl.NumberFormat("is-IS").format(Math.abs(Math.round(n)));
+    const sign = n > 0 ? "+" : n < 0 ? "-" : "";
+    const suffix = unit && unit.toLowerCase() !== "stk" ? "/" + unit : "";
+    return `${sign}${formatted} kr${suffix}`;
+  }
 
   // ---------- favorites (localStorage) ----------
   const FAV_KEY = "kronan-verdsaga-favorites";
@@ -659,10 +729,36 @@
     if (productIndex) return productIndex;
     const res = await fetch("data/products-index.json");
     productIndex = res.ok ? await res.json() : [];
+    populateCategoryFilter(productIndex);
     return productIndex;
   }
 
+  function populateCategoryFilter(index) {
+    const cats = [...new Set(index.map((p) => (p.categoryPath ? p.categoryPath.split("/")[0].trim() : null)).filter(Boolean))].sort();
+    categoryFilterEl.innerHTML = '<option value="">Allir flokkar</option>' + cats.map((c) => `<option value="${c}">${c}</option>`).join("");
+  }
+
   // ---------- search ----------
+  const categoryFilterEl = document.getElementById("categoryFilter");
+  const directionFilterEl = document.getElementById("directionFilter");
+  let directionFilter = ""; // "", "up", "down"
+
+  categoryFilterEl.addEventListener("change", runSearch);
+  directionFilterEl.querySelectorAll(".dir-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      directionFilter = btn.dataset.dir;
+      directionFilterEl.querySelectorAll(".dir-btn").forEach((b) => b.classList.toggle("active", b === btn));
+      runSearch();
+    });
+  });
+
+  function currentDirectionSkus(dir) {
+    if (!dir || !currentMovers) return null;
+    const rd = rangeData(currentMovers, currentRange);
+    const list = dir === "up" ? rd.topIncreases : rd.topDecreases;
+    return new Set((list || []).map((it) => it.sku));
+  }
+
   let searchDebounce;
   searchInputEl.addEventListener("input", () => {
     clearTimeout(searchDebounce);
@@ -671,11 +767,18 @@
 
   async function runSearch() {
     const q = searchInputEl.value.trim().toLowerCase();
-    if (q.length < 2) { searchResultsEl.innerHTML = ""; return; }
+    const cat = categoryFilterEl.value;
+    const dirSkus = currentDirectionSkus(directionFilter);
+
+    if (q.length < 2 && !cat && !directionFilter) { searchResultsEl.innerHTML = ""; return; }
+
     const index = await ensureIndexLoaded();
-    const matches = index
-      .filter((p) => p.name.toLowerCase().includes(q) || p.sku.includes(q) || (p.brand && p.brand.toLowerCase().includes(q)))
-      .slice(0, 20);
+    let matches = index.filter((p) => {
+      if (q.length >= 2 && !(p.name.toLowerCase().includes(q) || p.sku.includes(q) || (p.brand && p.brand.toLowerCase().includes(q)))) return false;
+      if (cat && (!p.categoryPath || p.categoryPath.split("/")[0].trim() !== cat)) return false;
+      if (dirSkus && !dirSkus.has(p.sku)) return false;
+      return true;
+    }).slice(0, 20);
 
     if (matches.length === 0) {
       searchResultsEl.innerHTML = '<div class="search-result">Ekkert fannst</div>';
@@ -747,7 +850,8 @@
     `;
   }
 
-  function wireSparklineHover(root) {
+  function wireSparklineHover(root, valueFormatter) {
+    const fmt = valueFormatter || fmtISK;
     const wrap = root.querySelector(".spark-wrap");
     const tooltip = root.querySelector("#sparkTooltip");
     if (!wrap || !tooltip) return;
@@ -762,7 +866,7 @@
     function showTip(hit) {
       const x = Number(hit.dataset.x), y = Number(hit.dataset.y);
       const date = hit.dataset.date, price = Number(hit.dataset.price);
-      tooltip.innerHTML = `<strong>${fmtISK(price)}</strong><br>${fmtDateShort(date)}`;
+      tooltip.innerHTML = `<strong>${fmt(price)}</strong><br>${fmtDateShort(date)}`;
       tooltip.style.left = `${(x / w) * 100}%`;
       tooltip.style.top = `${(y / h) * 100}%`;
       tooltip.style.display = "block";
@@ -802,6 +906,47 @@
     wireSparklineHover(modalContent);
   }
 
+  // ---------- category trend modal ----------
+  let categoryTrends = null;
+  async function ensureCategoryTrendsLoaded() {
+    if (categoryTrends) return categoryTrends;
+    try {
+      const res = await fetch("data/category-trends.json");
+      categoryTrends = res.ok ? await res.json() : {};
+    } catch {
+      categoryTrends = {};
+    }
+    return categoryTrends;
+  }
+
+  function fmtIndex(n) {
+    return new Intl.NumberFormat("is-IS", { maximumFractionDigits: 1 }).format(n);
+  }
+
+  async function openCategory(name) {
+    modalBackdrop.classList.add("open");
+    modalContent.innerHTML = '<div class="status">Sæki verðþróun flokks…</div>';
+
+    const trends = await ensureCategoryTrendsLoaded();
+    const points = trends[name] || [];
+    const values = points.map((p) => p[1]);
+    const current = values.length ? values[values.length - 1] : null;
+    const base = values.length ? values[0] : null;
+    const changeFromStart = base ? Math.round(((current - base) / base) * 1000) / 10 : null;
+
+    modalContent.innerHTML = `
+      <h2>${name}</h2>
+      <div class="modal-meta">Vöruflokkur · óvegin verðvísitala (100 = ${points.length ? fmtDateShort(points[0][0]) : "upphaf"})</div>
+      <div class="modal-price">${current != null ? fmtIndex(current) : "—"} stig</div>
+      <div class="modal-badges">
+        ${changeFromStart != null ? `<span class="badge-tag">${changeFromStart > 0 ? "+" : ""}${fmtIndex(changeFromStart)}% frá upphafi</span>` : ""}
+      </div>
+      ${sparklineSvg(points)}
+      <div class="modal-meta" style="margin-top:10px;">Meðaltal af verðbreytingu allra vara í flokknum miðað við fyrstu verðmynd — ekki opinber vísitala.</div>
+    `;
+    wireSparklineHover(modalContent, (v) => `${fmtIndex(v)} stig`);
+  }
+
   document.getElementById("modalClose").addEventListener("click", () => modalBackdrop.classList.remove("open"));
   modalBackdrop.addEventListener("click", (e) => {
     if (e.target === modalBackdrop) modalBackdrop.classList.remove("open");
@@ -815,15 +960,16 @@
   }
 
   function metaLine(it) {
-    return [it.category, it.brand].filter(Boolean).join(" · ");
+    const catHtml = it.category ? `<span class="cat-link" data-category="${it.category.replace(/"/g,'&quot;')}">${it.category}</span>` : "";
+    return [catHtml, it.brand].filter(Boolean).join(" · ");
   }
 
-  function renderList(items, direction) {
+  function renderList(items, direction, sortMode) {
     if (!items || items.length === 0) return '<div class="empty">Engar breytingar</div>';
     return items.map((it) => `
       <div class="line ${direction}" data-sku="${it.sku}" data-name="${it.name.replace(/"/g,'&quot;')}" data-brand="${(it.brand||"").replace(/"/g,'&quot;')}">
         <div class="name">${it.name}${badgeFor(it)}</div>
-        <div class="percent">${fmtPercent(it.percent)}</div>
+        <div class="percent">${sortMode === "amount" ? fmtAmount(it.amount, it.unit) : fmtPercent(it.percent)}</div>
         <div class="meta">${metaLine(it)}</div>
         <div class="prices">${fmtISKUnit(it.priceBefore, it.unit)} → ${fmtISKUnit(it.priceAfter, it.unit)}</div>
       </div>
@@ -833,15 +979,15 @@
   // Shows the first 3 movers, and — if there are more — a "sjá fleiri"
   // toggle that reveals the rest without a fresh fetch.
   const MOVERS_PREVIEW_COUNT = 4;
-  function renderMoversSection(items, direction) {
-    if (!items || items.length === 0) return renderList(items, direction);
+  function renderMoversSection(items, direction, sortMode) {
+    if (!items || items.length === 0) return renderList(items, direction, sortMode);
     const visible = items.slice(0, MOVERS_PREVIEW_COUNT);
     const extra = items.slice(MOVERS_PREVIEW_COUNT);
-    if (extra.length === 0) return `<div class="movers-block">${renderList(visible, direction)}</div>`;
+    if (extra.length === 0) return `<div class="movers-block">${renderList(visible, direction, sortMode)}</div>`;
     return `
       <div class="movers-block">
-        <div class="movers-visible">${renderList(visible, direction)}</div>
-        <div class="movers-extra" hidden>${renderList(extra, direction)}</div>
+        <div class="movers-visible">${renderList(visible, direction, sortMode)}</div>
+        <div class="movers-extra" hidden>${renderList(extra, direction, sortMode)}</div>
         <button type="button" class="see-more-btn" data-count="${extra.length}">Sjá fleiri (${extra.length})</button>
       </div>
     `;
@@ -893,6 +1039,12 @@
     root.querySelectorAll(".line[data-sku]").forEach((el) => {
       el.addEventListener("click", () => openProduct(el.dataset.sku, el.dataset.name, el.dataset.brand));
     });
+    root.querySelectorAll(".cat-link").forEach((el) => {
+      el.addEventListener("click", (e) => {
+        e.stopPropagation();
+        openCategory(el.dataset.category);
+      });
+    });
   }
 
   let currentRange = "daily";
@@ -906,8 +1058,19 @@
     });
   });
 
+  let currentSort = "percent"; // "percent" | "amount"
+  const sortTabsEl = document.getElementById("sortTabs");
+  sortTabsEl.querySelectorAll(".sort-tab").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (btn.dataset.sort === currentSort) return;
+      currentSort = btn.dataset.sort;
+      sortTabsEl.querySelectorAll(".sort-tab").forEach((b) => b.classList.toggle("active", b === btn));
+      renderRangeView();
+    });
+  });
+
   function rangeData(movers, range) {
-    if (range === "weekly") return movers.weekly || { comparedTo: null, increasedCount: 0, decreasedCount: 0, topIncreases: [], topDecreases: [] };
+    if (range === "weekly") return movers.weekly || { comparedTo: null, increasedCount: 0, decreasedCount: 0, topIncreases: [], topDecreases: [], topIncreasesByAmount: [], topDecreasesByAmount: [] };
     return movers;
   }
 
@@ -941,11 +1104,11 @@
       <div class="two-col-grid">
         <section class="col-up">
           <div class="section-label up">Mestu hækkanir (${rd.increasedCount ?? 0})</div>
-          ${renderMoversSection(rd.topIncreases, "up")}
+          ${renderMoversSection(currentSort === "amount" ? rd.topIncreasesByAmount : rd.topIncreases, "up", currentSort)}
         </section>
         <section class="col-down">
           <div class="section-label down">Mestu lækkanir (${rd.decreasedCount ?? 0})</div>
-          ${renderMoversSection(rd.topDecreases, "down")}
+          ${renderMoversSection(currentSort === "amount" ? rd.topDecreasesByAmount : rd.topDecreases, "down", currentSort)}
         </section>
       </div>
       <div class="two-col-grid">
@@ -963,6 +1126,7 @@
     `;
     attachLineClicks(contentEl);
     attachSeeMoreToggles(contentEl);
+    if (directionFilter) runSearch();
   }
 
   async function loadDate(date) {
@@ -1118,11 +1282,14 @@
     categoriesCard.style.display = "";
     categoriesContent.innerHTML = rows.map(([name, { up, down }]) => `
       <div class="category-row">
-        <span class="category-name">${name}</span>
+        <span class="category-name category-link" data-category="${name.replace(/"/g,'&quot;')}">${name}</span>
         <span class="category-count up">${up > 0 ? `▲${up}` : ""}</span>
         <span class="category-count down">${down > 0 ? `▼${down}` : ""}</span>
       </div>
     `).join("");
+    categoriesContent.querySelectorAll(".category-link").forEach((el) => {
+      el.addEventListener("click", () => openCategory(el.dataset.category));
+    });
   }
 
   // ---------- init ----------

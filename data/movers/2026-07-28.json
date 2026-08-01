@@ -33,6 +33,36 @@
       "allTimeHigh": true
     }
   ],
+  "topIncreasesByAmount": [
+    {
+      "sku": "100174011",
+      "name": "Aspas grænn 450g",
+      "brand": "",
+      "category": "Grænmeti",
+      "unit": "stk",
+      "priceBefore": 1398,
+      "priceAfter": 1499,
+      "percent": 7.22,
+      "amount": 101,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    }
+  ],
+  "topDecreasesByAmount": [
+    {
+      "sku": "00600679",
+      "name": "Fiskverzlun Hafliða ýsuflök roð og beinlaus",
+      "brand": "Fiskverzlun Hafliða",
+      "category": "Fiskur",
+      "unit": "kg",
+      "priceBefore": 3799,
+      "priceAfter": 3499,
+      "percent": -7.9,
+      "amount": -300,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    }
+  ],
   "weekly": {
     "comparedTo": "2026-07-26",
     "changedCount": 8,
@@ -136,6 +166,114 @@
         "percent": -7.9,
         "allTimeLow": false,
         "allTimeHigh": true
+      }
+    ],
+    "topIncreasesByAmount": [
+      {
+        "sku": "100248244",
+        "name": "Nýjar íslenskar kartöflur 1000g",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 399,
+        "priceAfter": 599,
+        "percent": 50.13,
+        "amount": 200,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100174011",
+        "name": "Aspas grænn 450g",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 1398,
+        "priceAfter": 1499,
+        "percent": 7.22,
+        "amount": 101,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100247979",
+        "name": "Pagen snúðar kanil",
+        "brand": "Pagen",
+        "category": "Brauð, kökur og kex",
+        "unit": "stk",
+        "priceBefore": 399,
+        "priceAfter": 420,
+        "percent": 5.26,
+        "amount": 21,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100200578",
+        "name": "Pagen vanillusnúðar",
+        "brand": "Pagen",
+        "category": "Brauð, kökur og kex",
+        "unit": "stk",
+        "priceBefore": 399,
+        "priceAfter": 420,
+        "percent": 5.26,
+        "amount": 21,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100268275",
+        "name": "Kjörís íssósa jarðarberja",
+        "brand": "Kjörís",
+        "category": "Laugardags",
+        "unit": "stk",
+        "priceBefore": 660,
+        "priceAfter": 670,
+        "percent": 1.52,
+        "amount": 10,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100213442",
+        "name": "Floridana gojisafi 330ml",
+        "brand": "Floridana",
+        "category": "Drykkir",
+        "unit": "stk",
+        "priceBefore": 329,
+        "priceAfter": 335,
+        "percent": 1.82,
+        "amount": 6,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      }
+    ],
+    "topDecreasesByAmount": [
+      {
+        "sku": "00600679",
+        "name": "Fiskverzlun Hafliða ýsuflök roð og beinlaus",
+        "brand": "Fiskverzlun Hafliða",
+        "category": "Fiskur",
+        "unit": "kg",
+        "priceBefore": 3799,
+        "priceAfter": 3499,
+        "percent": -7.9,
+        "amount": -300,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100272240",
+        "name": "Göteborgs utvalda kex m. sjávarsalti",
+        "brand": "Göteborgs",
+        "category": "Brauð, kökur og kex",
+        "unit": "stk",
+        "priceBefore": 589,
+        "priceAfter": 349,
+        "percent": -40.75,
+        "amount": -240,
+        "allTimeLow": true,
+        "allTimeHigh": false
       }
     ]
   },

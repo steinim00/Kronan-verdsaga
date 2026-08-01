@@ -6,6 +6,7 @@ import { computeMovers } from "./computeMovers.js";
 import { buildIndex } from "./buildIndex.js";
 import { updateHistory } from "./updateHistory.js";
 import { fetchCpi } from "./fetchCpi.js";
+import { computeCategoryTrends } from "./computeCategoryTrends.js";
 
 const SNAPSHOT_DIR = new URL("../data/snapshots/", import.meta.url);
 
@@ -71,6 +72,13 @@ async function main() {
   if (movers) {
     console.log(`Top hækkanir:`, movers.topIncreases);
     console.log(`Top lækkanir:`, movers.topDecreases);
+  }
+
+  try {
+    console.log("Reikna verðvísitölu eftir vöruflokkum...");
+    await computeCategoryTrends();
+  } catch (err) {
+    console.log(`  Flokkavísitala mistókst (halda samt áfram): ${err.message}`);
   }
 
   try {

@@ -119,12 +119,21 @@ function diffSnapshots(today, prev) {
     .sort((a, b) => a.percent - b.percent)
     .slice(0, MAX_MOVERS);
 
+  // Sömu breytingar, en raðað eftir krónutölu (priceAfter - priceBefore)
+  // í stað prósentu — 2% hækkun á dýrri vöru getur verið meiri
+  // krónutöluhækkun en 15% hækkun á ódýrri vöru.
+  const withAmount = changes.map((c) => ({ ...c, amount: Math.round((c.priceAfter - c.priceBefore) * 100) / 100 }));
+  const topIncreasesByAmount = withAmount.filter((c) => c.amount > 0).sort((a, b) => b.amount - a.amount).slice(0, MAX_MOVERS);
+  const topDecreasesByAmount = withAmount.filter((c) => c.amount < 0).sort((a, b) => a.amount - b.amount).slice(0, MAX_MOVERS);
+
   return {
     changedCount: changes.length,
     increasedCount: changes.filter((c) => c.percent > 0).length,
     decreasedCount: changes.filter((c) => c.percent < 0).length,
     topIncreases,
     topDecreases,
+    topIncreasesByAmount,
+    topDecreasesByAmount,
   };
 }
 
@@ -153,6 +162,8 @@ export async function computeMovers(todayDate) {
     decreasedCount: 0,
     topIncreases: [],
     topDecreases: [],
+    topIncreasesByAmount: [],
+    topDecreasesByAmount: [],
   };
   let weekly = { ...daily };
 
@@ -162,7 +173,7 @@ export async function computeMovers(todayDate) {
     const prevDate = dates[todayIndex - 1];
     const prev = await loadSnapshot(prevDate);
     daily = { comparedTo: prevDate, ...diffSnapshots(today, prev) };
-    await tagAllTimeOnLists([daily.topIncreases, daily.topDecreases]);
+    await tagAllTimeOnLists([daily.topIncreases, daily.topDecreases, daily.topIncreasesByAmount, daily.topDecreasesByAmount]);
 
     // Vikusamanburður: notar verðmyndina frá 7 dögum áður ef hún er til.
     // Ef sagan er styttri en vika enn þá (verkefnið er nýtt) er elsta
@@ -173,7 +184,7 @@ export async function computeMovers(todayDate) {
       const weekDate = dates[weeklyIndex];
       const weekSnap = await loadSnapshot(weekDate);
       weekly = { comparedTo: weekDate, ...diffSnapshots(today, weekSnap) };
-      await tagAllTimeOnLists([weekly.topIncreases, weekly.topDecreases]);
+      await tagAllTimeOnLists([weekly.topIncreases, weekly.topDecreases, weekly.topIncreasesByAmount, weekly.topDecreasesByAmount]);
     }
   }
 
@@ -188,6 +199,8 @@ export async function computeMovers(todayDate) {
     decreasedCount: daily.decreasedCount,
     topIncreases: daily.topIncreases,
     topDecreases: daily.topDecreases,
+    topIncreasesByAmount: daily.topIncreasesByAmount,
+    topDecreasesByAmount: daily.topDecreasesByAmount,
     weekly: {
       comparedTo: weekly.comparedTo,
       changedCount: weekly.changedCount,
@@ -195,6 +208,8 @@ export async function computeMovers(todayDate) {
       decreasedCount: weekly.decreasedCount,
       topIncreases: weekly.topIncreases,
       topDecreases: weekly.topDecreases,
+      topIncreasesByAmount: weekly.topIncreasesByAmount,
+      topDecreasesByAmount: weekly.topDecreasesByAmount,
     },
     cheapest: cheapest ? await tagAllTime(cheapest, cheapest.price) : null,
     mostExpensive: mostExpensive ? await tagAllTime(mostExpensive, mostExpensive.price) : null,
