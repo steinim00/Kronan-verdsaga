@@ -147,7 +147,24 @@
   .receipt::before { top: -13px; background-color: #ddcf9a; }
   .receipt::after { bottom: -13px; transform: scaleY(-1); background-color: #ddcf9a; }
 
-  header { text-align: center; margin-bottom: 20px; }
+  header { margin-bottom: 20px; }
+  .header-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .header-date {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    text-align: right;
+    font-size: 11px;
+    color: var(--ink-faint);
+  }
 
   .store {
     font-family: "Fraunces", serif;
@@ -164,35 +181,25 @@
     color: var(--ink-faint);
   }
 
-  .meta {
-    margin-top: 14px;
-    font-size: 11px;
-    color: var(--ink-faint);
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    flex-wrap: wrap;
-    border-top: 1px dashed var(--rule);
-    border-bottom: 1px dashed var(--rule);
-    padding: 8px 0;
-  }
-
   .date-picker { position: relative; }
 
   .date-picker-toggle {
     font-family: inherit;
     font-size: 11px;
-    background: transparent;
-    border: none;
-    color: var(--ink);
-    text-decoration: underline;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: none;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    color: var(--ink-faint);
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    padding: 0;
+    padding: 6px 14px;
   }
-  .date-picker-toggle .caret { font-size: 9px; text-decoration: none; }
+  .date-picker-toggle:hover { color: var(--ink); }
+  .date-picker-toggle .caret { font-size: 9px; }
 
   .date-picker-panel {
     position: absolute;
@@ -544,29 +551,32 @@
     <div class="page-main">
       <div class="receipt">
         <header>
-          <div class="store">KRÓNAN</div>
-          <div class="subtitle">Verðbreytingar dagsins</div>
-        </header>
-
-        <div class="meta">
-          <span id="dateLabel">—</span>
-          <div class="date-picker" id="datePicker">
-            <button type="button" class="date-picker-toggle" id="dateToggle" aria-haspopup="true" aria-expanded="false">
-              Dagatal <span class="caret">▾</span>
-            </button>
-            <div class="date-picker-panel" id="datePanel" hidden>
-              <div class="date-picker-nav">
-                <button type="button" id="prevMonthBtn" aria-label="Fyrri mánuður">‹</button>
-                <span id="monthLabel"></span>
-                <button type="button" id="nextMonthBtn" aria-label="Næsti mánuður">›</button>
+          <div class="header-top">
+            <div>
+              <div class="store">KRÓNAN</div>
+              <div class="subtitle">Verðbreytingar dagsins</div>
+            </div>
+            <div class="header-date">
+              <span id="dateLabel">—</span>
+              <div class="date-picker" id="datePicker">
+                <button type="button" class="date-picker-toggle" id="dateToggle" aria-haspopup="true" aria-expanded="false">
+                  Dagatal <span class="caret">▾</span>
+                </button>
+                <div class="date-picker-panel" id="datePanel" hidden>
+                  <div class="date-picker-nav">
+                    <button type="button" id="prevMonthBtn" aria-label="Fyrri mánuður">‹</button>
+                    <span id="monthLabel"></span>
+                    <button type="button" id="nextMonthBtn" aria-label="Næsti mánuður">›</button>
+                  </div>
+                  <div class="date-picker-weekdays">
+                    <span>M</span><span>Þ</span><span>M</span><span>F</span><span>F</span><span>L</span><span>S</span>
+                  </div>
+                  <div class="date-picker-grid" id="dateGrid"></div>
+                </div>
               </div>
-              <div class="date-picker-weekdays">
-                <span>M</span><span>Þ</span><span>M</span><span>F</span><span>F</span><span>L</span><span>S</span>
-              </div>
-              <div class="date-picker-grid" id="dateGrid"></div>
             </div>
           </div>
-        </div>
+        </header>
 
         <div class="range-tabs" id="rangeTabs">
           <button type="button" class="range-tab active" data-range="daily">Síðasta sólarhring</button>
