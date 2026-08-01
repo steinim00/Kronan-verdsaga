@@ -450,7 +450,7 @@
 
   @media (min-width: 860px) {
     .page {
-      max-width: 980px;
+      max-width: 1040px;
       display: grid;
       grid-template-columns: 1fr 300px;
       align-items: start;
@@ -471,6 +471,17 @@
     }
     .two-col-grid > section:first-child { grid-column: 1; }
     .two-col-grid > section:last-child { grid-column: 2; }
+  }
+
+  /* Extra-wide: two movers going the same direction can sit side by side */
+  @media (min-width: 1300px) {
+    .page { max-width: 1360px; }
+    .movers-visible, .movers-extra {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 20px;
+    }
+    .movers-extra[hidden] { display: none; }
   }
 </style>
 </head>
