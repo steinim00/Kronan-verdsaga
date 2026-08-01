@@ -29,7 +29,7 @@
     background-image:
       radial-gradient(circle at 20% 20%, rgba(0,0,0,0.03), transparent 60%),
       radial-gradient(circle at 80% 80%, rgba(0,0,0,0.03), transparent 60%);
-    font-family: "JetBrains Mono", monospace;
+    font-family: "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
     color: var(--ink);
     display: flex;
     flex-direction: column;
@@ -810,7 +810,7 @@
     const date = new Date(y, m - 1, d);
     const dayName = DAY_NAMES[date.getDay()];
     const monthName = MONTH_NAMES[m - 1];
-    return `${dayName}, ${d}. ${monthName}`;
+    return `${dayName} ${d}. ${monthName}`;
   }
 
   function sparklineSvg(points) {
