@@ -805,7 +805,7 @@
 
   // ---------- product detail modal ----------
   function fmtDateShort(dateStr) {
-    const DAY_NAMES = ["sunnudagur", "mánudagur", "þriðjudagur", "miðvikudagur", "fimmtudagur", "föstudagur", "laugardagur"];
+    const DAY_NAMES = ["Sunnudagurinn", "Mánudagurinn", "Þriðjudagurinn", "Miðvikudagurinn", "Fimmtudagurinn", "Föstudagurinn", "Laugardagurinn"];
     const [y, m, d] = dateStr.split("-").map(Number);
     const date = new Date(y, m - 1, d);
     const dayName = DAY_NAMES[date.getDay()];
