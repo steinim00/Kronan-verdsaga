@@ -934,6 +934,32 @@
     const base = values.length ? values[0] : null;
     const changeFromStart = base ? Math.round(((current - base) / base) * 1000) / 10 : null;
 
+    // Síaðu vörurnar frá núverandi movers eftir flokki
+    const categoryIncreases = currentMovers ? (currentRange === "weekly" ? currentMovers.weekly.topIncreasesByAmount : currentMovers.topIncreasesByAmount)
+      .filter((it) => it.category === name) : [];
+    const categoryDecreases = currentMovers ? (currentRange === "weekly" ? currentMovers.weekly.topDecreasesByAmount : currentMovers.topDecreasesByAmount)
+      .filter((it) => it.category === name) : [];
+
+    const productsHtml = categoryIncreases.length || categoryDecreases.length
+      ? `
+        <div style="margin-top:20px;">
+          <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-faint); margin-bottom:8px;">Vörur sem breytust</div>
+          ${categoryIncreases.length ? `
+            <div style="margin-bottom:16px;">
+              <div style="font-size:11px; color:var(--up); font-weight:700; margin-bottom:6px;">▲ Hækkuðu (${categoryIncreases.length})</div>
+              ${renderList(categoryIncreases, "up", currentSort)}
+            </div>
+          ` : ""}
+          ${categoryDecreases.length ? `
+            <div>
+              <div style="font-size:11px; color:var(--down); font-weight:700; margin-bottom:6px;">▼ Lækkuðu (${categoryDecreases.length})</div>
+              ${renderList(categoryDecreases, "down", currentSort)}
+            </div>
+          ` : ""}
+        </div>
+      `
+      : `<div class="empty" style="margin-top:20px;">Engar vörur í þessum flokki breyttust á þessu tímabili.</div>`;
+
     modalContent.innerHTML = `
       <h2>${name}</h2>
       <div class="modal-meta">Vöruflokkur · óvegin verðvísitala (100 = ${points.length ? fmtDateShort(points[0][0]) : "upphaf"})</div>
@@ -943,8 +969,10 @@
       </div>
       ${sparklineSvg(points)}
       <div class="modal-meta" style="margin-top:10px;">Meðaltal af verðbreytingu allra vara í flokknum miðað við fyrstu verðmynd — ekki opinber vísitala.</div>
+      ${productsHtml}
     `;
     wireSparklineHover(modalContent, (v) => `${fmtIndex(v)} stig`);
+    attachLineClicks(modalContent);
   }
 
   document.getElementById("modalClose").addEventListener("click", () => modalBackdrop.classList.remove("open"));
