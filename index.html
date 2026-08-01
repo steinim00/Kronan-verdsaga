@@ -408,7 +408,35 @@
     font-size: 9px; text-transform: uppercase; letter-spacing: 0.05em;
     border: 1px solid var(--star); color: var(--star); padding: 2px 6px;
   }
-  .modal svg { width: 100%; height: 120px; margin: 12px 0; }
+  .modal svg { width: 100%; height: 120px; margin: 12px 0; display: block; }
+
+  .spark-wrap { position: relative; }
+  .spark-dot { fill: var(--ink-faint); }
+  .spark-hit { cursor: crosshair; }
+  .spark-tooltip {
+    display: none;
+    position: absolute;
+    transform: translate(-50%, -130%);
+    background: var(--ink);
+    color: var(--paper);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    line-height: 1.4;
+    padding: 5px 8px;
+    border-radius: 5px;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 5;
+  }
+  .spark-tooltip::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    border: 4px solid transparent;
+    border-top-color: var(--ink);
+  }
   .fav-toggle {
     font-family: inherit; font-size: 12px; padding: 8px 14px;
     border: 1px solid var(--star); background: transparent; color: var(--star);
@@ -661,6 +689,11 @@
   });
 
   // ---------- product detail modal ----------
+  function fmtDateShort(dateStr) {
+    const [, m, d] = dateStr.split("-").map(Number);
+    return `${d}. ${MONTH_NAMES[m - 1]}`;
+  }
+
   function sparklineSvg(points) {
     if (points.length < 2) {
       return '<div class="empty">Ekki næg gögn fyrir línurit ennþá</div>';
@@ -679,16 +712,49 @@
     const path = coords.map(([x, y], i) => (i === 0 ? `M${x},${y}` : `L${x},${y}`)).join(" ");
     const last = coords[coords.length - 1];
 
+    const dots = coords.map(([x, y], i) => `<circle class="spark-dot" cx="${x}" cy="${y}" r="2.5" />`).join("");
+    const hitAreas = coords.map(([x, y], i) => `
+      <circle class="spark-hit" cx="${x}" cy="${y}" r="10" fill="transparent"
+        data-date="${points[i][0]}" data-price="${points[i][1]}" data-x="${x}" data-y="${y}" />
+    `).join("");
+
     return `
-      <svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
-        <path d="${path}" fill="none" stroke="#2a2822" stroke-width="2" />
-        <circle cx="${last[0]}" cy="${last[1]}" r="3" fill="#a8351f" />
-      </svg>
+      <div class="spark-wrap">
+        <svg viewBox="0 0 ${w} ${h}" style="height:${h}px;" preserveAspectRatio="none">
+          <path d="${path}" fill="none" stroke="#2a2822" stroke-width="2" />
+          ${dots}
+          <circle cx="${last[0]}" cy="${last[1]}" r="3" fill="#a8351f" />
+          ${hitAreas}
+        </svg>
+        <div class="spark-tooltip" id="sparkTooltip"></div>
+      </div>
       <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--ink-faint);">
-        <span>${points[0][0]}</span>
-        <span>${points[points.length - 1][0]}</span>
+        <span>${fmtDateShort(points[0][0])}</span>
+        <span>${fmtDateShort(points[points.length - 1][0])}</span>
       </div>
     `;
+  }
+
+  function wireSparklineHover(root) {
+    const wrap = root.querySelector(".spark-wrap");
+    const tooltip = root.querySelector("#sparkTooltip");
+    if (!wrap || !tooltip) return;
+    const w = 380, h = 110;
+
+    wrap.querySelectorAll(".spark-hit").forEach((hit) => {
+      hit.addEventListener("mouseenter", () => showTip(hit));
+      hit.addEventListener("touchstart", (e) => { e.preventDefault(); showTip(hit); }, { passive: false });
+    });
+    wrap.addEventListener("mouseleave", () => { tooltip.style.display = "none"; });
+
+    function showTip(hit) {
+      const x = Number(hit.dataset.x), y = Number(hit.dataset.y);
+      const date = hit.dataset.date, price = Number(hit.dataset.price);
+      tooltip.innerHTML = `<strong>${fmtISK(price)}</strong><br>${fmtDateShort(date)}`;
+      tooltip.style.left = `${(x / w) * 100}%`;
+      tooltip.style.top = `${(y / h) * 100}%`;
+      tooltip.style.display = "block";
+    }
   }
 
   async function openProduct(sku, name, brand) {
@@ -721,6 +787,7 @@
       toggleFavorite(sku, name, brand);
       openProduct(sku, name, brand); // re-render to flip button state
     });
+    wireSparklineHover(modalContent);
   }
 
   document.getElementById("modalClose").addEventListener("click", () => modalBackdrop.classList.remove("open"));
