@@ -1346,27 +1346,27 @@
           <span class="category-count up">${up > 0 ? `▲${up}` : ""}</span>
           <span class="category-count down">${down > 0 ? `▼${down}` : ""}</span>
         </div>
-      `).join("") + anovaHtml(stats.anova);
+      `).join("") + anovaHtml(stats.anovaUp, "hækkunarhlutfalli") + anovaHtml(stats.anovaDown, "lækkunarhlutfalli");
     } catch (e) {
       weekdayCard.style.display = "none";
     }
   }
 
-  function anovaHtml(anova) {
+  function anovaHtml(anova, label) {
     if (!anova) {
       return `<div class="anova-box">
-        <strong>ANOVA-próf:</strong> ekki nóg gögn ennþá — vantar a.m.k. tvær mælingar á sama vikudegi til að geta reiknað dreifni innan hóps. Kemur sjálfkrafa eftir því sem fleiri vikur safnast.
+        <strong>ANOVA — ${label}:</strong> ekki nóg gögn ennþá — vantar a.m.k. tvær mælingar á sama vikudegi til að geta reiknað dreifni innan hóps. Kemur sjálfkrafa eftir því sem fleiri vikur safnast.
       </div>`;
     }
     if (anova.f == null) {
-      return `<div class="anova-box"><strong>ANOVA-próf:</strong> engin dreifni innan hópa fannst — ófullnægjandi gögn til að meta.</div>`;
+      return `<div class="anova-box"><strong>ANOVA — ${label}:</strong> engin dreifni innan hópa fannst — ófullnægjandi gögn til að meta.</div>`;
     }
     const sig = anova.p < 0.05;
     return `<div class="anova-box">
-      <strong>ANOVA-próf:</strong> F(${anova.df1}, ${anova.df2}) = ${anova.f}, p = ${anova.p < 0.001 ? "<0,001" : anova.p.toFixed(3).replace(".", ",")}<br>
+      <strong>ANOVA — ${label}:</strong> F(${anova.df1}, ${anova.df2}) = ${anova.f}, p = ${anova.p < 0.001 ? "<0,001" : anova.p.toFixed(3).replace(".", ",")}<br>
       ${sig
-        ? "Marktækur munur á breytingahlutfalli eftir vikudegi (p < 0,05)."
-        : "Enginn marktækur munur á breytingahlutfalli eftir vikudegi (p ≥ 0,05) — munurinn sem sést gæti verið tilviljun."}
+        ? `Marktækur munur á ${label} eftir vikudegi (p < 0,05).`
+        : `Enginn marktækur munur á ${label} eftir vikudegi (p ≥ 0,05) — munurinn sem sést gæti verið tilviljun.`}
     </div>`;
   }
 

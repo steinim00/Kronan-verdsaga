@@ -17,7 +17,7 @@ const ORDER = ["Mánudagur", "Þriðjudagur", "Miðvikudagur", "Fimmtudagur", "F
 
 export async function computeWeekdayStats() {
   const files = (await readdir(MOVERS_DIR)).filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f));
-  const stats = new Map(); // weekday name -> { up, down, days, changeRates: [] }
+  const stats = new Map(); // weekday name -> { up, down, days, upRates: [], downRates: [] }
 
   for (const f of files) {
     const raw = await readFile(new URL(f, MOVERS_DIR), "utf-8");
@@ -25,27 +25,33 @@ export async function computeWeekdayStats() {
     if (!movers.date || movers.increasedCount == null) continue;
 
     const weekday = WEEKDAY_NAMES[new Date(movers.date + "T12:00:00Z").getUTCDay()];
-    const entry = stats.get(weekday) || { up: 0, down: 0, days: 0, changeRates: [] };
+    const entry = stats.get(weekday) || { up: 0, down: 0, days: 0, upRates: [], downRates: [] };
     entry.up += movers.increasedCount || 0;
     entry.down += movers.decreasedCount || 0;
     entry.days += 1;
-    // Hlutfall vara sem breyttu um verð þennan dag — normaliserar fyrir
-    // örlítið mismunandi vörufjölda milli daga, svo dagar séu samanburðarhæfir.
+    // Hlutfall vara sem hækkuðu, og hlutfall sem lækkuðu, hvort í sínu lagi —
+    // normaliserar fyrir örlítið mismunandi vörufjölda milli daga.
     if (movers.productCount) {
-      entry.changeRates.push(((movers.changedCount || 0) / movers.productCount) * 100);
+      entry.upRates.push(((movers.increasedCount || 0) / movers.productCount) * 100);
+      entry.downRates.push(((movers.decreasedCount || 0) / movers.productCount) * 100);
     }
     stats.set(weekday, entry);
   }
 
-  // Einn-þátta ANOVA: er marktækur munur á breytingahlutfalli eftir vikudegi?
-  const groups = ORDER.filter((d) => stats.has(d)).map((d) => stats.get(d).changeRates);
-  const anova = oneWayAnova(groups);
+  // Tvö aðskilin einn-þátta ANOVA-próf: er marktækur munur á
+  // hækkunarhlutfalli eftir vikudegi? Og á lækkunarhlutfalli?
+  // (Sitt í hvoru lagi, því hækkanir og lækkanir gætu fylgt ólíku mynstri —
+  // t.d. ef Krónan keyrir tilboð sem renna út á ákveðnum vikudegi.)
+  const orderedDays = ORDER.filter((d) => stats.has(d));
+  const anovaUp = oneWayAnova(orderedDays.map((d) => stats.get(d).upRates));
+  const anovaDown = oneWayAnova(orderedDays.map((d) => stats.get(d).downRates));
 
-  const result = { days: {}, anova };
+  const result = { days: {}, anovaUp, anovaDown };
   for (const day of ORDER) {
     if (stats.has(day)) {
-      const { up, down, days, changeRates } = stats.get(day);
-      result.days[day] = { up, down, days, avgChangeRate: changeRates.length ? Math.round((changeRates.reduce((s, v) => s + v, 0) / changeRates.length) * 100) / 100 : null };
+      const { up, down, days, upRates, downRates } = stats.get(day);
+      const avg = (arr) => (arr.length ? Math.round((arr.reduce((s, v) => s + v, 0) / arr.length) * 100) / 100 : null);
+      result.days[day] = { up, down, days, avgUpRate: avg(upRates), avgDownRate: avg(downRates) };
     }
   }
 
