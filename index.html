@@ -398,6 +398,16 @@
   .cpi-row span:last-child.up { color: var(--up); font-weight: 700; }
   .cpi-row span:last-child.down { color: var(--down); font-weight: 700; }
 
+  .anova-box {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--rule);
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--ink-faint);
+  }
+  .anova-box strong { color: var(--ink); }
+
   .category-row {
     display: grid;
     grid-template-columns: 1fr 32px 32px;
@@ -1326,7 +1336,7 @@
       const res = await fetch("data/weekday-stats.json");
       if (!res.ok) { weekdayCard.style.display = "none"; return; }
       const stats = await res.json();
-      const days = Object.entries(stats);
+      const days = Object.entries(stats.days || {});
       if (days.length === 0) { weekdayCard.style.display = "none"; return; }
 
       weekdayCard.style.display = "";
@@ -1336,10 +1346,28 @@
           <span class="category-count up">${up > 0 ? `▲${up}` : ""}</span>
           <span class="category-count down">${down > 0 ? `▼${down}` : ""}</span>
         </div>
-      `).join("");
+      `).join("") + anovaHtml(stats.anova);
     } catch (e) {
       weekdayCard.style.display = "none";
     }
+  }
+
+  function anovaHtml(anova) {
+    if (!anova) {
+      return `<div class="anova-box">
+        <strong>ANOVA-próf:</strong> ekki nóg gögn ennþá — vantar a.m.k. tvær mælingar á sama vikudegi til að geta reiknað dreifni innan hóps. Kemur sjálfkrafa eftir því sem fleiri vikur safnast.
+      </div>`;
+    }
+    if (anova.f == null) {
+      return `<div class="anova-box"><strong>ANOVA-próf:</strong> engin dreifni innan hópa fannst — ófullnægjandi gögn til að meta.</div>`;
+    }
+    const sig = anova.p < 0.05;
+    return `<div class="anova-box">
+      <strong>ANOVA-próf:</strong> F(${anova.df1}, ${anova.df2}) = ${anova.f}, p = ${anova.p < 0.001 ? "<0,001" : anova.p.toFixed(3).replace(".", ",")}<br>
+      ${sig
+        ? "Marktækur munur á breytingahlutfalli eftir vikudegi (p < 0,05)."
+        : "Enginn marktækur munur á breytingahlutfalli eftir vikudegi (p ≥ 0,05) — munurinn sem sést gæti verið tilviljun."}
+    </div>`;
   }
 
   function renderCategoryBreakdown(movers) {
