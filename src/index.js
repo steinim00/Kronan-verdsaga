@@ -7,6 +7,7 @@ import { buildIndex } from "./buildIndex.js";
 import { updateHistory } from "./updateHistory.js";
 import { fetchCpi } from "./fetchCpi.js";
 import { computeCategoryTrends } from "./computeCategoryTrends.js";
+import { computeWeekdayStats } from "./computeWeekdayStats.js";
 
 const SNAPSHOT_DIR = new URL("../data/snapshots/", import.meta.url);
 
@@ -79,6 +80,13 @@ async function main() {
     await computeCategoryTrends();
   } catch (err) {
     console.log(`  Flokkavísitala mistókst (halda samt áfram): ${err.message}`);
+  }
+
+  try {
+    console.log("Reikna hækkanir/lækkanir eftir vikudegi...");
+    await computeWeekdayStats();
+  } catch (err) {
+    console.log(`  Vikudagatölfræði mistókst (halda samt áfram): ${err.message}`);
   }
 
   try {

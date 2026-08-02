@@ -620,6 +620,11 @@
         <div id="categoriesContent"></div>
       </div>
 
+      <div class="receipt" id="weekdayCard" style="display:none;">
+        <div class="section-label">Hækkanir eftir vikudegi</div>
+        <div id="weekdayContent"></div>
+      </div>
+
       <div class="receipt" id="favoritesCard" style="display:none;">
         <div class="section-label">★ Mínar vörur</div>
         <div id="favoritesContent"></div>
@@ -1313,6 +1318,30 @@
   const categoriesCard = document.getElementById("categoriesCard");
   const categoriesContent = document.getElementById("categoriesContent");
 
+  const weekdayCard = document.getElementById("weekdayCard");
+  const weekdayContent = document.getElementById("weekdayContent");
+
+  async function loadWeekdayStats() {
+    try {
+      const res = await fetch("data/weekday-stats.json");
+      if (!res.ok) { weekdayCard.style.display = "none"; return; }
+      const stats = await res.json();
+      const days = Object.entries(stats);
+      if (days.length === 0) { weekdayCard.style.display = "none"; return; }
+
+      weekdayCard.style.display = "";
+      weekdayContent.innerHTML = days.map(([name, { up, down }]) => `
+        <div class="category-row">
+          <span class="category-name">${name}</span>
+          <span class="category-count up">${up > 0 ? `▲${up}` : ""}</span>
+          <span class="category-count down">${down > 0 ? `▼${down}` : ""}</span>
+        </div>
+      `).join("");
+    } catch (e) {
+      weekdayCard.style.display = "none";
+    }
+  }
+
   function renderCategoryBreakdown(movers) {
     const counts = new Map(); // category -> { up, down }
     for (const it of movers.topIncreases || []) {
@@ -1366,6 +1395,7 @@
   init();
   renderFavorites();
   loadCpi();
+  loadWeekdayStats();
 </script>
 </body>
 </html>
