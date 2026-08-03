@@ -825,14 +825,14 @@
       return;
     }
     searchResultsEl.innerHTML = matches.map((p) => `
-      <div class="search-result" data-sku="${p.sku}" data-name="${p.name.replace(/"/g, '&quot;')}" data-brand="${(p.brand||"").replace(/"/g, '&quot;')}">
+      <div class="search-result" data-sku="${p.sku}" data-name="${p.name.replace(/"/g, '&quot;')}" data-brand="${(p.brand||"").replace(/"/g, '&quot;')}" data-category="${(p.categoryPath ? p.categoryPath.split("/")[0].trim() : "").replace(/"/g, '&quot;')}">
         <div class="sr-name">${p.name}</div>
         <div class="sr-meta">${[p.categoryPath ? p.categoryPath.split("/")[0].trim() : null, p.brand].filter(Boolean).join(" · ")}</div>
       </div>
     `).join("");
     searchResultsEl.querySelectorAll(".search-result[data-sku]").forEach((el) => {
       el.addEventListener("click", () => {
-        openProduct(el.dataset.sku, el.dataset.name, el.dataset.brand);
+        openProduct(el.dataset.sku, el.dataset.name, el.dataset.brand, el.dataset.category);
         searchResultsEl.innerHTML = "";
         searchInputEl.value = "";
       });
@@ -922,7 +922,7 @@
     }
   }
 
-  async function openProduct(sku, name, brand) {
+  async function openProduct(sku, name, brand, category) {
     modalBackdrop.classList.add("open");
     modalContent.innerHTML = '<div class="status">Sæki verðsögu…</div>';
 
@@ -934,6 +934,7 @@
     const high = prices.length ? Math.max(...prices) : null;
 
     const fav = isFavorite(sku);
+    const categoryHtml = category ? await categoryIndexSummaryHtml(category) : "";
 
     modalContent.innerHTML = `
       <h2>${name}</h2>
@@ -947,12 +948,37 @@
       <button class="fav-toggle ${fav ? "active" : ""}" id="favToggleBtn">
         ${fav ? "★ Í eftirlæti — fjarlægja" : "☆ Bæta í eftirlæti"}
       </button>
+      ${categoryHtml}
     `;
     document.getElementById("favToggleBtn").addEventListener("click", () => {
       toggleFavorite(sku, name, brand);
-      openProduct(sku, name, brand); // re-render to flip button state
+      openProduct(sku, name, brand, category); // re-render to flip button state
     });
     wireSparklineHover(modalContent);
+    modalContent.querySelectorAll(".cat-link").forEach((el) => {
+      el.addEventListener("click", () => openCategory(el.dataset.category));
+    });
+  }
+
+  async function categoryIndexSummaryHtml(category) {
+    const trends = await ensureCategoryTrendsLoaded();
+    const points = trends[category] || [];
+    const values = points.map((p) => p[1]);
+    const current = values.length ? values[values.length - 1] : null;
+    const base = values.length ? values[0] : null;
+    const changeFromStart = base ? Math.round(((current - base) / base) * 1000) / 10 : null;
+
+    const subs = await ensureCategorySubindicesLoaded();
+    const hagstofaLine = subs[category]
+      ? ` · Hagstofan: ${fmtCpiPercent(subs[category].yearChangePercent)} á ári`
+      : "";
+
+    return `
+      <div class="anova-box" style="margin-top:16px;">
+        <strong>Flokkurinn <span class="cat-link" data-category="${category.replace(/"/g,'&quot;')}">${category}</span>:</strong><br>
+        ${current != null ? `${fmtIndex(current)} stig${changeFromStart != null ? ` (${changeFromStart > 0 ? "+" : ""}${fmtIndex(changeFromStart)}% frá upphafi)` : ""}` : "engin gögn ennþá"}${hagstofaLine}
+      </div>
+    `;
   }
 
   // ---------- category trend modal ----------
@@ -1028,7 +1054,7 @@
   }
 
   let categorySubindices = null;
-  async function hagstofaCategoryHtml(name) {
+  async function ensureCategorySubindicesLoaded() {
     if (categorySubindices === null) {
       try {
         const res = await fetch("data/cpi-categories.json");
@@ -1037,7 +1063,11 @@
         categorySubindices = {};
       }
     }
-    const c = categorySubindices[name];
+    return categorySubindices;
+  }
+  async function hagstofaCategoryHtml(name) {
+    const subs = await ensureCategorySubindicesLoaded();
+    const c = subs[name];
     if (!c) return "";
     return `
       <div class="anova-box" style="margin-top:16px;">
@@ -1067,7 +1097,7 @@
   function renderList(items, direction, sortMode) {
     if (!items || items.length === 0) return '<div class="empty">Engar breytingar</div>';
     return items.map((it) => `
-      <div class="line ${direction}" data-sku="${it.sku}" data-name="${it.name.replace(/"/g,'&quot;')}" data-brand="${(it.brand||"").replace(/"/g,'&quot;')}">
+      <div class="line ${direction}" data-sku="${it.sku}" data-name="${it.name.replace(/"/g,'&quot;')}" data-brand="${(it.brand||"").replace(/"/g,'&quot;')}" data-category="${(it.category||"").replace(/"/g,'&quot;')}">
         <div class="name">${it.name}${badgeFor(it)}</div>
         <div class="percent">${sortMode === "amount" ? fmtAmount(it.amount, it.unit) : fmtPercent(it.percent)}</div>
         <div class="meta">${metaLine(it)}</div>
@@ -1109,7 +1139,7 @@
   function renderExtreme(item) {
     if (!item) return '<div class="empty">Engin gögn</div>';
     return `
-      <div class="line" data-sku="${item.sku}" data-name="${item.name.replace(/"/g,'&quot;')}" data-brand="${(item.brand||"").replace(/"/g,'&quot;')}">
+      <div class="line" data-sku="${item.sku}" data-name="${item.name.replace(/"/g,'&quot;')}" data-brand="${(item.brand||"").replace(/"/g,'&quot;')}" data-category="${(item.category||"").replace(/"/g,'&quot;')}">
         <div class="name">${item.name}${badgeFor(item)}</div>
         <div class="percent">${fmtISK(item.price)}</div>
         <div class="meta">${metaLine(item)}</div>
@@ -1122,7 +1152,7 @@
       return '<div class="empty">Ekki nóg gögn ennþá — kemur eftir nokkra daga</div>';
     }
     return items.map((it) => `
-      <div class="line" data-sku="${it.sku}" data-name="${it.name.replace(/"/g,'&quot;')}" data-brand="${(it.brand||"").replace(/"/g,'&quot;')}">
+      <div class="line" data-sku="${it.sku}" data-name="${it.name.replace(/"/g,'&quot;')}" data-brand="${(it.brand||"").replace(/"/g,'&quot;')}" data-category="${(it.category||"").replace(/"/g,'&quot;')}">
         <div class="name">${it.name}</div>
         <div class="percent" style="color:var(--star);">${it.changes}×</div>
         <div class="meta">${metaLine(it)}</div>
@@ -1133,7 +1163,7 @@
 
   function attachLineClicks(root) {
     root.querySelectorAll(".line[data-sku]").forEach((el) => {
-      el.addEventListener("click", () => openProduct(el.dataset.sku, el.dataset.name, el.dataset.brand));
+      el.addEventListener("click", () => openProduct(el.dataset.sku, el.dataset.name, el.dataset.brand, el.dataset.category));
     });
     root.querySelectorAll(".cat-link").forEach((el) => {
       el.addEventListener("click", (e) => {
