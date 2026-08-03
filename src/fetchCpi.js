@@ -22,8 +22,11 @@ function findCode(variable, wantedText) {
 }
 
 async function fetchTableMeta(url) {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`lýsigögn -> ${res.status}`);
+  const res = await fetch(url, { headers: { Accept: "application/json" } });
+  if (!res.ok) {
+    const text = await res.text().catch(() => "");
+    throw new Error(`lýsigögn -> ${res.status}: ${text.slice(0, 300)}`);
+  }
   return res.json();
 }
 
