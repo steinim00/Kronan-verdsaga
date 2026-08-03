@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="is">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Verðbreytingar — Krónan</title>
+<title>Price Changes — Kronan</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -592,23 +592,23 @@
           <div class="header-top">
             <div>
               <div class="store">KRÓNAN</div>
-              <div class="subtitle">Verðbreytingar dagsins</div>
+              <div class="subtitle">Today's price changes</div>
             </div>
             <div class="header-date">
-              <a href="index-en.html" class="lang-switch">EN</a>
+              <a href="index.html" class="lang-switch">IS</a>
               <span id="dateLabel">—</span>
               <div class="date-picker" id="datePicker">
                 <button type="button" class="date-picker-toggle" id="dateToggle" aria-haspopup="true" aria-expanded="false">
-                  Dagatal <span class="caret">▾</span>
+                  Calendar <span class="caret">▾</span>
                 </button>
                 <div class="date-picker-panel" id="datePanel" hidden>
                   <div class="date-picker-nav">
-                    <button type="button" id="prevMonthBtn" aria-label="Fyrri mánuður">‹</button>
+                    <button type="button" id="prevMonthBtn" aria-label="Previous month">‹</button>
                     <span id="monthLabel"></span>
-                    <button type="button" id="nextMonthBtn" aria-label="Næsti mánuður">›</button>
+                    <button type="button" id="nextMonthBtn" aria-label="Next month">›</button>
                   </div>
                   <div class="date-picker-weekdays">
-                    <span>M</span><span>Þ</span><span>M</span><span>F</span><span>F</span><span>L</span><span>S</span>
+                    <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
                   </div>
                   <div class="date-picker-grid" id="dateGrid"></div>
                 </div>
@@ -619,48 +619,48 @@
         </header>
 
         <div class="range-tabs" id="rangeTabs">
-          <button type="button" class="range-tab active" data-range="daily">Síðasta sólarhring</button>
-          <button type="button" class="range-tab" data-range="weekly">Síðustu viku</button>
+          <button type="button" class="range-tab active" data-range="daily">Last 24 hours</button>
+          <button type="button" class="range-tab" data-range="weekly">Last week</button>
         </div>
         <div class="sort-tabs" id="sortTabs">
-          <button type="button" class="sort-tab active" data-sort="percent">Raða eftir %</button>
-          <button type="button" class="sort-tab" data-sort="amount">Raða eftir kr.</button>
+          <button type="button" class="sort-tab active" data-sort="percent">Sort by %</button>
+          <button type="button" class="sort-tab" data-sort="amount">Sort by ISK</button>
         </div>
 
-        <div id="content"><div class="status">Sæki gögn…</div></div>
+        <div id="content"><div class="status">Loading data…</div></div>
 
-        <footer>flest vörunúmer · daglegt uppgjör</footer>
+        <footer>most product codes · daily snapshot</footer>
       </div>
     </div>
 
     <div class="page-sidebar">
       <div class="toolbar">
-        <input class="search-input" id="searchInput" placeholder="Leita að vöru (nafn eða vörunúmer)…" autocomplete="off" />
+        <input class="search-input" id="searchInput" placeholder="Search for a product (name or SKU)…" autocomplete="off" />
         <div class="search-filters" id="searchFilters">
-          <select id="categoryFilter" aria-label="Sía eftir flokki">
-            <option value="">Allir flokkar</option>
+          <select id="categoryFilter" aria-label="Filter by category">
+            <option value="">All categories</option>
           </select>
           <div class="direction-filter" id="directionFilter">
-            <button type="button" class="dir-btn active" data-dir="">Allar</button>
-            <button type="button" class="dir-btn" data-dir="up">▲ Hækkað</button>
-            <button type="button" class="dir-btn" data-dir="down">▼ Lækkað</button>
+            <button type="button" class="dir-btn active" data-dir="">All</button>
+            <button type="button" class="dir-btn" data-dir="up">▲ Up</button>
+            <button type="button" class="dir-btn" data-dir="down">▼ Down</button>
           </div>
         </div>
         <div class="search-results" id="searchResults"></div>
       </div>
 
       <div class="receipt" id="categoriesCard" style="display:none;">
-        <div class="section-label">Vöruflokkar í dag</div>
+        <div class="section-label">Categories today</div>
         <div id="categoriesContent"></div>
       </div>
 
       <div class="receipt" id="weekdayCard" style="display:none;">
-        <div class="section-label">Hækkanir eftir vikudegi</div>
+        <div class="section-label">Increases by weekday</div>
         <div id="weekdayContent"></div>
       </div>
 
       <div class="receipt" id="favoritesCard" style="display:none;">
-        <div class="section-label">★ Mínar vörur</div>
+        <div class="section-label">★ My products</div>
         <div id="favoritesContent"></div>
       </div>
     </div>
@@ -697,21 +697,21 @@
 
   // ---------- formatting ----------
   function fmtISK(n) {
-    return new Intl.NumberFormat("is-IS").format(n) + " kr";
+    return new Intl.NumberFormat("en-US").format(n) + " kr";
   }
   // Shows the unit next to the price when it's not a plain per-item price
   // (e.g. "1.598 kr/kg" for weight-priced goods, just "399 kr" for stk).
   function fmtISKUnit(n, unit) {
-    const base = new Intl.NumberFormat("is-IS").format(n) + " kr";
+    const base = new Intl.NumberFormat("en-US").format(n) + " kr";
     if (!unit || unit.toLowerCase() === "stk") return base;
     return base + "/" + unit;
   }
   function fmtPercent(n) {
-    const formatted = new Intl.NumberFormat("is-IS", { maximumFractionDigits: 2 }).format(Math.abs(n));
+    const formatted = new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(Math.abs(n));
     return (n > 0 ? "+" : n < 0 ? "-" : "") + formatted + "%";
   }
   function fmtAmount(n, unit) {
-    const formatted = new Intl.NumberFormat("is-IS").format(Math.abs(Math.round(n)));
+    const formatted = new Intl.NumberFormat("en-US").format(Math.abs(Math.round(n)));
     const sign = n > 0 ? "+" : n < 0 ? "-" : "";
     const suffix = unit && unit.toLowerCase() !== "stk" ? "/" + unit : "";
     return `${sign}${formatted} kr${suffix}`;
@@ -741,7 +741,7 @@
     const favs = getFavorites();
     if (favs.length === 0) { favoritesCard.style.display = "none"; return; }
     favoritesCard.style.display = "";
-    favoritesContent.innerHTML = '<div class="status" style="padding:12px 0;">Sæki verð…</div>';
+    favoritesContent.innerHTML = '<div class="status" style="padding:12px 0;">Fetching prices…</div>';
 
     const rows = await Promise.all(favs.map(async (f) => {
       const hist = await fetchHistory(f.sku);
@@ -788,7 +788,7 @@
 
   function populateCategoryFilter(index) {
     const cats = [...new Set(index.map((p) => (p.categoryPath ? p.categoryPath.split("/")[0].trim() : null)).filter(Boolean))].sort();
-    categoryFilterEl.innerHTML = '<option value="">Allir flokkar</option>' + cats.map((c) => `<option value="${c}">${c}</option>`).join("");
+    categoryFilterEl.innerHTML = '<option value="">All categories</option>' + cats.map((c) => `<option value="${c}">${c}</option>`).join("");
   }
 
   // ---------- search ----------
@@ -858,22 +858,22 @@
 
   // ---------- product detail modal ----------
   function fmtDateLong(dateStr) {
-    const DAY_NAMES = ["Sunnudagurinn", "Mánudagurinn", "Þriðjudagurinn", "Miðvikudagurinn", "Fimmtudagurinn", "Föstudagurinn", "Laugardagurinn"];
+    const DAY_NAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const [y, m, d] = dateStr.split("-").map(Number);
     const date = new Date(y, m - 1, d);
     const dayName = DAY_NAMES[date.getDay()];
     const monthName = MONTH_NAMES[m - 1];
-    return `${dayName} ${d}. ${monthName}`;
+    return `${dayName}, ${monthName} ${d}`;
   }
 
   function fmtDateShort(dateStr) {
     const [y, m, d] = dateStr.split("-").map(Number);
-    return `${d}. ${MONTH_NAMES[m - 1]}`;
+    return `${MONTH_NAMES[m - 1]} ${d}`;
   }
 
   function sparklineSvg(points) {
     if (points.length < 2) {
-      return '<div class="empty">Ekki næg gögn fyrir línurit ennþá</div>';
+      return '<div class="empty">Not enough data for a chart yet</div>';
     }
     const w = 380, h = 110, pad = 6;
     const prices = points.map((p) => p[1]);
@@ -937,7 +937,7 @@
 
   async function openProduct(sku, name, brand, category) {
     modalBackdrop.classList.add("open");
-    modalContent.innerHTML = '<div class="status">Sæki verðsögu…</div>';
+    modalContent.innerHTML = '<div class="status">Fetching price history…</div>';
 
     const hist = await fetchHistory(sku);
     const points = hist.h; // [[date, price, pricePerKiloOrNull], ...]
@@ -954,12 +954,12 @@
       <div class="modal-meta">${sku}${brand ? " · " + brand : ""}</div>
       <div class="modal-price">${currentPrice != null ? fmtISK(currentPrice) : "—"}</div>
       <div class="modal-badges">
-        ${currentPrice != null && currentPrice === low ? '<span class="badge-tag">Lægsta verð sem sést hefur</span>' : ""}
-        ${currentPrice != null && currentPrice === high && low !== high ? '<span class="badge-tag">Hæsta verð sem sést hefur</span>' : ""}
+        ${currentPrice != null && currentPrice === low ? '<span class="badge-tag">Lowest price seen so far</span>' : ""}
+        ${currentPrice != null && currentPrice === high && low !== high ? '<span class="badge-tag">Highest price seen so far</span>' : ""}
       </div>
       ${sparklineSvg(points)}
       <button class="fav-toggle ${fav ? "active" : ""}" id="favToggleBtn">
-        ${fav ? "★ Í eftirlæti — fjarlægja" : "☆ Bæta í eftirlæti"}
+        ${fav ? "★ In favorites — remove" : "☆ Add to favorites"}
       </button>
       ${categoryHtml}
     `;
@@ -983,13 +983,13 @@
 
     const subs = await ensureCategorySubindicesLoaded();
     const hagstofaLine = subs[category]
-      ? ` · Hagstofan: ${fmtCpiPercent(subs[category].yearChangePercent)} á ári`
+      ? ` · Statistics Iceland: ${fmtCpiPercent(subs[category].yearChangePercent)} YoY`
       : "";
 
     return `
       <div class="anova-box" style="margin-top:16px;">
-        <strong>Flokkurinn <span class="cat-link" data-category="${category.replace(/"/g,'&quot;')}">${category}</span>:</strong><br>
-        ${current != null ? `${fmtIndex(current)} stig${changeFromStart != null ? ` (${changeFromStart > 0 ? "+" : ""}${fmtIndex(changeFromStart)}% frá upphafi)` : ""}` : "engin gögn ennþá"}${hagstofaLine}
+        <strong>Category <span class="cat-link" data-category="${category.replace(/"/g,'&quot;')}">${category}</span>:</strong><br>
+        ${current != null ? `${fmtIndex(current)} points${changeFromStart != null ? ` (${changeFromStart > 0 ? "+" : ""}${fmtIndex(changeFromStart)}% since start)` : ""}` : "no data yet"}${hagstofaLine}
       </div>
     `;
   }
@@ -1008,12 +1008,12 @@
   }
 
   function fmtIndex(n) {
-    return new Intl.NumberFormat("is-IS", { maximumFractionDigits: 1 }).format(n);
+    return new Intl.NumberFormat("en-US", { maximumFractionDigits: 1 }).format(n);
   }
 
   async function openCategory(name) {
     modalBackdrop.classList.add("open");
-    modalContent.innerHTML = '<div class="status">Sæki verðþróun flokks…</div>';
+    modalContent.innerHTML = '<div class="status">Fetching category price trend…</div>';
 
     const trends = await ensureCategoryTrendsLoaded();
     const points = trends[name] || [];
@@ -1022,7 +1022,7 @@
     const base = values.length ? values[0] : null;
     const changeFromStart = base ? Math.round(((current - base) / base) * 1000) / 10 : null;
 
-    // Síaðu vörurnar frá núverandi movers eftir flokki
+    // Filter products from current movers by category
     const categoryIncreases = currentMovers ? (currentRange === "weekly" ? currentMovers.weekly.topIncreasesByAmount : currentMovers.topIncreasesByAmount)
       .filter((it) => it.category === name) : [];
     const categoryDecreases = currentMovers ? (currentRange === "weekly" ? currentMovers.weekly.topDecreasesByAmount : currentMovers.topDecreasesByAmount)
@@ -1031,38 +1031,38 @@
     const productsHtml = categoryIncreases.length || categoryDecreases.length
       ? `
         <div style="margin-top:20px;">
-          <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-faint); margin-bottom:8px;">Vörur sem breytust</div>
+          <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-faint); margin-bottom:8px;">Products that changed</div>
           ${categoryIncreases.length ? `
             <div style="margin-bottom:16px;">
-              <div style="font-size:11px; color:var(--up); font-weight:700; margin-bottom:6px;">▲ Hækkuðu (${categoryIncreases.length})</div>
+              <div style="font-size:11px; color:var(--up); font-weight:700; margin-bottom:6px;">▲ Increased (${categoryIncreases.length})</div>
               ${renderList(categoryIncreases, "up", currentSort)}
             </div>
           ` : ""}
           ${categoryDecreases.length ? `
             <div>
-              <div style="font-size:11px; color:var(--down); font-weight:700; margin-bottom:6px;">▼ Lækkuðu (${categoryDecreases.length})</div>
+              <div style="font-size:11px; color:var(--down); font-weight:700; margin-bottom:6px;">▼ Decreased (${categoryDecreases.length})</div>
               ${renderList(categoryDecreases, "down", currentSort)}
             </div>
           ` : ""}
         </div>
       `
-      : `<div class="empty" style="margin-top:20px;">Engar vörur í þessum flokki breyttust á þessu tímabili.</div>`;
+      : `<div class="empty" style="margin-top:20px;">No products in this category changed during this period.</div>`;
 
     const hagstofaHtml = await hagstofaCategoryHtml(name);
 
     modalContent.innerHTML = `
       <h2>${name}</h2>
-      <div class="modal-meta">Vöruflokkur · óvegin verðvísitala (100 = ${points.length ? fmtDateShort(points[0][0]) : "upphaf"})</div>
-      <div class="modal-price">${current != null ? fmtIndex(current) : "—"} stig</div>
+      <div class="modal-meta">Product category · unweighted price index (100 = ${points.length ? fmtDateShort(points[0][0]) : "start"})</div>
+      <div class="modal-price">${current != null ? fmtIndex(current) : "—"} points</div>
       <div class="modal-badges">
-        ${changeFromStart != null ? `<span class="badge-tag">${changeFromStart > 0 ? "+" : ""}${fmtIndex(changeFromStart)}% frá upphafi</span>` : ""}
+        ${changeFromStart != null ? `<span class="badge-tag">${changeFromStart > 0 ? "+" : ""}${fmtIndex(changeFromStart)}% since start</span>` : ""}
       </div>
       ${sparklineSvg(points)}
-      <div class="modal-meta" style="margin-top:10px;">Meðaltal af verðbreytingu allra vara í flokknum miðað við fyrstu verðmynd — ekki opinber vísitala.</div>
+      <div class="modal-meta" style="margin-top:10px;">Average price change of all products in this category relative to the first snapshot — not an official index.</div>
       ${hagstofaHtml}
       ${productsHtml}
     `;
-    wireSparklineHover(modalContent, (v) => `${fmtIndex(v)} stig`);
+    wireSparklineHover(modalContent, (v) => `${fmtIndex(v)} points`);
     attachLineClicks(modalContent);
   }
 
@@ -1084,8 +1084,8 @@
     if (!c) return "";
     return `
       <div class="anova-box" style="margin-top:16px;">
-        <strong>Samkvæmt Hagstofunni (opinber undirvísitala, ${fmtCpiMonth(c.month)}):</strong><br>
-        ${fmtIndex(c.index)} stig · mánaðarbreyting ${fmtCpiPercent(c.monthChangePercent)} · ársbreyting ${fmtCpiPercent(c.yearChangePercent)}
+        <strong>According to Statistics Iceland (official sub-index, ${fmtCpiMonth(c.month)}):</strong><br>
+        ${fmtIndex(c.index)} points · monthly change ${fmtCpiPercent(c.monthChangePercent)} · yearly change ${fmtCpiPercent(c.yearChangePercent)}
       </div>
     `;
   }
@@ -1097,8 +1097,8 @@
 
   // ---------- movers rendering ----------
   function badgeFor(item) {
-    if (item.allTimeLow) return '<span class="badge">nýtt lágmark</span>';
-    if (item.allTimeHigh) return '<span class="badge">nýtt hámark</span>';
+    if (item.allTimeLow) return '<span class="badge">new low</span>';
+    if (item.allTimeHigh) return '<span class="badge">new high</span>';
     return "";
   }
 
@@ -1108,7 +1108,7 @@
   }
 
   function renderList(items, direction, sortMode) {
-    if (!items || items.length === 0) return '<div class="empty">Engar breytingar</div>';
+    if (!items || items.length === 0) return '<div class="empty">No changes</div>';
     return items.map((it) => `
       <div class="line ${direction}" data-sku="${it.sku}" data-name="${it.name.replace(/"/g,'&quot;')}" data-brand="${(it.brand||"").replace(/"/g,'&quot;')}" data-category="${(it.category||"").replace(/"/g,'&quot;')}">
         <div class="name">${it.name}${badgeFor(it)}</div>
@@ -1120,7 +1120,7 @@
   }
 
   // Shows the first 4 movers; the rest render hidden and are revealed by
-  // a single shared "sjá fleiri" button below both columns.
+  // a single shared "see more" button below both columns.
   const MOVERS_PREVIEW_COUNT = 4;
   function renderMoversSection(items, direction, sortMode) {
     if (!items || items.length === 0) return renderList(items, direction, sortMode);
@@ -1145,12 +1145,12 @@
         if (collapsed) extra.removeAttribute("hidden");
         else extra.setAttribute("hidden", "");
       });
-      btn.textContent = collapsed ? "Sýna færri" : `Sjá fleiri (${totalExtra})`;
+      btn.textContent = collapsed ? "Show fewer" : `See more (${totalExtra})`;
     });
   }
 
   function renderExtreme(item) {
-    if (!item) return '<div class="empty">Engin gögn</div>';
+    if (!item) return '<div class="empty">No data</div>';
     return `
       <div class="line" data-sku="${item.sku}" data-name="${item.name.replace(/"/g,'&quot;')}" data-brand="${(item.brand||"").replace(/"/g,'&quot;')}" data-category="${(item.category||"").replace(/"/g,'&quot;')}">
         <div class="name">${item.name}${badgeFor(item)}</div>
@@ -1162,14 +1162,14 @@
 
   function renderVolatile(items) {
     if (!items || items.length === 0) {
-      return '<div class="empty">Ekki nóg gögn ennþá — kemur eftir nokkra daga</div>';
+      return '<div class="empty">Not enough data yet — coming in a few days</div>';
     }
     return items.map((it) => `
       <div class="line" data-sku="${it.sku}" data-name="${it.name.replace(/"/g,'&quot;')}" data-brand="${(it.brand||"").replace(/"/g,'&quot;')}" data-category="${(it.category||"").replace(/"/g,'&quot;')}">
         <div class="name">${it.name}</div>
         <div class="percent" style="color:var(--star);">${it.changes}×</div>
         <div class="meta">${metaLine(it)}</div>
-        <div class="prices">á ${it.days} dögum</div>
+        <div class="prices">over ${it.days} days</div>
       </div>
     `).join("");
   }
@@ -1227,12 +1227,12 @@
 
     if (currentRange === "weekly" && !rd.comparedTo) {
       contentEl.innerHTML = `
-        <div class="status">Ekki nóg gögn ennþá til að bera saman við síðustu viku — kemur eftir nokkra daga.</div>
-        <div class="section-label">Ódýrasta varan</div>
+        <div class="status">Not enough data yet to compare with last week — coming in a few days.</div>
+        <div class="section-label">Cheapest product</div>
         ${renderExtreme(movers.cheapest)}
-        <div class="section-label">Dýrasta varan</div>
+        <div class="section-label">Most expensive product</div>
         ${renderExtreme(movers.mostExpensive)}
-        <div class="section-label">★ Óstöðugustu vörurnar</div>
+        <div class="section-label">★ Most volatile products</div>
         ${renderVolatile(movers.mostVolatile)}
       `;
       attachLineClicks(contentEl);
@@ -1246,26 +1246,26 @@
     contentEl.innerHTML = `
       <div class="two-col-grid">
         <section class="col-up">
-          <div class="section-label up">Mestu hækkanir (${rd.increasedCount ?? 0})</div>
+          <div class="section-label up">Biggest increases (${rd.increasedCount ?? 0})</div>
           ${renderMoversSection(upList, "up", currentSort)}
         </section>
         <section class="col-down">
-          <div class="section-label down">Mestu lækkanir (${rd.decreasedCount ?? 0})</div>
+          <div class="section-label down">Biggest decreases (${rd.decreasedCount ?? 0})</div>
           ${renderMoversSection(downList, "down", currentSort)}
         </section>
       </div>
-      ${totalExtra > 0 ? `<button type="button" class="see-more-btn">Sjá fleiri (${totalExtra})</button>` : ""}
+      ${totalExtra > 0 ? `<button type="button" class="see-more-btn">See more (${totalExtra})</button>` : ""}
       <div class="two-col-grid">
         <section>
-          <div class="section-label">Ódýrasta varan</div>
+          <div class="section-label">Cheapest product</div>
           ${renderExtreme(movers.cheapest)}
         </section>
         <section>
-          <div class="section-label">Dýrasta varan</div>
+          <div class="section-label">Most expensive product</div>
           ${renderExtreme(movers.mostExpensive)}
         </section>
       </div>
-      <div class="section-label">★ Óstöðugustu vörurnar</div>
+      <div class="section-label">★ Most volatile products</div>
       ${renderVolatile(movers.mostVolatile)}
     `;
     attachLineClicks(contentEl);
@@ -1274,18 +1274,18 @@
   }
 
   async function loadDate(date) {
-    contentEl.innerHTML = '<div class="status">Sæki gögn…</div>';
+    contentEl.innerHTML = '<div class="status">Loading data…</div>';
     try {
       const res = await fetch(`data/movers/${date}.json`);
       if (!res.ok) throw new Error("not found");
       renderMovers(await res.json());
     } catch (e) {
-      contentEl.innerHTML = '<div class="status">Fann engin gögn fyrir þennan dag.</div>';
+      contentEl.innerHTML = '<div class="status">No data found for this day.</div>';
     }
   }
 
   // ---------- calendar date picker ----------
-  const MONTH_NAMES = ["janúar","febrúar","mars","apríl","maí","júní","júlí","ágúst","september","október","nóvember","desember"];
+  const MONTH_NAMES = ["January","February","March","April","May","June","July","August","September","October","November","December"];
   let availableDates = [];
   let selectedDate = null;
   let viewYear = 0, viewMonth = 0; // viewMonth is 0-indexed
@@ -1357,9 +1357,9 @@
     renderCalendarGrid();
   }
 
-  const CPI_MONTH_NAMES = ["janúar","febrúar","mars","apríl","maí","júní","júlí","ágúst","september","október","nóvember","desember"];
+  const CPI_MONTH_NAMES = ["January","February","March","April","May","June","July","August","September","October","November","December"];
   function fmtCpiMonth(m) {
-    // "2026M05" -> "maí 2026"
+    // "2026M05" -> "May 2026"
     if (!m) return "";
     const [y, mm] = m.split("M");
     return `${CPI_MONTH_NAMES[Number(mm) - 1]} ${y}`;
@@ -1367,7 +1367,7 @@
   function fmtCpiPercent(p) {
     if (p === null || p === undefined || Number.isNaN(p)) return "—";
     const sign = p > 0 ? "+" : "";
-    return `${sign}${p.toFixed(1)}%`.replace(".", ",");
+    return `${sign}${p.toFixed(1)}%`;
   }
   function cpiDirClass(p) {
     if (p === null || p === undefined) return "";
@@ -1381,18 +1381,18 @@
       const res = await fetch("data/cpi.json");
       if (!res.ok) { headerCpi.style.display = "none"; return; }
       const cpi = await res.json();
-      const overall = cpi.overall || cpi; // gamla flata sniðið, ef eldri skrá er enn í skyndiminni
+      const overall = cpi.overall || cpi; // old flat format, in case a stale cached file is still around
 
       const item = (label, month, yearPct, monthPct, note) => `
         <span class="header-cpi-item" title="${fmtCpiMonth(month)}${note ? " — " + note : ""}">
           <span class="header-cpi-label">${label}</span>
-          <span class="header-cpi-val ${cpiDirClass(yearPct)}">${fmtCpiPercent(yearPct)}</span> á ári
-          ${monthPct != null ? `<span style="opacity:0.6;">(${fmtCpiPercent(monthPct)} í mán.)</span>` : ""}
+          <span class="header-cpi-val ${cpiDirClass(yearPct)}">${fmtCpiPercent(yearPct)}</span> YoY
+          ${monthPct != null ? `<span style="opacity:0.6;">(${fmtCpiPercent(monthPct)} MoM)</span>` : ""}
         </span>
       `;
 
-      let html = item("VNV", overall.month, overall.yearChangePercent, overall.monthChangePercent);
-      if (cpi.food) html += '<span class="header-cpi-divider" aria-hidden="true"></span>' + item("Matvælavísitala", cpi.food.month, cpi.food.yearChangePercent, cpi.food.monthChangePercent, "sjálfstæð vísitala, ekki hluti af VNV");
+      let html = item("CPI", overall.month, overall.yearChangePercent, overall.monthChangePercent);
+      if (cpi.food) html += '<span class="header-cpi-divider" aria-hidden="true"></span>' + item("Food Price Index", cpi.food.month, cpi.food.yearChangePercent, cpi.food.monthChangePercent, "an independent index, not part of the CPI");
 
       headerCpi.innerHTML = html;
       headerCpi.style.display = "";
@@ -1422,7 +1422,7 @@
           <span class="category-count up">${up > 0 ? `▲${up}` : ""}</span>
           <span class="category-count down">${down > 0 ? `▼${down}` : ""}</span>
         </div>
-      `).join("") + anovaHtml(stats.anovaUp, "hækkunarhlutfalli") + anovaHtml(stats.anovaDown, "lækkunarhlutfalli");
+      `).join("") + anovaHtml(stats.anovaUp, "increase rate") + anovaHtml(stats.anovaDown, "decrease rate");
     } catch (e) {
       weekdayCard.style.display = "none";
     }
@@ -1431,37 +1431,37 @@
   function anovaHtml(anova, label) {
     if (!anova) {
       return `<div class="anova-box">
-        <strong>ANOVA — ${label}:</strong> ekki nóg gögn ennþá — vantar a.m.k. tvær mælingar á sama vikudegi til að geta reiknað dreifni innan hóps. Kemur sjálfkrafa eftir því sem fleiri vikur safnast.
+        <strong>ANOVA — ${label}:</strong> not enough data yet — needs at least two observations on the same weekday to compute within-group variance. This appears automatically as more weeks of data accumulate.
       </div>`;
     }
     if (anova.f == null) {
       const sig = anova.p < 0.05;
       return `<div class="anova-box">
-        <strong>ANOVA — ${label}:</strong> engin dreifni innan hópa (p = ${anova.p})<br>
+        <strong>ANOVA — ${label}:</strong> no variance within groups (p = ${anova.p})<br>
         ${sig
-          ? `Marktækur munur á ${label} eftir vikudegi.`
-          : `Enginn marktækur munur á ${label} eftir vikudegi.`}
+          ? `Significant difference in ${label} by weekday.`
+          : `No significant difference in ${label} by weekday.`}
       </div>`;
     }
     const sig = anova.p < 0.05;
     return `<div class="anova-box">
-      <strong>ANOVA — ${label}:</strong> F(${anova.df1}, ${anova.df2}) = ${anova.f}, p = ${anova.p < 0.001 ? "<0,001" : anova.p.toFixed(3).replace(".", ",")}<br>
+      <strong>ANOVA — ${label}:</strong> F(${anova.df1}, ${anova.df2}) = ${anova.f}, p = ${anova.p < 0.001 ? "<0.001" : anova.p.toFixed(3)}<br>
       ${sig
-        ? `Marktækur munur á ${label} eftir vikudegi (p < 0,05).`
-        : `Enginn marktækur munur á ${label} eftir vikudegi (p ≥ 0,05) — munurinn sem sést gæti verið tilviljun.`}
+        ? `Significant difference in ${label} by weekday (p < 0.05).`
+        : `No significant difference in ${label} by weekday (p ≥ 0.05) — the difference observed could be due to chance.`}
     </div>`;
   }
 
   function renderCategoryBreakdown(movers) {
     const counts = new Map(); // category -> { up, down }
     for (const it of movers.topIncreases || []) {
-      const cat = it.category || "Óflokkað";
+      const cat = it.category || "Uncategorized";
       const entry = counts.get(cat) || { up: 0, down: 0 };
       entry.up += 1;
       counts.set(cat, entry);
     }
     for (const it of movers.topDecreases || []) {
-      const cat = it.category || "Óflokkað";
+      const cat = it.category || "Uncategorized";
       const entry = counts.get(cat) || { up: 0, down: 0 };
       entry.down += 1;
       counts.set(cat, entry);
@@ -1490,7 +1490,7 @@
       const dates = indexRes.ok ? await indexRes.json() : [];
 
       if (dates.length === 0) {
-        contentEl.innerHTML = '<div class="status">Engin gögn ennþá — fyrsta keyrslan safnar grunnverði, samanburður birtist daginn eftir.</div>';
+        contentEl.innerHTML = '<div class="status">No data yet — the first run collects baseline prices; comparisons will appear the next day.</div>';
         return;
       }
 
@@ -1498,7 +1498,7 @@
 
       await loadDate(dates[dates.length - 1]);
     } catch (e) {
-      contentEl.innerHTML = '<div class="status">Villa við að sækja gögn.</div>';
+      contentEl.innerHTML = '<div class="status">Error fetching data.</div>';
     }
   }
 
