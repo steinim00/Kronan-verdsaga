@@ -21,8 +21,13 @@ function findCode(variable, wantedText) {
   return variable.values[i];
 }
 
+const COMMON_HEADERS = {
+  Accept: "application/json",
+  "User-Agent": "Mozilla/5.0 (compatible; Kronan-verdsaga/1.0; +https://github.com/steinim00/Kronan-verdsaga)",
+};
+
 async function fetchTableMeta(url) {
-  const res = await fetch(url, { headers: { Accept: "application/json" } });
+  const res = await fetch(url, { headers: COMMON_HEADERS });
   if (!res.ok) {
     const text = await res.text().catch(() => "");
     throw new Error(`lýsigögn -> ${res.status}: ${text.slice(0, 300)}`);
@@ -33,7 +38,7 @@ async function fetchTableMeta(url) {
 async function postQuery(url, query) {
   const res = await fetch(url, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { ...COMMON_HEADERS, "Content-Type": "application/json" },
     body: JSON.stringify(query),
   });
   if (!res.ok) {
