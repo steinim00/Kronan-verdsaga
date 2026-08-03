@@ -9,9 +9,9 @@
 // Hagstofan endurraði innri kóðum í töflunum.
 
 const OVERALL_TABLE_URL =
-  "https://px.hagstofa.is/pxis/api/v1/is/Efnahagur/Efnahagur__visitolur__1_vnv__1_vnv/VIS01000.px";
+  "https://px.hagstofa.is/pxis/api/v1/is/Efnahagur/visitolur/1_vnv/1_vnv/VIS01000.px";
 const FOOD_TABLE_URL =
-  "https://px.hagstofa.is/pxis/api/v1/is/Efnahagur/Efnahagur__visitolur__1_vnv__2_undirvisitolur/VIS01300.px";
+  "https://px.hagstofa.is/pxis/api/v1/is/Efnahagur/visitolur/1_vnv/2_undirvisitolur/VIS01300.px";
 
 function findCode(variable, wantedText) {
   const i = variable.valueTexts.findIndex((t) => t === wantedText);
