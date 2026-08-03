@@ -90,6 +90,19 @@ async function fetchOverallCpi() {
   };
 }
 
+function shiftMonth(monthStr, delta) {
+  const [y, m] = monthStr.split("M").map(Number);
+  const total = y * 12 + (m - 1) + delta;
+  const newY = Math.floor(total / 12);
+  const newM = (total % 12) + 1;
+  return `${newY}M${String(newM).padStart(2, "0")}`;
+}
+
+function pctChange(from, to) {
+  if (from == null || to == null || from === 0) return null;
+  return Math.round(((to - from) / from) * 1000) / 10;
+}
+
 async function fetchFoodSubindex() {
   const meta = await fetchTableMeta(FOOD_TABLE_URL);
 
@@ -99,16 +112,16 @@ async function fetchFoodSubindex() {
     throw new Error("Matarvísitala: óvænt uppbygging á töflu hjá Hagstofunni (breytur fundust ekki)");
   }
 
-  // Athugið: þessi tafla hefur EKKI "Ársbreyting, %" sem valkost, bara
-  // vísitölugildi, vægi og mánaðarbreytingu.
+  // Þessi tafla hefur EKKI "Ársbreyting, %" sem valkost í Liður — bara
+  // vísitölugildi, vægi og mánaðarbreytingu. Því sækjum við 13 mánuði af
+  // hráum vísitölugildum og reiknum bæði mánaðar- og ársbreytingu sjálf.
   const gildiCode = findCode(lidurVar, "Vísitala");
-  const manadarbreytingCode = findCode(lidurVar, "Mánaðarbreyting, %");
   const maturCode = findCode(undirVar, "01 Matur og óáfengir drykkir");
 
   const query = {
     query: [
-      { code: "Mánuður", selection: { filter: "top", values: ["1"] } },
-      { code: "Liður", selection: { filter: "item", values: [gildiCode, manadarbreytingCode] } },
+      { code: "Mánuður", selection: { filter: "top", values: ["13"] } },
+      { code: "Liður", selection: { filter: "item", values: [gildiCode] } },
       { code: "Undirvísitala", selection: { filter: "item", values: [maturCode] } },
     ],
     response: { format: "json" },
@@ -117,18 +130,24 @@ async function fetchFoodSubindex() {
   const result = await postQuery(FOOD_TABLE_URL, query);
 
   const monthIdx = result.columns.findIndex((c) => c.code === "Mánuður");
-  const lidurIdx = result.columns.findIndex((c) => c.code === "Liður");
-  if (monthIdx === -1 || lidurIdx === -1) throw new Error("Matarvísitala: fann ekki dálka í svari Hagstofunnar");
+  if (monthIdx === -1) throw new Error("Matarvísitala: fann ekki dálka í svari Hagstofunnar");
 
-  const byLidur = {};
-  for (const row of result.data) {
-    byLidur[row.key[lidurIdx]] = Number(row.values[0].replace(",", "."));
-  }
+  const rows = result.data
+    .map((row) => ({ month: row.key[monthIdx], index: Number(row.values[0].replace(",", ".")) }))
+    .filter((r) => !Number.isNaN(r.index))
+    .sort((a, b) => a.month.localeCompare(b.month));
+
+  if (rows.length === 0) throw new Error("Matarvísitala: engin gögn fundust");
+
+  const latest = rows[rows.length - 1];
+  const prevMonth = rows[rows.length - 2] || null;
+  const yearAgo = rows.find((r) => r.month === shiftMonth(latest.month, -12)) || null;
 
   return {
-    month: result.data[0]?.key[monthIdx] ?? null,
-    index: byLidur[gildiCode] ?? null,
-    monthChangePercent: byLidur[manadarbreytingCode] ?? null,
+    month: latest.month,
+    index: latest.index,
+    monthChangePercent: prevMonth ? pctChange(prevMonth.index, latest.index) : null,
+    yearChangePercent: yearAgo ? pctChange(yearAgo.index, latest.index) : null,
   };
 }
 
