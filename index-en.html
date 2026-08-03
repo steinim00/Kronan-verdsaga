@@ -300,13 +300,16 @@
 
   .line {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 20px 1fr auto;
     gap: 2px 10px;
     padding: 8px 0;
     border-bottom: 1px dotted var(--rule);
     font-size: 13px;
     cursor: pointer;
   }
+  .line-icon { grid-row: span 2; align-self: center; }
+  .line-icon svg { display: block; }
+  .line-icon:empty { width: 20px; }
   .line:last-child { border-bottom: none; }
   .line:hover .name { text-decoration: underline; }
 
@@ -471,13 +474,8 @@
     cursor: pointer;
     text-decoration: underline dotted;
     text-underline-offset: 2px;
-    display: inline-flex;
-    align-items: center;
-    gap: 3px;
-    vertical-align: -2px;
   }
   .category-link:hover, .cat-link:hover { color: var(--ink); text-decoration-style: solid; }
-  .cat-icon { flex-shrink: 0; opacity: 0.75; }
 
   footer {
     margin-top: 26px;
@@ -1153,14 +1151,41 @@
     "Óskilgreint": '<circle cx="8" cy="8" r="6.5"/><path d="M6 6.5a2 2 0 113 1.7c-.6.4-1 .8-1 1.8"/><circle cx="8" cy="11.7" r="0.4" fill="currentColor"/>',
   };
 
+  const CATEGORY_COLORS = {
+    "Ávextir": "#d9822b",
+    "Grænmeti": "#4a9d5c",
+    "Tilbúnir réttir": "#b5651d",
+    "Fiskur": "#3d7ea6",
+    "Kjöt": "#a83232",
+    "Frystivara": "#5bc0de",
+    "Á brauð": "#c9a15a",
+    "Mjólkurvörur og egg": "#d4b483",
+    "Vegan": "#6a994e",
+    "Morgunmatur og heilsubót": "#e0a458",
+    "Brauð, kökur og kex": "#a9714d",
+    "Lífrænt vottað": "#588157",
+    "Bakstur": "#cdb17e",
+    "Laugardags": "#d4a017",
+    "Eldamennskan": "#b3541e",
+    "Heimilið": "#7d8597",
+    "Börnin": "#dd8fae",
+    "Á ferðinni": "#4d8b9c",
+    "Snyrtivara": "#c98bb9",
+    "Drykkir": "#4faee0",
+    "Heitir drykkir": "#8b5a2b",
+    "Dýrin": "#8c6d4f",
+    "Óskilgreint": "#999999",
+  };
+
   function categoryIconSvg(name) {
     const inner = CATEGORY_ICONS[name];
     if (!inner) return "";
-    return `<svg class="cat-icon" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${inner}</svg>`;
+    const color = CATEGORY_COLORS[name] || "#999999";
+    return `<svg class="cat-icon" viewBox="0 0 16 16" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" style="color:${color}" aria-hidden="true">${inner}</svg>`;
   }
 
   function metaLine(it) {
-    const catHtml = it.category ? `<span class="cat-link" data-category="${it.category.replace(/"/g,'&quot;')}">${categoryIconSvg(it.category)}${it.category}</span>` : "";
+    const catHtml = it.category ? `<span class="cat-link" data-category="${it.category.replace(/"/g,'&quot;')}">${it.category}</span>` : "";
     return [catHtml, it.brand].filter(Boolean).join(" · ");
   }
 
@@ -1168,6 +1193,7 @@
     if (!items || items.length === 0) return '<div class="empty">No changes</div>';
     return items.map((it) => `
       <div class="line ${direction}" data-sku="${it.sku}" data-name="${it.name.replace(/"/g,'&quot;')}" data-brand="${(it.brand||"").replace(/"/g,'&quot;')}" data-category="${(it.category||"").replace(/"/g,'&quot;')}">
+        <div class="line-icon">${categoryIconSvg(it.category)}</div>
         <div class="name">${it.name}${badgeFor(it)}</div>
         <div class="percent">${sortMode === "amount" ? fmtAmount(it.amount, it.unit) : fmtPercent(it.percent)}</div>
         <div class="meta">${metaLine(it)}</div>
@@ -1210,6 +1236,7 @@
     if (!item) return '<div class="empty">No data</div>';
     return `
       <div class="line" data-sku="${item.sku}" data-name="${item.name.replace(/"/g,'&quot;')}" data-brand="${(item.brand||"").replace(/"/g,'&quot;')}" data-category="${(item.category||"").replace(/"/g,'&quot;')}">
+        <div class="line-icon">${categoryIconSvg(item.category)}</div>
         <div class="name">${item.name}${badgeFor(item)}</div>
         <div class="percent">${fmtISK(item.price)}</div>
         <div class="meta">${metaLine(item)}</div>
@@ -1228,6 +1255,7 @@
     }
     return items.map((it) => `
       <div class="line" data-sku="${it.sku}" data-name="${it.name.replace(/"/g,'&quot;')}" data-brand="${(it.brand||"").replace(/"/g,'&quot;')}" data-category="${(it.category||"").replace(/"/g,'&quot;')}">
+        <div class="line-icon">${categoryIconSvg(it.category)}</div>
         <div class="name">${it.name}</div>
         <div class="percent" style="color:var(--star);">${it.changes}×</div>
         <div class="meta">${metaLine(it)}</div>
