@@ -172,15 +172,20 @@
   .header-cpi-val.up { color: var(--up); }
   .header-cpi-val.down { color: var(--down); }
   .lang-switch {
-    color: var(--ink-faint);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
     border: 1px solid var(--rule);
     border-radius: 999px;
-    padding: 3px 9px;
-    font-size: 10px;
-    letter-spacing: 0.04em;
+    width: 26px;
+    height: 26px;
+    font-size: 14px;
+    line-height: 1;
+    filter: grayscale(40%);
+    opacity: 0.85;
   }
-  .lang-switch:hover { color: var(--ink); }
+  .lang-switch:hover { filter: none; opacity: 1; }
 
   .header-date {
     display: flex;
@@ -595,7 +600,7 @@
               <div class="subtitle">Today's price changes</div>
             </div>
             <div class="header-date">
-              <a href="index.html" class="lang-switch">IS</a>
+              <a href="index.html" class="lang-switch" aria-label="Íslenska" title="Íslenska">🇮🇸</a>
               <span id="dateLabel">—</span>
               <div class="date-picker" id="datePicker">
                 <button type="button" class="date-picker-toggle" id="dateToggle" aria-haspopup="true" aria-expanded="false">
