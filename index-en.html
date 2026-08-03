@@ -1119,12 +1119,6 @@
   });
 
   // ---------- movers rendering ----------
-  function badgeFor(item) {
-    if (item.allTimeLow) return '<span class="badge">new low</span>';
-    if (item.allTimeHigh) return '<span class="badge">new high</span>';
-    return "";
-  }
-
   const CATEGORY_ICONS = {
     "Ávextir": '<circle cx="8" cy="9.5" r="4.5"/><path d="M8 5 Q8 2 10 2"/>',
     "Grænmeti": '<path d="M8 3l2 9-2 2-2-2z"/><path d="M8 3 Q6 1 4 2 M8 3 Q10 1 12 2"/>',
@@ -1194,7 +1188,7 @@
     return items.map((it) => `
       <div class="line ${direction}" data-sku="${it.sku}" data-name="${it.name.replace(/"/g,'&quot;')}" data-brand="${(it.brand||"").replace(/"/g,'&quot;')}" data-category="${(it.category||"").replace(/"/g,'&quot;')}">
         <div class="line-icon">${categoryIconSvg(it.category)}</div>
-        <div class="name">${it.name}${badgeFor(it)}</div>
+        <div class="name">${it.name}</div>
         <div class="percent">${sortMode === "amount" ? fmtAmount(it.amount, it.unit) : fmtPercent(it.percent)}</div>
         <div class="meta">${metaLine(it)}</div>
         <div class="prices">${fmtISKUnit(it.priceBefore, it.unit)} → ${fmtISKUnit(it.priceAfter, it.unit)}</div>
@@ -1237,7 +1231,7 @@
     return `
       <div class="line" data-sku="${item.sku}" data-name="${item.name.replace(/"/g,'&quot;')}" data-brand="${(item.brand||"").replace(/"/g,'&quot;')}" data-category="${(item.category||"").replace(/"/g,'&quot;')}">
         <div class="line-icon">${categoryIconSvg(item.category)}</div>
-        <div class="name">${item.name}${badgeFor(item)}</div>
+        <div class="name">${item.name}</div>
         <div class="percent">${fmtISK(item.price)}</div>
         <div class="meta">${metaLine(item)}</div>
       </div>
