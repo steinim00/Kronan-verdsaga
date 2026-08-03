@@ -1,0 +1,14 @@
+{
+  "fetchedAt": "2026-08-03T01:35:39.056Z",
+  "overall": {
+    "month": "2026M07",
+    "index": 693.2,
+    "monthChangePercent": 0.36,
+    "yearChangePercent": 5.3
+  },
+  "food": {
+    "month": "2026M07",
+    "index": 102.8,
+    "monthChangePercent": 0.02
+  }
+}
