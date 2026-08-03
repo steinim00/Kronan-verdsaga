@@ -28,17 +28,17 @@ function topCategory(categoryPath) {
   return categoryPath.split("/")[0].trim();
 }
 
-function findExtremes(products) {
-  const priced = products.filter((p) => p.price && p.price > 0);
-  if (priced.length === 0) return { cheapest: null, mostExpensive: null };
+function findExtremes(products, count = 5) {
+  const priced = products.filter((p) => p.price && p.price > 0).map(toPriceEntry);
+  const cheapest = [...priced].sort((a, b) => a.price - b.price).slice(0, count);
+  const mostExpensive = [...priced].sort((a, b) => b.price - a.price).slice(0, count);
+  return { cheapest, mostExpensive };
+}
 
-  let cheapest = priced[0];
-  let mostExpensive = priced[0];
-  for (const p of priced) {
-    if (p.price < cheapest.price) cheapest = p;
-    if (p.price > mostExpensive.price) mostExpensive = p;
+async function tagAllTimePriceList(list) {
+  for (let i = 0; i < list.length; i++) {
+    list[i] = await tagAllTime(list[i], list[i].price);
   }
-  return { cheapest: toPriceEntry(cheapest), mostExpensive: toPriceEntry(mostExpensive) };
 }
 
 // Tags an entry with whether today's price is the lowest/highest ever
@@ -187,6 +187,8 @@ export async function computeMovers(todayDate) {
   }
 
   const mostVolatile = await computeVolatilityTop();
+  await tagAllTimePriceList(cheapest);
+  await tagAllTimePriceList(mostExpensive);
 
   const result = {
     date: todayDate,
@@ -209,8 +211,8 @@ export async function computeMovers(todayDate) {
       topIncreasesByAmount: weekly.topIncreasesByAmount,
       topDecreasesByAmount: weekly.topDecreasesByAmount,
     },
-    cheapest: cheapest ? await tagAllTime(cheapest, cheapest.price) : null,
-    mostExpensive: mostExpensive ? await tagAllTime(mostExpensive, mostExpensive.price) : null,
+    cheapest,
+    mostExpensive,
     mostVolatile,
   };
 

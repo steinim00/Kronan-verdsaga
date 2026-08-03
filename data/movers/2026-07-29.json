@@ -1627,68 +1627,144 @@
       }
     ]
   },
-  "cheapest": {
-    "sku": "100269834",
-    "name": "Zozole wafers lemon",
-    "brand": "Zozole",
-    "price": 29,
-    "category": "Laugardags",
-    "allTimeLow": true,
-    "allTimeHigh": true
-  },
-  "mostExpensive": {
-    "sku": "00201564",
-    "name": "Kjötborð ungnautalund",
-    "brand": "Kjötborð",
-    "price": 18358,
-    "category": "Kjöt",
-    "allTimeLow": true,
-    "allTimeHigh": true
-  },
+  "cheapest": [
+    {
+      "sku": "100269834",
+      "name": "Zozole wafers lemon",
+      "brand": "Zozole",
+      "price": 29,
+      "category": "Laugardags",
+      "allTimeLow": true,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100269837",
+      "name": "Zozole wafers ice cream",
+      "brand": "Zozole",
+      "price": 29,
+      "category": "Laugardags",
+      "allTimeLow": true,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "01000629",
+      "name": "Laukur",
+      "brand": "",
+      "price": 33,
+      "category": "Grænmeti",
+      "allTimeLow": true,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "01000633",
+      "name": "Rauðlaukur",
+      "brand": "",
+      "price": 37,
+      "category": "Grænmeti",
+      "allTimeLow": true,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "01000659",
+      "name": "Rauðrófur",
+      "brand": "",
+      "price": 48,
+      "category": "Grænmeti",
+      "allTimeLow": true,
+      "allTimeHigh": true
+    }
+  ],
+  "mostExpensive": [
+    {
+      "sku": "00201564",
+      "name": "Kjötborð ungnautalund",
+      "brand": "Kjötborð",
+      "price": 18358,
+      "category": "Kjöt",
+      "allTimeLow": true,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "00201547",
+      "name": "Kjötborð ungnautalund  Danish Crown",
+      "brand": "Kjötborð",
+      "price": 15673,
+      "category": "Kjöt",
+      "allTimeLow": true,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "00300627",
+      "name": "KEA hangilæri úrbeinað",
+      "brand": "KEA",
+      "price": 15198,
+      "category": "Kjöt",
+      "allTimeLow": true,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100256829",
+      "name": "Tokyo Sushi 5 Veisla: Half and Half 52bitar",
+      "brand": "Tokyo Sushi",
+      "price": 13450,
+      "category": "Á ferðinni",
+      "allTimeLow": true,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "00201534",
+      "name": "Nautalund erlend",
+      "brand": "",
+      "price": 12868,
+      "category": "Frystivara",
+      "allTimeLow": true,
+      "allTimeHigh": true
+    }
+  ],
   "mostVolatile": [
     {
       "sku": "100227575",
       "name": "Bob's Hindber  250g",
       "brand": "Bob's",
-      "category": null,
+      "category": "Ávextir",
       "changes": 2,
-      "days": 6,
+      "days": 9,
       "lastPrice": 949
     },
     {
       "sku": "100241819",
       "name": "Fiskverzlun Hafliða þorskur í hvítlauksmarineringu",
       "brand": "Fiskverzlun Hafliða",
-      "category": null,
+      "category": "Fiskur",
       "changes": 2,
-      "days": 6,
+      "days": 9,
       "lastPrice": 2372
     },
     {
       "sku": "100253423",
       "name": "sellerírót",
       "brand": "",
-      "category": null,
+      "category": "Grænmeti",
       "changes": 2,
-      "days": 6,
+      "days": 9,
       "lastPrice": 259
     },
     {
       "sku": "100253544",
       "name": "iceberg - jöklasalat",
       "brand": "",
-      "category": null,
+      "category": "Grænmeti",
       "changes": 2,
-      "days": 6,
+      "days": 9,
       "lastPrice": 239
     },
     {
       "sku": "100265982",
       "name": "Bob's jarðarber 400g",
       "brand": "Bob's",
-      "category": null,
+      "category": "Ávextir",
       "changes": 2,
-      "days": 6,
+      "days": 9,
       "lastPrice": 989
     }
   ]
