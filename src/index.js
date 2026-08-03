@@ -93,7 +93,8 @@ async function main() {
     console.log("Sæki vísitölu neysluverðs frá Hagstofunni...");
     const cpi = await fetchCpi();
     await writeFile(new URL("../data/cpi.json", import.meta.url), JSON.stringify(cpi, null, 2));
-    console.log(`  VNV ${cpi.month}: ${cpi.index} stig (mán. ${cpi.monthChangePercent}%, ár ${cpi.yearChangePercent}%)`);
+    console.log(`  VNV ${cpi.overall.month}: ${cpi.overall.index} stig (mán. ${cpi.overall.monthChangePercent}%, ár ${cpi.overall.yearChangePercent}%)`);
+    if (cpi.food) console.log(`  Matur: ${cpi.food.index} stig (mán. ${cpi.food.monthChangePercent}%)`);
   } catch (err) {
     // Ekki mikilvægt fyrir aðalvirknina — ef Hagstofan er niðri eða
     // breytir töflunni skal það ekki stoppa daglegu Krónu-keyrsluna.

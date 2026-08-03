@@ -621,7 +621,7 @@
       </div>
 
       <div class="receipt" id="cpiCard" style="display:none;">
-        <div class="section-label">Vísitala neysluverðs</div>
+        <div class="section-label">Vísitölur Hagstofunnar</div>
         <div id="cpiContent"></div>
       </div>
 
@@ -1305,21 +1305,38 @@
       const res = await fetch("data/cpi.json");
       if (!res.ok) { cpiCard.style.display = "none"; return; }
       const cpi = await res.json();
+      const overall = cpi.overall || cpi; // cpi (gamla flata sniðið) ef eldri skrá er enn í skyndiminni
       cpiCard.style.display = "";
-      cpiContent.innerHTML = `
-        <div class="cpi-index">${cpi.index ?? "—"}<span class="cpi-index-unit">stig</span></div>
-        <div class="cpi-month">${fmtCpiMonth(cpi.month)}</div>
+
+      let html = `
+        <div class="cpi-index">${overall.index ?? "—"}<span class="cpi-index-unit">stig</span></div>
+        <div class="cpi-month">Vísitala neysluverðs · ${fmtCpiMonth(overall.month)}</div>
         <div class="cpi-rows">
           <div class="cpi-row">
             <span>Mánaðarbreyting</span>
-            <span class="${cpiDirClass(cpi.monthChangePercent)}">${fmtCpiPercent(cpi.monthChangePercent)}</span>
+            <span class="${cpiDirClass(overall.monthChangePercent)}">${fmtCpiPercent(overall.monthChangePercent)}</span>
           </div>
           <div class="cpi-row">
             <span>Ársbreyting</span>
-            <span class="${cpiDirClass(cpi.yearChangePercent)}">${fmtCpiPercent(cpi.yearChangePercent)}</span>
+            <span class="${cpiDirClass(overall.yearChangePercent)}">${fmtCpiPercent(overall.yearChangePercent)}</span>
           </div>
         </div>
       `;
+
+      if (cpi.food) {
+        html += `
+          <div class="cpi-index" style="margin-top:16px;">${cpi.food.index ?? "—"}<span class="cpi-index-unit">stig</span></div>
+          <div class="cpi-month">Matur og óáfengir drykkir · ${fmtCpiMonth(cpi.food.month)}</div>
+          <div class="cpi-rows">
+            <div class="cpi-row">
+              <span>Mánaðarbreyting</span>
+              <span class="${cpiDirClass(cpi.food.monthChangePercent)}">${fmtCpiPercent(cpi.food.monthChangePercent)}</span>
+            </div>
+          </div>
+        `;
+      }
+
+      cpiContent.innerHTML = html;
     } catch (e) {
       cpiCard.style.display = "none";
     }
