@@ -1120,62 +1120,35 @@
 
   // ---------- movers rendering ----------
   const CATEGORY_ICONS = {
-    "Ávextir": '<circle cx="8" cy="9.5" r="4.5"/><path d="M8 5 Q8 2 10 2"/>',
-    "Grænmeti": '<path d="M8 3l2 9-2 2-2-2z"/><path d="M8 3 Q6 1 4 2 M8 3 Q10 1 12 2"/>',
-    "Tilbúnir réttir": '<path d="M3 8h10a5 5 0 01-10 0z"/><path d="M6 4v2M8 3v3M10 4v2"/>',
-    "Fiskur": '<path d="M2 8c3-4 9-4 12 0-3 4-9 4-12 0z"/><circle cx="4.5" cy="7" r="0.6" fill="currentColor"/><path d="M14 8l2-2v4z"/>',
-    "Kjöt": '<path d="M6 3c3-1 6 2 5 5s-4 2-6 4c-1 1-3 1-3-1s2-2 3-3c-2-1-2-4 1-5z"/>',
-    "Frystivara": '<path d="M8 1v14M2.5 4.5l11 7M2.5 11.5l11-7M4 8h8"/>',
-    "Á brauð": '<path d="M3 14V6a5 5 0 0110 0v8z"/><circle cx="8" cy="9" r="1.5" fill="currentColor"/>',
-    "Mjólkurvörur og egg": '<path d="M5 2h6l1 2v10H4V4z"/><path d="M5 2l3 2 3-2"/>',
-    "Vegan": '<path d="M3 13c0-6 4-10 10-10 0 6-4 10-10 10z"/><path d="M3 13c3-3 5-5 10-10"/>',
-    "Morgunmatur og heilsubót": '<path d="M2 8h12a6 6 0 01-12 0z"/><path d="M8 8V2"/><circle cx="8" cy="2" r="1"/>',
-    "Brauð, kökur og kex": '<path d="M2 14V8a6 6 0 0112 0v6z"/><path d="M2 11h12"/>',
-    "Lífrænt vottað": '<circle cx="8" cy="8" r="6.5"/><path d="M5.5 10.5c0-3 2-5 5-5 0 3-2 5-5 5z"/>',
-    "Bakstur": '<rect x="3" y="7" width="10" height="2" rx="1"/><circle cx="2" cy="8" r="1.3"/><circle cx="14" cy="8" r="1.3"/>',
-    "Laugardags": '<path d="M8 1l1.8 4.6L15 6l-3.7 3.2L12.4 15 8 12.3 3.6 15l1.1-5.8L1 6l5.2-.4z"/>',
-    "Eldamennskan": '<path d="M3 7h10v4a5 5 0 01-10 0z"/><path d="M2 7h12M8 4V2"/>',
-    "Heimilið": '<path d="M2 8l6-5 6 5"/><path d="M4 7v7h8V7"/>',
-    "Börnin": '<path d="M6 2h4v2l1 1v8a1 1 0 01-1 1H6a1 1 0 01-1-1V5l1-1z"/><path d="M5 8h6"/>',
-    "Á ferðinni": '<path d="M4 4h8l-1 10H5z"/><path d="M4 4c0-1 1-2 4-2s4 1 4 2"/>',
-    "Snyrtivara": '<rect x="5" y="6" width="6" height="8" rx="1"/><path d="M7 6V3h2v3"/><path d="M6.5 2h3"/>',
-    "Drykkir": '<path d="M4 3h8l-1 11H5z"/><path d="M4.5 6h7"/>',
-    "Heitir drykkir": '<path d="M3 5h8v6a4 4 0 01-8 0z"/><path d="M11 6h1.5a2 2 0 010 4H11"/><path d="M5 3c0-1 1-1 1-2M8 3c0-1 1-1 1-2"/>',
-    "Dýrin": '<circle cx="5" cy="5" r="1.3"/><circle cx="9" cy="4" r="1.3"/><circle cx="12" cy="6.5" r="1.3"/><circle cx="8" cy="11" r="2.5"/>',
-    "Óskilgreint": '<circle cx="8" cy="8" r="6.5"/><path d="M6 6.5a2 2 0 113 1.7c-.6.4-1 .8-1 1.8"/><circle cx="8" cy="11.7" r="0.4" fill="currentColor"/>',
-  };
-
-  const CATEGORY_COLORS = {
-    "Ávextir": "#d9822b",
-    "Grænmeti": "#4a9d5c",
-    "Tilbúnir réttir": "#b5651d",
-    "Fiskur": "#3d7ea6",
-    "Kjöt": "#a83232",
-    "Frystivara": "#5bc0de",
-    "Á brauð": "#c9a15a",
-    "Mjólkurvörur og egg": "#d4b483",
-    "Vegan": "#6a994e",
-    "Morgunmatur og heilsubót": "#e0a458",
-    "Brauð, kökur og kex": "#a9714d",
-    "Lífrænt vottað": "#588157",
-    "Bakstur": "#cdb17e",
-    "Laugardags": "#d4a017",
-    "Eldamennskan": "#b3541e",
-    "Heimilið": "#7d8597",
-    "Börnin": "#dd8fae",
-    "Á ferðinni": "#4d8b9c",
-    "Snyrtivara": "#c98bb9",
-    "Drykkir": "#4faee0",
-    "Heitir drykkir": "#8b5a2b",
-    "Dýrin": "#8c6d4f",
-    "Óskilgreint": "#999999",
+    "Ávextir": '<circle cx="8" cy="9.3" r="5.2" fill="#d32f2f"/> <ellipse cx="6" cy="7.5" rx="1.3" ry="0.7" fill="#ffffff" opacity="0.35"/> <path d="M8 4.3c0-1 .3-1.6 1-2.1" stroke="#6d4c2f" stroke-width="1.1" fill="none" stroke-linecap="round"/> <path d="M8.8 3c1.2-1.2 3-.2 2.4 1.3-.6 1.3-2.6.8-2.7-1.1z" fill="#4caf50"/>',
+    "Grænmeti": '<path d="M9.3 4.2l-3.6 9.6a1 1 0 001.8.7l3.6-9.6z" fill="#e8871e"/> <path d="M9.2 4.4c-.8-1.4-.4-2.7-1.4-3.4 M8.7 3.2c-1.4-.2-1.8-1.4-3-1.4 M9.8 3.6c.6-1.4 2-1.6 2.2-2.6" stroke="#4caf50" stroke-width="1.1" fill="none" stroke-linecap="round"/>',
+    "Tilbúnir réttir": '<path d="M3 8h10a5 5 0 01-10 0z" fill="#c9a15a" stroke="#8a6a35" stroke-width="0.6"/> <path d="M6 4.5c0-1 .8-1 .8-2M8 3.5c0-1 .8-1 .8-2M10 4.5c0-1 .8-1 .8-2" stroke="#bbb" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.7"/>',
+    "Fiskur": '<path d="M2 8c3-4 9-4 12 0-3 4-9 4-12 0z" fill="#4fa3c9"/> <circle cx="4.3" cy="7" r="0.7" fill="#0d3b52"/> <path d="M14 8l2.2-2.2v4.4z" fill="#3d7ea6"/>',
+    "Kjöt": '<path d="M6 3c3-1 6 2 5 5s-4 2-6 4c-1 1-3 1-3-1s2-2 3-3c-2-1-2-4 1-5z" fill="#c1554a"/> <path d="M4.5 12.5c-.6.6-1.5.7-2 .2" stroke="#e6c9a8" stroke-width="1.2" fill="none" stroke-linecap="round"/>',
+    "Frystivara": '<g stroke="#5bc0de" stroke-width="1.3" stroke-linecap="round"> <path d="M8 1.5v13M2.8 4.75l10.4 6.5M2.8 11.25l10.4-6.5"/> </g> <g fill="#5bc0de"><circle cx="8" cy="1.5" r="0.9"/><circle cx="8" cy="14.5" r="0.9"/></g>',
+    "Á brauð": '<path d="M3 14V6a5 5 0 0110 0v8z" fill="#e3c088" stroke="#b5905a" stroke-width="0.6"/> <circle cx="8" cy="9.3" r="1.6" fill="#c1272d"/>',
+    "Mjólkurvörur og egg": '<ellipse cx="6" cy="10.5" rx="3.5" ry="4.2" fill="#fdf6e3" stroke="#d8cba0" stroke-width="0.6"/> <path d="M11 3h4l1 2v9h-5z" fill="#fff" stroke="#d8cba0" stroke-width="0.6"/> <path d="M11 3l2.5 2L16 3"/>',
+    "Vegan": '<path d="M3 13c0-6 4-10 10-10 0 6-4 10-10 10z" fill="#6a994e"/> <path d="M3 13c3-3 5-5 10-10" stroke="#3f6b2b" stroke-width="1" fill="none"/>',
+    "Morgunmatur og heilsubót": '<path d="M2 8h12a6 6 0 01-12 0z" fill="#e0a458"/> <path d="M8 8V2" stroke="#8a5a2b" stroke-width="1.3" stroke-linecap="round"/> <circle cx="8" cy="2" r="1.1" fill="#8a5a2b"/>',
+    "Brauð, kökur og kex": '<path d="M2 14V8a6 6 0 0112 0v6z" fill="#a9714d" stroke="#7a4f2f" stroke-width="0.6"/> <path d="M2 11h12" stroke="#7a4f2f" stroke-width="0.8" opacity="0.6"/>',
+    "Lífrænt vottað": '<circle cx="8" cy="8" r="6.5" fill="none" stroke="#588157" stroke-width="1.2"/> <path d="M5.3 10.7c0-3.2 2.2-5.4 5.4-5.4 0 3.2-2.2 5.4-5.4 5.4z" fill="#7bb661"/>',
+    "Bakstur": '<rect x="3" y="7" width="10" height="2.2" rx="1.1" fill="#cdb17e"/> <circle cx="2" cy="8" r="1.4" fill="#8a6a3f"/><circle cx="14" cy="8" r="1.4" fill="#8a6a3f"/>',
+    "Laugardags": '<circle cx="5.5" cy="6" r="2.6" fill="#e85d9c"/> <circle cx="10.5" cy="6" r="2.6" fill="#f4c542"/> <circle cx="8" cy="10.5" r="2.6" fill="#5fb4e0"/> <path d="M2.5 4l1.4 1.4M13.5 4l-1.4 1.4M2.5 13l1.8-1.3M13.5 13l-1.8-1.3" stroke="#c9885a" stroke-width="1" stroke-linecap="round"/>',
+    "Eldamennskan": '<path d="M3 7h10v4a5 5 0 01-10 0z" fill="#6b6b6b"/> <path d="M2 7h12" stroke="#4a4a4a" stroke-width="1.2" stroke-linecap="round"/> <path d="M8 4.2c.8-.6.8-1.4 0-2.2-.4.8-1 .8-.6 1.6.2.4.4.4.6.6z" fill="#e8871e"/>',
+    "Heimilið": '<path d="M2 8l6-5 6 5v6.2a.8.8 0 01-.8.8H2.8a.8.8 0 01-.8-.8z" fill="#e3c088" stroke="#8d7248" stroke-width="0.5"/> <path d="M1.3 8.6L8 3l6.7 5.6" stroke="#7d8597" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/> <rect x="6.8" y="9.5" width="2.4" height="5" fill="#7a5230"/>',
+    "Börnin": '<path d="M6 2h4v2l1 1v8a1 1 0 01-1 1H6a1 1 0 01-1-1V5l1-1z" fill="#dd8fae"/> <path d="M5 8h6" stroke="#ffffff" stroke-width="1" opacity="0.7"/>',
+    "Á ferðinni": '<path d="M4 4h8l-1 10H5z" fill="#f3ede0" stroke="#8d7248" stroke-width="0.6"/> <path d="M4 4c0-1.2 1.2-2 4-2s4 .8 4 2z" fill="#4d8b9c"/>',
+    "Snyrtivara": '<rect x="5" y="6" width="6" height="8" rx="1.4" fill="#c98bb9"/> <path d="M7 6V3.3h2V6" stroke="#8a5a7a" stroke-width="1" fill="none"/> <rect x="6.3" y="1.6" width="3.4" height="1.6" rx="0.6" fill="#8a5a7a"/>',
+    "Drykkir": '<path d="M4 3h8l-1 11H5z" fill="#eef6fb" stroke="#4faee0" stroke-width="0.7"/> <path d="M4.6 6.5h6.8l-.7 7.5H5.3z" fill="#4faee0" opacity="0.85"/>',
+    "Heitir drykkir": '<path d="M3 5h8v6a4 4 0 01-8 0z" fill="#8b5a2b"/> <path d="M11 6h1.5a2 2 0 010 4H11" stroke="#8b5a2b" stroke-width="1.3" fill="none"/> <path d="M5 3c0-1 1-1 1-2M8 3c0-1 1-1 1-2" stroke="#b0b0b0" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.8"/>',
+    "Dýrin": '<g fill="#8c6d4f"> <circle cx="5" cy="5" r="1.4"/><circle cx="9" cy="4" r="1.4"/><circle cx="12" cy="6.5" r="1.4"/> <circle cx="8" cy="11" r="2.8"/> </g>',
+    "Óskilgreint": '<circle cx="8" cy="8" r="6.5" fill="none" stroke="#999999" stroke-width="1.2"/> <path d="M6 6.5a2 2 0 113 1.7c-.6.4-1 .8-1 1.8" stroke="#999999" stroke-width="1.2" fill="none" stroke-linecap="round"/> <circle cx="8" cy="11.7" r="0.5" fill="#999999"/>',
   };
 
   function categoryIconSvg(name) {
     const inner = CATEGORY_ICONS[name];
     if (!inner) return "";
-    const color = CATEGORY_COLORS[name] || "#999999";
-    return `<svg class="cat-icon" viewBox="0 0 16 16" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" style="color:${color}" aria-hidden="true">${inner}</svg>`;
+    return `<svg class="cat-icon" viewBox="0 0 16 16" width="20" height="20" aria-hidden="true">${inner}</svg>`;
   }
 
   function metaLine(it) {
