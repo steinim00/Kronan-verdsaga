@@ -5,7 +5,7 @@ import { batchRefresh } from "./batchRefresh.js";
 import { computeMovers } from "./computeMovers.js";
 import { buildIndex } from "./buildIndex.js";
 import { updateHistory } from "./updateHistory.js";
-import { fetchCpi } from "./fetchCpi.js";
+import { fetchCpi, fetchCategorySubindices } from "./fetchCpi.js";
 import { computeCategoryTrends } from "./computeCategoryTrends.js";
 import { computeWeekdayStats } from "./computeWeekdayStats.js";
 
@@ -99,6 +99,15 @@ async function main() {
     // Ekki mikilvægt fyrir aðalvirknina — ef Hagstofan er niðri eða
     // breytir töflunni skal það ekki stoppa daglegu Krónu-keyrsluna.
     console.log(`  VNV-sókn mistókst (halda samt áfram): ${err.message}`);
+  }
+
+  try {
+    console.log("Sæki VNV-undirvísitölur fyrir vöruflokka...");
+    const categorySubindices = await fetchCategorySubindices();
+    await writeFile(new URL("../data/cpi-categories.json", import.meta.url), JSON.stringify(categorySubindices, null, 2));
+    console.log(`  ${Object.keys(categorySubindices).length} flokkar með opinbera vísitölu.`);
+  } catch (err) {
+    console.log(`  Flokka-undirvísitölur mistókust (halda samt áfram): ${err.message}`);
   }
 }
 

@@ -998,6 +998,8 @@
       `
       : `<div class="empty" style="margin-top:20px;">Engar vörur í þessum flokki breyttust á þessu tímabili.</div>`;
 
+    const hagstofaHtml = await hagstofaCategoryHtml(name);
+
     modalContent.innerHTML = `
       <h2>${name}</h2>
       <div class="modal-meta">Vöruflokkur · óvegin verðvísitala (100 = ${points.length ? fmtDateShort(points[0][0]) : "upphaf"})</div>
@@ -1007,10 +1009,31 @@
       </div>
       ${sparklineSvg(points)}
       <div class="modal-meta" style="margin-top:10px;">Meðaltal af verðbreytingu allra vara í flokknum miðað við fyrstu verðmynd — ekki opinber vísitala.</div>
+      ${hagstofaHtml}
       ${productsHtml}
     `;
     wireSparklineHover(modalContent, (v) => `${fmtIndex(v)} stig`);
     attachLineClicks(modalContent);
+  }
+
+  let categorySubindices = null;
+  async function hagstofaCategoryHtml(name) {
+    if (categorySubindices === null) {
+      try {
+        const res = await fetch("data/cpi-categories.json");
+        categorySubindices = res.ok ? await res.json() : {};
+      } catch {
+        categorySubindices = {};
+      }
+    }
+    const c = categorySubindices[name];
+    if (!c) return "";
+    return `
+      <div class="anova-box" style="margin-top:16px;">
+        <strong>Samkvæmt Hagstofunni (opinber undirvísitala, ${fmtCpiMonth(c.month)}):</strong><br>
+        ${fmtIndex(c.index)} stig · mánaðarbreyting ${fmtCpiPercent(c.monthChangePercent)} · ársbreyting ${fmtCpiPercent(c.yearChangePercent)}
+      </div>
+    `;
   }
 
   document.getElementById("modalClose").addEventListener("click", () => modalBackdrop.classList.remove("open"));

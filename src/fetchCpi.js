@@ -151,6 +151,79 @@ async function fetchFoodSubindex() {
   };
 }
 
+// Handvalin pörun á milli vöruflokka Krónu-verðsögu og COICOP-undirflokka
+// Hagstofunnar — flokkarnir heita ekki það sama, svo þetta er handgert og
+// bara fyrir þá flokka sem eiga skýra, ótvíræða hliðstæðu. Ef Krónan
+// endurraðar sínum flokkum þarf að uppfæra þetta.
+const CATEGORY_TO_COICOP = {
+  "Ávextir": "0116 Ávextir og hnetur",
+  "Grænmeti": "0117 Grænmeti, hnýði, mjölbananar, bananar til eldunar og belgjurtir",
+  "Tilbúnir réttir": "0119 Tilbúnir réttir og aðrar matvörur ót.a.s",
+  "Fiskur": "0113 Fiskur og annað sjávarfang",
+  "Kjöt": "0112 Kjöt, lifandi dýr og aðrir hlutar af slátruðum landdýrum",
+  "Mjólkurvörur og egg": "0114 Mjólk, mjólkurvörur og egg",
+  "Drykkir": "012 Óáfengir drykkir",
+  "Brauð, kökur og kex": "01113 Brauð og bakarísvörur",
+};
+
+export async function fetchCategorySubindices() {
+  const meta = await fetchTableMeta(FOOD_TABLE_URL);
+  const lidurVar = meta.variables.find((v) => v.code === "Liður");
+  const undirVar = meta.variables.find((v) => v.code === "Undirvísitala");
+  if (!lidurVar || !undirVar) {
+    throw new Error("Flokka-undirvísitölur: óvænt uppbygging á töflu hjá Hagstofunni");
+  }
+  const gildiCode = findCode(lidurVar, "Vísitala");
+
+  // Finnum COICOP-kóðana fyrir þá flokka sem við eigum pörun fyrir; sleppum
+  // þeim sem finnast ekki í staðinn fyrir að láta allt klikka.
+  const wanted = [];
+  for (const [ourName, coicopText] of Object.entries(CATEGORY_TO_COICOP)) {
+    const i = undirVar.valueTexts.findIndex((t) => t === coicopText);
+    if (i !== -1) wanted.push({ ourName, code: undirVar.values[i] });
+  }
+  if (wanted.length === 0) return {};
+
+  const query = {
+    query: [
+      { code: "Mánuður", selection: { filter: "top", values: ["13"] } },
+      { code: "Liður", selection: { filter: "item", values: [gildiCode] } },
+      { code: "Undirvísitala", selection: { filter: "item", values: wanted.map((w) => w.code) } },
+    ],
+    response: { format: "json" },
+  };
+
+  const result = await postQuery(FOOD_TABLE_URL, query);
+  const monthIdx = result.columns.findIndex((c) => c.code === "Mánuður");
+  const undirIdx = result.columns.findIndex((c) => c.code === "Undirvísitala");
+  if (monthIdx === -1 || undirIdx === -1) throw new Error("Flokka-undirvísitölur: fann ekki dálka í svari");
+
+  const byCode = new Map(); // code -> [{month, index}]
+  for (const row of result.data) {
+    const code = row.key[undirIdx];
+    const index = Number(row.values[0].replace(",", "."));
+    if (Number.isNaN(index)) continue;
+    if (!byCode.has(code)) byCode.set(code, []);
+    byCode.get(code).push({ month: row.key[monthIdx], index });
+  }
+
+  const output = {};
+  for (const { ourName, code } of wanted) {
+    const rows = (byCode.get(code) || []).sort((a, b) => a.month.localeCompare(b.month));
+    if (rows.length === 0) continue;
+    const latest = rows[rows.length - 1];
+    const prevMonth = rows[rows.length - 2] || null;
+    const yearAgo = rows.find((r) => r.month === shiftMonth(latest.month, -12)) || null;
+    output[ourName] = {
+      month: latest.month,
+      index: latest.index,
+      monthChangePercent: prevMonth ? pctChange(prevMonth.index, latest.index) : null,
+      yearChangePercent: yearAgo ? pctChange(yearAgo.index, latest.index) : null,
+    };
+  }
+  return output;
+}
+
 export async function fetchCpi() {
   const overall = await fetchOverallCpi();
 
