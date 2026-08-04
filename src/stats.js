@@ -80,20 +80,30 @@ export function oneWayAnova(groups) {
 
   let ssBetween = 0;
   let ssWithin = 0;
-  for (const g of nonEmpty) {
+  const groupStats = nonEmpty.map((g) => {
     const mean = g.reduce((s, v) => s + v, 0) / g.length;
     ssBetween += g.length * (mean - grandMean) ** 2;
     for (const v of g) ssWithin += (v - mean) ** 2;
-  }
+    return { n: g.length, mean: Math.round(mean * 1000) / 1000 };
+  });
 
+  const round3 = (x) => Math.round(x * 1000) / 1000;
   const msBetween = ssBetween / df1;
   const msWithin = ssWithin / df2;
   if (msWithin === 0) {
     // Engin dreifni innan hópa — F er óendanlegt/óskilgreint, forðumst deilingu með núlli.
-    return { f: null, df1, df2, p: ssBetween > 0 ? 0 : 1, n: N, groups: k };
+    return {
+      f: null, df1, df2, p: ssBetween > 0 ? 0 : 1, n: N, groups: k,
+      ssBetween: round3(ssBetween), ssWithin: round3(ssWithin), msBetween: round3(msBetween), msWithin: 0,
+      groupStats,
+    };
   }
 
   const f = msBetween / msWithin;
   const p = fDistUpperTail(f, df1, df2);
-  return { f: Math.round(f * 1000) / 1000, df1, df2, p, n: N, groups: k };
+  return {
+    f: round3(f), df1, df2, p, n: N, groups: k,
+    ssBetween: round3(ssBetween), ssWithin: round3(ssWithin), msBetween: round3(msBetween), msWithin: round3(msWithin),
+    groupStats,
+  };
 }

@@ -454,6 +454,35 @@
     color: var(--ink-faint);
   }
   .anova-box strong { color: var(--ink); }
+  .anova-more-btn {
+    display: block;
+    margin-top: 6px;
+    font-family: inherit;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: none;
+    border: none;
+    color: var(--ink-faint);
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+  }
+  .anova-more-btn:hover { color: var(--ink); }
+  .anova-detail { margin-top: 8px; }
+  .anova-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10px;
+    font-family: "JetBrains Mono", monospace;
+  }
+  .anova-table th, .anova-table td {
+    text-align: left;
+    padding: 3px 6px 3px 0;
+    border-bottom: 1px dotted var(--rule);
+  }
+  .anova-table th { color: var(--ink-faint); font-weight: 600; text-transform: uppercase; font-size: 9px; }
+  .anova-table td:last-child, .anova-table th:last-child { text-align: right; }
 
   .category-row {
     display: grid;
@@ -1498,9 +1527,44 @@
           <span class="category-count down">${down > 0 ? `▼${down}` : ""}</span>
         </div>
       `).join("") + anovaHtml(stats.anovaUp, "hækkunarhlutfalli") + anovaHtml(stats.anovaDown, "lækkunarhlutfalli");
+
+      weekdayContent.querySelectorAll(".anova-more-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const detail = btn.nextElementSibling;
+          const collapsed = detail.hasAttribute("hidden");
+          if (collapsed) { detail.removeAttribute("hidden"); btn.textContent = "Fela ítarlegri tölur ▲"; }
+          else { detail.setAttribute("hidden", ""); btn.textContent = "Sjá ítarlegri tölur ▼"; }
+        });
+      });
     } catch (e) {
       weekdayCard.style.display = "none";
     }
+  }
+
+  function anovaDetailTable(anova) {
+    const rows = (anova.groupStats || []).map((g) =>
+      `<tr><td>${g.weekday}</td><td>${g.n}</td><td>${g.mean}%</td></tr>`
+    ).join("");
+    return `
+      <button type="button" class="anova-more-btn">Sjá ítarlegri tölur ▼</button>
+      <div class="anova-detail" hidden>
+        <table class="anova-table">
+          <thead><tr><th>Vikudagur</th><th>n</th><th>Meðaltal</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+        <table class="anova-table" style="margin-top:6px;">
+          <tbody>
+            <tr><td>Frelsisgráður (milli/innan)</td><td>${anova.df1} / ${anova.df2}</td></tr>
+            <tr><td>Kvaðratsumma milli hópa (SSB)</td><td>${anova.ssBetween}</td></tr>
+            <tr><td>Kvaðratsumma innan hópa (SSW)</td><td>${anova.ssWithin}</td></tr>
+            <tr><td>Meðalkvaðratsumma milli (MSB)</td><td>${anova.msBetween}</td></tr>
+            <tr><td>Meðalkvaðratsumma innan (MSW)</td><td>${anova.msWithin}</td></tr>
+            <tr><td>Fjöldi mælinga (N)</td><td>${anova.n}</td></tr>
+            <tr><td>Fjöldi hópa (k)</td><td>${anova.groups}</td></tr>
+          </tbody>
+        </table>
+      </div>
+    `;
   }
 
   function anovaHtml(anova, label) {
@@ -1516,6 +1580,7 @@
         ${sig
           ? `Marktækur munur á ${label} eftir vikudegi.`
           : `Enginn marktækur munur á ${label} eftir vikudegi.`}
+        ${anovaDetailTable(anova)}
       </div>`;
     }
     const sig = anova.p < 0.05;
@@ -1524,6 +1589,7 @@
       ${sig
         ? `Marktækur munur á ${label} eftir vikudegi (p < 0,05).`
         : `Enginn marktækur munur á ${label} eftir vikudegi (p ≥ 0,05) — munurinn sem sést gæti verið tilviljun.`}
+      ${anovaDetailTable(anova)}
     </div>`;
   }
 

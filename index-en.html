@@ -454,6 +454,35 @@
     color: var(--ink-faint);
   }
   .anova-box strong { color: var(--ink); }
+  .anova-more-btn {
+    display: block;
+    margin-top: 6px;
+    font-family: inherit;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: none;
+    border: none;
+    color: var(--ink-faint);
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+  }
+  .anova-more-btn:hover { color: var(--ink); }
+  .anova-detail { margin-top: 8px; }
+  .anova-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10px;
+    font-family: "JetBrains Mono", monospace;
+  }
+  .anova-table th, .anova-table td {
+    text-align: left;
+    padding: 3px 6px 3px 0;
+    border-bottom: 1px dotted var(--rule);
+  }
+  .anova-table th { color: var(--ink-faint); font-weight: 600; text-transform: uppercase; font-size: 9px; }
+  .anova-table td:last-child, .anova-table th:last-child { text-align: right; }
 
   .category-row {
     display: grid;
@@ -1498,9 +1527,49 @@
           <span class="category-count down">${down > 0 ? `▼${down}` : ""}</span>
         </div>
       `).join("") + anovaHtml(stats.anovaUp, "increase rate") + anovaHtml(stats.anovaDown, "decrease rate");
+
+      weekdayContent.querySelectorAll(".anova-more-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const detail = btn.nextElementSibling;
+          const collapsed = detail.hasAttribute("hidden");
+          if (collapsed) { detail.removeAttribute("hidden"); btn.textContent = "Hide detailed numbers ▲"; }
+          else { detail.setAttribute("hidden", ""); btn.textContent = "Show detailed numbers ▼"; }
+        });
+      });
     } catch (e) {
       weekdayCard.style.display = "none";
     }
+  }
+
+  const WEEKDAY_NAMES_EN = {
+    "Mánudagur": "Monday", "Þriðjudagur": "Tuesday", "Miðvikudagur": "Wednesday",
+    "Fimmtudagur": "Thursday", "Föstudagur": "Friday", "Laugardagur": "Saturday", "Sunnudagur": "Sunday",
+  };
+
+  function anovaDetailTable(anova) {
+    const rows = (anova.groupStats || []).map((g) =>
+      `<tr><td>${WEEKDAY_NAMES_EN[g.weekday] || g.weekday}</td><td>${g.n}</td><td>${g.mean}%</td></tr>`
+    ).join("");
+    return `
+      <button type="button" class="anova-more-btn">Show detailed numbers ▼</button>
+      <div class="anova-detail" hidden>
+        <table class="anova-table">
+          <thead><tr><th>Weekday</th><th>n</th><th>Mean</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+        <table class="anova-table" style="margin-top:6px;">
+          <tbody>
+            <tr><td>Degrees of freedom (between/within)</td><td>${anova.df1} / ${anova.df2}</td></tr>
+            <tr><td>Sum of squares between (SSB)</td><td>${anova.ssBetween}</td></tr>
+            <tr><td>Sum of squares within (SSW)</td><td>${anova.ssWithin}</td></tr>
+            <tr><td>Mean square between (MSB)</td><td>${anova.msBetween}</td></tr>
+            <tr><td>Mean square within (MSW)</td><td>${anova.msWithin}</td></tr>
+            <tr><td>Total observations (N)</td><td>${anova.n}</td></tr>
+            <tr><td>Number of groups (k)</td><td>${anova.groups}</td></tr>
+          </tbody>
+        </table>
+      </div>
+    `;
   }
 
   function anovaHtml(anova, label) {
@@ -1516,6 +1585,7 @@
         ${sig
           ? `Significant difference in ${label} by weekday.`
           : `No significant difference in ${label} by weekday.`}
+        ${anovaDetailTable(anova)}
       </div>`;
     }
     const sig = anova.p < 0.05;
@@ -1524,6 +1594,7 @@
       ${sig
         ? `Significant difference in ${label} by weekday (p < 0.05).`
         : `No significant difference in ${label} by weekday (p ≥ 0.05) — the difference observed could be due to chance.`}
+      ${anovaDetailTable(anova)}
     </div>`;
   }
 

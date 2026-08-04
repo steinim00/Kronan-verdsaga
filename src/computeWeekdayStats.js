@@ -46,6 +46,17 @@ export async function computeWeekdayStats() {
   const anovaUp = oneWayAnova(orderedDays.map((d) => stats.get(d).upRates));
   const anovaDown = oneWayAnova(orderedDays.map((d) => stats.get(d).downRates));
 
+  // ANOVA sleppir hópum sem eru tómir, svo endurbyggjum réttu vikudaga-röðina
+  // fyrir þá hópa sem raunverulega enduðu í úrtakinu, til að merkja groupStats.
+  function labelGroups(anova, rateKey) {
+    if (!anova) return anova;
+    const nonEmptyDays = orderedDays.filter((d) => stats.get(d)[rateKey].length > 0);
+    anova.groupStats = anova.groupStats.map((g, i) => ({ ...g, weekday: nonEmptyDays[i] }));
+    return anova;
+  }
+  labelGroups(anovaUp, "upRates");
+  labelGroups(anovaDown, "downRates");
+
   const result = { days: {}, anovaUp, anovaDown };
   for (const day of ORDER) {
     if (stats.has(day)) {
