@@ -10,14 +10,16 @@
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #f5f0da;
-    --paper-edge: #ecdfb2;
+    --paper: #ffffff;
+    --paper-edge: #f0f0f0;
     --ink: #2a2822;
-    --ink-faint: #8a8574;
+    --ink-faint: #8a8a86;
     --up: #e53935;
     --down: #43a047;
-    --rule: #cfc9b4;
+    --rule: #e2e2e2;
     --star: #b8912f;
+    --brand: #FFE800;
+    --backdrop: #ececea;
   }
 
   * { box-sizing: border-box; }
@@ -25,7 +27,7 @@
   body {
     margin: 0;
     min-height: 100vh;
-    background: #ddcf9a;
+    background: var(--backdrop);
     background-image:
       radial-gradient(circle at 20% 20%, rgba(0,0,0,0.03), transparent 60%),
       radial-gradient(circle at 80% 80%, rgba(0,0,0,0.03), transparent 60%);
@@ -67,6 +69,7 @@
     background: var(--paper);
     color: var(--ink);
   }
+  .search-input:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 2px var(--brand); }
   .search-input::placeholder { color: var(--ink-faint); }
 
   .search-filters {
@@ -87,7 +90,7 @@
     cursor: pointer;
   }
   .dir-btn:hover { color: var(--ink); }
-  .dir-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .dir-btn.active { background: var(--brand); color: var(--ink); border-color: var(--brand); }
 
   .search-results {
     position: absolute;
@@ -119,6 +122,7 @@
     background: var(--paper);
     box-shadow: 0 20px 40px -20px rgba(0,0,0,0.35);
     padding: 32px 28px 40px;
+    border-top: 4px solid var(--brand);
     position: relative;
   }
 
@@ -135,8 +139,8 @@
     background-size: 16px 16px;
     background-color: transparent;
   }
-  .receipt::before { top: -13px; background-color: #ddcf9a; }
-  .receipt::after { bottom: -13px; transform: scaleY(-1); background-color: #ddcf9a; }
+  .receipt::before { top: -13px; background-color: var(--backdrop); }
+  .receipt::after { bottom: -13px; transform: scaleY(-1); background-color: var(--backdrop); }
 
   header { margin-bottom: 20px; }
   .header-top {
@@ -281,7 +285,7 @@
   .date-picker-grid button.has-data { color: var(--ink); cursor: pointer; }
   .date-picker-grid button:disabled { opacity: 0.3; cursor: default; }
   .date-picker-grid button.has-data:hover { background: rgba(0,0,0,0.07); }
-  .date-picker-grid button.selected { background: var(--ink); color: var(--paper); font-weight: 700; }
+  .date-picker-grid button.selected { background: var(--brand); color: var(--ink); font-weight: 700; }
   .date-picker-grid .empty-cell { visibility: hidden; }
 
   .section-label {
@@ -350,7 +354,7 @@
     cursor: pointer;
   }
   .view-tab:hover { color: var(--ink); }
-  .view-tab.active { color: var(--ink); border-bottom-color: var(--ink); }
+  .view-tab.active { color: var(--ink); border-bottom-color: var(--brand); }
 
   .range-tabs {
     display: flex;
@@ -371,7 +375,7 @@
     cursor: pointer;
   }
   .range-tab:hover { color: var(--ink); }
-  .range-tab.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .range-tab.active { background: var(--brand); color: var(--ink); border-color: var(--brand); }
 
   .sort-tabs { display: flex; gap: 10px; margin-bottom: 14px; }
   .sort-tab {
