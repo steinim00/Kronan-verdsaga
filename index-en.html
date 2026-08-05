@@ -139,7 +139,7 @@
   .receipt::before { top: -13px; background-color: var(--backdrop); }
   .receipt::after { bottom: -13px; transform: scaleY(-1); background-color: var(--backdrop); }
 
-  header { margin-bottom: 20px; }
+  header { margin-bottom: 27px; }
   .header-top {
     display: flex;
     align-items: flex-start;
@@ -150,16 +150,16 @@
   .header-cpi {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 14px;
-    padding-top: 12px;
+    gap: 27px;
+    margin-top: 19px;
+    padding-top: 16px;
     border-top: 1px dashed var(--rule);
-    font-size: 12px;
+    font-size: 16px;
     color: var(--ink-faint);
   }
   .header-cpi-item { display: flex; align-items: baseline; gap: 5px; white-space: nowrap; }
   .header-cpi-divider { width: 1px; align-self: stretch; background: var(--rule); }
-  .header-cpi-label { text-transform: uppercase; font-size: 10px; letter-spacing: 0.04em; }
+  .header-cpi-label { text-transform: uppercase; font-size: 13px; letter-spacing: 0.04em; }
   .header-cpi-val { font-weight: 700; font-family: "JetBrains Mono", monospace; }
   .header-cpi-val.up { color: var(--up); }
   .header-cpi-val.down { color: var(--down); }
@@ -170,8 +170,8 @@
     text-decoration: none;
     border: 1px solid var(--rule);
     border-radius: 999px;
-    width: 26px;
-    height: 26px;
+    width: 35px;
+    height: 35px;
     overflow: hidden;
     filter: grayscale(40%);
     opacity: 0.85;
@@ -191,11 +191,11 @@
   }
 
   .store-badge { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
-  .store-logo { height: 34px; width: auto; display: block; }
+  .store-logo { height: 45px; width: auto; display: block; }
 
   .subtitle {
-    margin-top: 4px;
-    font-size: 12px;
+    margin-top: 5px;
+    font-size: 16px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--ink-faint);
@@ -537,6 +537,20 @@
     letter-spacing: 0.08em;
   }
 
+  footer.site-footer {
+    max-width: 900px;
+    margin: 32px auto 0;
+    padding: 20px 16px 28px;
+    border-top: none;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: normal;
+    color: var(--ink);
+  }
+  footer.site-footer a { color: var(--ink); text-decoration: underline; }
+  footer.site-footer a:hover { color: var(--up); }
+
   .status { text-align: center; padding: 40px 0; font-size: 13px; color: var(--ink-faint); }
 
   /* Favorites */
@@ -746,6 +760,10 @@
       </div>
     </div>
   </div>
+
+  <footer class="site-footer">
+    © Þorsteinn Magnússon 2026 · Tel: 772-8818 · Email: <a href="mailto:steinim00@gmail.com">steinim00@gmail.com</a>
+  </footer>
 
   <div class="modal-backdrop" id="modalBackdrop">
     <div class="modal">
