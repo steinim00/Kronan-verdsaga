@@ -70,7 +70,7 @@
     background: var(--brand);
     color: var(--ink);
   }
-  .search-input:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 2px var(--ink); }
+  .search-input:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 1px var(--ink); }
   .search-input::placeholder { color: rgba(42,40,34,0.6); }
 
   .search-results {
@@ -141,11 +141,12 @@
     border-top: 1px dashed var(--rule);
     font-size: 16px;
     color: var(--ink-faint);
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   }
   .header-cpi-item { display: flex; align-items: baseline; gap: 5px; white-space: nowrap; }
   .header-cpi-divider { width: 1px; align-self: stretch; background: var(--rule); }
   .header-cpi-label { text-transform: uppercase; font-size: 13px; letter-spacing: 0.04em; }
-  .header-cpi-val { font-weight: 700; font-family: "JetBrains Mono", monospace; }
+  .header-cpi-val { font-weight: 700; }
   .header-cpi-val.up { color: var(--up); }
   .header-cpi-val.down { color: var(--down); }
   .lang-switch {
