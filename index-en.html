@@ -1511,6 +1511,32 @@
     return weekdayStatsCache;
   }
 
+  function tukeyTable(pairs, label) {
+    if (!pairs) {
+      return `<div class="anova-box"><strong>Tukey HSD — ${label}:</strong> not computable (the ANOVA itself wasn't computable for this metric).</div>`;
+    }
+    const rows = pairs.map((p) => `
+      <tr>
+        <td>${WEEKDAY_NAMES_EN[p.a] || p.a} – ${WEEKDAY_NAMES_EN[p.b] || p.b}</td>
+        <td>${p.diff > 0 ? "+" : ""}${p.diff}</td>
+        <td>${p.q}</td>
+        <td>${p.p < 0.001 ? "<0.001" : p.p.toFixed(3)}</td>
+        <td>${p.p < 0.05 ? '<strong style="color:var(--up);">Yes</strong>' : "No"}</td>
+      </tr>
+    `).join("");
+    const anySig = pairs.some((p) => p.p < 0.05);
+    return `
+      <div class="anova-box">
+        <strong>Tukey HSD — ${label}:</strong> pairwise comparison across all weekdays, corrected for multiple comparisons (unlike the p-values in the table above).<br>
+        ${anySig ? "At least one pair is significantly different." : "No individual pair reaches significance (p ≥ 0.05 for all pairs) — even when the overall ANOVA is significant, this can happen when the sample per day is small; the pairwise test is more conservative."}
+        <table class="anova-table" style="margin-top:8px;">
+          <thead><tr><th>Pair</th><th>Diff</th><th>q</th><th>p</th><th>Significant?</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    `;
+  }
+
   async function renderStatsView() {
     contentEl.innerHTML = '<div class="status">Loading statistics…</div>';
     const stats = await ensureWeekdayStatsLoaded();
@@ -1566,6 +1592,10 @@
       <div class="section-label" style="margin-top:18px;">ANOVA tests</div>
       ${anovaHtml(stats.anovaUp, "increase rate")}
       ${anovaHtml(stats.anovaDown, "decrease rate")}
+
+      <div class="section-label" style="margin-top:18px;">Tukey HSD (which day exactly?)</div>
+      ${tukeyTable(stats.tukeyUp, "increase rate")}
+      ${tukeyTable(stats.tukeyDown, "decrease rate")}
       </div>
     `;
 

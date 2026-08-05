@@ -7,7 +7,7 @@
 // en "hvað er líklegt að gerist".
 
 import { readdir, readFile, writeFile } from "node:fs/promises";
-import { oneWayAnova, welchTTestVsRest } from "./stats.js";
+import { oneWayAnova, welchTTestVsRest, tukeyHSD } from "./stats.js";
 
 const MOVERS_DIR = new URL("../data/movers/", import.meta.url);
 const OUTPUT_FILE = new URL("../data/weekday-stats.json", import.meta.url);
@@ -57,7 +57,13 @@ export async function computeWeekdayStats() {
   labelGroups(anovaUp, "upRates");
   labelGroups(anovaDown, "downRates");
 
-  const result = { days: {}, anovaUp, anovaDown };
+  // Tukey HSD: hvaða PÖR af vikudögum eru marktækt frábrugðin, leiðrétt
+  // fyrir margfeldissamanburð — svarar spurningunni sem ANOVA sjálft
+  // getur ekki, nefnilega "hvor dagurinn nákvæmlega".
+  const tukeyUp = tukeyHSD(anovaUp);
+  const tukeyDown = tukeyHSD(anovaDown);
+
+  const result = { days: {}, anovaUp, anovaDown, tukeyUp, tukeyDown };
   for (const day of ORDER) {
     if (stats.has(day)) {
       const { up, down, days, upRates, downRates } = stats.get(day);

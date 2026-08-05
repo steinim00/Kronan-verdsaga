@@ -1511,6 +1511,32 @@
     return weekdayStatsCache;
   }
 
+  function tukeyTable(pairs, label) {
+    if (!pairs) {
+      return `<div class="anova-box"><strong>Tukey HSD — ${label}:</strong> ekki reiknanlegt (ANOVA sjálft var ekki reiknanlegt fyrir þennan mælikvarða).</div>`;
+    }
+    const rows = pairs.map((p) => `
+      <tr>
+        <td>${p.a} – ${p.b}</td>
+        <td>${p.diff > 0 ? "+" : ""}${p.diff}</td>
+        <td>${p.q}</td>
+        <td>${p.p < 0.001 ? "<0,001" : p.p.toFixed(3).replace(".", ",")}</td>
+        <td>${p.p < 0.05 ? '<strong style="color:var(--up);">Já</strong>' : "Nei"}</td>
+      </tr>
+    `).join("");
+    const anySig = pairs.some((p) => p.p < 0.05);
+    return `
+      <div class="anova-box">
+        <strong>Tukey HSD — ${label}:</strong> parasamanburður milli allra vikudaga, leiðréttur fyrir margfeldissamanburð (ólíkt p-gildunum í töflunni hér fyrir ofan).<br>
+        ${anySig ? "Að minnsta kosti eitt par er marktækt frábrugðið." : "Ekkert einstakt par nær marktekt (p ≥ 0,05 fyrir öll pör) — jafnvel þótt heildar-ANOVA sé marktæk getur þetta gerst þegar úrtakið á hvern dag er lítið; paraprófið er varfærnara."}
+        <table class="anova-table" style="margin-top:8px;">
+          <thead><tr><th>Pör</th><th>Munur</th><th>q</th><th>p</th><th>Marktækt?</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    `;
+  }
+
   async function renderStatsView() {
     contentEl.innerHTML = '<div class="status">Sæki tölfræði…</div>';
     const stats = await ensureWeekdayStatsLoaded();
@@ -1566,6 +1592,10 @@
       <div class="section-label" style="margin-top:18px;">ANOVA-próf</div>
       ${anovaHtml(stats.anovaUp, "hækkunarhlutfalli")}
       ${anovaHtml(stats.anovaDown, "lækkunarhlutfalli")}
+
+      <div class="section-label" style="margin-top:18px;">Tukey HSD (hvor dagur nákvæmlega?)</div>
+      ${tukeyTable(stats.tukeyUp, "hækkunarhlutfalli")}
+      ${tukeyTable(stats.tukeyDown, "lækkunarhlutfalli")}
       </div>
     `;
 
