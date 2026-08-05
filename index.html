@@ -360,6 +360,8 @@
   .line .meta { grid-column: 1; font-size: 10px; color: var(--ink-faint); }
   .line .prices { grid-column: 2; text-align: right; font-size: 10px; color: var(--ink-faint); }
   .line .percent { grid-column: 2; text-align: right; font-weight: 700; font-size: 15px; }
+  .line .percent.up { color: var(--up); }
+  .line .percent.down { color: var(--down); }
   .line.up .percent::before { content: "▲ "; }
   .line.down .percent::before { content: "▼ "; }
   .line.up .percent { color: var(--up); }
@@ -860,6 +862,7 @@
 
         <div class="view-tabs" id="viewTabs">
           <button type="button" class="view-tab active" data-view="overview">Yfirlit</button>
+          <button type="button" class="view-tab" data-view="hourly">Klukkutímar í dag</button>
           <button type="button" class="view-tab" data-view="extremes">Öfgar í verði</button>
           <button type="button" class="view-tab" data-view="stats">Tölfræði</button>
         </div>
@@ -1550,7 +1553,58 @@
     renderCategoryBreakdown(rangeData(currentMovers, currentRange));
     if (currentView === "extremes") { renderExtremesView(); return; }
     if (currentView === "stats") { renderStatsView(); return; }
+    if (currentView === "hourly") { renderHourlyView(); return; }
     renderOverviewView();
+  }
+
+  let hourlyIndexCache = null;
+  let hourlyDayCache = new Map();
+
+  async function renderHourlyView() {
+    contentEl.innerHTML = skeletonHtml();
+    try {
+      if (hourlyIndexCache === null) {
+        hourlyIndexCache = await fetchJson("data/hourly/index.json");
+      }
+      if (hourlyIndexCache.length === 0) {
+        contentEl.innerHTML = '<div class="status">Engar klukkutíma-athuganir skráðar ennþá — þær byrja að birtast eftir að fyrsta klukkutíma-keyrslan hefur farið fram.</div>';
+        return;
+      }
+
+      const latestDay = hourlyIndexCache[hourlyIndexCache.length - 1];
+      if (!hourlyDayCache.has(latestDay)) {
+        hourlyDayCache.set(latestDay, await fetchJson(`data/hourly/${latestDay}.json`));
+      }
+      const events = hourlyDayCache.get(latestDay);
+
+      if (events.length === 0) {
+        contentEl.innerHTML = `<div class="status">Engar verðbreytingar skráðar ${fmtDateShort(latestDay)} ennþá.</div>`;
+        return;
+      }
+
+      // Nýjustu breytingarnar efst.
+      const sorted = [...events].sort((a, b) => b.time.localeCompare(a.time));
+      const rows = sorted.map((e) => `
+        <div class="line" data-sku="${e.sku}" data-name="${e.name.replace(/"/g,'&quot;')}" data-brand="${(e.brand||"").replace(/"/g,'&quot;')}" data-category="${(e.category||"").replace(/"/g,'&quot;')}">
+          <div class="line-icon">${categoryIconSvg(e.category)}</div>
+          <div class="name">${e.name}</div>
+          <div class="percent ${e.percent > 0 ? "up" : e.percent < 0 ? "down" : ""}">${e.percent > 0 ? "+" : ""}${e.percent}%</div>
+          <div class="meta">${metaLine(e)} · kl. ${e.time}</div>
+          <div class="prices">${fmtISKUnit(e.priceBefore, e.unit)} → ${fmtISKUnit(e.priceAfter, e.unit)}</div>
+        </div>
+      `).join("");
+
+      contentEl.innerHTML = `
+        <div class="section-label">Verðbreytingar eftir klukkustund — ${fmtDateShort(latestDay)}</div>
+        <p style="font-size:11px; color:var(--ink-faint); margin:-4px 0 12px;">
+          Athugað á klukkutíma fresti (þegar keyrslan er virk) — sýnir nákvæmlega hvenær yfir daginn verð breyttust, ekki bara að þau breyttust.
+        </p>
+        ${rows}
+      `;
+      attachLineClicks(contentEl);
+    } catch (e) {
+      showRetryError(contentEl, e, renderHourlyView);
+    }
   }
 
   let currentExtremesCategory = "";
