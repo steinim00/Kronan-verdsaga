@@ -405,8 +405,18 @@
     margin: 0 -10px;
     border-radius: 6px;
   }
-  .col-up { background: rgba(229, 57, 53, 0.06); }
-  .col-down { background: rgba(67, 160, 71, 0.06); }
+  .extremes-category-select {
+    font-family: inherit;
+    font-size: 12px;
+    padding: 8px 10px;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+
+  .col-up { background: rgba(229, 57, 53, 0.11); }
+  .col-down { background: rgba(67, 160, 71, 0.11); }
   .col-up .line { border-bottom-color: rgba(229, 57, 53, 0.15); }
   .col-down .line { border-bottom-color: rgba(67, 160, 71, 0.15); }
   .col-up .name, .col-up .meta, .col-up .prices { color: var(--up); }
@@ -1316,22 +1326,38 @@
     renderOverviewView();
   }
 
+  let currentExtremesCategory = "";
+
   function renderExtremesView() {
     const movers = currentMovers;
+    const byCat = movers.extremesByCategory || {};
+    const categories = Object.keys(byCat).sort();
+    const data = currentExtremesCategory && byCat[currentExtremesCategory]
+      ? byCat[currentExtremesCategory]
+      : { cheapest: movers.cheapest, mostExpensive: movers.mostExpensive };
+
     contentEl.innerHTML = `
+      <select id="extremesCategorySelect" class="extremes-category-select">
+        <option value="">All categories</option>
+        ${categories.map((c) => `<option value="${c.replace(/"/g,'&quot;')}" ${c === currentExtremesCategory ? "selected" : ""}>${c}</option>`).join("")}
+      </select>
       <div class="two-col-grid">
         <section>
           <div class="section-label">5 cheapest products</div>
-          ${renderExtremeList(movers.cheapest)}
+          ${renderExtremeList(data.cheapest)}
         </section>
         <section>
           <div class="section-label">5 most expensive products</div>
-          ${renderExtremeList(movers.mostExpensive)}
+          ${renderExtremeList(data.mostExpensive)}
         </section>
       </div>
       <div class="section-label">★ Most volatile products</div>
       ${renderVolatile(movers.mostVolatile)}
     `;
+    document.getElementById("extremesCategorySelect").addEventListener("change", (e) => {
+      currentExtremesCategory = e.target.value;
+      renderExtremesView();
+    });
     attachLineClicks(contentEl);
   }
 

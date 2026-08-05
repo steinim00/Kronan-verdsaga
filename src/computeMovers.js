@@ -35,6 +35,27 @@ function findExtremes(products, count = 5) {
   return { cheapest, mostExpensive };
 }
 
+// Sama og findExtremes, en eitt sett af 5-ódýrustu/5-dýrustu per vöruflokk
+// í staðinn fyrir eitt sameiginlegt sett — svo hægt sé að velja flokk á
+// "Öfgar í verði" flipanum og sjá öfgarnar bara innan hans.
+function findExtremesByCategory(products, count = 5) {
+  const priced = products.filter((p) => p.price && p.price > 0).map(toPriceEntry);
+  const byCategory = new Map();
+  for (const p of priced) {
+    const cat = p.category || "Óflokkað";
+    if (!byCategory.has(cat)) byCategory.set(cat, []);
+    byCategory.get(cat).push(p);
+  }
+  const result = {};
+  for (const [cat, items] of byCategory) {
+    result[cat] = {
+      cheapest: [...items].sort((a, b) => a.price - b.price).slice(0, count),
+      mostExpensive: [...items].sort((a, b) => b.price - a.price).slice(0, count),
+    };
+  }
+  return result;
+}
+
 async function tagAllTimePriceList(list) {
   for (let i = 0; i < list.length; i++) {
     list[i] = await tagAllTime(list[i], list[i].price);
@@ -191,6 +212,7 @@ export async function computeMovers(todayDate) {
 
   const today = await loadSnapshot(todayDate);
   const { cheapest, mostExpensive } = findExtremes(today.products);
+  const extremesByCategory = findExtremesByCategory(today.products);
   let shrinkflationAlerts = [];
 
   let daily = {
@@ -254,6 +276,7 @@ export async function computeMovers(todayDate) {
     },
     cheapest,
     mostExpensive,
+    extremesByCategory,
     mostVolatile,
     shrinkflationAlerts,
   };
