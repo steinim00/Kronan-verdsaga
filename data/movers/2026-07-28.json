@@ -5,6 +5,7 @@
   "changedCount": 2,
   "increasedCount": 1,
   "decreasedCount": 1,
+  "avgPercentChange": -0.34,
   "topIncreases": [
     {
       "sku": "100174011",
@@ -68,6 +69,7 @@
     "changedCount": 8,
     "increasedCount": 6,
     "decreasedCount": 2,
+    "avgPercentChange": 2.82,
     "topIncreases": [
       {
         "sku": "100248244",
@@ -282,6 +284,7 @@
     "changedCount": 8,
     "increasedCount": 6,
     "decreasedCount": 2,
+    "avgPercentChange": 2.82,
     "topIncreases": [
       {
         "sku": "100248244",
@@ -496,6 +499,7 @@
     "changedCount": 8,
     "increasedCount": 6,
     "decreasedCount": 2,
+    "avgPercentChange": 2.82,
     "topIncreases": [
       {
         "sku": "100248244",

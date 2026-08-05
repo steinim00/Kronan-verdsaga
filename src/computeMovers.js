@@ -184,10 +184,18 @@ function diffSnapshots(today, prev) {
   const topIncreasesByAmount = withAmount.filter((c) => c.amount > 0).sort((a, b) => b.amount - a.amount).slice(0, MAX_MOVERS);
   const topDecreasesByAmount = withAmount.filter((c) => c.amount < 0).sort((a, b) => a.amount - b.amount).slice(0, MAX_MOVERS);
 
+  // Meðaltal af % breytingu YFIR ALLAR vörur sem breyttust (ekki bara
+  // topp-50 listana), bæði hækkanir og lækkanir saman — gefur eina tölu
+  // sem lýsir "dæmigerðri" verðhreyfingu hjá Krónunni þetta tímabil.
+  const avgPercentChange = changes.length
+    ? Math.round((changes.reduce((s, c) => s + c.percent, 0) / changes.length) * 100) / 100
+    : null;
+
   return {
     changedCount: changes.length,
     increasedCount: changes.filter((c) => c.percent > 0).length,
     decreasedCount: changes.filter((c) => c.percent < 0).length,
+    avgPercentChange,
     topIncreases,
     topDecreases,
     topIncreasesByAmount,
@@ -220,6 +228,7 @@ export async function computeMovers(todayDate) {
     changedCount: 0,
     increasedCount: 0,
     decreasedCount: 0,
+    avgPercentChange: null,
     topIncreases: [],
     topDecreases: [],
     topIncreasesByAmount: [],
@@ -287,6 +296,7 @@ export async function computeMovers(todayDate) {
     changedCount: daily.changedCount,
     increasedCount: daily.increasedCount,
     decreasedCount: daily.decreasedCount,
+    avgPercentChange: daily.avgPercentChange,
     topIncreases: daily.topIncreases,
     topDecreases: daily.topDecreases,
     topIncreasesByAmount: daily.topIncreasesByAmount,
@@ -296,6 +306,7 @@ export async function computeMovers(todayDate) {
       changedCount: weekly.changedCount,
       increasedCount: weekly.increasedCount,
       decreasedCount: weekly.decreasedCount,
+      avgPercentChange: weekly.avgPercentChange,
       topIncreases: weekly.topIncreases,
       topDecreases: weekly.topDecreases,
       topIncreasesByAmount: weekly.topIncreasesByAmount,
@@ -306,6 +317,7 @@ export async function computeMovers(todayDate) {
       changedCount: monthly.changedCount,
       increasedCount: monthly.increasedCount,
       decreasedCount: monthly.decreasedCount,
+      avgPercentChange: monthly.avgPercentChange,
       topIncreases: monthly.topIncreases,
       topDecreases: monthly.topDecreases,
       topIncreasesByAmount: monthly.topIncreasesByAmount,
@@ -316,6 +328,7 @@ export async function computeMovers(todayDate) {
       changedCount: monthToDate.changedCount,
       increasedCount: monthToDate.increasedCount,
       decreasedCount: monthToDate.decreasedCount,
+      avgPercentChange: monthToDate.avgPercentChange,
       topIncreases: monthToDate.topIncreases,
       topDecreases: monthToDate.topDecreases,
       topIncreasesByAmount: monthToDate.topIncreasesByAmount,

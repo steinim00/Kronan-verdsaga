@@ -161,6 +161,7 @@
   .header-cpi-divider { width: 1px; align-self: stretch; background: var(--rule); }
   .header-cpi-label { text-transform: uppercase; font-size: 13px; letter-spacing: 0.04em; }
   .header-cpi-val { font-weight: 700; font-family: "JetBrains Mono", monospace; }
+  .header-cpi-val.header-cpi-big { font-size: 28px; }
   .header-cpi-val.up { color: var(--up); }
   .header-cpi-val.down { color: var(--down); }
   .lang-switch {
@@ -294,6 +295,27 @@
   .section-label.up { color: var(--up); }
   .section-label.down { color: var(--down); }
   .section-label::after { content: ""; flex: 1; border-top: 1px dashed var(--rule); }
+
+  @keyframes skeleton-shimmer {
+    0% { background-position: -220% 0; }
+    100% { background-position: 220% 0; }
+  }
+  .skeleton-row {
+    display: grid;
+    grid-template-columns: 20px 1fr auto;
+    gap: 2px 10px;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dotted var(--rule);
+  }
+  .skeleton-bar {
+    height: 12px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--paper-edge) 25%, #f2f2f2 50%, var(--paper-edge) 75%);
+    background-size: 220% 100%;
+    animation: skeleton-shimmer 1.3s ease-in-out infinite;
+  }
+  .skeleton-icon { width: 20px; height: 20px; border-radius: 999px; }
 
   .line {
     display: grid;
@@ -812,7 +834,7 @@
           <button type="button" class="sort-tab" data-sort="amount">Raða eftir kr.</button>
         </div>
 
-        <div id="content"><div class="status">Sæki gögn…</div></div>
+        <div id="content"><div class="two-col-grid"><section><div class="skeleton-row"><span class="skeleton-bar skeleton-icon"></span><span class="skeleton-bar" style="width:70%;"></span><span class="skeleton-bar" style="width:36px;"></span></div><div class="skeleton-row"><span class="skeleton-bar skeleton-icon"></span><span class="skeleton-bar" style="width:60%;"></span><span class="skeleton-bar" style="width:36px;"></span></div><div class="skeleton-row"><span class="skeleton-bar skeleton-icon"></span><span class="skeleton-bar" style="width:80%;"></span><span class="skeleton-bar" style="width:36px;"></span></div><div class="skeleton-row"><span class="skeleton-bar skeleton-icon"></span><span class="skeleton-bar" style="width:55%;"></span><span class="skeleton-bar" style="width:36px;"></span></div></section><section><div class="skeleton-row"><span class="skeleton-bar skeleton-icon"></span><span class="skeleton-bar" style="width:65%;"></span><span class="skeleton-bar" style="width:36px;"></span></div><div class="skeleton-row"><span class="skeleton-bar skeleton-icon"></span><span class="skeleton-bar" style="width:75%;"></span><span class="skeleton-bar" style="width:36px;"></span></div><div class="skeleton-row"><span class="skeleton-bar skeleton-icon"></span><span class="skeleton-bar" style="width:50%;"></span><span class="skeleton-bar" style="width:36px;"></span></div><div class="skeleton-row"><span class="skeleton-bar skeleton-icon"></span><span class="skeleton-bar" style="width:85%;"></span><span class="skeleton-bar" style="width:36px;"></span></div></section></div></div>
 
         
       </div>
@@ -1451,6 +1473,7 @@
     currentMovers = movers;
     dateLabelEl.textContent = fmtDateLong(movers.date);
     renderShrinkAlert(movers.shrinkflationAlerts);
+    renderHeaderMetrics();
     renderRangeView();
   }
 
@@ -1532,8 +1555,20 @@
     attachSeeMoreToggle(contentEl, totalExtra);
   }
 
+  function skeletonHtml() {
+    const row = () => `
+      <div class="skeleton-row">
+        <span class="skeleton-bar skeleton-icon"></span>
+        <span class="skeleton-bar" style="width:${60 + Math.random() * 30}%;"></span>
+        <span class="skeleton-bar" style="width:36px;"></span>
+      </div>
+    `;
+    const col = () => Array.from({ length: 4 }).map(row).join("");
+    return `<div class="two-col-grid"><section>${col()}</section><section>${col()}</section></div>`;
+  }
+
   async function loadDate(date) {
-    contentEl.innerHTML = '<div class="status">Sæki gögn…</div>';
+    contentEl.innerHTML = skeletonHtml();
     try {
       const res = await fetch(`data/movers/${date}.json`);
       if (!res.ok) throw new Error("not found");
@@ -1635,29 +1670,53 @@
 
   const headerCpi = document.getElementById("headerCpi");
 
+  let cachedCpiData = null;
+  let cpiLoaded = false;
+
   async function loadCpi() {
     try {
       const res = await fetch("data/cpi.json");
-      if (!res.ok) { headerCpi.style.display = "none"; return; }
-      const cpi = await res.json();
-      const overall = cpi.overall || cpi; // gamla flata sniðið, ef eldri skrá er enn í skyndiminni
-
-      const item = (label, month, yearPct, monthPct, note) => `
-        <span class="header-cpi-item" title="${fmtCpiMonth(month)}${note ? " — " + note : ""}">
-          <span class="header-cpi-label">${label}</span>
-          <span class="header-cpi-val ${cpiDirClass(yearPct)}">${fmtCpiPercent(yearPct)}</span> á ári
-          ${monthPct != null ? `<span style="opacity:0.6;">(${fmtCpiPercent(monthPct)} í mán.)</span>` : ""}
-        </span>
-      `;
-
-      let html = item("VNV", overall.month, overall.yearChangePercent, overall.monthChangePercent);
-      if (cpi.food) html += '<span class="header-cpi-divider" aria-hidden="true"></span>' + item("Matvælavísitala", cpi.food.month, cpi.food.yearChangePercent, cpi.food.monthChangePercent, "sjálfstæð vísitala, ekki hluti af VNV");
-
-      headerCpi.innerHTML = html;
-      headerCpi.style.display = "";
+      cachedCpiData = res.ok ? await res.json() : null;
     } catch (e) {
-      headerCpi.style.display = "none";
+      cachedCpiData = null;
     }
+    cpiLoaded = true;
+    renderHeaderMetrics();
+  }
+
+  function renderHeaderMetrics() {
+    const item = (label, month, yearPct, monthPct, note) => `
+      <span class="header-cpi-item" title="${fmtCpiMonth(month)}${note ? " — " + note : ""}">
+        <span class="header-cpi-label">${label}</span>
+        <span class="header-cpi-val ${cpiDirClass(yearPct)}">${fmtCpiPercent(yearPct)}</span> á ári
+        ${monthPct != null ? `<span style="opacity:0.6;">(${fmtCpiPercent(monthPct)} í mán.)</span>` : ""}
+      </span>
+    `;
+
+    const parts = [];
+
+    if (cachedCpiData) {
+      const overall = cachedCpiData.overall || cachedCpiData;
+      parts.push(item("VNV", overall.month, overall.yearChangePercent, overall.monthChangePercent));
+      if (cachedCpiData.food) {
+        parts.push(item("Matvælavísitala", cachedCpiData.food.month, cachedCpiData.food.yearChangePercent, cachedCpiData.food.monthChangePercent, "sjálfstæð vísitala, ekki hluti af VNV"));
+      }
+    }
+
+    const kronanPct = currentMovers?.monthly?.avgPercentChange;
+    if (kronanPct != null) {
+      const cls = kronanPct > 0 ? "up" : kronanPct < 0 ? "down" : "";
+      parts.push(`
+        <span class="header-cpi-item" title="Meðaltal % breytingu yfir allar vörur sem breyttust síðasta mánuð hjá Krónunni — ekki opinber tala">
+          <span class="header-cpi-label">Krónan · sl. mánuð</span>
+          <span class="header-cpi-val header-cpi-big ${cls}">${kronanPct > 0 ? "+" : ""}${kronanPct}%</span>
+        </span>
+      `);
+    }
+
+    if (parts.length === 0) { headerCpi.style.display = "none"; return; }
+    headerCpi.innerHTML = parts.join('<span class="header-cpi-divider" aria-hidden="true"></span>');
+    headerCpi.style.display = "";
   }
 
   const categoriesCard = document.getElementById("categoriesCard");
