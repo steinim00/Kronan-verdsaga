@@ -65,7 +65,7 @@
     font-family: inherit;
     font-size: 13px;
     padding: 10px 12px;
-    border: 1px solid var(--rule);
+    border: 1.5px solid var(--brand);
     border-radius: 8px;
     background: var(--paper);
     color: var(--ink);
@@ -208,17 +208,18 @@
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    background: none;
-    border: 1px solid var(--rule);
+    background: var(--brand);
+    border: 1.5px solid var(--brand);
     border-radius: 999px;
-    color: var(--ink-faint);
+    color: var(--ink);
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     gap: 4px;
     padding: 6px 14px;
+    font-weight: 600;
   }
-  .date-picker-toggle:hover { color: var(--ink); }
+  .date-picker-toggle:hover { opacity: 0.85; }
   .date-picker-toggle .caret { font-size: 9px; }
 
   .date-picker-panel {
@@ -227,12 +228,13 @@
     right: 0;
     z-index: 20;
     width: min(420px, 90vw);
-    background: var(--paper);
+    background: var(--brand);
     border: 1px solid var(--rule);
     border-radius: 8px;
     box-shadow: 0 10px 28px rgba(0,0,0,0.18);
     padding: 22px;
   }
+  .date-picker-panel .date-picker-weekdays span { color: var(--ink); opacity: 0.65; }
   .date-picker-nav {
     display: flex;
     align-items: center;
@@ -296,9 +298,9 @@
     pointer-events: none;
     transition: background-color 0.15s ease;
   }
-  .date-picker-grid button.has-data:hover::before { background-color: var(--ink-faint); }
-  .date-picker-grid button.selected { color: var(--ink); font-weight: 700; }
-  .date-picker-grid button.selected::before { background-color: var(--brand); }
+  .date-picker-grid button.selected { color: var(--brand); font-weight: 700; }
+  .date-picker-grid button.selected::before { background-color: var(--ink); }
+  .date-picker-grid button.has-data:hover::before { background-color: rgba(42,40,34,0.35); }
   .date-picker-grid .empty-cell { visibility: hidden; }
 
   .section-label {
@@ -399,6 +401,7 @@
   .range-tab {
     font-family: inherit;
     font-size: 11px;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     background: none;
