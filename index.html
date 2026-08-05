@@ -123,21 +123,6 @@
     position: relative;
   }
 
-  .receipt::before,
-  .receipt::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 14px;
-    background:
-      linear-gradient(135deg, var(--paper) 25%, transparent 25%) 0 0,
-      linear-gradient(225deg, var(--paper) 25%, transparent 25%) 0 0;
-    background-size: 16px 16px;
-    background-color: transparent;
-  }
-  .receipt::before { top: -13px; background-color: var(--backdrop); }
-  .receipt::after { bottom: -13px; transform: scaleY(-1); background-color: var(--backdrop); }
 
   header { margin-bottom: 27px; }
   .header-top {
@@ -298,9 +283,9 @@
     pointer-events: none;
     transition: background-color 0.15s ease;
   }
-  .date-picker-grid button.selected { color: var(--brand); font-weight: 700; }
-  .date-picker-grid button.selected::before { background-color: var(--ink); }
-  .date-picker-grid button.has-data:hover::before { background-color: rgba(42,40,34,0.35); }
+  .date-picker-grid button.selected { color: var(--ink); font-weight: 700; }
+  .date-picker-grid button.selected::before { background-color: #ffffff; }
+  .date-picker-grid button.has-data:hover::before { background-color: var(--paper-edge); }
   .date-picker-grid .empty-cell { visibility: hidden; }
 
   .section-label {
