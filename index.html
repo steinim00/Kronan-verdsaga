@@ -521,6 +521,8 @@
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   }
 
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
   .anova-table {
     width: 100%;
     border-collapse: collapse;
@@ -743,12 +745,14 @@
       max-width: 1040px;
       display: grid;
       grid-template-columns: 1fr 300px;
+      grid-template-rows: auto 1fr;
       align-items: start;
-      gap: 32px;
+      gap: 32px 32px;
     }
-    .page-main { max-width: none; }
-    .page-sidebar { position: sticky; top: 32px; }
-    .page-sidebar .toolbar,
+    .page-main { max-width: none; grid-column: 1; grid-row: 1 / 3; }
+    .toolbar { grid-column: 2; grid-row: 1; }
+    .page-sidebar { grid-column: 2; grid-row: 2; position: sticky; top: 32px; }
+    .toolbar,
     .page-main .receipt {
       max-width: none;
     }
@@ -852,12 +856,12 @@
       </div>
     </div>
 
-    <div class="page-sidebar">
-      <div class="toolbar">
-        <input class="search-input" id="searchInput" placeholder="Leita að vöru…" autocomplete="off" />
-        <div class="search-results" id="searchResults"></div>
-      </div>
+    <div class="toolbar">
+      <input class="search-input" id="searchInput" placeholder="Leita að vöru…" autocomplete="off" />
+      <div class="search-results" id="searchResults"></div>
+    </div>
 
+    <div class="page-sidebar">
       <div class="receipt" id="categoriesCard" style="display:none;">
         <div class="section-label">Vöruflokkar í dag</div>
         <div id="categoriesContent"></div>
@@ -1768,10 +1772,12 @@
       <div class="anova-box">
         <strong>Tukey HSD — ${label}:</strong> parasamanburður milli allra vikudaga, leiðréttur fyrir margfeldissamanburð (ólíkt p-gildunum í töflunni hér fyrir ofan).<br>
         ${anySig ? "Að minnsta kosti eitt par er marktækt frábrugðið." : "Ekkert einstakt par nær marktekt (p ≥ 0,05 fyrir öll pör) — jafnvel þótt heildar-ANOVA sé marktæk getur þetta gerst þegar úrtakið á hvern dag er lítið; paraprófið er varfærnara."}
-        <table class="anova-table" style="margin-top:8px;">
-          <thead><tr><th>Pör</th><th>Munur</th><th>q</th><th>p</th><th>Marktækt?</th></tr></thead>
-          <tbody>${rows}</tbody>
-        </table>
+        <div class="table-scroll">
+          <table class="anova-table" style="margin-top:8px; min-width:420px;">
+            <thead><tr><th>Pör</th><th>Munur</th><th>q</th><th>p</th><th>Marktækt?</th></tr></thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>
       </div>
     `;
   }
@@ -1823,10 +1829,12 @@
       <p style="font-size:11px; color:var(--ink-faint); margin:-4px 0 10px;">
         p-gildin bera hvern dag saman við alla hina dagana til samans (Welch t-próf) — rautt/feitletrað þýðir að sá dagur sker sig marktækt úr (p &lt; 0,05). Athugið: þetta er ekki leiðrétt fyrir margfeldissamanburð, svo taktu þetta sem vísbendingu frekar en endanlegan úrskurð.
       </p>
-      <table class="anova-table" style="margin-bottom:8px;">
-        <thead><tr><th>Vikudagur</th><th>Dagar</th><th>▲ fjöldi</th><th>▼ fjöldi</th><th>Meðal ▲ hlutfall</th><th>Meðal ▼ hlutfall</th><th>p (▲)</th><th>p (▼)</th></tr></thead>
-        <tbody>${weekdayRows}</tbody>
-      </table>
+      <div class="table-scroll">
+        <table class="anova-table" style="margin-bottom:8px; min-width:560px;">
+          <thead><tr><th>Vikudagur</th><th>Dagar</th><th>▲ fjöldi</th><th>▼ fjöldi</th><th>Meðal ▲ hlutfall</th><th>Meðal ▼ hlutfall</th><th>p (▲)</th><th>p (▼)</th></tr></thead>
+          <tbody>${weekdayRows}</tbody>
+        </table>
+      </div>
 
       <div class="section-label" style="margin-top:18px;">ANOVA-próf</div>
       ${anovaHtml(stats.anovaUp, "hækkunarhlutfalli")}
