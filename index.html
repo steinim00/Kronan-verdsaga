@@ -266,6 +266,7 @@
     padding-bottom: 8px;
   }
   .date-picker-grid button {
+    position: relative;
     font-family: inherit;
     font-size: 16px;
     background: none;
@@ -274,19 +275,30 @@
     aspect-ratio: 1;
     cursor: pointer;
     color: var(--ink-faint);
+    z-index: 0;
   }
   .date-picker-grid button.has-data { color: var(--ink); cursor: pointer; }
   .date-picker-grid button:disabled { opacity: 0.3; cursor: default; }
-  .date-picker-grid button.has-data:hover {
-    background: var(--paper-edge);
-    box-shadow: inset 0 0 0 1.5px var(--ink-faint);
+  .date-picker-grid button.has-data::before {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    z-index: -1;
+    background-color: transparent;
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill-rule="evenodd" fill="white" d="M2,52 a48,48 0 1,0 96,0 a48,48 0 1,0 -96,0 Z M9,52 a41,41 0 1,0 82,0 a41,41 0 1,0 -82,0 Z M13,52 a37,37 0 1,0 74,0 a37,37 0 1,0 -74,0 Z M33,47 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0 Z M57,47 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0 Z M32,60 Q50,82 68,60 Q65,74 50,76 Q35,74 32,60 Z"/></svg>');
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill-rule="evenodd" fill="white" d="M2,52 a48,48 0 1,0 96,0 a48,48 0 1,0 -96,0 Z M9,52 a41,41 0 1,0 82,0 a41,41 0 1,0 -82,0 Z M13,52 a37,37 0 1,0 74,0 a37,37 0 1,0 -74,0 Z M33,47 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0 Z M57,47 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0 Z M32,60 Q50,82 68,60 Q65,74 50,76 Q35,74 32,60 Z"/></svg>');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    pointer-events: none;
+    transition: background-color 0.15s ease;
   }
-  .date-picker-grid button.selected {
-    background: var(--brand);
-    color: var(--ink);
-    font-weight: 700;
-    box-shadow: inset 0 0 0 2px var(--ink), 0 2px 5px rgba(0,0,0,0.25);
-  }
+  .date-picker-grid button.has-data:hover::before { background-color: var(--ink-faint); }
+  .date-picker-grid button.selected { color: var(--ink); font-weight: 700; }
+  .date-picker-grid button.selected::before { background-color: var(--brand); }
   .date-picker-grid .empty-cell { visibility: hidden; }
 
   .section-label {
