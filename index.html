@@ -72,26 +72,6 @@
   .search-input:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 2px var(--brand); }
   .search-input::placeholder { color: var(--ink-faint); }
 
-  .search-filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 6px;
-  }
-  .direction-filter { display: flex; gap: 4px; }
-  .dir-btn {
-    font-family: inherit;
-    font-size: 10px;
-    background: none;
-    border: 1px solid var(--rule);
-    border-radius: 999px;
-    padding: 4px 10px;
-    color: var(--ink-faint);
-    cursor: pointer;
-  }
-  .dir-btn:hover { color: var(--ink); }
-  .dir-btn.active { background: var(--brand); color: var(--ink); border-color: var(--brand); }
-
   .search-results {
     position: absolute;
     top: calc(100% + 4px);
@@ -702,6 +682,7 @@
         <div class="view-tabs" id="viewTabs">
           <button type="button" class="view-tab active" data-view="overview">Yfirlit</button>
           <button type="button" class="view-tab" data-view="extremes">Verð öfgar</button>
+          <button type="button" class="view-tab" data-view="stats">Tölfræði</button>
         </div>
 
         <div class="range-tabs" id="rangeTabs">
@@ -722,24 +703,12 @@
     <div class="page-sidebar">
       <div class="toolbar">
         <input class="search-input" id="searchInput" placeholder="Leita að vöru…" autocomplete="off" />
-        <div class="search-filters" id="searchFilters">
-          <div class="direction-filter" id="directionFilter">
-            <button type="button" class="dir-btn active" data-dir="">Allar</button>
-            <button type="button" class="dir-btn" data-dir="up">▲ Hækkað</button>
-            <button type="button" class="dir-btn" data-dir="down">▼ Lækkað</button>
-          </div>
-        </div>
         <div class="search-results" id="searchResults"></div>
       </div>
 
       <div class="receipt" id="categoriesCard" style="display:none;">
         <div class="section-label">Vöruflokkar í dag</div>
         <div id="categoriesContent"></div>
-      </div>
-
-      <div class="receipt" id="weekdayCard" style="display:none;">
-        <div class="section-label">Hækkanir eftir vikudegi</div>
-        <div id="weekdayContent"></div>
       </div>
 
       <div class="receipt" id="favoritesCard" style="display:none;">
@@ -869,24 +838,6 @@
   }
 
   // ---------- search ----------
-  const directionFilterEl = document.getElementById("directionFilter");
-  let directionFilter = ""; // "", "up", "down"
-
-  directionFilterEl.querySelectorAll(".dir-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      directionFilter = btn.dataset.dir;
-      directionFilterEl.querySelectorAll(".dir-btn").forEach((b) => b.classList.toggle("active", b === btn));
-      runSearch();
-    });
-  });
-
-  function currentDirectionSkus(dir) {
-    if (!dir || !currentMovers) return null;
-    const rd = rangeData(currentMovers, currentRange);
-    const list = dir === "up" ? rd.topIncreases : rd.topDecreases;
-    return new Set((list || []).map((it) => it.sku));
-  }
-
   let searchDebounce;
   searchInputEl.addEventListener("input", () => {
     clearTimeout(searchDebounce);
@@ -895,16 +846,13 @@
 
   async function runSearch() {
     const q = searchInputEl.value.trim().toLowerCase();
-    const dirSkus = currentDirectionSkus(directionFilter);
 
-    if (q.length < 2 && !directionFilter) { searchResultsEl.innerHTML = ""; return; }
+    if (q.length < 2) { searchResultsEl.innerHTML = ""; return; }
 
     const index = await ensureIndexLoaded();
-    let matches = index.filter((p) => {
-      if (q.length >= 2 && !(p.name.toLowerCase().includes(q) || p.sku.includes(q) || (p.brand && p.brand.toLowerCase().includes(q)))) return false;
-      if (dirSkus && !dirSkus.has(p.sku)) return false;
-      return true;
-    }).slice(0, 20);
+    let matches = index.filter((p) =>
+      p.name.toLowerCase().includes(q) || p.sku.includes(q) || (p.brand && p.brand.toLowerCase().includes(q))
+    ).slice(0, 20);
 
     if (matches.length === 0) {
       searchResultsEl.innerHTML = '<div class="search-result">Ekkert fannst</div>';
@@ -1360,6 +1308,7 @@
     if (!currentMovers) return;
     renderCategoryBreakdown(rangeData(currentMovers, currentRange));
     if (currentView === "extremes") { renderExtremesView(); return; }
+    if (currentView === "stats") { renderStatsView(); return; }
     renderOverviewView();
   }
 
@@ -1412,7 +1361,6 @@
     `;
     attachLineClicks(contentEl);
     attachSeeMoreToggle(contentEl, totalExtra);
-    if (directionFilter) runSearch();
   }
 
   async function loadDate(date) {
@@ -1546,37 +1494,72 @@
   const categoriesCard = document.getElementById("categoriesCard");
   const categoriesContent = document.getElementById("categoriesContent");
 
-  const weekdayCard = document.getElementById("weekdayCard");
-  const weekdayContent = document.getElementById("weekdayContent");
-
-  async function loadWeekdayStats() {
-    try {
-      const res = await fetch("data/weekday-stats.json");
-      if (!res.ok) { weekdayCard.style.display = "none"; return; }
-      const stats = await res.json();
-      const days = Object.entries(stats.days || {});
-      if (days.length === 0) { weekdayCard.style.display = "none"; return; }
-
-      weekdayCard.style.display = "";
-      weekdayContent.innerHTML = days.map(([name, { up, down }]) => `
-        <div class="category-row">
-          <span class="category-name">${name}</span>
-          <span class="category-count up">${up > 0 ? `▲${up}` : ""}</span>
-          <span class="category-count down">${down > 0 ? `▼${down}` : ""}</span>
-        </div>
-      `).join("") + anovaHtml(stats.anovaUp, "hækkunarhlutfalli") + anovaHtml(stats.anovaDown, "lækkunarhlutfalli");
-
-      weekdayContent.querySelectorAll(".anova-more-btn").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const detail = btn.nextElementSibling;
-          const collapsed = detail.hasAttribute("hidden");
-          if (collapsed) { detail.removeAttribute("hidden"); btn.textContent = "Fela ítarlegri tölur ▲"; }
-          else { detail.setAttribute("hidden", ""); btn.textContent = "Sjá ítarlegri tölur ▼"; }
-        });
-      });
-    } catch (e) {
-      weekdayCard.style.display = "none";
+  let weekdayStatsCache = null;
+  async function ensureWeekdayStatsLoaded() {
+    if (weekdayStatsCache === null) {
+      try {
+        const res = await fetch("data/weekday-stats.json");
+        weekdayStatsCache = res.ok ? await res.json() : {};
+      } catch {
+        weekdayStatsCache = {};
+      }
     }
+    return weekdayStatsCache;
+  }
+
+  async function renderStatsView() {
+    contentEl.innerHTML = '<div class="status">Sæki tölfræði…</div>';
+    const stats = await ensureWeekdayStatsLoaded();
+    const days = Object.entries(stats.days || {});
+    if (days.length === 0) {
+      contentEl.innerHTML = '<div class="status">Engin tölfræði til ennþá.</div>';
+      return;
+    }
+
+    const totalDays = days.reduce((s, [, d]) => s + d.days, 0);
+    const totalUp = days.reduce((s, [, d]) => s + d.up, 0);
+    const totalDown = days.reduce((s, [, d]) => s + d.down, 0);
+
+    const weekdayRows = days.map(([name, d]) => `
+      <tr>
+        <td>${name}</td>
+        <td>${d.days}</td>
+        <td>${d.up}</td>
+        <td>${d.down}</td>
+        <td>${d.avgUpRate != null ? d.avgUpRate + "%" : "—"}</td>
+        <td>${d.avgDownRate != null ? d.avgDownRate + "%" : "—"}</td>
+      </tr>
+    `).join("");
+
+    contentEl.innerHTML = `
+      <div class="section-label">Samantekt</div>
+      <table class="anova-table" style="margin-bottom:18px;">
+        <tbody>
+          <tr><td>Dagar í gagnasafninu</td><td>${totalDays}</td></tr>
+          <tr><td>Heildarfjöldi hækkana skráðar</td><td>${totalUp}</td></tr>
+          <tr><td>Heildarfjöldi lækkana skráðar</td><td>${totalDown}</td></tr>
+        </tbody>
+      </table>
+
+      <div class="section-label">Hækkanir og lækkanir eftir vikudegi</div>
+      <table class="anova-table" style="margin-bottom:8px;">
+        <thead><tr><th>Vikudagur</th><th>Dagar</th><th>▲ fjöldi</th><th>▼ fjöldi</th><th>Meðal ▲ hlutfall</th><th>Meðal ▼ hlutfall</th></tr></thead>
+        <tbody>${weekdayRows}</tbody>
+      </table>
+
+      <div class="section-label" style="margin-top:18px;">ANOVA-próf</div>
+      ${anovaHtml(stats.anovaUp, "hækkunarhlutfalli")}
+      ${anovaHtml(stats.anovaDown, "lækkunarhlutfalli")}
+    `;
+
+    contentEl.querySelectorAll(".anova-more-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const detail = btn.nextElementSibling;
+        const collapsed = detail.hasAttribute("hidden");
+        if (collapsed) { detail.removeAttribute("hidden"); btn.textContent = "Fela ítarlegri tölur ▲"; }
+        else { detail.setAttribute("hidden", ""); btn.textContent = "Sjá ítarlegri tölur ▼"; }
+      });
+    });
   }
 
   function anovaDetailTable(anova) {
@@ -1684,7 +1667,6 @@
   init();
   renderFavorites();
   loadCpi();
-  loadWeekdayStats();
 </script>
 </body>
 </html>
