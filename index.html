@@ -712,6 +712,8 @@
         <div class="range-tabs" id="rangeTabs">
           <button type="button" class="range-tab active" data-range="daily">Síðasta sólarhring</button>
           <button type="button" class="range-tab" data-range="weekly">Síðustu viku</button>
+          <button type="button" class="range-tab" data-range="monthly">Síðasta mánuð</button>
+          <button type="button" class="range-tab" data-range="mtd">Á þessum mánuði</button>
         </div>
         <div class="sort-tabs" id="sortTabs">
           <button type="button" class="sort-tab active" data-sort="percent">Raða eftir %</button>
@@ -1300,8 +1302,11 @@
     });
   });
 
+  const EMPTY_RANGE = { comparedTo: null, increasedCount: 0, decreasedCount: 0, topIncreases: [], topDecreases: [], topIncreasesByAmount: [], topDecreasesByAmount: [] };
   function rangeData(movers, range) {
-    if (range === "weekly") return movers.weekly || { comparedTo: null, increasedCount: 0, decreasedCount: 0, topIncreases: [], topDecreases: [], topIncreasesByAmount: [], topDecreasesByAmount: [] };
+    if (range === "weekly") return movers.weekly || EMPTY_RANGE;
+    if (range === "monthly") return movers.monthly || EMPTY_RANGE;
+    if (range === "mtd") return movers.monthToDate || EMPTY_RANGE;
     return movers;
   }
 
@@ -1375,10 +1380,13 @@
     const movers = currentMovers;
     const rd = rangeData(movers, currentRange);
 
-    if (currentRange === "weekly" && !rd.comparedTo) {
-      contentEl.innerHTML = `
-        <div class="status">Ekki nóg gögn ennþá til að bera saman við síðustu viku — kemur eftir nokkra daga.</div>
-      `;
+    if (currentRange !== "daily" && !rd.comparedTo) {
+      const messages = {
+        weekly: "Ekki nóg gögn ennþá til að bera saman við síðustu viku — kemur eftir nokkra daga.",
+        monthly: "Ekki nóg gögn ennþá til að bera saman við síðasta mánuð — kemur eftir því sem sagan lengist.",
+        mtd: "Engin fyrri verðmynd til í þessum mánuði ennþá til að bera saman við — kemur á morgun.",
+      };
+      contentEl.innerHTML = `<div class="status">${messages[currentRange] || "Ekki nóg gögn ennþá."}</div>`;
       return;
     }
 

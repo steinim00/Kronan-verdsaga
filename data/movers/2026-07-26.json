@@ -19,6 +19,26 @@
     "topIncreasesByAmount": [],
     "topDecreasesByAmount": []
   },
+  "monthly": {
+    "comparedTo": null,
+    "changedCount": 0,
+    "increasedCount": 0,
+    "decreasedCount": 0,
+    "topIncreases": [],
+    "topDecreases": [],
+    "topIncreasesByAmount": [],
+    "topDecreasesByAmount": []
+  },
+  "monthToDate": {
+    "comparedTo": null,
+    "changedCount": 0,
+    "increasedCount": 0,
+    "decreasedCount": 0,
+    "topIncreases": [],
+    "topDecreases": [],
+    "topIncreasesByAmount": [],
+    "topDecreasesByAmount": []
+  },
   "cheapest": [
     {
       "sku": "100269834",

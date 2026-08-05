@@ -226,6 +226,8 @@ export async function computeMovers(todayDate) {
     topDecreasesByAmount: [],
   };
   let weekly = { ...daily };
+  let monthly = { ...daily };
+  let monthToDate = { ...daily };
 
   if (todayIndex === 0) {
     console.log("Þetta er fyrsta verðmyndin — engin fyrri gögn til að bera saman við.");
@@ -246,6 +248,31 @@ export async function computeMovers(todayDate) {
       const weekSnap = await loadSnapshot(weekDate);
       weekly = { comparedTo: weekDate, ...diffSnapshots(today, weekSnap) };
       await tagAllTimeOnLists([weekly.topIncreases, weekly.topDecreases, weekly.topIncreasesByAmount, weekly.topDecreasesByAmount]);
+    }
+
+    // Mánaðarsamanburður: sama hugmynd og vikusamanburðurinn, bara 30 daga
+    // í stað 7 — notar elstu verðmynd sem til er ef sagan er styttri en
+    // mánuður ennþá.
+    const monthlyIndex = todayIndex - 30 >= 0 ? todayIndex - 30 : (todayIndex >= 2 ? 0 : -1);
+    if (monthlyIndex >= 0) {
+      const monthDate = dates[monthlyIndex];
+      const monthSnap = await loadSnapshot(monthDate);
+      monthly = { comparedTo: monthDate, ...diffSnapshots(today, monthSnap) };
+      await tagAllTimeOnLists([monthly.topIncreases, monthly.topDecreases, monthly.topIncreasesByAmount, monthly.topDecreasesByAmount]);
+    }
+
+    // "Á þessum mánuði": ekki rúllandi gluggi eins og hin tvö, heldur
+    // borið saman við fyrstu verðmyndina sem til er í SAMA almanaksmánuði
+    // og í dag (t.d. 2026-08-05 borið saman við 2026-08-01, ekki 30 daga
+    // aftur í tímann). Ef í dag er sjálf fyrsta skráða verðmyndin þennan
+    // mánuð er ekkert til að bera saman við.
+    const todayMonthPrefix = todayDate.slice(0, 7); // "2026-08"
+    const monthStartIndex = dates.findIndex((d) => d.startsWith(todayMonthPrefix));
+    if (monthStartIndex >= 0 && monthStartIndex !== todayIndex) {
+      const monthStartDate = dates[monthStartIndex];
+      const monthStartSnap = await loadSnapshot(monthStartDate);
+      monthToDate = { comparedTo: monthStartDate, ...diffSnapshots(today, monthStartSnap) };
+      await tagAllTimeOnLists([monthToDate.topIncreases, monthToDate.topDecreases, monthToDate.topIncreasesByAmount, monthToDate.topDecreasesByAmount]);
     }
   }
 
@@ -273,6 +300,26 @@ export async function computeMovers(todayDate) {
       topDecreases: weekly.topDecreases,
       topIncreasesByAmount: weekly.topIncreasesByAmount,
       topDecreasesByAmount: weekly.topDecreasesByAmount,
+    },
+    monthly: {
+      comparedTo: monthly.comparedTo,
+      changedCount: monthly.changedCount,
+      increasedCount: monthly.increasedCount,
+      decreasedCount: monthly.decreasedCount,
+      topIncreases: monthly.topIncreases,
+      topDecreases: monthly.topDecreases,
+      topIncreasesByAmount: monthly.topIncreasesByAmount,
+      topDecreasesByAmount: monthly.topDecreasesByAmount,
+    },
+    monthToDate: {
+      comparedTo: monthToDate.comparedTo,
+      changedCount: monthToDate.changedCount,
+      increasedCount: monthToDate.increasedCount,
+      decreasedCount: monthToDate.decreasedCount,
+      topIncreases: monthToDate.topIncreases,
+      topDecreases: monthToDate.topDecreases,
+      topIncreasesByAmount: monthToDate.topIncreasesByAmount,
+      topDecreasesByAmount: monthToDate.topDecreasesByAmount,
     },
     cheapest,
     mostExpensive,
