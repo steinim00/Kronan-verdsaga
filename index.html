@@ -1033,8 +1033,19 @@
   async function fetchHistory(sku) {
     try {
       const res = await fetch(`data/history/${sku}.json`);
-      if (!res.ok) return { h: [] };
-      return res.json();
+      const data = res.ok ? await res.json() : { h: [] };
+      // Sparse encoding: history only has rows where the price actually
+      // CHANGED. Extend the last known price forward to the latest date
+      // we have data for, so the chart doesn't look like it stopped
+      // updating just because nothing changed recently.
+      const latestKnownDate = currentMovers?.date;
+      if (data.h.length > 0 && latestKnownDate) {
+        const last = data.h[data.h.length - 1];
+        if (last[0] !== latestKnownDate) {
+          data.h = [...data.h, [latestKnownDate, last[1], last[2]]];
+        }
+      }
+      return data;
     } catch {
       return { h: [] };
     }
@@ -1110,14 +1121,30 @@
     const prices = points.map((p) => p[1]);
     const min = Math.min(...prices), max = Math.max(...prices);
     const range = max - min || 1;
-    const step = (w - pad * 2) / (points.length - 1);
+
+    // X-ásinn er hlutfallslegur við raunverulegan tíma, ekki bara
+    // stökum-röð punkta — mikilvægt núna þegar sagan er "gisin" (bara
+    // punktur skráður þegar verð breytist), svo bilið milli punkta getur
+    // verið mjög misjafnt (dagur á milli, eða margar vikur).
+    const times = points.map((p) => new Date(p[0] + "T00:00:00Z").getTime());
+    const tMin = times[0], tMax = times[times.length - 1];
+    const tRange = tMax - tMin || 1;
 
     const coords = points.map((p, i) => {
-      const x = pad + i * step;
+      const x = pad + ((times[i] - tMin) / tRange) * (w - pad * 2);
       const y = h - pad - ((p[1] - min) / range) * (h - pad * 2);
       return [x, y];
     });
-    const path = coords.map(([x, y], i) => (i === 0 ? `M${x},${y}` : `L${x},${y}`)).join(" ");
+
+    // Þrepa-lína (step line) í stað beinnar skálínu milli punkta: verðið
+    // var óbreytt þangað til það stökk — ská-lína myndi gefa ranglega í
+    // skyn stigvaxandi breytingu.
+    let path = `M${coords[0][0]},${coords[0][1]}`;
+    for (let i = 1; i < coords.length; i++) {
+      const [x, y] = coords[i];
+      const [, prevY] = coords[i - 1];
+      path += ` L${x},${prevY} L${x},${y}`;
+    }
     const last = coords[coords.length - 1];
 
     const dots = coords.map(([x, y], i) => `<circle class="spark-dot" cx="${x}" cy="${y}" r="2.5" />`).join("");

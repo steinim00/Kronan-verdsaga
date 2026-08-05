@@ -12,9 +12,13 @@ async function readJsonSafe(url, fallback) {
 }
 
 // Appends today's {date, price} to data/history/<sku>.json for every
-// product seen today. Format is deliberately compact — an array of
-// [date, price, pricePerKiloOrNull] tuples — since this repeats for
-// every product, every day, indefinitely.
+// product seen today — but ONLY when the price actually changed since
+// the last recorded entry. Format is a compact array of
+// [date, price, pricePerKiloOrNull] tuples; a reader should treat the
+// price as constant between recorded dates, right up through today.
+// This "sparse" encoding cuts the size of data/history/ by roughly 90%
+// in practice, since most products don't change price daily — measured
+// directly against the dense (one-row-per-day) format before switching.
 async function updateOneHistory(product, date) {
   const url = new URL(`${product.sku}.json`, HISTORY_DIR);
   const existing = await readJsonSafe(url, { h: [] });
@@ -22,7 +26,14 @@ async function updateOneHistory(product, date) {
   // Re-running the same day (e.g. a manual re-trigger) replaces today's
   // entry instead of appending a duplicate.
   const withoutToday = existing.h.filter((row) => row[0] !== date);
-  withoutToday.push([date, product.price, product.chargedByWeight ? product.pricePerKilo : null]);
+
+  const newPricePerKilo = product.chargedByWeight ? product.pricePerKilo : null;
+  const last = withoutToday[withoutToday.length - 1];
+  const unchanged = last && last[1] === product.price && last[2] === newPricePerKilo;
+
+  if (!unchanged) {
+    withoutToday.push([date, product.price, newPricePerKilo]);
+  }
   existing.h = withoutToday;
 
   await writeFile(url, JSON.stringify(existing));

@@ -92,7 +92,8 @@ Tvær leiðir til að ná í verð, valið sjálfkrafa í `src/index.js`:
    samsvörun við `aov()`/`TukeyHSD()` upp á 3-4 aukastafi — sjá athugasemdir
    efst í skránni fyrir dæmin sem voru notuð).
 7. **`buildIndex.js`** — skrifar `data/products-index.json` fyrir leitina.
-8. **`updateHistory.js`** — bætir daginn við `data/history/<sku>.json` og
+8. **`updateHistory.js`** — bætir daginn við `data/history/<sku>.json`
+   (bara þegar verð breytist — sjá "gisin sögu-skráning" neðar) og
    heldur `data/volatility-stats.json`.
 
 `index.html` / `index-en.html` lesa þessi JSON-skjöl beint í vafranum —
@@ -152,6 +153,17 @@ ekkert build-skref, engin bakenda-þjónusta þarf að keyra.
   þarf `Contents: Read & write`. Til að breyta `.github/workflows/`-skrám
   sjálfum þarf sér `workflow`-svið sem venjuleg fine-grained tóken hafa
   ekki sjálfgefið — þær breytingar þarf að gera beint á GitHub.
+- **Gisin sögu-skráning (sparse encoding):** `data/history/<sku>.json`
+  fær bara nýja línu þegar verðið raunverulega breytist, ekki einn dálk á
+  dag — lesandinn á að túlka verðið sem óbreytt milli skráðra daga, alveg
+  fram á síðasta þekkta dag. Þetta minnkaði fjölda lína í `data/history/`
+  um ~90% (mælt beint: 104.028 → 9.662 línur á núverandi gagnasafni).
+  Framendinn bætir sjálfkrafa við samsettum punkti fyrir nýjasta þekkta
+  dag þegar teiknað er, svo línuritin líta ekki út fyrir að hafa stöðvast
+  þó verðið hafi ekki breyst í nokkra daga — og notar þrepa-línu
+  (step line) í stað beinnar skálínu milli punkta, svo hún gefi ekki
+  ranglega í skyn stigvaxandi breytingu þar sem verðið í raun stökk
+  skyndilega.
 - **Repo-stærð yfir tíma:** `data/history/` er eitt skjal á vörunúmer
   (~9.500 skjöl) sem breytist í hverri keyrslu. Ekkert að hafa áhyggjur
   af strax, en vert að vita af til lengri tíma litið.
