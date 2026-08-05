@@ -188,6 +188,8 @@
     color: var(--ink-faint);
   }
 
+  .store-badge { display: flex; align-items: center; gap: 12px; }
+
   .store {
     font-family: "Fraunces", serif;
     font-weight: 700;
@@ -469,6 +471,10 @@
   }
   .anova-more-btn:hover { color: var(--ink); }
   .anova-detail { margin-top: 8px; }
+  .stats-view, .stats-view .anova-table, .stats-view .anova-box, .stats-view .anova-more-btn {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  }
+
   .anova-table {
     width: 100%;
     border-collapse: collapse;
@@ -550,6 +556,8 @@
   .modal h2 { font-family: "Fraunces", serif; font-size: 20px; margin: 0 0 2px; padding-right: 20px; }
   .modal .modal-meta { font-size: 11px; color: var(--ink-faint); margin-bottom: 14px; }
   .modal .modal-price { font-size: 24px; font-weight: 700; margin: 10px 0; }
+  .modal .modal-price.up { color: var(--up); }
+  .modal .modal-price.down { color: var(--down); }
   .modal .modal-badges { display: flex; gap: 8px; margin-bottom: 10px; }
   .modal .badge-tag {
     font-size: 9px; text-transform: uppercase; letter-spacing: 0.05em;
@@ -641,8 +649,16 @@
         <header>
           <div class="header-top">
             <div>
-              <div class="store">KRÓNAN</div>
-              <div class="subtitle">Verðbreytingar dagsins</div>
+              <div class="store-badge">
+                <svg viewBox="0 0 44 44" width="40" height="40" aria-hidden="true">
+                  <circle cx="22" cy="22" r="21" fill="#FFE800" stroke="#2a2822" stroke-width="1.4"/>
+                  <text x="22" y="30" text-anchor="middle" font-family="Fraunces, serif" font-weight="700" font-size="22" fill="#2a2822">K</text>
+                </svg>
+                <div>
+                  <div class="store">Krónan</div>
+                  <div class="subtitle">Verðbreytingar dagsins</div>
+                </div>
+              </div>
             </div>
             <div class="header-date">
               <a href="index-en.html" class="lang-switch" aria-label="English" title="English">
@@ -1010,7 +1026,7 @@
     return `
       <div class="anova-box" style="margin-top:16px;">
         <strong>Flokkurinn <span class="cat-link" data-category="${category.replace(/"/g,'&quot;')}">${category}</span>:</strong><br>
-        ${current != null ? `${fmtIndex(current)} stig${changeFromStart != null ? ` (${changeFromStart > 0 ? "+" : ""}${fmtIndex(changeFromStart)}% frá upphafi)` : ""}` : "engin gögn ennþá"}${hagstofaLine}
+        ${changeFromStart != null ? `${changeFromStart > 0 ? "+" : ""}${fmtIndex(changeFromStart)}% frá upphafi` : "engin gögn ennþá"}${hagstofaLine}
       </div>
     `;
   }
@@ -1073,17 +1089,17 @@
 
     modalContent.innerHTML = `
       <h2>${name}</h2>
-      <div class="modal-meta">Vöruflokkur · óvegin verðvísitala (100 = ${points.length ? fmtDateShort(points[0][0]) : "upphaf"})</div>
-      <div class="modal-price">${current != null ? fmtIndex(current) : "—"} stig</div>
-      <div class="modal-badges">
-        ${changeFromStart != null ? `<span class="badge-tag">${changeFromStart > 0 ? "+" : ""}${fmtIndex(changeFromStart)}% frá upphafi</span>` : ""}
-      </div>
+      <div class="modal-meta">Vöruflokkur · meðalverðbreyting síðan ${points.length ? fmtDateShort(points[0][0]) : "upphaf"}</div>
+      <div class="modal-price ${changeFromStart > 0 ? "up" : changeFromStart < 0 ? "down" : ""}">${changeFromStart != null ? `${changeFromStart > 0 ? "+" : ""}${fmtIndex(changeFromStart)}%` : "—"}</div>
       ${sparklineSvg(points)}
       <div class="modal-meta" style="margin-top:10px;">Meðaltal af verðbreytingu allra vara í flokknum miðað við fyrstu verðmynd — ekki opinber vísitala.</div>
       ${hagstofaHtml}
       ${productsHtml}
     `;
-    wireSparklineHover(modalContent, (v) => `${fmtIndex(v)} stig`);
+    wireSparklineHover(modalContent, (v) => {
+      const pct = base ? ((v - base) / base) * 100 : 0;
+      return `${pct > 0 ? "+" : ""}${fmtIndex(Math.round(pct * 10) / 10)}%`;
+    });
     attachLineClicks(modalContent);
   }
 
@@ -1520,6 +1536,12 @@
     const totalUp = days.reduce((s, [, d]) => s + d.up, 0);
     const totalDown = days.reduce((s, [, d]) => s + d.down, 0);
 
+    const fmtP = (p) => {
+      if (p == null) return "—";
+      const label = p < 0.001 ? "<0,001" : p.toFixed(3).replace(".", ",");
+      return p < 0.05 ? `<strong style="color:var(--up);">${label}</strong>` : label;
+    };
+
     const weekdayRows = days.map(([name, d]) => `
       <tr>
         <td>${name}</td>
@@ -1528,10 +1550,13 @@
         <td>${d.down}</td>
         <td>${d.avgUpRate != null ? d.avgUpRate + "%" : "—"}</td>
         <td>${d.avgDownRate != null ? d.avgDownRate + "%" : "—"}</td>
+        <td>${fmtP(d.pUp)}</td>
+        <td>${fmtP(d.pDown)}</td>
       </tr>
     `).join("");
 
     contentEl.innerHTML = `
+      <div class="stats-view">
       <div class="section-label">Samantekt</div>
       <table class="anova-table" style="margin-bottom:18px;">
         <tbody>
@@ -1542,14 +1567,18 @@
       </table>
 
       <div class="section-label">Hækkanir og lækkanir eftir vikudegi</div>
+      <p style="font-size:11px; color:var(--ink-faint); margin:-4px 0 10px;">
+        p-gildin bera hvern dag saman við alla hina dagana til samans (Welch t-próf) — rautt/feitletrað þýðir að sá dagur sker sig marktækt úr (p &lt; 0,05). Athugið: þetta er ekki leiðrétt fyrir margfeldissamanburð, svo taktu þetta sem vísbendingu frekar en endanlegan úrskurð.
+      </p>
       <table class="anova-table" style="margin-bottom:8px;">
-        <thead><tr><th>Vikudagur</th><th>Dagar</th><th>▲ fjöldi</th><th>▼ fjöldi</th><th>Meðal ▲ hlutfall</th><th>Meðal ▼ hlutfall</th></tr></thead>
+        <thead><tr><th>Vikudagur</th><th>Dagar</th><th>▲ fjöldi</th><th>▼ fjöldi</th><th>Meðal ▲ hlutfall</th><th>Meðal ▼ hlutfall</th><th>p (▲)</th><th>p (▼)</th></tr></thead>
         <tbody>${weekdayRows}</tbody>
       </table>
 
       <div class="section-label" style="margin-top:18px;">ANOVA-próf</div>
       ${anovaHtml(stats.anovaUp, "hækkunarhlutfalli")}
       ${anovaHtml(stats.anovaDown, "lækkunarhlutfalli")}
+      </div>
     `;
 
     contentEl.querySelectorAll(".anova-more-btn").forEach((btn) => {

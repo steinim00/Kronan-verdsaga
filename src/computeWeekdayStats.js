@@ -7,7 +7,7 @@
 // en "hvað er líklegt að gerist".
 
 import { readdir, readFile, writeFile } from "node:fs/promises";
-import { oneWayAnova } from "./stats.js";
+import { oneWayAnova, welchTTestVsRest } from "./stats.js";
 
 const MOVERS_DIR = new URL("../data/movers/", import.meta.url);
 const OUTPUT_FILE = new URL("../data/weekday-stats.json", import.meta.url);
@@ -62,7 +62,20 @@ export async function computeWeekdayStats() {
     if (stats.has(day)) {
       const { up, down, days, upRates, downRates } = stats.get(day);
       const avg = (arr) => (arr.length ? Math.round((arr.reduce((s, v) => s + v, 0) / arr.length) * 100) / 100 : null);
-      result.days[day] = { up, down, days, avgUpRate: avg(upRates), avgDownRate: avg(downRates) };
+
+      // Er þessi tiltekni vikudagur marktækt frábrugðinn öllum hinum
+      // dögunum til samans? (Welch t-próf, sjá fyrirvara í stats.js —
+      // þetta er EKKI leiðrétt fyrir margfeldissamanburð.)
+      const otherUpRates = orderedDays.filter((d) => d !== day).flatMap((d) => stats.get(d).upRates);
+      const otherDownRates = orderedDays.filter((d) => d !== day).flatMap((d) => stats.get(d).downRates);
+      const pUp = welchTTestVsRest(upRates, otherUpRates)?.p ?? null;
+      const pDown = welchTTestVsRest(downRates, otherDownRates)?.p ?? null;
+
+      result.days[day] = {
+        up, down, days,
+        avgUpRate: avg(upRates), avgDownRate: avg(downRates),
+        pUp, pDown,
+      };
     }
   }
 

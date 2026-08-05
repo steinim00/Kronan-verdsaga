@@ -107,3 +107,38 @@ export function oneWayAnova(groups) {
     groupStats,
   };
 }
+
+function mean(arr) {
+  return arr.reduce((s, v) => s + v, 0) / arr.length;
+}
+function variance(arr, m) {
+  if (arr.length < 2) return 0;
+  return arr.reduce((s, v) => s + (v - m) ** 2, 0) / (arr.length - 1);
+}
+
+// Welch's t-próf (ójöfn dreifni gert ráð fyrir): ber saman einn hóp (t.d.
+// einn vikudag) við samsafn allra hinna hópanna, til að sjá hvort SÁ dagur
+// sker sig marktækt úr frá restinni. Þetta er einfaldara en almennilegt
+// "post-hoc" próf (t.d. Tukey HSD) og er ekki leiðrétt fyrir margfeldis-
+// samanburð — með 7 prófum (einn per vikudag) eykst hættan á fölskum
+// jákvæðum niðurstöðum. Nota sem vísbendingu, ekki endanlegan sannleik.
+export function welchTTestVsRest(groupValues, allOtherValues) {
+  const n1 = groupValues.length;
+  const n2 = allOtherValues.length;
+  if (n1 < 2 || n2 < 2) return null;
+
+  const m1 = mean(groupValues);
+  const m2 = mean(allOtherValues);
+  const v1 = variance(groupValues, m1);
+  const v2 = variance(allOtherValues, m2);
+  if (v1 === 0 && v2 === 0) return null;
+
+  const se2 = v1 / n1 + v2 / n2;
+  const t = (m1 - m2) / Math.sqrt(se2);
+  const df = (se2 ** 2) / ((v1 / n1) ** 2 / (n1 - 1) + (v2 / n2) ** 2 / (n2 - 1));
+
+  // Tvíhliða p-gildi úr t-dreifingu, sama betai-fall og F-dreifingin notar.
+  const x = df / (df + t * t);
+  const p = betai(df / 2, 0.5, x);
+  return { t: Math.round(t * 1000) / 1000, df: Math.round(df * 10) / 10, p };
+}
