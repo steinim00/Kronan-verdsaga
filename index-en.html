@@ -406,14 +406,24 @@
     border-radius: 6px;
   }
   .extremes-category-select {
+    display: block;
+    appearance: none;
+    -webkit-appearance: none;
     font-family: inherit;
-    font-size: 12px;
-    padding: 8px 10px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 36px 10px 14px;
     border: 1px solid var(--rule);
-    background: var(--paper);
+    border-radius: 999px;
+    background: var(--paper) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4" stroke="%232a2822" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat right 12px center;
+    background-size: 12px;
     color: var(--ink);
     margin-bottom: 16px;
+    cursor: pointer;
+    max-width: 100%;
   }
+  .extremes-category-select:hover { border-color: var(--ink-faint); }
+  .extremes-category-select:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 2px var(--brand); }
 
   .col-up { background: rgba(229, 57, 53, 0.11); }
   .col-down { background: rgba(67, 160, 71, 0.11); }
