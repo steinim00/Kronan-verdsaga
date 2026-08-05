@@ -123,6 +123,16 @@
     position: relative;
   }
 
+  @media (max-width: 420px) {
+    .receipt { padding: 22px 16px 26px; border-radius: 10px; }
+    .store-logo { height: 46px; }
+    .subtitle { font-size: 12px; }
+    .header-top { gap: 12px; }
+    .header-cpi { font-size: 13px; gap: 16px; padding-top: 12px; margin-top: 14px; }
+    .lang-switch { width: 28px; height: 28px; }
+    .date-picker-toggle { padding: 7px 12px; }
+  }
+
 
   header { margin-bottom: 27px; }
   .header-top {
@@ -659,6 +669,21 @@
   }
 
   .status { text-align: center; padding: 40px 0; font-size: 13px; color: var(--ink-faint); }
+  .status.status-error { color: var(--down); }
+  .retry-btn {
+    display: block;
+    margin: 14px auto 0;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    background: var(--brand);
+    color: var(--ink);
+    border: 1.5px solid var(--brand);
+    border-radius: 999px;
+    padding: 8px 20px;
+    cursor: pointer;
+  }
+  .retry-btn:hover { opacity: 0.85; }
 
   /* Favorites */
   .fav-line { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px dotted var(--rule); font-size: 13px; }
@@ -1583,14 +1608,58 @@
     return `<div class="two-col-grid"><section>${col()}</section><section>${col()}</section></div>`;
   }
 
+  // Sækir JSON með tímamörkum svo notandinn hangi ekki endalaust á
+  // skeleton-hleðslu ef netið er hægt/dautt — kastar villu með .status
+  // (HTTP-kóða) eða .isTimeout svo við getum sýnt réttu skilaboðin.
+  async function fetchJson(url, timeoutMs = 15000) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, { signal: controller.signal });
+      clearTimeout(timer);
+      if (!res.ok) {
+        const err = new Error(`HTTP ${res.status}`);
+        err.status = res.status;
+        throw err;
+      }
+      return await res.json();
+    } catch (e) {
+      clearTimeout(timer);
+      if (e.name === "AbortError") {
+        const timeoutErr = new Error("timeout");
+        timeoutErr.isTimeout = true;
+        throw timeoutErr;
+      }
+      throw e;
+    }
+  }
+
+  // Sýnir vinaleg villuskilaboð + "Reyna aftur" hnapp í staðinn fyrir að
+  // skeleton-hleðslan hangi endalaust eða síðan sýni tóma/ruglingslega síðu.
+  function showRetryError(container, err, retryFn) {
+    const message = err?.isTimeout
+      ? "Þetta er að taka lengri tíma en venjulega — netið gæti verið hægt eða óstöðugt."
+      : "Ekki tókst að sækja gögnin. Athugaðu nettenginguna þína.";
+    container.innerHTML = `
+      <div class="status status-error">
+        ${message}
+        <button type="button" class="retry-btn">Reyna aftur</button>
+      </div>
+    `;
+    container.querySelector(".retry-btn").addEventListener("click", retryFn);
+  }
+
   async function loadDate(date) {
     contentEl.innerHTML = skeletonHtml();
     try {
-      const res = await fetch(`data/movers/${date}.json`);
-      if (!res.ok) throw new Error("not found");
-      renderMovers(await res.json());
+      const movers = await fetchJson(`data/movers/${date}.json`);
+      renderMovers(movers);
     } catch (e) {
-      contentEl.innerHTML = '<div class="status">Fann engin gögn fyrir þennan dag.</div>';
+      if (e.status === 404) {
+        contentEl.innerHTML = '<div class="status">Fann engin gögn fyrir þennan dag.</div>';
+      } else {
+        showRetryError(contentEl, e, () => loadDate(date));
+      }
     }
   }
 
@@ -1744,12 +1813,7 @@
   let weekdayStatsCache = null;
   async function ensureWeekdayStatsLoaded() {
     if (weekdayStatsCache === null) {
-      try {
-        const res = await fetch("data/weekday-stats.json");
-        weekdayStatsCache = res.ok ? await res.json() : {};
-      } catch {
-        weekdayStatsCache = {};
-      }
+      weekdayStatsCache = await fetchJson("data/weekday-stats.json");
     }
     return weekdayStatsCache;
   }
@@ -1784,7 +1848,13 @@
 
   async function renderStatsView() {
     contentEl.innerHTML = skeletonHtml();
-    const stats = await ensureWeekdayStatsLoaded();
+    let stats;
+    try {
+      stats = await ensureWeekdayStatsLoaded();
+    } catch (e) {
+      showRetryError(contentEl, e, renderStatsView);
+      return;
+    }
     const days = Object.entries(stats.days || {});
     if (days.length === 0) {
       contentEl.innerHTML = '<div class="status">Engin tölfræði til ennþá.</div>';
@@ -1942,8 +2012,7 @@
   // ---------- init ----------
   async function init() {
     try {
-      const indexRes = await fetch("data/movers/index.json");
-      const dates = indexRes.ok ? await indexRes.json() : [];
+      const dates = await fetchJson("data/movers/index.json");
 
       if (dates.length === 0) {
         contentEl.innerHTML = '<div class="status">Engin gögn ennþá — fyrsta keyrslan safnar grunnverði, samanburður birtist daginn eftir.</div>';
@@ -1954,7 +2023,7 @@
 
       await loadDate(dates[dates.length - 1]);
     } catch (e) {
-      contentEl.innerHTML = '<div class="status">Villa við að sækja gögn.</div>';
+      showRetryError(contentEl, e, init);
     }
   }
 
