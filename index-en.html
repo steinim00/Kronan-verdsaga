@@ -161,7 +161,6 @@
   .header-cpi-divider { width: 1px; align-self: stretch; background: var(--rule); }
   .header-cpi-label { text-transform: uppercase; font-size: 13px; letter-spacing: 0.04em; }
   .header-cpi-val { font-weight: 700; font-family: "JetBrains Mono", monospace; }
-  .header-cpi-val.header-cpi-big { font-size: 28px; }
   .header-cpi-val.up { color: var(--up); }
   .header-cpi-val.down { color: var(--down); }
   .lang-switch {
@@ -278,8 +277,16 @@
   }
   .date-picker-grid button.has-data { color: var(--ink); cursor: pointer; }
   .date-picker-grid button:disabled { opacity: 0.3; cursor: default; }
-  .date-picker-grid button.has-data:hover { background: rgba(0,0,0,0.07); }
-  .date-picker-grid button.selected { background: var(--brand); color: var(--ink); font-weight: 700; }
+  .date-picker-grid button.has-data:hover {
+    background: var(--paper-edge);
+    box-shadow: inset 0 0 0 1.5px var(--ink-faint);
+  }
+  .date-picker-grid button.selected {
+    background: var(--brand);
+    color: var(--ink);
+    font-weight: 700;
+    box-shadow: inset 0 0 0 2px var(--ink), 0 2px 5px rgba(0,0,0,0.25);
+  }
   .date-picker-grid .empty-cell { visibility: hidden; }
 
   .section-label {
@@ -814,7 +821,11 @@
               </div>
             </div>
           </div>
-          <div class="header-cpi" id="headerCpi" style="display:none;"></div>
+          <div class="header-cpi" id="headerCpi">
+            <span class="header-cpi-item"><span class="skeleton-bar" style="width:110px;height:18px;"></span></span>
+            <span class="header-cpi-divider" aria-hidden="true"></span>
+            <span class="header-cpi-item"><span class="skeleton-bar" style="width:140px;height:18px;"></span></span>
+          </div>
         </header>
 
         <div class="view-tabs" id="viewTabs">
@@ -1685,23 +1696,22 @@
   }
 
   function renderHeaderMetrics() {
-    const item = (label, month, yearPct, monthPct, note) => `
-      <span class="header-cpi-item" title="${fmtCpiMonth(month)}${note ? " — " + note : ""}">
-        <span class="header-cpi-label">${label}</span>
-        <span class="header-cpi-val ${cpiDirClass(yearPct)}">${fmtCpiPercent(yearPct)}</span> YoY
-        ${monthPct != null ? `<span style="opacity:0.6;">(${fmtCpiPercent(monthPct)} MoM)</span>` : ""}
-      </span>
-    `;
+    const item = (label, month, yearPct, monthPct, note, emphasizeMonth) => {
+      const primary = emphasizeMonth ? monthPct : yearPct;
+      const primaryCls = emphasizeMonth ? cpiDirClass(monthPct) : cpiDirClass(yearPct);
+      const primarySuffix = emphasizeMonth ? "MoM" : "YoY";
+      const secondary = emphasizeMonth ? yearPct : monthPct;
+      const secondarySuffix = emphasizeMonth ? "YoY" : "MoM";
+      return `
+        <span class="header-cpi-item" title="${fmtCpiMonth(month)}${note ? " — " + note : ""}">
+          <span class="header-cpi-label">${label}</span>
+          <span class="header-cpi-val ${primaryCls}">${fmtCpiPercent(primary)}</span> ${primarySuffix}
+          ${secondary != null ? `<span style="opacity:0.6;">(${fmtCpiPercent(secondary)} ${secondarySuffix})</span>` : ""}
+        </span>
+      `;
+    };
 
     const parts = [];
-
-    if (cachedCpiData) {
-      const overall = cachedCpiData.overall || cachedCpiData;
-      parts.push(item("CPI", overall.month, overall.yearChangePercent, overall.monthChangePercent));
-      if (cachedCpiData.food) {
-        parts.push(item("Food Price Index", cachedCpiData.food.month, cachedCpiData.food.yearChangePercent, cachedCpiData.food.monthChangePercent, "an independent index, not part of the CPI"));
-      }
-    }
 
     const kronanPct = currentMovers?.monthly?.avgPercentChange;
     if (kronanPct != null) {
@@ -1709,9 +1719,13 @@
       parts.push(`
         <span class="header-cpi-item" title="Average % change across all products that changed at Kronan last month — not an official figure">
           <span class="header-cpi-label">Kronan · last month</span>
-          <span class="header-cpi-val header-cpi-big ${cls}">${kronanPct > 0 ? "+" : ""}${kronanPct}%</span>
+          <span class="header-cpi-val ${cls}">${kronanPct > 0 ? "+" : ""}${kronanPct}%</span>
         </span>
       `);
+    }
+
+    if (cachedCpiData && cachedCpiData.food) {
+      parts.push(item("Food Price Index", cachedCpiData.food.month, cachedCpiData.food.yearChangePercent, cachedCpiData.food.monthChangePercent, "an independent index, not part of the CPI", true));
     }
 
     if (parts.length === 0) { headerCpi.style.display = "none"; return; }
@@ -1762,7 +1776,7 @@
   }
 
   async function renderStatsView() {
-    contentEl.innerHTML = '<div class="status">Loading statistics…</div>';
+    contentEl.innerHTML = skeletonHtml();
     const stats = await ensureWeekdayStatsLoaded();
     const days = Object.entries(stats.days || {});
     if (days.length === 0) {
