@@ -116,6 +116,21 @@
   .search-result .sr-name { font-weight: 500; }
   .search-result .sr-meta { color: var(--ink-faint); font-size: 10px; }
 
+  .shrink-alert {
+    background: #fdecea;
+    border: 1px solid #e53935;
+    border-left: 5px solid #e53935;
+    color: #8b1a15;
+    padding: 12px 14px;
+    margin-bottom: 16px;
+    font-size: 12px;
+    line-height: 1.6;
+    border-radius: 4px;
+  }
+  .shrink-alert strong { display: block; font-size: 13px; margin-bottom: 4px; color: #b71c1c; }
+  .shrink-alert ul { margin: 4px 0 0; padding-left: 18px; }
+  .shrink-alert li { margin-bottom: 2px; }
+
   .receipt {
     width: 100%;
     max-width: 460px;
@@ -641,6 +656,8 @@
   <div class="page">
     <div class="page-main">
       <div class="receipt">
+        <div class="shrink-alert" id="shrinkAlert" hidden></div>
+
         <header>
           <div class="header-top">
             <div>
@@ -1316,9 +1333,26 @@
     return movers;
   }
 
+  const shrinkAlertEl = document.getElementById("shrinkAlert");
+
+  function renderShrinkAlert(alerts) {
+    if (!alerts || alerts.length === 0) { shrinkAlertEl.hidden = true; return; }
+    const items = alerts.slice(0, 8).map((a) =>
+      `<li>${a.name}${a.brand ? " · " + a.brand : ""} — per-kg price up ${fmtPercent(a.percent)} (${fmtISK(a.price)} unchanged)</li>`
+    ).join("");
+    shrinkAlertEl.innerHTML = `
+      <strong>⚠ Possible shrinkflation</strong>
+      The sticker price is unchanged, but the per-kilo price rose anyway — meaning the package itself has likely gotten smaller:
+      <ul>${items}</ul>
+      ${alerts.length > 8 ? `<div style="margin-top:4px;">...and ${alerts.length - 8} more.</div>` : ""}
+    `;
+    shrinkAlertEl.hidden = false;
+  }
+
   function renderMovers(movers) {
     currentMovers = movers;
     dateLabelEl.textContent = fmtDateLong(movers.date);
+    renderShrinkAlert(movers.shrinkflationAlerts);
     renderRangeView();
   }
 

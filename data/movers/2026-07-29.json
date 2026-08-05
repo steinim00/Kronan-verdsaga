@@ -1723,12 +1723,21 @@
   ],
   "mostVolatile": [
     {
+      "sku": "100200578",
+      "name": "Pagen vanillusnúðar",
+      "brand": "Pagen",
+      "category": "Brauð, kökur og kex",
+      "changes": 2,
+      "days": 11,
+      "lastPrice": 410
+    },
+    {
       "sku": "100227575",
       "name": "Bob's Hindber  250g",
       "brand": "Bob's",
       "category": "Ávextir",
       "changes": 2,
-      "days": 9,
+      "days": 11,
       "lastPrice": 949
     },
     {
@@ -1737,7 +1746,7 @@
       "brand": "Fiskverzlun Hafliða",
       "category": "Fiskur",
       "changes": 2,
-      "days": 9,
+      "days": 11,
       "lastPrice": 2372
     },
     {
@@ -1746,7 +1755,7 @@
       "brand": "",
       "category": "Grænmeti",
       "changes": 2,
-      "days": 9,
+      "days": 11,
       "lastPrice": 259
     },
     {
@@ -1755,17 +1764,9 @@
       "brand": "",
       "category": "Grænmeti",
       "changes": 2,
-      "days": 9,
+      "days": 11,
       "lastPrice": 239
-    },
-    {
-      "sku": "100265982",
-      "name": "Bob's jarðarber 400g",
-      "brand": "Bob's",
-      "category": "Ávextir",
-      "changes": 2,
-      "days": 9,
-      "lastPrice": 989
     }
-  ]
+  ],
+  "shrinkflationAlerts": []
 }

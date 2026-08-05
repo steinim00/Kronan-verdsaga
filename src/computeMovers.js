@@ -79,6 +79,45 @@ const MAX_MOVERS = 50;
 
 // Ber saman tvær verðmyndir og skilar breytingum, hvort sem er dagur-á-dag
 // eða vika-á-viku — sama rökfræði, bara mismunandi "fyrri" verðmynd.
+// Shrinkflation: sama tilboðsverð á miðanum, en verð á kíló hækkar samt —
+// eina leiðin sem það gerist er að pakkningin sjálf hafi minnkað. Þetta er
+// bara hægt að greina fyrir vörur sem eru seldar eftir þyngd
+// (chargedByWeight), því aðeins þar höfum við bæði stykkjaverð og kg-verð
+// til að bera saman — fyrir venjulegar stykkjavörur er engin leið að vita
+// hvort pakkningin minnkaði án upplýsinga um raunverulegt magn.
+const SHRINKFLATION_THRESHOLD_PERCENT = 2;
+
+function detectShrinkflation(today, prev) {
+  const prevBySku = new Map(prev.products.map((p) => [p.sku, p]));
+  const alerts = [];
+
+  for (const p of today.products) {
+    if (!p.chargedByWeight) continue;
+    const before = prevBySku.get(p.sku);
+    if (!before || !before.chargedByWeight) continue;
+    if (!before.price || !p.price || !before.pricePerKilo || !p.pricePerKilo) continue;
+
+    const priceUnchanged = Math.abs(p.price - before.price) < 0.01;
+    if (!priceUnchanged) continue;
+
+    const perKiloChangePercent = ((p.pricePerKilo - before.pricePerKilo) / before.pricePerKilo) * 100;
+    if (perKiloChangePercent > SHRINKFLATION_THRESHOLD_PERCENT) {
+      alerts.push({
+        sku: p.sku,
+        name: p.name,
+        brand: p.brand,
+        category: topCategory(p.categoryPath),
+        price: p.price,
+        pricePerKiloBefore: before.pricePerKilo,
+        pricePerKiloAfter: p.pricePerKilo,
+        percent: Math.round(perKiloChangePercent * 100) / 100,
+      });
+    }
+  }
+
+  return alerts.sort((a, b) => b.percent - a.percent);
+}
+
 function diffSnapshots(today, prev) {
   const prevBySku = new Map(prev.products.map((p) => [p.sku, p]));
   const changes = [];
@@ -152,6 +191,7 @@ export async function computeMovers(todayDate) {
 
   const today = await loadSnapshot(todayDate);
   const { cheapest, mostExpensive } = findExtremes(today.products);
+  let shrinkflationAlerts = [];
 
   let daily = {
     comparedTo: null,
@@ -172,6 +212,7 @@ export async function computeMovers(todayDate) {
     const prev = await loadSnapshot(prevDate);
     daily = { comparedTo: prevDate, ...diffSnapshots(today, prev) };
     await tagAllTimeOnLists([daily.topIncreases, daily.topDecreases, daily.topIncreasesByAmount, daily.topDecreasesByAmount]);
+    shrinkflationAlerts = detectShrinkflation(today, prev);
 
     // Vikusamanburður: notar verðmyndina frá 7 dögum áður ef hún er til.
     // Ef sagan er styttri en vika enn þá (verkefnið er nýtt) er elsta
@@ -214,6 +255,7 @@ export async function computeMovers(todayDate) {
     cheapest,
     mostExpensive,
     mostVolatile,
+    shrinkflationAlerts,
   };
 
   await writeFile(
