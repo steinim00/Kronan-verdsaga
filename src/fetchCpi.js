@@ -112,16 +112,20 @@ async function fetchFoodSubindex() {
     throw new Error("Matarvísitala: óvænt uppbygging á töflu hjá Hagstofunni (breytur fundust ekki)");
   }
 
-  // Þessi tafla hefur EKKI "Ársbreyting, %" sem valkost í Liður — bara
-  // vísitölugildi, vægi og mánaðarbreytingu. Því sækjum við 13 mánuði af
-  // hráum vísitölugildum og reiknum bæði mánaðar- og ársbreytingu sjálf.
+  // Þessi tafla hefur EKKI "Ársbreyting, %" sem valkost í Liður, svo við
+  // sækjum 13 mánuði af hráum vísitölugildum til að reikna hana sjálf.
+  // EN "Mánaðarbreyting, %" ER í boði beint — og hana á að nota óbreytta,
+  // ekki reikna hana sjálf út frá ávöluðu (1 aukastaf) vísitölunni, því
+  // það gefur ónákvæma niðurstöðu (t.d. 0,0% í stað réttu 0,2%) — innri
+  // gögn Hagstofunnar eru nákvæmari en sjálft birt vísitölugildið.
   const gildiCode = findCode(lidurVar, "Vísitala");
+  const manadarbreytingCode = findCode(lidurVar, "Mánaðarbreyting, %");
   const maturCode = findCode(undirVar, "01 Matur og óáfengir drykkir");
 
   const query = {
     query: [
       { code: "Mánuður", selection: { filter: "top", values: ["13"] } },
-      { code: "Liður", selection: { filter: "item", values: [gildiCode] } },
+      { code: "Liður", selection: { filter: "item", values: [gildiCode, manadarbreytingCode] } },
       { code: "Undirvísitala", selection: { filter: "item", values: [maturCode] } },
     ],
     response: { format: "json" },
@@ -130,23 +134,38 @@ async function fetchFoodSubindex() {
   const result = await postQuery(FOOD_TABLE_URL, query);
 
   const monthIdx = result.columns.findIndex((c) => c.code === "Mánuður");
-  if (monthIdx === -1) throw new Error("Matarvísitala: fann ekki dálka í svari Hagstofunnar");
+  const lidurIdx = result.columns.findIndex((c) => c.code === "Liður");
+  if (monthIdx === -1 || lidurIdx === -1) throw new Error("Matarvísitala: fann ekki dálka í svari Hagstofunnar");
 
-  const rows = result.data
-    .map((row) => ({ month: row.key[monthIdx], index: Number(row.values[0].replace(",", ".")) }))
-    .filter((r) => !Number.isNaN(r.index))
-    .sort((a, b) => a.month.localeCompare(b.month));
+  const indexRows = [];
+  let latestMonth = null;
+  let latestMonthChangePercent = null;
 
-  if (rows.length === 0) throw new Error("Matarvísitala: engin gögn fundust");
+  for (const row of result.data) {
+    const val = Number(row.values[0].replace(",", "."));
+    if (Number.isNaN(val)) continue;
+    const month = row.key[monthIdx];
+    const lidur = row.key[lidurIdx];
+    if (lidur === gildiCode) {
+      indexRows.push({ month, index: val });
+    } else if (lidur === manadarbreytingCode) {
+      if (!latestMonth || month > latestMonth) {
+        latestMonth = month;
+        latestMonthChangePercent = val;
+      }
+    }
+  }
 
-  const latest = rows[rows.length - 1];
-  const prevMonth = rows[rows.length - 2] || null;
-  const yearAgo = rows.find((r) => r.month === shiftMonth(latest.month, -12)) || null;
+  indexRows.sort((a, b) => a.month.localeCompare(b.month));
+  if (indexRows.length === 0) throw new Error("Matarvísitala: engin gögn fundust");
+
+  const latest = indexRows[indexRows.length - 1];
+  const yearAgo = indexRows.find((r) => r.month === shiftMonth(latest.month, -12)) || null;
 
   return {
     month: latest.month,
     index: latest.index,
-    monthChangePercent: prevMonth ? pctChange(prevMonth.index, latest.index) : null,
+    monthChangePercent: latestMonthChangePercent,
     yearChangePercent: yearAgo ? pctChange(yearAgo.index, latest.index) : null,
   };
 }
@@ -174,6 +193,7 @@ export async function fetchCategorySubindices() {
     throw new Error("Flokka-undirvísitölur: óvænt uppbygging á töflu hjá Hagstofunni");
   }
   const gildiCode = findCode(lidurVar, "Vísitala");
+  const manadarbreytingCode = findCode(lidurVar, "Mánaðarbreyting, %");
 
   // Finnum COICOP-kóðana fyrir þá flokka sem við eigum pörun fyrir; sleppum
   // þeim sem finnast ekki í staðinn fyrir að láta allt klikka.
@@ -187,7 +207,7 @@ export async function fetchCategorySubindices() {
   const query = {
     query: [
       { code: "Mánuður", selection: { filter: "top", values: ["13"] } },
-      { code: "Liður", selection: { filter: "item", values: [gildiCode] } },
+      { code: "Liður", selection: { filter: "item", values: [gildiCode, manadarbreytingCode] } },
       { code: "Undirvísitala", selection: { filter: "item", values: wanted.map((w) => w.code) } },
     ],
     response: { format: "json" },
@@ -196,28 +216,38 @@ export async function fetchCategorySubindices() {
   const result = await postQuery(FOOD_TABLE_URL, query);
   const monthIdx = result.columns.findIndex((c) => c.code === "Mánuður");
   const undirIdx = result.columns.findIndex((c) => c.code === "Undirvísitala");
-  if (monthIdx === -1 || undirIdx === -1) throw new Error("Flokka-undirvísitölur: fann ekki dálka í svari");
+  const lidurIdx = result.columns.findIndex((c) => c.code === "Liður");
+  if (monthIdx === -1 || undirIdx === -1 || lidurIdx === -1) throw new Error("Flokka-undirvísitölur: fann ekki dálka í svari");
 
-  const byCode = new Map(); // code -> [{month, index}]
+  const indexByCode = new Map(); // code -> [{month, index}]
+  const monthChangeByCode = new Map(); // code -> { month, value }
+
   for (const row of result.data) {
     const code = row.key[undirIdx];
-    const index = Number(row.values[0].replace(",", "."));
-    if (Number.isNaN(index)) continue;
-    if (!byCode.has(code)) byCode.set(code, []);
-    byCode.get(code).push({ month: row.key[monthIdx], index });
+    const lidur = row.key[lidurIdx];
+    const val = Number(row.values[0].replace(",", "."));
+    if (Number.isNaN(val)) continue;
+    const month = row.key[monthIdx];
+
+    if (lidur === gildiCode) {
+      if (!indexByCode.has(code)) indexByCode.set(code, []);
+      indexByCode.get(code).push({ month, index: val });
+    } else if (lidur === manadarbreytingCode) {
+      const current = monthChangeByCode.get(code);
+      if (!current || month > current.month) monthChangeByCode.set(code, { month, value: val });
+    }
   }
 
   const output = {};
   for (const { ourName, code } of wanted) {
-    const rows = (byCode.get(code) || []).sort((a, b) => a.month.localeCompare(b.month));
+    const rows = (indexByCode.get(code) || []).sort((a, b) => a.month.localeCompare(b.month));
     if (rows.length === 0) continue;
     const latest = rows[rows.length - 1];
-    const prevMonth = rows[rows.length - 2] || null;
     const yearAgo = rows.find((r) => r.month === shiftMonth(latest.month, -12)) || null;
     output[ourName] = {
       month: latest.month,
       index: latest.index,
-      monthChangePercent: prevMonth ? pctChange(prevMonth.index, latest.index) : null,
+      monthChangePercent: monthChangeByCode.get(code)?.value ?? null,
       yearChangePercent: yearAgo ? pctChange(yearAgo.index, latest.index) : null,
     };
   }
