@@ -1935,30 +1935,35 @@
     `;
   }
 
-  function hourCorrelationHtml(data) {
-    if (!data || !data.correlation) {
-      return `<div class="anova-box">Ekki nóg klukkutíma-gögn ennþá — þarf breytingar skráðar á a.m.k. 3 mismunandi vikudögum til að Pearson-fylgni sé reiknanleg. Kemur eftir því sem klukkutíma-athugunin safnar fleiri dögum.</div>`;
+  function weekdayTrendCorrelationHtml(data, label, corr) {
+    if (!corr) {
+      return `<div class="anova-box"><strong>Fylgni — ${label}:</strong> ekki reiknanlegt.</div>`;
     }
-    const { r, n, df, p } = data.correlation;
-    const rows = Object.entries(data.perWeekday).map(([name, d]) => `
-      <tr><td>${name}</td><td>kl. ${d.avgHour}</td><td>${d.changeCount}</td></tr>
-    `).join("");
+    const { r, n, df, p } = corr;
     const sig = p != null && p < 0.05;
     const strength = Math.abs(r) < 0.3 ? "veik" : Math.abs(r) < 0.7 ? "miðlungs" : "sterk";
     return `
       <div class="anova-box">
-        <strong>Pearson-fylgni:</strong> r = ${r} (${strength}, ${r > 0 ? "jákvæð" : "neikvæð"}), byggt á ${n} vikudögum (df=${df})${p != null ? `, p = ${p < 0.001 ? "<0,001" : p.toFixed(3).replace(".", ",")}` : ""}.<br>
+        <strong>Pearson-fylgni — ${label}:</strong> r = ${r} (${strength}, ${r > 0 ? "jákvæð" : "neikvæð"}), byggt á ${n} vikudögum (df=${df})${p != null ? `, p = ${p < 0.001 ? "<0,001" : p.toFixed(3).replace(".", ",")}` : ""}.<br>
         ${p == null
           ? "Of fáir vikudagar til að meta p-gildi."
           : sig
-            ? "Marktæk fylgni — vísbending um að vikudagur og hvaða klukkutíma breytingar eiga sér stað haldist í hendur."
-            : "Ekki marktæk fylgni (p ≥ 0,05) — ekkert sem bendir til sambands ennþá, en úrtakið er mjög lítið."}
-        <table class="anova-table" style="margin-top:8px;">
-          <thead><tr><th>Vikudagur</th><th>Meðalklukkutími breytinga</th><th>Fjöldi breytinga</th></tr></thead>
-          <tbody>${rows}</tbody>
-        </table>
-        <div style="margin-top:6px; opacity:0.75;">x = röð vikudags (mánudagur=1…sunnudagur=7), y = meðalklukkustund sem breytingar eiga sér stað þann vikudag.</div>
+            ? `Marktæk fylgni — vísbending um að ${label} ${r > 0 ? "hækki" : "lækki"} eftir því sem líður á vikuna (mánudagur→sunnudagur).`
+            : "Ekki marktæk fylgni (p ≥ 0,05) — engin greinileg stígandi/lækkandi tilhneiging yfir vikuna."}
       </div>
+    `;
+  }
+
+  function hourCorrelationHtml(data) {
+    if (!data || !data.n) {
+      return `<div class="anova-box">Ekki nóg gögn ennþá til að reikna fylgni.</div>`;
+    }
+    return `
+      <p style="font-size:11px; color:var(--ink-faint); margin:0 0 10px;">
+        x = röð vikudags (mánudagur=1…sunnudagur=7), y = breytingahlutfall þann vikudag — prófar hvort það sé stígandi eða lækkandi tilhneiging eftir því sem líður á vikuna.
+      </p>
+      ${weekdayTrendCorrelationHtml(data, "hækkunarhlutfall eftir vikudegi", data.up)}
+      ${weekdayTrendCorrelationHtml(data, "lækkunarhlutfall eftir vikudegi", data.down)}
     `;
   }
 
@@ -2032,8 +2037,8 @@
       ${tukeyTable(stats.tukeyUp, "hækkunarhlutfalli")}
       ${tukeyTable(stats.tukeyDown, "lækkunarhlutfalli")}
 
-      <div class="section-label" style="margin-top:18px;">Fylgni: vikudagur og tími breytinga</div>
-      ${hourCorrelationHtml(stats.hourWeekdayCorrelation)}
+      <div class="section-label" style="margin-top:18px;">Fylgni: tilhneiging eftir vikunni</div>
+      ${hourCorrelationHtml(stats.weekdayTrendCorrelation)}
       </div>
     `;
 
