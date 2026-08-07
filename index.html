@@ -1935,6 +1935,33 @@
     `;
   }
 
+  function hourCorrelationHtml(data) {
+    if (!data || !data.correlation) {
+      return `<div class="anova-box">Ekki nóg klukkutíma-gögn ennþá — þarf breytingar skráðar á a.m.k. 3 mismunandi vikudögum til að Pearson-fylgni sé reiknanleg. Kemur eftir því sem klukkutíma-athugunin safnar fleiri dögum.</div>`;
+    }
+    const { r, n, df, p } = data.correlation;
+    const rows = Object.entries(data.perWeekday).map(([name, d]) => `
+      <tr><td>${name}</td><td>kl. ${d.avgHour}</td><td>${d.changeCount}</td></tr>
+    `).join("");
+    const sig = p != null && p < 0.05;
+    const strength = Math.abs(r) < 0.3 ? "veik" : Math.abs(r) < 0.7 ? "miðlungs" : "sterk";
+    return `
+      <div class="anova-box">
+        <strong>Pearson-fylgni:</strong> r = ${r} (${strength}, ${r > 0 ? "jákvæð" : "neikvæð"}), byggt á ${n} vikudögum (df=${df})${p != null ? `, p = ${p < 0.001 ? "<0,001" : p.toFixed(3).replace(".", ",")}` : ""}.<br>
+        ${p == null
+          ? "Of fáir vikudagar til að meta p-gildi."
+          : sig
+            ? "Marktæk fylgni — vísbending um að vikudagur og hvaða klukkutíma breytingar eiga sér stað haldist í hendur."
+            : "Ekki marktæk fylgni (p ≥ 0,05) — ekkert sem bendir til sambands ennþá, en úrtakið er mjög lítið."}
+        <table class="anova-table" style="margin-top:8px;">
+          <thead><tr><th>Vikudagur</th><th>Meðalklukkutími breytinga</th><th>Fjöldi breytinga</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+        <div style="margin-top:6px; opacity:0.75;">x = röð vikudags (mánudagur=1…sunnudagur=7), y = meðalklukkustund sem breytingar eiga sér stað þann vikudag.</div>
+      </div>
+    `;
+  }
+
   async function renderStatsView() {
     contentEl.innerHTML = skeletonHtml();
     let stats;
@@ -1968,6 +1995,8 @@
         <td>${d.down}</td>
         <td>${d.avgUpRate != null ? d.avgUpRate + "%" : "—"}</td>
         <td>${d.avgDownRate != null ? d.avgDownRate + "%" : "—"}</td>
+        <td>${d.sumUpRate != null ? d.sumUpRate + "%" : "—"}</td>
+        <td>${d.sumDownRate != null ? d.sumDownRate + "%" : "—"}</td>
         <td>${fmtP(d.pUp)}</td>
         <td>${fmtP(d.pDown)}</td>
       </tr>
@@ -1989,8 +2018,8 @@
         p-gildin bera hvern dag saman við alla hina dagana til samans (Welch t-próf) — rautt/feitletrað þýðir að sá dagur sker sig marktækt úr (p &lt; 0,05). Athugið: þetta er ekki leiðrétt fyrir margfeldissamanburð, svo taktu þetta sem vísbendingu frekar en endanlegan úrskurð.
       </p>
       <div class="table-scroll">
-        <table class="anova-table" style="margin-bottom:8px; min-width:560px;">
-          <thead><tr><th>Vikudagur</th><th>Dagar</th><th>▲ fjöldi</th><th>▼ fjöldi</th><th>Meðal ▲ hlutfall</th><th>Meðal ▼ hlutfall</th><th>p (▲)</th><th>p (▼)</th></tr></thead>
+        <table class="anova-table" style="margin-bottom:8px; min-width:720px;">
+          <thead><tr><th>Vikudagur</th><th>Dagar</th><th>▲ fjöldi</th><th>▼ fjöldi</th><th>Meðal ▲ hlutfall</th><th>Meðal ▼ hlutfall</th><th>Samanlögð ▲</th><th>Samanlögð ▼</th><th>p (▲)</th><th>p (▼)</th></tr></thead>
           <tbody>${weekdayRows}</tbody>
         </table>
       </div>
@@ -2002,6 +2031,9 @@
       <div class="section-label" style="margin-top:18px;">Tukey HSD (hvor dagur nákvæmlega?)</div>
       ${tukeyTable(stats.tukeyUp, "hækkunarhlutfalli")}
       ${tukeyTable(stats.tukeyDown, "lækkunarhlutfalli")}
+
+      <div class="section-label" style="margin-top:18px;">Fylgni: vikudagur og tími breytinga</div>
+      ${hourCorrelationHtml(stats.hourWeekdayCorrelation)}
       </div>
     `;
 

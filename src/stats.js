@@ -249,3 +249,35 @@ export function tukeyHSD(anova) {
   }
   return pairs.sort((x, y) => x.p - y.p);
 }
+
+// ---------- Pearson-fylgni ----------
+//
+// Mælir hversu vel línulegt samband er á milli tveggja breyta (r á milli
+// -1 og 1), plús p-gildi sem prófar núlltilgátuna "engin fylgni" með
+// t-prófi (df = n-2) — sama betai-fall og hin prófin nota.
+export function pearsonCorrelation(xs, ys) {
+  const n = xs.length;
+  if (n < 3 || ys.length !== n) return null;
+
+  const mx = mean(xs), my = mean(ys);
+  let sxy = 0, sxx = 0, syy = 0;
+  for (let i = 0; i < n; i++) {
+    const dx = xs[i] - mx, dy = ys[i] - my;
+    sxy += dx * dy;
+    sxx += dx * dx;
+    syy += dy * dy;
+  }
+  if (sxx === 0 || syy === 0) return null;
+
+  const r = sxy / Math.sqrt(sxx * syy);
+  const df = n - 2;
+  if (df <= 0) return { r: Math.round(r * 1000) / 1000, n, df: 0, p: null };
+
+  // t = r * sqrt(df / (1 - r^2)); tvíhliða p-gildi úr t-dreifingu.
+  const rClamped = Math.max(-0.999999, Math.min(0.999999, r));
+  const t = rClamped * Math.sqrt(df / (1 - rClamped * rClamped));
+  const x = df / (df + t * t);
+  const p = betai(df / 2, 0.5, x);
+
+  return { r: Math.round(r * 1000) / 1000, n, df, p };
+}
