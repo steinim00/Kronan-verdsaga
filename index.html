@@ -638,6 +638,7 @@
     padding: 53px 43px 48px;
     text-align: center;
     position: relative;
+    overflow: hidden;
     transform: translateY(28px) scale(0.95);
     opacity: 0;
     transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
@@ -677,21 +678,36 @@
     .about-card {
       display: flex;
       flex-direction: row-reverse;
-      align-items: center;
-      gap: 40px;
+      align-items: stretch;
+      gap: 0;
       max-width: 760px;
-      padding: 53px 48px 53px 56px;
+      padding: 0;
       text-align: left;
     }
-    .about-overlay .avatar {
-      flex: 0 0 210px;
-      width: 210px;
-      height: auto;
-      aspect-ratio: 4 / 5;
-      margin: 0;
-      border-radius: 20px;
+    .about-text {
+      flex: 1 1 auto;
+      min-width: 0;
+      padding: 53px 48px 53px 56px;
     }
-    .about-text { flex: 1 1 auto; min-width: 0; }
+    .about-overlay .avatar {
+      flex: 0 0 auto;
+      align-self: stretch;
+      width: auto;
+      height: auto;
+      aspect-ratio: 1 / 3;
+      margin: 0;
+      border-radius: 0;
+      border: none;
+      background: var(--brand);
+    }
+    .about-overlay .avatar img { border-radius: 0; }
+    .about-close {
+      background: rgba(255,255,255,0.85);
+      border-radius: 999px;
+      width: 26px; height: 26px;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 2;
+    }
   }
 
   .status { text-align: center; padding: 40px 0; font-size: 13px; color: var(--ink-faint); }
