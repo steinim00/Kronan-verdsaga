@@ -687,6 +687,20 @@
     .about-body { font-size: clamp(15px, 1vw, 18px); }
   }
 
+  /* Þéttara lóðrétt bil á fartölvubreidd (900-1699px) svo kortið verði ~20% lægra þar */
+  @media (min-width: 900px) and (max-width: 1699px) {
+    .about-card {
+      padding-top: clamp(34px, 2.9vw, 42px);
+      padding-bottom: clamp(30px, 2.6vw, 38px);
+    }
+    .about-overlay .avatar {
+      margin-bottom: 21px;
+    }
+    .about-overlay h2 { margin-bottom: 4px; }
+    .about-subtitle { margin-bottom: 21px; }
+    .about-body { line-height: 1.45; margin-bottom: 14px; }
+  }
+
   .status { text-align: center; padding: 40px 0; font-size: 13px; color: var(--ink-faint); }
   .status.status-error { color: var(--down); }
   .retry-btn {
