@@ -679,6 +679,7 @@
     text-decoration: underline;
   }
   .about-link:hover { opacity: 0.7; }
+  .doc-links-wide { display: none; }
 
   @media (min-width: 700px) {
     .about-card {
@@ -712,6 +713,8 @@
       display: flex; align-items: center; justify-content: center;
       z-index: 2;
     }
+    .doc-links-mobile { display: none; }
+    .doc-links-wide { display: inline; }
   }
 
   .status { text-align: center; padding: 40px 0; font-size: 13px; color: var(--ink-faint); }
@@ -1000,7 +1003,12 @@
           grunni.
         </p>
         <p class="about-body">
-          <a href="assets/skoda-baedi.html" target="_blank" rel="noopener" class="about-link">Ferilskráin og kynningarbréfið</a>
+          <span class="doc-links-mobile">
+            <a href="assets/ferilskra.pdf" target="_blank" rel="noopener" class="about-link">Ferilskráin</a>
+            ·
+            <a href="assets/kynningarbref.pdf" target="_blank" rel="noopener" class="about-link">Kynningarbréfið</a>
+          </span>
+          <a href="assets/skoda-baedi.html" target="_blank" rel="noopener" class="about-link doc-links-wide">Ferilskráin og kynningarbréfið</a>
         </p>
       </div>
     </div>
