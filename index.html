@@ -971,6 +971,9 @@
           Þessi síða er dæmi um hvernig ég hugsa og útfæri hugmyndir frá
           grunni.
         </p>
+        <p class="about-body">
+          <a href="assets/ferilskra.pdf" target="_blank" rel="noopener">Ferilskráin mín</a>
+        </p>
       </div>
     </div>
   </div>
@@ -2207,6 +2210,8 @@
   aboutClose.addEventListener("click", closeAbout);
   aboutOverlay.addEventListener("click", (e) => { if (e.target === aboutOverlay) closeAbout(); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeAbout(); });
+
+  openAbout();
 
   init();
   renderFavorites();
