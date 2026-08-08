@@ -673,14 +673,12 @@
   .about-body {
     font-size: 17px; line-height: 1.7; color: var(--ink); text-align: left; margin: 0 0 21px;
   }
-  .about-link-brand {
-    color: var(--brand);
-    font-weight: 700;
-  }
-  .about-link-brand::selection {
-    background: var(--brand);
+  .about-link {
     color: var(--ink);
+    font-weight: 700;
+    text-decoration: underline;
   }
+  .about-link:hover { opacity: 0.7; }
 
   @media (min-width: 700px) {
     .about-card {
@@ -980,11 +978,7 @@
           grunni.
         </p>
         <p class="about-body">
-          <a href="assets/ferilskra.pdf" target="_blank" rel="noopener">Ferilskráin mín</a>
-          ·
-          <a href="assets/kynningarbref.pdf" target="_blank" rel="noopener">Kynningarbréfið mitt</a>
-          ·
-          <a href="assets/skoda-baedi.html" target="_blank" rel="noopener" class="about-link-brand">Skoða bæði</a>
+          <a href="assets/skoda-baedi.html" target="_blank" rel="noopener" class="about-link">Ferilskráin og kynningarbréfið</a>
         </p>
       </div>
     </div>
