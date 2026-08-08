@@ -690,6 +690,7 @@
   /* Þéttara lóðrétt bil á fartölvubreidd (900-1699px) svo kortið verði ~20% lægra þar */
   @media (min-width: 900px) and (max-width: 1699px) {
     .about-card {
+      max-width: clamp(520px, 38vw, 620px);
       padding-top: clamp(34px, 2.9vw, 42px);
       padding-bottom: clamp(30px, 2.6vw, 38px);
     }
