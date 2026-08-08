@@ -777,6 +777,7 @@
   .spark-wrap { position: relative; }
   .spark-dot { fill: var(--ink-faint); }
   .spark-hit { cursor: crosshair; }
+  .spark-hitzone { cursor: crosshair; }
   .spark-tooltip {
     display: none;
     position: absolute;
@@ -1206,7 +1207,7 @@
     const dots = coords.map(([x, y], i) => `<circle class="spark-dot" cx="${x}" cy="${y}" r="2.5" />`).join("");
     const hitAreas = coords.map(([x, y], i) => `
       <circle class="spark-hit" cx="${x}" cy="${y}" r="10" fill="transparent"
-        data-date="${points[i][0]}" data-price="${points[i][1]}" data-x="${x}" data-y="${y}" />
+        data-date="${points[i][0]}" data-price="${points[i][1]}" data-time="${times[i]}" data-x="${x}" data-y="${y}" />
     `).join("");
 
     return `
@@ -1216,6 +1217,7 @@
           ${dots}
           <circle cx="${last[0]}" cy="${last[1]}" r="3" fill="#e53935" />
           ${hitAreas}
+          <rect class="spark-hitzone" x="0" y="0" width="${w}" height="${h}" fill="transparent" />
         </svg>
         <div class="spark-tooltip" id="sparkTooltip"></div>
       </div>
@@ -1231,22 +1233,68 @@
     const wrap = root.querySelector(".spark-wrap");
     const tooltip = root.querySelector("#sparkTooltip");
     if (!wrap || !tooltip) return;
+    const svg = wrap.querySelector("svg");
+    const hitzone = wrap.querySelector(".spark-hitzone");
     const w = 380, h = 110;
 
-    wrap.querySelectorAll(".spark-hit").forEach((hit) => {
-      hit.addEventListener("mouseenter", () => showTip(hit));
-      hit.addEventListener("touchstart", (e) => { e.preventDefault(); showTip(hit); }, { passive: false });
-    });
-    wrap.addEventListener("mouseleave", () => { tooltip.style.display = "none"; });
+    const pts = Array.from(wrap.querySelectorAll(".spark-hit")).map((el) => ({
+      x: Number(el.dataset.x),
+      y: Number(el.dataset.y),
+      date: el.dataset.date,
+      price: Number(el.dataset.price),
+      time: Number(el.dataset.time),
+    }));
+    if (!pts.length || !hitzone) return;
 
-    function showTip(hit) {
-      const x = Number(hit.dataset.x), y = Number(hit.dataset.y);
-      const date = hit.dataset.date, price = Number(hit.dataset.price);
-      tooltip.innerHTML = `<strong>${fmt(price)}</strong><br>${fmtDateShort(date)}`;
-      tooltip.style.left = `${(x / w) * 100}%`;
-      tooltip.style.top = `${(y / h) * 100}%`;
+    // Finnur "þrepið" (segment) sem músin er stödd í — verðið helst
+    // óbreytt frá punkti i þangað til næsti punktur tekur við, svo
+    // punktur i er rétta verðið fyrir alla daga þar á milli.
+    function pointForX(mx) {
+      if (mx <= pts[0].x) return pts[0];
+      if (mx >= pts[pts.length - 1].x) return pts[pts.length - 1];
+      let lo = 0, hi = pts.length - 1;
+      while (lo < hi) {
+        const mid = (lo + hi + 1) >> 1;
+        if (pts[mid].x <= mx) lo = mid; else hi = mid - 1;
+      }
+      return pts[lo];
+    }
+
+    // Reiknar nákvæma dagsetningu undir músinni með því að brúa (interpolate)
+    // milli tímastimpla nágrannapunktanna, svo dagurinn sem sýndur er passi
+    // við x-staðsetninguna, ekki bara næsta skráða punkt.
+    function dateForX(mx, segStart) {
+      const i = pts.indexOf(segStart);
+      const next = pts[i + 1];
+      if (!next || mx <= segStart.x) return segStart.date;
+      const frac = Math.min(1, Math.max(0, (mx - segStart.x) / (next.x - segStart.x)));
+      const t = segStart.time + frac * (next.time - segStart.time);
+      const d = new Date(t);
+      const y = d.getUTCFullYear(), m = String(d.getUTCMonth() + 1).padStart(2, "0"), day = String(d.getUTCDate()).padStart(2, "0");
+      return `${y}-${m}-${day}`;
+    }
+
+    function handleMove(clientX) {
+      const rect = svg.getBoundingClientRect();
+      const relX = clientX - rect.left;
+      const mx = (relX / rect.width) * w;
+      const seg = pointForX(mx);
+      const date = dateForX(mx, seg);
+      tooltip.innerHTML = `<strong>${fmt(seg.price)}</strong><br>${fmtDateShort(date)}`;
+      tooltip.style.left = `${(Math.min(Math.max(mx, 0), w) / w) * 100}%`;
+      tooltip.style.top = `${(seg.y / h) * 100}%`;
       tooltip.style.display = "block";
     }
+
+    hitzone.addEventListener("mousemove", (e) => handleMove(e.clientX));
+    hitzone.addEventListener("mouseleave", () => { tooltip.style.display = "none"; });
+    hitzone.addEventListener("touchstart", (e) => {
+      if (e.touches[0]) { e.preventDefault(); handleMove(e.touches[0].clientX); }
+    }, { passive: false });
+    hitzone.addEventListener("touchmove", (e) => {
+      if (e.touches[0]) { e.preventDefault(); handleMove(e.touches[0].clientX); }
+    }, { passive: false });
+    wrap.addEventListener("touchend", () => { tooltip.style.display = "none"; });
   }
 
   async function openProduct(sku, name, brand, category) {
