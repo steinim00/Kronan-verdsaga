@@ -673,33 +673,25 @@
     font-size: 17px; line-height: 1.7; color: var(--ink); text-align: left; margin: 0 0 21px;
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 700px) {
     .about-card {
-      max-width: clamp(480px, 33.5vw, 660px);
-      padding: clamp(44px, 3.6vw, 60px) clamp(34px, 3vw, 50px) clamp(40px, 3.3vw, 55px);
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      gap: 40px;
+      max-width: 760px;
+      padding: 53px 48px 53px 56px;
+      text-align: left;
     }
     .about-overlay .avatar {
-      width: clamp(108px, 7.5vw, 142px);
-      height: clamp(108px, 7.5vw, 142px);
+      flex: 0 0 210px;
+      width: 210px;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      margin: 0;
+      border-radius: 20px;
     }
-    .about-overlay h2 { font-size: clamp(31px, 2.1vw, 41px); }
-    .about-subtitle { font-size: clamp(13px, 0.9vw, 16px); }
-    .about-body { font-size: clamp(15px, 1vw, 18px); }
-  }
-
-  /* Þéttara lóðrétt bil á fartölvubreidd (900-1699px) svo kortið verði ~20% lægra þar */
-  @media (min-width: 900px) and (max-width: 1699px) {
-    .about-card {
-      max-width: clamp(520px, 38vw, 620px);
-      padding-top: clamp(34px, 2.9vw, 42px);
-      padding-bottom: clamp(30px, 2.6vw, 38px);
-    }
-    .about-overlay .avatar {
-      margin-bottom: 21px;
-    }
-    .about-overlay h2 { margin-bottom: 4px; }
-    .about-subtitle { margin-bottom: 21px; }
-    .about-body { line-height: 1.45; margin-bottom: 14px; }
+    .about-text { flex: 1 1 auto; min-width: 0; }
   }
 
   .status { text-align: center; padding: 40px 0; font-size: 13px; color: var(--ink-faint); }
@@ -944,26 +936,28 @@
       <div class="avatar">
         <img src="assets/steini-avatar.jpg" alt="Þorsteinn Magnússon">
       </div>
-      <h2>Þorsteinn Magnússon</h2>
-      <div class="about-subtitle">Höfundur síðunnar</div>
-      <p class="about-body">
-        Hæ! Þorsteinn heiti ég og er hugsuðurinn á bak við þessa síðu. Hér má
-        sjá verðþróun hjá Krónunni, bæði hækkanir og lækkanir, byggða beint á
-        API-kerfi Krónunnar, því fólk heldur oft að verð hækki endalaust en
-        lækki aldrei.
-      </p>
-      <p class="about-body">
-        Ég er með BS í viðskiptafræði og er einnig lærður ljósmyndari. Um
-        þessar mundir er ég á atvinnuleysisbótum, sem þýðir að ráðningu
-        fylgir ráðningarstyrkur frá hinu opinbera, u.þ.b. 500.000 kr. á
-        mánuði í allt að sex mánuði. Ég get mætt í viðtal með skömmum
-        fyrirvara.
-      </p>
-      <p class="about-body">
-        Ég er líka með fjölda hugmynda til að efla vörumerki Krónunnar.
-        Þessi síða er dæmi um hvernig ég hugsa og útfæri hugmyndir frá
-        grunni.
-      </p>
+      <div class="about-text">
+        <h2>Þorsteinn Magnússon</h2>
+        <div class="about-subtitle">Höfundur síðunnar</div>
+        <p class="about-body">
+          Hæ! Þorsteinn heiti ég og er hugsuðurinn á bak við þessa síðu. Hér má
+          sjá verðþróun hjá Krónunni, bæði hækkanir og lækkanir, byggða beint á
+          API-kerfi Krónunnar, því fólk heldur oft að verð hækki endalaust en
+          lækki aldrei.
+        </p>
+        <p class="about-body">
+          Ég er með BS í viðskiptafræði og er einnig lærður ljósmyndari. Um
+          þessar mundir er ég á atvinnuleysisbótum, sem þýðir að ráðningu
+          fylgir ráðningarstyrkur frá hinu opinbera, u.þ.b. 500.000 kr. á
+          mánuði í allt að sex mánuði. Ég get mætt í viðtal með skömmum
+          fyrirvara.
+        </p>
+        <p class="about-body">
+          Ég er líka með fjölda hugmynda til að efla vörumerki Krónunnar.
+          Þessi síða er dæmi um hvernig ég hugsa og útfæri hugmyndir frá
+          grunni.
+        </p>
+      </div>
     </div>
   </div>
 
