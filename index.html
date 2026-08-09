@@ -692,8 +692,11 @@
   .about-close:hover { color: var(--ink); }
 
   .about-overlay .avatar {
-    width: 128px; height: 128px; margin: 0 auto 26px;
-    border-radius: 999px; background: var(--brand); border: 2px solid var(--ink);
+    width: calc(100% + 86px);
+    aspect-ratio: 16 / 9;
+    margin: -53px -43px 24px -43px;
+    border-radius: 16px 16px 0 0;
+    background: var(--brand); border: none;
     display: flex; align-items: center; justify-content: center;
     overflow: hidden;
   }
@@ -702,10 +705,6 @@
   .about-overlay h2 {
     font-family: "Fraunces", serif; font-weight: 700; font-size: 37px;
     margin: 0 0 5px; color: var(--ink);
-  }
-  .about-subtitle {
-    font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--ink-faint); margin: 0 0 29px;
   }
   .about-body {
     font-size: 17px; line-height: 1.7; color: var(--ink); text-align: left; margin: 0 0 21px;
@@ -736,6 +735,7 @@
       grid-column: 2;
       grid-row: 1;
       width: 210px;
+      aspect-ratio: auto;
       height: 100%;
       margin: 0;
       border-radius: 0;
@@ -1090,8 +1090,7 @@
       </div>
       <div class="about-text">
         <h2>Þorsteinn Magnússon</h2>
-        <div class="about-subtitle">Höfundur síðunnar</div>
-        <p class="about-body">
+        <p class="about-body" style="margin-top:14px;">
           Hæ! Þorsteinn heiti ég og er hugsuðurinn á bak við þessa síðu. Hér má
           sjá verðþróun hjá Krónunni, bæði hækkanir og lækkanir, byggða beint á
           API-kerfi Krónunnar, því fólk heldur oft að verð hækki endalaust en
