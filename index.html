@@ -2244,12 +2244,17 @@
 
     const parts = [];
 
-    const kronanPct = currentMovers?.monthly?.avgPercentChange;
+    const monthlyData = currentMovers?.monthly;
+    const isPartial = monthlyData?.isPartialPeriod;
+    const kronanPct = isPartial ? monthlyData?.avgPercentChangeProjected : monthlyData?.avgPercentChange;
     if (kronanPct != null) {
       const cls = kronanPct > 0 ? "up" : kronanPct < 0 ? "down" : "";
+      const partialNote = isPartial
+        ? ` — áætlað út frá ${monthlyData.actualDays} daga sögu, verður nákvæmara eftir því sem lengri saga safnast (miðast við 30 daga)`
+        : "";
       parts.push(`
-        <span class="header-cpi-item" title="Meðaltal % breytingu vegið yfir öll samanburðarhæf vörunúmer hjá Krónunni síðasta mánuð (óbreyttar vörur teljast sem 0%) — ekki opinber tala">
-          <span class="header-cpi-label">Krónan · sl. mánuð</span>
+        <span class="header-cpi-item" title="Meðaltal % breytingu vegið yfir öll samanburðarhæf vörunúmer hjá Krónunni síðasta mánuð (óbreyttar vörur teljast sem 0%)${partialNote} — ekki opinber tala">
+          <span class="header-cpi-label">Krónan · sl. mánuð${isPartial ? "*" : ""}</span>
           <span class="header-cpi-val ${cls}">${kronanPct > 0 ? "+" : ""}${kronanPct}%</span>
         </span>
       `);

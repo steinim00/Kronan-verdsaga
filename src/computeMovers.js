@@ -28,6 +28,12 @@ function topCategory(categoryPath) {
   return categoryPath.split("/")[0].trim();
 }
 
+function daysBetween(dateStrA, dateStrB) {
+  const a = new Date(`${dateStrA}T00:00:00Z`).getTime();
+  const b = new Date(`${dateStrB}T00:00:00Z`).getTime();
+  return Math.round((b - a) / (1000 * 60 * 60 * 24));
+}
+
 function findExtremes(products, count = 5) {
   const priced = products.filter((p) => p.price && p.price > 0).map(toPriceEntry);
   const cheapest = [...priced].sort((a, b) => a.price - b.price).slice(0, count);
@@ -273,6 +279,24 @@ export async function computeMovers(todayDate) {
       const monthSnap = await loadSnapshot(monthDate);
       monthly = { comparedTo: monthDate, ...diffSnapshots(today, monthSnap) };
       await tagAllTimeOnLists([monthly.topIncreases, monthly.topDecreases, monthly.topIncreasesByAmount, monthly.topDecreasesByAmount]);
+
+      // Á meðan sagan er styttri en 30 dagar er "mánaðar"-samanburðurinn í
+      // raun bara samanburður við elstu skráðu verðmyndina — t.d. 15 daga
+      // gamla ef verkefnið er 15 daga. Til að gefa samt vísbendingu um
+      // dæmigerða MÁNAÐARhreyfingu (frekar en að vanmeta hana kerfisbundið
+      // þangað til 30 daga sagan er til), vörpum við meðaltalið upp í
+      // 30-daga jafngildi: rawAvg * (30 / actualDays). Þetta er merkt
+      // skýrt sem áætlun (isPartialPeriod) svo framendinn geti gert
+      // greinarmun á mældri tölu og áætlaðri.
+      const actualDays = daysBetween(monthDate, todayDate);
+      monthly.actualDays = actualDays;
+      if (actualDays > 0 && actualDays < 30 && monthly.avgPercentChange != null) {
+        monthly.isPartialPeriod = true;
+        monthly.avgPercentChangeProjected = Math.round((monthly.avgPercentChange * (30 / actualDays)) * 100) / 100;
+      } else {
+        monthly.isPartialPeriod = false;
+        monthly.avgPercentChangeProjected = monthly.avgPercentChange;
+      }
     }
 
     // "Á þessum mánuði": ekki rúllandi gluggi eins og hin tvö, heldur
@@ -322,7 +346,11 @@ export async function computeMovers(todayDate) {
       changedCount: monthly.changedCount,
       increasedCount: monthly.increasedCount,
       decreasedCount: monthly.decreasedCount,
+      comparableCount: monthly.comparableCount,
       avgPercentChange: monthly.avgPercentChange,
+      avgPercentChangeProjected: monthly.avgPercentChangeProjected,
+      isPartialPeriod: monthly.isPartialPeriod,
+      actualDays: monthly.actualDays,
       topIncreases: monthly.topIncreases,
       topDecreases: monthly.topDecreases,
       topIncreasesByAmount: monthly.topIncreasesByAmount,
