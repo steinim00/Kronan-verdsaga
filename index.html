@@ -157,6 +157,7 @@
   .header-cpi-item { display: flex; align-items: baseline; gap: 5px; white-space: nowrap; }
   .header-cpi-divider { width: 1px; align-self: stretch; background: var(--rule); }
   .header-cpi-label { text-transform: uppercase; font-size: 13px; letter-spacing: 0.04em; }
+  .header-cpi-emblem { height: 14px; width: auto; vertical-align: -2px; }
   .header-cpi-val { font-weight: 700; }
   .header-cpi-val.up { color: var(--up); }
   .header-cpi-val.down { color: var(--down); }
@@ -979,7 +980,7 @@
           <div class="header-top">
             <div>
               <div class="store-badge">
-                <img src="assets/kronan-logo.png" alt="Krónan" class="store-logo">
+                <img src="assets/kronan-emblem.png" alt="Krónan" class="store-logo">
                 <div class="subtitle">Verðþróun</div>
               </div>
             </div>
@@ -2254,7 +2255,7 @@
         : "";
       parts.push(`
         <span class="header-cpi-item" title="Meðaltal % breytingu vegið yfir öll samanburðarhæf vörunúmer hjá Krónunni síðasta mánuð (óbreyttar vörur teljast sem 0%)${partialNote} — ekki opinber tala">
-          <span class="header-cpi-label">Krónan · sl. mánuð${isPartial ? "*" : ""}</span>
+          <span class="header-cpi-label"><img src="assets/kronan-logo.png" alt="Krónan" class="header-cpi-emblem"> sl. mánuð${isPartial ? "*" : ""}</span>
           <span class="header-cpi-val ${cls}">${kronanPct > 0 ? "+" : ""}${kronanPct}%</span>
         </span>
       `);
