@@ -1321,12 +1321,19 @@
     return niceFraction * Math.pow(10, exponent);
   }
 
-  function computeYAxis(values) {
+  function computeYAxis(values, anchorZero) {
     const dataMin = Math.min(...values);
     const dataMax = Math.max(...values);
-    let yMin = Math.min(0, dataMin);
-    let yMax = Math.max(0, dataMax);
+    let yMin = anchorZero ? Math.min(0, dataMin) : dataMin;
+    let yMax = anchorZero ? Math.max(0, dataMax) : dataMax;
     if (yMin === yMax) yMax = yMin + 1;
+    // Smá "andrými" fyrir ofan/neðan gögnin þegar ekki er fest við núll,
+    // svo línan snerti ekki jaðra grafsins.
+    if (!anchorZero) {
+      const pad = (yMax - yMin) * 0.12 || 1;
+      yMin -= pad;
+      yMax += pad;
+    }
     const step = niceNum((yMax - yMin) / 4, true);
     yMin = Math.floor(yMin / step) * step;
     yMax = Math.ceil(yMax / step) * step;
@@ -1360,7 +1367,7 @@
     return within.length ? within : points.slice(-1);
   }
 
-  function chartSvgHtml(points, axisFormatter) {
+  function chartSvgHtml(points, axisFormatter, anchorZero) {
     if (points.length < 2) {
       return `
         <div class="spark-wrap">
@@ -1372,7 +1379,7 @@
     const plotW = w - padL - padR, plotH = h - padT - padB;
 
     const prices = points.map((p) => p[1]);
-    const { yMin, yMax, ticks } = computeYAxis(prices);
+    const { yMin, yMax, ticks } = computeYAxis(prices, anchorZero);
     const yRange = (yMax - yMin) || 1;
 
     // X-ásinn er hlutfallslegur við raunverulegan tíma, ekki bara
@@ -1470,7 +1477,7 @@
     `;
   }
 
-  function wirePriceChart(root, allPoints, valueFormatter, axisFormatter) {
+  function wirePriceChart(root, allPoints, valueFormatter, axisFormatter, anchorZero) {
     const block = root.querySelector(".chart-block");
     if (!block) return;
     const canvas = block.querySelector(".chart-canvas");
@@ -1480,7 +1487,7 @@
 
     function render(rangeKey) {
       const filtered = filterPointsByRange(allPoints, rangeKey);
-      canvas.innerHTML = chartSvgHtml(filtered, fmtAxis);
+      canvas.innerHTML = chartSvgHtml(filtered, fmtAxis, anchorZero);
       wireChartHover(canvas, fmtVal);
     }
 
@@ -1597,7 +1604,7 @@
       toggleFavorite(sku, name, brand);
       openProduct(sku, name, brand, category); // re-render to flip button state
     });
-    wirePriceChart(modalContent, points, fmtISK, (v) => fmtISK(Math.round(v)));
+    wirePriceChart(modalContent, points, fmtISK, (v) => fmtISK(Math.round(v)), false);
     modalContent.querySelectorAll(".cat-link").forEach((el) => {
       el.addEventListener("click", () => openCategory(el.dataset.category));
     });
@@ -1692,7 +1699,7 @@
     wirePriceChart(modalContent, points, (v) => {
       const pct = base ? ((v - base) / base) * 100 : 0;
       return `${pct > 0 ? "+" : ""}${fmtIndex(Math.round(pct * 10) / 10)}%`;
-    });
+    }, undefined, true);
     attachLineClicks(modalContent);
   }
 
