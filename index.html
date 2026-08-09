@@ -934,10 +934,14 @@
     .toolbar { grid-column: 3; }
     .page-sidebar { grid-column: 3; }
     .about-box-avatar {
-      width: 84px; height: 84px; border-radius: 12px; overflow: hidden;
-      background: var(--brand); margin-bottom: 14px;
+      width: calc(100% + 44px);
+      height: 170px;
+      margin: -26px -22px 16px -22px;
+      border-radius: 12px 12px 0 0;
+      overflow: hidden;
+      background: var(--brand);
     }
-    .about-box-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .about-box-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: 31% 43%; display: block; }
     .about-box-name { font-family: "Fraunces", serif; font-weight: 700; font-size: 21px; margin: 0 0 2px; color: var(--ink); }
     .about-box-sub {
       font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
@@ -953,7 +957,7 @@
 
   <div class="page">
     <div class="receipt about-box-desktop" id="aboutBoxDesktop">
-      <div class="about-box-avatar"><img src="assets/steini-avatar-circle.jpg" alt="Þorsteinn Magnússon"></div>
+      <div class="about-box-avatar"><img src="assets/steini-avatar-wide.jpg" alt="Þorsteinn Magnússon"></div>
       <h2 class="about-box-name">Þorsteinn Magnússon</h2>
       <div class="about-box-sub">Höfundur síðunnar</div>
       <p class="about-box-p">
