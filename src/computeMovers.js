@@ -142,6 +142,7 @@ function detectShrinkflation(today, prev) {
 function diffSnapshots(today, prev) {
   const prevBySku = new Map(prev.products.map((p) => [p.sku, p]));
   const changes = [];
+  let comparableCount = 0;
 
   for (const p of today.products) {
     const before = prevBySku.get(p.sku);
@@ -155,6 +156,7 @@ function diffSnapshots(today, prev) {
     const afterVal = useKilo ? p.pricePerKilo : p.price;
 
     if (!beforeVal || !afterVal) continue;
+    comparableCount += 1;
     if (beforeVal === afterVal) continue;
 
     const percent = ((afterVal - beforeVal) / beforeVal) * 100;
@@ -184,17 +186,20 @@ function diffSnapshots(today, prev) {
   const topIncreasesByAmount = withAmount.filter((c) => c.amount > 0).sort((a, b) => b.amount - a.amount).slice(0, MAX_MOVERS);
   const topDecreasesByAmount = withAmount.filter((c) => c.amount < 0).sort((a, b) => a.amount - b.amount).slice(0, MAX_MOVERS);
 
-  // Meðaltal af % breytingu YFIR ALLAR vörur sem breyttust (ekki bara
-  // topp-50 listana), bæði hækkanir og lækkanir saman — gefur eina tölu
-  // sem lýsir "dæmigerðri" verðhreyfingu hjá Krónunni þetta tímabil.
-  const avgPercentChange = changes.length
-    ? Math.round((changes.reduce((s, c) => s + c.percent, 0) / changes.length) * 100) / 100
+  // Meðaltal af % breytingu vegið yfir ÖLL samanburðarhæf vörunúmer
+  // (comparableCount) — ekki bara þau sem breyttust. Vörur sem héldust
+  // óbreyttar teljast með sem 0% í meðaltalinu, svo talan lýsi raunverulegri
+  // dæmigerðri verðþróun yfir alla vörulínuna, ekki bara þann hluta sem
+  // hreyfðist.
+  const avgPercentChange = comparableCount
+    ? Math.round((changes.reduce((s, c) => s + c.percent, 0) / comparableCount) * 100) / 100
     : null;
 
   return {
     changedCount: changes.length,
     increasedCount: changes.filter((c) => c.percent > 0).length,
     decreasedCount: changes.filter((c) => c.percent < 0).length,
+    comparableCount,
     avgPercentChange,
     topIncreases,
     topDecreases,

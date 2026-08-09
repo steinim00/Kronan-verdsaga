@@ -2248,7 +2248,7 @@
     if (kronanPct != null) {
       const cls = kronanPct > 0 ? "up" : kronanPct < 0 ? "down" : "";
       parts.push(`
-        <span class="header-cpi-item" title="Meðaltal % breytingu yfir allar vörur sem breyttust síðasta mánuð hjá Krónunni — ekki opinber tala">
+        <span class="header-cpi-item" title="Meðaltal % breytingu vegið yfir öll samanburðarhæf vörunúmer hjá Krónunni síðasta mánuð (óbreyttar vörur teljast sem 0%) — ekki opinber tala">
           <span class="header-cpi-label">Krónan · sl. mánuð</span>
           <span class="header-cpi-val ${cls}">${kronanPct > 0 ? "+" : ""}${kronanPct}%</span>
         </span>
