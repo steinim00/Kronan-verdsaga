@@ -2203,7 +2203,7 @@
   function fmtCpiPercent(p) {
     if (p === null || p === undefined || Number.isNaN(p)) return "—";
     const sign = p > 0 ? "+" : "";
-    return `${sign}${p.toFixed(1)}%`.replace(".", ",");
+    return `${sign}${p.toFixed(2)}%`.replace(".", ",");
   }
   function cpiDirClass(p) {
     if (p === null || p === undefined) return "";
