@@ -669,10 +669,13 @@
     box-shadow: 0 30px 70px -20px rgba(0,0,0,0.55);
     max-width: 585px;
     width: 100%;
+    max-height: calc(100vh - 48px);
     padding: 53px 43px 48px;
     text-align: center;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     transform: translateY(28px) scale(0.95);
     opacity: 0;
     transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
@@ -694,8 +697,7 @@
     display: flex; align-items: center; justify-content: center;
     overflow: hidden;
   }
-  .about-overlay .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .avatar-img-strip { display: none; }
+  .about-overlay .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: 46.5% 42%; display: block; }
 
   .about-overlay h2 {
     font-family: "Fraunces", serif; font-weight: 700; font-size: 37px;
@@ -741,8 +743,6 @@
       background: var(--brand);
     }
     .about-overlay .avatar img { border-radius: 0; }
-    .avatar-img-circle { display: none; }
-    .avatar-img-strip { display: block; object-position: 46.5% 42%; }
     .about-close {
       background: rgba(255,255,255,0.85);
       border-radius: 999px;
@@ -935,7 +935,7 @@
     .page-sidebar { grid-column: 3; }
     .about-box-avatar {
       width: calc(100% + 44px);
-      height: 170px;
+      aspect-ratio: 16 / 9;
       margin: -26px -22px 16px -22px;
       border-radius: 12px 12px 0 0;
       overflow: hidden;
@@ -1086,8 +1086,7 @@
     <div class="about-card">
       <button class="about-close" id="aboutClose" aria-label="Loka">✕</button>
       <div class="avatar">
-        <img src="assets/steini-avatar-circle.jpg" alt="Þorsteinn Magnússon" class="avatar-img-circle">
-        <img src="assets/steini-avatar.jpg" alt="Þorsteinn Magnússon" class="avatar-img-strip">
+        <img src="assets/steini-avatar.jpg" alt="Þorsteinn Magnússon">
       </div>
       <div class="about-text">
         <h2>Þorsteinn Magnússon</h2>
