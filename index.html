@@ -2400,10 +2400,8 @@
         <td>${d.days}</td>
         <td>${d.up}</td>
         <td>${d.down}</td>
-        <td>${d.avgUpRate != null ? d.avgUpRate + "%" : "—"}</td>
-        <td>${d.avgDownRate != null ? d.avgDownRate + "%" : "—"}</td>
-        <td>${d.sumUpRate != null ? d.sumUpRate + "%" : "—"}</td>
-        <td>${d.sumDownRate != null ? d.sumDownRate + "%" : "—"}</td>
+        <td>${d.tUp != null ? d.tUp : "—"}</td>
+        <td>${d.tDown != null ? d.tDown : "—"}</td>
         <td>${fmtP(d.pUp)}</td>
         <td>${fmtP(d.pDown)}</td>
       </tr>
@@ -2425,8 +2423,8 @@
         p-gildin bera hvern dag saman við alla hina dagana til samans (Welch t-próf) — rautt/feitletrað þýðir að sá dagur sker sig marktækt úr (p &lt; 0,05). Athugið: þetta er ekki leiðrétt fyrir margfeldissamanburð, svo taktu þetta sem vísbendingu frekar en endanlegan úrskurð.
       </p>
       <div class="table-scroll">
-        <table class="anova-table" style="margin-bottom:8px; min-width:720px;">
-          <thead><tr><th>Vikudagur</th><th>Dagar</th><th>▲ fjöldi</th><th>▼ fjöldi</th><th>Meðal ▲ hlutfall</th><th>Meðal ▼ hlutfall</th><th>Samanlögð ▲</th><th>Samanlögð ▼</th><th>p (▲)</th><th>p (▼)</th></tr></thead>
+        <table class="anova-table" style="margin-bottom:8px; min-width:560px;">
+          <thead><tr><th>Vikudagur</th><th>Dagar</th><th>▲ fjöldi</th><th>▼ fjöldi</th><th>t (▲)</th><th>t (▼)</th><th>p (▲)</th><th>p (▼)</th></tr></thead>
           <tbody>${weekdayRows}</tbody>
         </table>
       </div>

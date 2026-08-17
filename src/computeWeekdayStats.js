@@ -77,14 +77,18 @@ export async function computeWeekdayStats() {
       // þetta er EKKI leiðrétt fyrir margfeldissamanburð.)
       const otherUpRates = orderedDays.filter((d) => d !== day).flatMap((d) => stats.get(d).upRates);
       const otherDownRates = orderedDays.filter((d) => d !== day).flatMap((d) => stats.get(d).downRates);
-      const pUp = welchTTestVsRest(upRates, otherUpRates)?.p ?? null;
-      const pDown = welchTTestVsRest(downRates, otherDownRates)?.p ?? null;
+      const tTestUp = welchTTestVsRest(upRates, otherUpRates);
+      const tTestDown = welchTTestVsRest(downRates, otherDownRates);
+      const tUp = tTestUp?.t ?? null;
+      const tDown = tTestDown?.t ?? null;
+      const pUp = tTestUp?.p ?? null;
+      const pDown = tTestDown?.p ?? null;
 
       result.days[day] = {
         up, down, days,
         avgUpRate: avg(upRates), avgDownRate: avg(downRates),
         sumUpRate: sum(upRates), sumDownRate: sum(downRates),
-        pUp, pDown,
+        tUp, tDown, pUp, pDown,
       };
     }
   }
