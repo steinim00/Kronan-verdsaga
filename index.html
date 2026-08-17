@@ -2369,6 +2369,51 @@
     `;
   }
 
+  function weekdayBarChart(days) {
+    const w = 640, h = 220, padL = 36, padR = 12, padT = 14, padB = 30;
+    const plotW = w - padL - padR, plotH = h - padT - padB;
+    const maxVal = Math.max(1, ...days.map(([, d]) => Math.max(d.up, d.down)));
+    const n = days.length || 1;
+    const groupW = plotW / n;
+    const barW = Math.min(26, groupW * 0.34);
+
+    const yTicks = 4;
+    const yAxis = Array.from({ length: yTicks + 1 }, (_, i) => {
+      const v = Math.round((maxVal * i) / yTicks);
+      const y = padT + plotH - (v / maxVal) * plotH;
+      return `
+        <line x1="${padL}" y1="${y.toFixed(1)}" x2="${w - padR}" y2="${y.toFixed(1)}" stroke="var(--paper-edge)" stroke-width="1" />
+        <text x="${padL - 6}" y="${y.toFixed(1)}" text-anchor="end" dominant-baseline="middle" font-size="10" fill="var(--ink-faint)">${v}</text>
+      `;
+    }).join("");
+
+    const bars = days.map(([name, d], i) => {
+      const cx = padL + groupW * i + groupW / 2;
+      const upH = (d.up / maxVal) * plotH;
+      const downH = (d.down / maxVal) * plotH;
+      const upX = cx - barW - 2;
+      const downX = cx + 2;
+      const upY = padT + plotH - upH;
+      const downY = padT + plotH - downH;
+      return `
+        <rect x="${upX.toFixed(1)}" y="${upY.toFixed(1)}" width="${barW.toFixed(1)}" height="${upH.toFixed(1)}" fill="var(--up)" rx="2" />
+        <rect x="${downX.toFixed(1)}" y="${downY.toFixed(1)}" width="${barW.toFixed(1)}" height="${downH.toFixed(1)}" fill="var(--down)" rx="2" />
+        <text x="${cx.toFixed(1)}" y="${h - padB + 16}" text-anchor="middle" font-size="10" fill="var(--ink-faint)">${name.slice(0, 3)}</text>
+      `;
+    }).join("");
+
+    return `
+      <div style="display:flex; gap:16px; align-items:center; font-size:11px; color:var(--ink-faint); margin-bottom:6px;">
+        <span><span style="display:inline-block; width:9px; height:9px; background:var(--up); border-radius:2px; margin-right:4px;"></span>Hækkanir</span>
+        <span><span style="display:inline-block; width:9px; height:9px; background:var(--down); border-radius:2px; margin-right:4px;"></span>Lækkanir</span>
+      </div>
+      <svg viewBox="0 0 ${w} ${h}" style="width:100%; height:auto; display:block;">
+        ${yAxis}
+        ${bars}
+      </svg>
+    `;
+  }
+
   async function renderStatsView() {
     contentEl.innerHTML = skeletonHtml();
     let stats;
@@ -2407,6 +2452,8 @@
       </tr>
     `).join("");
 
+    const weekdayChartHtml = weekdayBarChart(days);
+
     contentEl.innerHTML = `
       <div class="stats-view">
       <div class="section-label">Samantekt</div>
@@ -2422,25 +2469,34 @@
       <p style="font-size:11px; color:var(--ink-faint); margin:-4px 0 10px;">
         p-gildin bera hvern dag saman við alla hina dagana til samans (Welch t-próf) — rautt/feitletrað þýðir að sá dagur sker sig marktækt úr (p &lt; 0,05). Athugið: þetta er ekki leiðrétt fyrir margfeldissamanburð, svo taktu þetta sem vísbendingu frekar en endanlegan úrskurð.
       </p>
-      <div class="table-scroll">
-        <table class="anova-table" style="margin-bottom:8px; min-width:560px;">
-          <thead><tr><th>Vikudagur</th><th>Dagar</th><th>▲ fjöldi</th><th>▼ fjöldi</th><th>t (▲)</th><th>t (▼)</th><th>p (▲)</th><th>p (▼)</th></tr></thead>
-          <tbody>${weekdayRows}</tbody>
-        </table>
+      <div class="chart-range-tabs" id="weekdayViewTabs" style="margin:0 0 10px;">
+        <button type="button" class="chart-range-tab active" data-view="table">Tafla</button>
+        <button type="button" class="chart-range-tab" data-view="chart">Línurit</button>
       </div>
+      <div id="weekdayTableWrap">
+        <div class="table-scroll">
+          <table class="anova-table" style="margin-bottom:8px; min-width:560px;">
+            <thead><tr><th>Vikudagur</th><th>Dagar</th><th>▲ fjöldi</th><th>▼ fjöldi</th><th>t (▲)</th><th>t (▼)</th><th>p (▲)</th><th>p (▼)</th></tr></thead>
+            <tbody>${weekdayRows}</tbody>
+          </table>
+        </div>
+      </div>
+      <div id="weekdayChartWrap" hidden>${weekdayChartHtml}</div>
 
       <div class="section-label" style="margin-top:18px;">ANOVA-próf</div>
       ${anovaHtml(stats.anovaUp, "hækkunarhlutfalli")}
       ${anovaHtml(stats.anovaDown, "lækkunarhlutfalli")}
-
-      <div class="section-label" style="margin-top:18px;">Tukey HSD (hvor dagur nákvæmlega?)</div>
-      ${tukeyTable(stats.tukeyUp, "hækkunarhlutfalli")}
-      ${tukeyTable(stats.tukeyDown, "lækkunarhlutfalli")}
-
-      <div class="section-label" style="margin-top:18px;">Fylgni: tilhneiging eftir vikunni</div>
-      ${hourCorrelationHtml(stats.weekdayTrendCorrelation)}
       </div>
     `;
+
+    contentEl.querySelectorAll("#weekdayViewTabs .chart-range-tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        contentEl.querySelectorAll("#weekdayViewTabs .chart-range-tab").forEach((b) => b.classList.toggle("active", b === btn));
+        const showChart = btn.dataset.view === "chart";
+        document.getElementById("weekdayTableWrap").hidden = showChart;
+        document.getElementById("weekdayChartWrap").hidden = !showChart;
+      });
+    });
 
     contentEl.querySelectorAll(".anova-more-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
