@@ -134,6 +134,40 @@
     .date-picker-toggle { padding: 7px 12px; }
   }
 
+  /* Lítill Um mig fyrirvari í stað flokkakortsins á síma — sá kassi er
+     of mikið fyrir mjóan skjá, en fólk á samt að geta séð "Um mig" án
+     þess að skrolla alla leið niður í footer. */
+  .about-mobile-teaser { display: none; }
+  @media (max-width: 859px) {
+    #categoriesCard { display: none !important; }
+    .about-mobile-teaser {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      background: var(--paper);
+      border: none;
+      border-top: 4px solid var(--brand);
+      border-radius: 14px;
+      box-shadow: 0 20px 40px -20px rgba(0,0,0,0.35);
+      padding: 14px 16px;
+      font-family: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+    .about-mobile-avatar {
+      flex: 0 0 auto;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--brand);
+    }
+    .about-mobile-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .about-mobile-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+    .about-mobile-name { font-weight: 700; font-size: 14px; color: var(--ink); }
+    .about-mobile-sub { font-size: 12px; color: var(--ink-faint); }
+  }
+
 
   header { margin-bottom: 27px; }
   .header-top {
@@ -847,7 +881,7 @@
   .fav-toggle.active { background: var(--star); color: var(--paper); }
 
   /* ---------- Desktop layout ---------- */
-  .two-col-grid { display: block; }
+  .two-col-grid { display: flex; flex-direction: column; gap: 16px; }
 
   @media (min-width: 860px) {
     .page {
@@ -1042,6 +1076,14 @@
     </div>
 
     <div class="page-sidebar">
+      <button type="button" class="about-mobile-teaser" id="aboutMobileTeaser">
+        <span class="about-mobile-avatar"><img src="assets/steini-avatar-circle.jpg" alt="Þorsteinn Magnússon"></span>
+        <span class="about-mobile-text">
+          <span class="about-mobile-name">Þorsteinn Magnússon</span>
+          <span class="about-mobile-sub">Höfundur síðunnar — Um mig →</span>
+        </span>
+      </button>
+
       <div class="receipt" id="categoriesCard" style="display:none;">
         <div class="section-label">Verðþróun eftir vöruflokkum</div>
         <div id="categoriesContent"></div>
@@ -2514,6 +2556,7 @@
   }
 
   const aboutLink = document.getElementById("aboutLink");
+  const aboutMobileTeaser = document.getElementById("aboutMobileTeaser");
   const aboutSideTab = document.getElementById("aboutSideTab");
   const aboutOverlay = document.getElementById("aboutOverlay");
   const aboutClose = document.getElementById("aboutClose");
@@ -2529,6 +2572,7 @@
     aboutOverlay.setAttribute("aria-hidden", "true");
   }
   aboutLink.addEventListener("click", (e) => { e.preventDefault(); openAbout(); });
+  if (aboutMobileTeaser) aboutMobileTeaser.addEventListener("click", () => openAbout());
   aboutSideTab.addEventListener("click", () => openAbout());
   aboutClose.addEventListener("click", closeAbout);
   aboutOverlay.addEventListener("click", (e) => { if (e.target === aboutOverlay) closeAbout(); });
