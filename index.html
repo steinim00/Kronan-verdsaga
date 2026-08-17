@@ -2445,10 +2445,9 @@
         <td>${d.days}</td>
         <td>${d.up}</td>
         <td>${d.down}</td>
-        <td>${d.tUp != null ? d.tUp : "—"}</td>
-        <td>${d.tDown != null ? d.tDown : "—"}</td>
         <td>${fmtP(d.pUp)}</td>
         <td>${fmtP(d.pDown)}</td>
+        <td>${fmtP(d.pCombined)}</td>
       </tr>
     `).join("");
 
@@ -2467,7 +2466,7 @@
 
       <div class="section-label">Hækkanir og lækkanir eftir vikudegi</div>
       <p style="font-size:11px; color:var(--ink-faint); margin:-4px 0 10px;">
-        p-gildin bera hvern dag saman við alla hina dagana til samans (Welch t-próf) — rautt/feitletrað þýðir að sá dagur sker sig marktækt úr (p &lt; 0,05). Athugið: þetta er ekki leiðrétt fyrir margfeldissamanburð, svo taktu þetta sem vísbendingu frekar en endanlegan úrskurð.
+        p-gildin bera hvern dag saman við alla hina dagana til samans (Welch t-próf) — rautt/feitletrað þýðir að sá dagur sker sig marktækt úr (p &lt; 0,05). "p (samtals)" prófar heildarumfang breytinga þann dag (hækkanir og lækkanir saman), óháð stefnu. Athugið: þetta er ekki leiðrétt fyrir margfeldissamanburð, svo taktu þetta sem vísbendingu frekar en endanlegan úrskurð.
       </p>
       <div class="chart-range-tabs" id="weekdayViewTabs" style="margin:0 0 10px;">
         <button type="button" class="chart-range-tab active" data-view="table">Tafla</button>
@@ -2476,7 +2475,7 @@
       <div id="weekdayTableWrap">
         <div class="table-scroll">
           <table class="anova-table" style="margin-bottom:8px; min-width:560px;">
-            <thead><tr><th>Vikudagur</th><th>Dagar</th><th>▲ fjöldi</th><th>▼ fjöldi</th><th>t (▲)</th><th>t (▼)</th><th>p (▲)</th><th>p (▼)</th></tr></thead>
+            <thead><tr><th>Vikudagur</th><th>Dagar</th><th>▲ fjöldi</th><th>▼ fjöldi</th><th>p (▲)</th><th>p (▼)</th><th>p (samtals)</th></tr></thead>
             <tbody>${weekdayRows}</tbody>
           </table>
         </div>

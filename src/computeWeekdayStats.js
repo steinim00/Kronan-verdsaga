@@ -27,15 +27,21 @@ export async function computeWeekdayStats() {
     if (!movers.date || movers.increasedCount == null) continue;
 
     const weekday = WEEKDAY_NAMES[new Date(movers.date + "T12:00:00Z").getUTCDay()];
-    const entry = stats.get(weekday) || { up: 0, down: 0, days: 0, upRates: [], downRates: [] };
+    const entry = stats.get(weekday) || { up: 0, down: 0, days: 0, upRates: [], downRates: [], combinedRates: [] };
     entry.up += movers.increasedCount || 0;
     entry.down += movers.decreasedCount || 0;
     entry.days += 1;
     // Hlutfall vara sem hækkuðu, og hlutfall sem lækkuðu, hvort í sínu lagi —
     // normaliserar fyrir örlítið mismunandi vörufjölda milli daga.
     if (movers.productCount) {
-      entry.upRates.push(((movers.increasedCount || 0) / movers.productCount) * 100);
-      entry.downRates.push(((movers.decreasedCount || 0) / movers.productCount) * 100);
+      const upRate = ((movers.increasedCount || 0) / movers.productCount) * 100;
+      const downRate = ((movers.decreasedCount || 0) / movers.productCount) * 100;
+      entry.upRates.push(upRate);
+      entry.downRates.push(downRate);
+      // Samanlögð breyting þann dag — báðar áttir saman, óháð stefnu —
+      // notað til að meta hvort dagurinn í heild var "óróasamari" en aðrir,
+      // ekki bara hvort hann hallaði frekar í hækkun eða lækkun.
+      entry.combinedRates.push(upRate + downRate);
     }
     stats.set(weekday, entry);
   }
@@ -68,27 +74,27 @@ export async function computeWeekdayStats() {
   const result = { days: {}, anovaUp, anovaDown, tukeyUp, tukeyDown };
   for (const day of ORDER) {
     if (stats.has(day)) {
-      const { up, down, days, upRates, downRates } = stats.get(day);
+      const { up, down, days, upRates, downRates, combinedRates } = stats.get(day);
       const avg = (arr) => (arr.length ? Math.round((arr.reduce((s, v) => s + v, 0) / arr.length) * 100) / 100 : null);
       const sum = (arr) => (arr.length ? Math.round(arr.reduce((s, v) => s + v, 0) * 100) / 100 : null);
 
       // Er þessi tiltekni vikudagur marktækt frábrugðinn öllum hinum
       // dögunum til samans? (Welch t-próf, sjá fyrirvara í stats.js —
-      // þetta er EKKI leiðrétt fyrir margfeldissamanburð.)
+      // þetta er EKKI leiðrétt fyrir margfeldissamanburð.) Þrjú aðskilin
+      // próf: hækkunarhlutfall, lækkunarhlutfall, og samanlögð breyting
+      // (báðar áttir saman) þann dag.
       const otherUpRates = orderedDays.filter((d) => d !== day).flatMap((d) => stats.get(d).upRates);
       const otherDownRates = orderedDays.filter((d) => d !== day).flatMap((d) => stats.get(d).downRates);
-      const tTestUp = welchTTestVsRest(upRates, otherUpRates);
-      const tTestDown = welchTTestVsRest(downRates, otherDownRates);
-      const tUp = tTestUp?.t ?? null;
-      const tDown = tTestDown?.t ?? null;
-      const pUp = tTestUp?.p ?? null;
-      const pDown = tTestDown?.p ?? null;
+      const otherCombinedRates = orderedDays.filter((d) => d !== day).flatMap((d) => stats.get(d).combinedRates);
+      const pUp = welchTTestVsRest(upRates, otherUpRates)?.p ?? null;
+      const pDown = welchTTestVsRest(downRates, otherDownRates)?.p ?? null;
+      const pCombined = welchTTestVsRest(combinedRates, otherCombinedRates)?.p ?? null;
 
       result.days[day] = {
         up, down, days,
         avgUpRate: avg(upRates), avgDownRate: avg(downRates),
         sumUpRate: sum(upRates), sumDownRate: sum(downRates),
-        tUp, tDown, pUp, pDown,
+        pUp, pDown, pCombined,
       };
     }
   }
