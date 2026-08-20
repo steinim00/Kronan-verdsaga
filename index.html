@@ -827,6 +827,21 @@
   }
   .modal svg { width: 100%; height: auto; margin: 12px 0; display: block; }
 
+  .kronan-product-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink);
+    background: var(--brand);
+    border-radius: 999px;
+    padding: 6px 14px;
+    text-decoration: none;
+    margin-bottom: 8px;
+  }
+  .kronan-product-link:hover { background: var(--ink); color: var(--brand); }
+
   .chart-block { margin: 14px 0; }
   .chart-range-tabs {
     display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap;
@@ -1601,6 +1616,19 @@
     wrap.addEventListener("touchend", () => { tooltip.style.display = "none"; });
   }
 
+  // Krónan byggir vörusíðuslóðir sínar svona:
+  // kronan.is/vara/{vörunúmer}-{nafn-vörunnar-í-lágstöfum-með-bandstrikum}
+  function kronanProductUrl(sku, name) {
+    const slug = (name || "")
+      .toLowerCase()
+      .replace(/á/g, "a").replace(/é/g, "e").replace(/í/g, "i")
+      .replace(/ó/g, "o").replace(/ú/g, "u").replace(/ý/g, "y")
+      .replace(/ö/g, "o").replace(/þ/g, "th").replace(/æ/g, "ae").replace(/ð/g, "d")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+    return `https://kronan.is/vara/${sku}${slug ? "-" + slug : ""}`;
+  }
+
   async function openProduct(sku, name, brand, category) {
     modalBackdrop.classList.add("open");
     modalContent.innerHTML = '<div class="status">Sæki verðsögu…</div>';
@@ -1623,6 +1651,7 @@
         ${currentPrice != null && currentPrice === low ? '<span class="badge-tag">Lægsta verð sem sést hefur</span>' : ""}
         ${currentPrice != null && currentPrice === high && low !== high ? '<span class="badge-tag">Hæsta verð sem sést hefur</span>' : ""}
       </div>
+      <a href="${kronanProductUrl(sku, name)}" target="_blank" rel="noopener" class="kronan-product-link">Skoða vöruna hjá Krónunni ↗</a>
       ${priceChartHtml()}
       <button class="fav-toggle ${fav ? "active" : ""}" id="favToggleBtn">
         ${fav ? "★ Í eftirlæti — fjarlægja" : "☆ Bæta í eftirlæti"}
