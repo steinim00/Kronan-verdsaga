@@ -1,12 +1,24 @@
 {
   "date": "2026-08-27",
   "comparedTo": "2026-08-26",
-  "productCount": 9385,
-  "changedCount": 19,
-  "increasedCount": 9,
-  "decreasedCount": 10,
-  "avgPercentChange": 0,
+  "productCount": 9383,
+  "changedCount": 41,
+  "increasedCount": 26,
+  "decreasedCount": 15,
+  "avgPercentChange": 0.01,
   "topIncreases": [
+    {
+      "sku": "100238561",
+      "name": "Rimmel bb krem matte light",
+      "brand": "Rimmel",
+      "category": "Snyrtivara",
+      "unit": "stk",
+      "priceBefore": 1399,
+      "priceAfter": 1799,
+      "percent": 28.59,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
     {
       "sku": "100247464",
       "name": "First Price heslihnetur",
@@ -32,6 +44,18 @@
       "allTimeHigh": true
     },
     {
+      "sku": "100194403",
+      "name": "Sítrónur ómeðhöndlaðar",
+      "brand": "",
+      "category": "Ávextir",
+      "unit": "stk",
+      "priceBefore": 399,
+      "priceAfter": 449,
+      "percent": 12.53,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
       "sku": "01300022",
       "name": "Lýsi þorskalýsi með sítrónubragði",
       "brand": "Lýsi",
@@ -40,6 +64,54 @@
       "priceBefore": 1290,
       "priceAfter": 1419,
       "percent": 10,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100267966",
+      "name": "Nature Cutlery nature line gaffall og hnífur",
+      "brand": "Nature Cutlery",
+      "category": "Heimilið",
+      "unit": "stk",
+      "priceBefore": 79,
+      "priceAfter": 85,
+      "percent": 7.59,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100215845",
+      "name": "Ísfugl kalkúnahakk",
+      "brand": "Ísfugl",
+      "category": "Frystivara",
+      "unit": "stk",
+      "priceBefore": 936,
+      "priceAfter": 999,
+      "percent": 6.73,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100272056",
+      "name": "Cif scrub daddy",
+      "brand": "Cif",
+      "category": "Heimilið",
+      "unit": "stk",
+      "priceBefore": 499,
+      "priceAfter": 525,
+      "percent": 5.21,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "02300225",
+      "name": "Emmessís gúffís súkkulaði",
+      "brand": "Emmessís",
+      "category": "Frystivara",
+      "unit": "stk",
+      "priceBefore": 370,
+      "priceAfter": 389,
+      "percent": 5.14,
       "allTimeLow": false,
       "allTimeHigh": true
     },
@@ -56,6 +128,54 @@
       "allTimeHigh": true
     },
     {
+      "sku": "100213156",
+      "name": "Palmolive sturtusápa so relaxed",
+      "brand": "Palmolive",
+      "category": "Snyrtivara",
+      "unit": "stk",
+      "priceBefore": 695,
+      "priceAfter": 725,
+      "percent": 4.32,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100247196",
+      "name": "Palmolive handsápa lime",
+      "brand": "Palmolive",
+      "category": "Snyrtivara",
+      "unit": "stk",
+      "priceBefore": 419,
+      "priceAfter": 435,
+      "percent": 3.82,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100099663",
+      "name": "Toro tómatsúpa",
+      "brand": "Toro",
+      "category": "Eldamennskan",
+      "unit": "stk",
+      "priceBefore": 298,
+      "priceAfter": 309,
+      "percent": 3.69,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100272198",
+      "name": "Palmolive thermal spa radiant oil",
+      "brand": "Palmolive",
+      "category": "Snyrtivara",
+      "unit": "stk",
+      "priceBefore": 599,
+      "priceAfter": 619,
+      "percent": 3.34,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
       "sku": "05000068",
       "name": "Appolo lakkrískonfekt",
       "brand": "Appolo",
@@ -68,6 +188,18 @@
       "allTimeHigh": true
     },
     {
+      "sku": "03700087",
+      "name": "Toro steikarsósa",
+      "brand": "Toro",
+      "category": "Eldamennskan",
+      "unit": "stk",
+      "priceBefore": 280,
+      "priceAfter": 289,
+      "percent": 3.21,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
       "sku": "100237257",
       "name": "Stabburet makrílfille í tómatsósu",
       "brand": "Stabburet",
@@ -76,6 +208,42 @@
       "priceBefore": 290,
       "priceAfter": 299,
       "percent": 3.1,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100259903",
+      "name": "Lovemade skvísa hafragrautur epli&kanill",
+      "brand": "Lovemade",
+      "category": "Börnin",
+      "unit": "stk",
+      "priceBefore": 228,
+      "priceAfter": 235,
+      "percent": 3.07,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100242147",
+      "name": "Jordan tannbursti green clean medium",
+      "brand": "Jordan",
+      "category": "Snyrtivara",
+      "unit": "stk",
+      "priceBefore": 310,
+      "priceAfter": 319,
+      "percent": 2.9,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100268801",
+      "name": "Lovemade snakk maís/gulrætur/mangó",
+      "brand": "Lovemade",
+      "category": "Börnin",
+      "unit": "stk",
+      "priceBefore": 239,
+      "priceAfter": 245,
+      "percent": 2.51,
       "allTimeLow": false,
       "allTimeHigh": true
     },
@@ -114,9 +282,57 @@
       "percent": 2.27,
       "allTimeLow": false,
       "allTimeHigh": true
+    },
+    {
+      "sku": "100259902",
+      "name": "Lovemade skvísa hafragrautur jarðarber&epli",
+      "brand": "Lovemade",
+      "category": "Börnin",
+      "unit": "stk",
+      "priceBefore": 255,
+      "priceAfter": 260,
+      "percent": 1.96,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100259899",
+      "name": "Lovemade lasagne 8m+",
+      "brand": "Lovemade",
+      "category": "Börnin",
+      "unit": "stk",
+      "priceBefore": 399,
+      "priceAfter": 405,
+      "percent": 1.5,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100259907",
+      "name": "Lovemade kjúklingur í karrý&grjón 6m+",
+      "brand": "Lovemade",
+      "category": "Börnin",
+      "unit": "stk",
+      "priceBefore": 399,
+      "priceAfter": 405,
+      "percent": 1.5,
+      "allTimeLow": false,
+      "allTimeHigh": true
     }
   ],
   "topDecreases": [
+    {
+      "sku": "100270434",
+      "name": "Duracell hleðslukló usb-c og usb-a",
+      "brand": "Duracell",
+      "category": "Heimilið",
+      "unit": "stk",
+      "priceBefore": 3999,
+      "priceAfter": 2999,
+      "percent": -25.01,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
     {
       "sku": "100241528",
       "name": "Gestus vanillustangir",
@@ -126,6 +342,18 @@
       "priceBefore": 599,
       "priceAfter": 470,
       "percent": -21.54,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100258901",
+      "name": "Góu bingókúlur hvítar",
+      "brand": "Góu",
+      "category": "Laugardags",
+      "unit": "stk",
+      "priceBefore": 360,
+      "priceAfter": 319,
+      "percent": -11.39,
       "allTimeLow": true,
       "allTimeHigh": false
     },
@@ -154,6 +382,18 @@
       "allTimeHigh": false
     },
     {
+      "sku": "00600679",
+      "name": "Fiskverzlun Hafliða ýsuflök roð og beinlaus",
+      "brand": "Fiskverzlun Hafliða",
+      "category": "Fiskur",
+      "unit": "KG",
+      "priceBefore": 3999,
+      "priceAfter": 3799,
+      "percent": -5,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
       "sku": "100262046",
       "name": "Better You d3- og k2-vítamínsprey",
       "brand": "Better You",
@@ -162,6 +402,18 @@
       "priceBefore": 1770,
       "priceAfter": 1696,
       "percent": -4.18,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100183086",
+      "name": "First Price kryddkexkökur",
+      "brand": "First Price",
+      "category": "Brauð, kökur og kex",
+      "unit": "stk",
+      "priceBefore": 245,
+      "priceAfter": 235,
+      "percent": -4.08,
       "allTimeLow": true,
       "allTimeHigh": false
     },
@@ -202,6 +454,18 @@
       "allTimeHigh": false
     },
     {
+      "sku": "100236157",
+      "name": "Fiskverzlun Hafliða þorskhnakkar 1 flokkur",
+      "brand": "Fiskverzlun Hafliða",
+      "category": "Fiskur",
+      "unit": "KG",
+      "priceBefore": 5399,
+      "priceAfter": 5289,
+      "percent": -2.04,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
       "sku": "03800204",
       "name": "St. Dalfour apríkósumarmelaði",
       "brand": "St. Dalfour",
@@ -239,6 +503,19 @@
     }
   ],
   "topIncreasesByAmount": [
+    {
+      "sku": "100238561",
+      "name": "Rimmel bb krem matte light",
+      "brand": "Rimmel",
+      "category": "Snyrtivara",
+      "unit": "stk",
+      "priceBefore": 1399,
+      "priceAfter": 1799,
+      "percent": 28.59,
+      "amount": 400,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
     {
       "sku": "100247464",
       "name": "First Price heslihnetur",
@@ -279,6 +556,97 @@
       "allTimeHigh": true
     },
     {
+      "sku": "100215845",
+      "name": "Ísfugl kalkúnahakk",
+      "brand": "Ísfugl",
+      "category": "Frystivara",
+      "unit": "stk",
+      "priceBefore": 936,
+      "priceAfter": 999,
+      "percent": 6.73,
+      "amount": 63,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100194403",
+      "name": "Sítrónur ómeðhöndlaðar",
+      "brand": "",
+      "category": "Ávextir",
+      "unit": "stk",
+      "priceBefore": 399,
+      "priceAfter": 449,
+      "percent": 12.53,
+      "amount": 50,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100213156",
+      "name": "Palmolive sturtusápa so relaxed",
+      "brand": "Palmolive",
+      "category": "Snyrtivara",
+      "unit": "stk",
+      "priceBefore": 695,
+      "priceAfter": 725,
+      "percent": 4.32,
+      "amount": 30,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100272056",
+      "name": "Cif scrub daddy",
+      "brand": "Cif",
+      "category": "Heimilið",
+      "unit": "stk",
+      "priceBefore": 499,
+      "priceAfter": 525,
+      "percent": 5.21,
+      "amount": 26,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100272198",
+      "name": "Palmolive thermal spa radiant oil",
+      "brand": "Palmolive",
+      "category": "Snyrtivara",
+      "unit": "stk",
+      "priceBefore": 599,
+      "priceAfter": 619,
+      "percent": 3.34,
+      "amount": 20,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "02300225",
+      "name": "Emmessís gúffís súkkulaði",
+      "brand": "Emmessís",
+      "category": "Frystivara",
+      "unit": "stk",
+      "priceBefore": 370,
+      "priceAfter": 389,
+      "percent": 5.14,
+      "amount": 19,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100247196",
+      "name": "Palmolive handsápa lime",
+      "brand": "Palmolive",
+      "category": "Snyrtivara",
+      "unit": "stk",
+      "priceBefore": 419,
+      "priceAfter": 435,
+      "percent": 3.82,
+      "amount": 16,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
       "sku": "05000068",
       "name": "Appolo lakkrískonfekt",
       "brand": "Appolo",
@@ -305,6 +673,32 @@
       "allTimeHigh": true
     },
     {
+      "sku": "100099663",
+      "name": "Toro tómatsúpa",
+      "brand": "Toro",
+      "category": "Eldamennskan",
+      "unit": "stk",
+      "priceBefore": 298,
+      "priceAfter": 309,
+      "percent": 3.69,
+      "amount": 11,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "03700087",
+      "name": "Toro steikarsósa",
+      "brand": "Toro",
+      "category": "Eldamennskan",
+      "unit": "stk",
+      "priceBefore": 280,
+      "priceAfter": 289,
+      "percent": 3.21,
+      "amount": 9,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
       "sku": "100237257",
       "name": "Stabburet makrílfille í tómatsósu",
       "brand": "Stabburet",
@@ -314,6 +708,97 @@
       "priceAfter": 299,
       "percent": 3.1,
       "amount": 9,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100242147",
+      "name": "Jordan tannbursti green clean medium",
+      "brand": "Jordan",
+      "category": "Snyrtivara",
+      "unit": "stk",
+      "priceBefore": 310,
+      "priceAfter": 319,
+      "percent": 2.9,
+      "amount": 9,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100259903",
+      "name": "Lovemade skvísa hafragrautur epli&kanill",
+      "brand": "Lovemade",
+      "category": "Börnin",
+      "unit": "stk",
+      "priceBefore": 228,
+      "priceAfter": 235,
+      "percent": 3.07,
+      "amount": 7,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100267966",
+      "name": "Nature Cutlery nature line gaffall og hnífur",
+      "brand": "Nature Cutlery",
+      "category": "Heimilið",
+      "unit": "stk",
+      "priceBefore": 79,
+      "priceAfter": 85,
+      "percent": 7.59,
+      "amount": 6,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100268801",
+      "name": "Lovemade snakk maís/gulrætur/mangó",
+      "brand": "Lovemade",
+      "category": "Börnin",
+      "unit": "stk",
+      "priceBefore": 239,
+      "priceAfter": 245,
+      "percent": 2.51,
+      "amount": 6,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100259899",
+      "name": "Lovemade lasagne 8m+",
+      "brand": "Lovemade",
+      "category": "Börnin",
+      "unit": "stk",
+      "priceBefore": 399,
+      "priceAfter": 405,
+      "percent": 1.5,
+      "amount": 6,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100259907",
+      "name": "Lovemade kjúklingur í karrý&grjón 6m+",
+      "brand": "Lovemade",
+      "category": "Börnin",
+      "unit": "stk",
+      "priceBefore": 399,
+      "priceAfter": 405,
+      "percent": 1.5,
+      "amount": 6,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100259902",
+      "name": "Lovemade skvísa hafragrautur jarðarber&epli",
+      "brand": "Lovemade",
+      "category": "Börnin",
+      "unit": "stk",
+      "priceBefore": 255,
+      "priceAfter": 260,
+      "percent": 1.96,
+      "amount": 5,
       "allTimeLow": false,
       "allTimeHigh": true
     },
@@ -359,6 +844,32 @@
   ],
   "topDecreasesByAmount": [
     {
+      "sku": "100270434",
+      "name": "Duracell hleðslukló usb-c og usb-a",
+      "brand": "Duracell",
+      "category": "Heimilið",
+      "unit": "stk",
+      "priceBefore": 3999,
+      "priceAfter": 2999,
+      "percent": -25.01,
+      "amount": -1000,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "00600679",
+      "name": "Fiskverzlun Hafliða ýsuflök roð og beinlaus",
+      "brand": "Fiskverzlun Hafliða",
+      "category": "Fiskur",
+      "unit": "KG",
+      "priceBefore": 3999,
+      "priceAfter": 3799,
+      "percent": -5,
+      "amount": -200,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
       "sku": "100241528",
       "name": "Gestus vanillustangir",
       "brand": "Gestus",
@@ -370,6 +881,19 @@
       "amount": -129,
       "allTimeLow": true,
       "allTimeHigh": false
+    },
+    {
+      "sku": "100236157",
+      "name": "Fiskverzlun Hafliða þorskhnakkar 1 flokkur",
+      "brand": "Fiskverzlun Hafliða",
+      "category": "Fiskur",
+      "unit": "KG",
+      "priceBefore": 5399,
+      "priceAfter": 5289,
+      "percent": -2.04,
+      "amount": -110,
+      "allTimeLow": false,
+      "allTimeHigh": true
     },
     {
       "sku": "100247726",
@@ -394,6 +918,19 @@
       "priceAfter": 1696,
       "percent": -4.18,
       "amount": -74,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100258901",
+      "name": "Góu bingókúlur hvítar",
+      "brand": "Góu",
+      "category": "Laugardags",
+      "unit": "stk",
+      "priceBefore": 360,
+      "priceAfter": 319,
+      "percent": -11.39,
+      "amount": -41,
       "allTimeLow": true,
       "allTimeHigh": false
     },
@@ -450,6 +987,19 @@
       "allTimeHigh": false
     },
     {
+      "sku": "100183086",
+      "name": "First Price kryddkexkökur",
+      "brand": "First Price",
+      "category": "Brauð, kökur og kex",
+      "unit": "stk",
+      "priceBefore": 245,
+      "priceAfter": 235,
+      "percent": -4.08,
+      "amount": -10,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
       "sku": "03800204",
       "name": "St. Dalfour apríkósumarmelaði",
       "brand": "St. Dalfour",
@@ -491,11 +1041,23 @@
   ],
   "weekly": {
     "comparedTo": "2026-08-20",
-    "changedCount": 130,
-    "increasedCount": 55,
-    "decreasedCount": 75,
-    "avgPercentChange": -0.03,
+    "changedCount": 150,
+    "increasedCount": 72,
+    "decreasedCount": 78,
+    "avgPercentChange": -0.02,
     "topIncreases": [
+      {
+        "sku": "100238561",
+        "name": "Rimmel bb krem matte light",
+        "brand": "Rimmel",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 1399,
+        "priceAfter": 1799,
+        "percent": 28.59,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
       {
         "sku": "100247464",
         "name": "First Price heslihnetur",
@@ -593,6 +1155,18 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100194403",
+        "name": "Sítrónur ómeðhöndlaðar",
+        "brand": "",
+        "category": "Ávextir",
+        "unit": "stk",
+        "priceBefore": 399,
+        "priceAfter": 449,
+        "percent": 12.53,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "01000698",
         "name": "Súrkál",
         "brand": "",
@@ -677,6 +1251,18 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100267966",
+        "name": "Nature Cutlery nature line gaffall og hnífur",
+        "brand": "Nature Cutlery",
+        "category": "Heimilið",
+        "unit": "stk",
+        "priceBefore": 79,
+        "priceAfter": 85,
+        "percent": 7.59,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100262135",
         "name": "Agúrkur Reykás",
         "brand": "",
@@ -685,6 +1271,18 @@
         "priceBefore": 269,
         "priceAfter": 288,
         "percent": 7.06,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100215845",
+        "name": "Ísfugl kalkúnahakk",
+        "brand": "Ísfugl",
+        "category": "Frystivara",
+        "unit": "stk",
+        "priceBefore": 936,
+        "priceAfter": 999,
+        "percent": 6.73,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -737,6 +1335,30 @@
         "allTimeHigh": false
       },
       {
+        "sku": "100272056",
+        "name": "Cif scrub daddy",
+        "brand": "Cif",
+        "category": "Heimilið",
+        "unit": "stk",
+        "priceBefore": 499,
+        "priceAfter": 525,
+        "percent": 5.21,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "02300225",
+        "name": "Emmessís gúffís súkkulaði",
+        "brand": "Emmessís",
+        "category": "Frystivara",
+        "unit": "stk",
+        "priceBefore": 370,
+        "priceAfter": 389,
+        "percent": 5.14,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "01300024",
         "name": "Lýsi krakkalýsi",
         "brand": "Lýsi",
@@ -757,6 +1379,18 @@
         "priceBefore": 285,
         "priceAfter": 299,
         "percent": 4.91,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100213156",
+        "name": "Palmolive sturtusápa so relaxed",
+        "brand": "Palmolive",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 695,
+        "priceAfter": 725,
+        "percent": 4.32,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -809,6 +1443,18 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100247196",
+        "name": "Palmolive handsápa lime",
+        "brand": "Palmolive",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 419,
+        "priceAfter": 435,
+        "percent": 3.82,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100252143",
         "name": "Frisko Sandwich original",
         "brand": "Frisko",
@@ -817,6 +1463,18 @@
         "priceBefore": 1059,
         "priceAfter": 1099,
         "percent": 3.78,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100099663",
+        "name": "Toro tómatsúpa",
+        "brand": "Toro",
+        "category": "Eldamennskan",
+        "unit": "stk",
+        "priceBefore": 298,
+        "priceAfter": 309,
+        "percent": 3.69,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -845,6 +1503,18 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100272198",
+        "name": "Palmolive thermal spa radiant oil",
+        "brand": "Palmolive",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 599,
+        "priceAfter": 619,
+        "percent": 3.34,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "05000068",
         "name": "Appolo lakkrískonfekt",
         "brand": "Appolo",
@@ -865,6 +1535,18 @@
         "priceBefore": 799,
         "priceAfter": 825,
         "percent": 3.25,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "03700087",
+        "name": "Toro steikarsósa",
+        "brand": "Toro",
+        "category": "Eldamennskan",
+        "unit": "stk",
+        "priceBefore": 280,
+        "priceAfter": 289,
+        "percent": 3.21,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -893,6 +1575,18 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100259903",
+        "name": "Lovemade skvísa hafragrautur epli&kanill",
+        "brand": "Lovemade",
+        "category": "Börnin",
+        "unit": "stk",
+        "priceBefore": 228,
+        "priceAfter": 235,
+        "percent": 3.07,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100218226",
         "name": "MUNA hirsi",
         "brand": "MUNA",
@@ -907,6 +1601,18 @@
       {
         "sku": "100247115",
         "name": "Jordan green junior tannkrem 6+",
+        "brand": "Jordan",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 310,
+        "priceAfter": 319,
+        "percent": 2.9,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100242147",
+        "name": "Jordan tannbursti green clean medium",
         "brand": "Jordan",
         "category": "Snyrtivara",
         "unit": "stk",
@@ -939,162 +1645,6 @@
         "percent": 2.76,
         "allTimeLow": false,
         "allTimeHigh": true
-      },
-      {
-        "sku": "100265564",
-        "name": "Ódýrt plokkfiskur",
-        "brand": "Ódýrt",
-        "category": "Fiskur",
-        "unit": "stk",
-        "priceBefore": 1849,
-        "priceAfter": 1899,
-        "percent": 2.7,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100268930",
-        "name": "Protis cran + d-mannose",
-        "brand": "Protis",
-        "category": "Morgunmatur og heilsubót",
-        "unit": "stk",
-        "priceBefore": 2806,
-        "priceAfter": 2880,
-        "percent": 2.64,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "03700090",
-        "name": "Toro piparsósa",
-        "brand": "Toro",
-        "category": "Eldamennskan",
-        "unit": "stk",
-        "priceBefore": 209,
-        "priceAfter": 214,
-        "percent": 2.39,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "02000025",
-        "name": "Royal lyftiduft 200gr",
-        "brand": "Royal",
-        "category": "Bakstur",
-        "unit": "stk",
-        "priceBefore": 348,
-        "priceAfter": 356,
-        "percent": 2.3,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100248958",
-        "name": "Krambals bruschetta osta",
-        "brand": "Krambals",
-        "category": "Brauð, kökur og kex",
-        "unit": "stk",
-        "priceBefore": 176,
-        "priceAfter": 180,
-        "percent": 2.27,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100248952",
-        "name": "Krambals bruschetta tómat & mozzarella",
-        "brand": "Krambals",
-        "category": "Brauð, kökur og kex",
-        "unit": "stk",
-        "priceBefore": 176,
-        "priceAfter": 180,
-        "percent": 2.27,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100254811",
-        "name": "Krambals bruschetta garden grill",
-        "brand": "Krambals",
-        "category": "Brauð, kökur og kex",
-        "unit": "stk",
-        "priceBefore": 176,
-        "priceAfter": 180,
-        "percent": 2.27,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "02000033",
-        "name": "Royal lyftiduft 420 gr",
-        "brand": "Royal",
-        "category": "Bakstur",
-        "unit": "stk",
-        "priceBefore": 798,
-        "priceAfter": 815,
-        "percent": 2.13,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100247567",
-        "name": "Innocent energise smoothie",
-        "brand": "Innocent",
-        "category": "Drykkir",
-        "unit": "stk",
-        "priceBefore": 466,
-        "priceAfter": 475,
-        "percent": 1.93,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "04902378",
-        "name": "Toro mexíkósk grýta",
-        "brand": "Toro",
-        "category": "Tilbúnir réttir",
-        "unit": "stk",
-        "priceBefore": 490,
-        "priceAfter": 499,
-        "percent": 1.84,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100253436",
-        "name": "Humble Plant Based 2 Pack",
-        "brand": "Humble",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 609,
-        "priceAfter": 619,
-        "percent": 1.64,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100009524",
-        "name": "Toro kjúklingasúpa rjóma",
-        "brand": "Toro",
-        "category": "Eldamennskan",
-        "unit": "stk",
-        "priceBefore": 315,
-        "priceAfter": 320,
-        "percent": 1.59,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100262795",
-        "name": "Humble krakka tannstingur",
-        "brand": "Humble",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 719,
-        "priceAfter": 729,
-        "percent": 1.39,
-        "allTimeLow": false,
-        "allTimeHigh": true
       }
     ],
     "topDecreases": [
@@ -1119,6 +1669,18 @@
         "priceBefore": 635,
         "priceAfter": 266,
         "percent": -58.11,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100270434",
+        "name": "Duracell hleðslukló usb-c og usb-a",
+        "brand": "Duracell",
+        "category": "Heimilið",
+        "unit": "stk",
+        "priceBefore": 4695,
+        "priceAfter": 2999,
+        "percent": -36.12,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -1219,18 +1781,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100270434",
-        "name": "Duracell hleðslukló usb-c og usb-a",
-        "brand": "Duracell",
-        "category": "Heimilið",
-        "unit": "stk",
-        "priceBefore": 4695,
-        "priceAfter": 3999,
-        "percent": -14.82,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100247677",
         "name": "Hansaplast plástrar marvel",
         "brand": "Hansaplast",
@@ -1251,6 +1801,18 @@
         "priceBefore": 3395,
         "priceAfter": 2995,
         "percent": -11.78,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100258901",
+        "name": "Góu bingókúlur hvítar",
+        "brand": "Góu",
+        "category": "Laugardags",
+        "unit": "stk",
+        "priceBefore": 360,
+        "priceAfter": 319,
+        "percent": -11.39,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -1555,6 +2117,18 @@
         "allTimeHigh": false
       },
       {
+        "sku": "100183086",
+        "name": "First Price kryddkexkökur",
+        "brand": "First Price",
+        "category": "Brauð, kökur og kex",
+        "unit": "stk",
+        "priceBefore": 248,
+        "priceAfter": 235,
+        "percent": -5.24,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
         "sku": "100268974",
         "name": "SS ömmukæfa",
         "brand": "SS",
@@ -1565,6 +2139,18 @@
         "percent": -5.01,
         "allTimeLow": true,
         "allTimeHigh": false
+      },
+      {
+        "sku": "00600679",
+        "name": "Fiskverzlun Hafliða ýsuflök roð og beinlaus",
+        "brand": "Fiskverzlun Hafliða",
+        "category": "Fiskur",
+        "unit": "KG",
+        "priceBefore": 3999,
+        "priceAfter": 3799,
+        "percent": -5,
+        "allTimeLow": false,
+        "allTimeHigh": true
       },
       {
         "sku": "100261441",
@@ -1661,42 +2247,6 @@
         "percent": -3.35,
         "allTimeLow": true,
         "allTimeHigh": false
-      },
-      {
-        "sku": "100247726",
-        "name": "Better You járn vítamínsprey 10 mg",
-        "brand": "Better You",
-        "category": "Morgunmatur og heilsubót",
-        "unit": "stk",
-        "priceBefore": 2555,
-        "priceAfter": 2480,
-        "percent": -2.94,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100265212",
-        "name": "Hnýfill grafinn lax",
-        "brand": "Hnýfill",
-        "category": "Fiskur",
-        "unit": "KG",
-        "priceBefore": 6999,
-        "priceAfter": 6799,
-        "percent": -2.86,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100220971",
-        "name": "Better You d-vítamínsprey",
-        "brand": "Better You",
-        "category": "Morgunmatur og heilsubót",
-        "unit": "stk",
-        "priceBefore": 1420,
-        "priceAfter": 1380,
-        "percent": -2.82,
-        "allTimeLow": true,
-        "allTimeHigh": false
       }
     ],
     "topIncreasesByAmount": [
@@ -1736,6 +2286,19 @@
         "priceAfter": 3999,
         "percent": 14.29,
         "amount": 500,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100238561",
+        "name": "Rimmel bb krem matte light",
+        "brand": "Rimmel",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 1399,
+        "priceAfter": 1799,
+        "percent": 28.59,
+        "amount": 400,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -1922,6 +2485,32 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100215845",
+        "name": "Ísfugl kalkúnahakk",
+        "brand": "Ísfugl",
+        "category": "Frystivara",
+        "unit": "stk",
+        "priceBefore": 936,
+        "priceAfter": 999,
+        "percent": 6.73,
+        "amount": 63,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100194403",
+        "name": "Sítrónur ómeðhöndlaðar",
+        "brand": "",
+        "category": "Ávextir",
+        "unit": "stk",
+        "priceBefore": 399,
+        "priceAfter": 449,
+        "percent": 12.53,
+        "amount": 50,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100265564",
         "name": "Ódýrt plokkfiskur",
         "brand": "Ódýrt",
@@ -1961,6 +2550,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100213156",
+        "name": "Palmolive sturtusápa so relaxed",
+        "brand": "Palmolive",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 695,
+        "priceAfter": 725,
+        "percent": 4.32,
+        "amount": 30,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "01000698",
         "name": "Súrkál",
         "brand": "",
@@ -1969,6 +2571,19 @@
         "priceBefore": 210,
         "priceAfter": 236,
         "percent": 12.38,
+        "amount": 26,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100272056",
+        "name": "Cif scrub daddy",
+        "brand": "Cif",
+        "category": "Heimilið",
+        "unit": "stk",
+        "priceBefore": 499,
+        "priceAfter": 525,
+        "percent": 5.21,
         "amount": 26,
         "allTimeLow": false,
         "allTimeHigh": true
@@ -1987,6 +2602,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100272198",
+        "name": "Palmolive thermal spa radiant oil",
+        "brand": "Palmolive",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 599,
+        "priceAfter": 619,
+        "percent": 3.34,
+        "amount": 20,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100262135",
         "name": "Agúrkur Reykás",
         "brand": "",
@@ -1995,6 +2623,19 @@
         "priceBefore": 269,
         "priceAfter": 288,
         "percent": 7.06,
+        "amount": 19,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "02300225",
+        "name": "Emmessís gúffís súkkulaði",
+        "brand": "Emmessís",
+        "category": "Frystivara",
+        "unit": "stk",
+        "priceBefore": 370,
+        "priceAfter": 389,
+        "percent": 5.14,
         "amount": 19,
         "allTimeLow": false,
         "allTimeHigh": true
@@ -2009,6 +2650,19 @@
         "priceAfter": 815,
         "percent": 2.13,
         "amount": 17,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100247196",
+        "name": "Palmolive handsápa lime",
+        "brand": "Palmolive",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 419,
+        "priceAfter": 435,
+        "percent": 3.82,
+        "amount": 16,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -2117,6 +2771,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100099663",
+        "name": "Toro tómatsúpa",
+        "brand": "Toro",
+        "category": "Eldamennskan",
+        "unit": "stk",
+        "priceBefore": 298,
+        "priceAfter": 309,
+        "percent": 3.69,
+        "amount": 11,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100270635",
         "name": "Humble tannbursti barna bleikur",
         "brand": "Humble",
@@ -2182,6 +2849,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "03700087",
+        "name": "Toro steikarsósa",
+        "brand": "Toro",
+        "category": "Eldamennskan",
+        "unit": "stk",
+        "priceBefore": 280,
+        "priceAfter": 289,
+        "percent": 3.21,
+        "amount": 9,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100237257",
         "name": "Stabburet makrílfille í tómatsósu",
         "brand": "Stabburet",
@@ -2219,136 +2899,6 @@
         "amount": 9,
         "allTimeLow": false,
         "allTimeHigh": true
-      },
-      {
-        "sku": "100247567",
-        "name": "Innocent energise smoothie",
-        "brand": "Innocent",
-        "category": "Drykkir",
-        "unit": "stk",
-        "priceBefore": 466,
-        "priceAfter": 475,
-        "percent": 1.93,
-        "amount": 9,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "04902378",
-        "name": "Toro mexíkósk grýta",
-        "brand": "Toro",
-        "category": "Tilbúnir réttir",
-        "unit": "stk",
-        "priceBefore": 490,
-        "priceAfter": 499,
-        "percent": 1.84,
-        "amount": 9,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100249664",
-        "name": "Jordan green ci ultra soft",
-        "brand": "Jordan",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 290,
-        "priceAfter": 298,
-        "percent": 2.76,
-        "amount": 8,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "02000025",
-        "name": "Royal lyftiduft 200gr",
-        "brand": "Royal",
-        "category": "Bakstur",
-        "unit": "stk",
-        "priceBefore": 348,
-        "priceAfter": 356,
-        "percent": 2.3,
-        "amount": 8,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100267970",
-        "name": "Nature Cutlery nature line viðarskeið",
-        "brand": "Nature Cutlery",
-        "category": "Heimilið",
-        "unit": "stk",
-        "priceBefore": 49,
-        "priceAfter": 55,
-        "percent": 12.24,
-        "amount": 6,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "03700090",
-        "name": "Toro piparsósa",
-        "brand": "Toro",
-        "category": "Eldamennskan",
-        "unit": "stk",
-        "priceBefore": 209,
-        "priceAfter": 214,
-        "percent": 2.39,
-        "amount": 5,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100009524",
-        "name": "Toro kjúklingasúpa rjóma",
-        "brand": "Toro",
-        "category": "Eldamennskan",
-        "unit": "stk",
-        "priceBefore": 315,
-        "priceAfter": 320,
-        "percent": 1.59,
-        "amount": 5,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100271495",
-        "name": "Innocent gúrku, epla og sítrónu",
-        "brand": "Innocent",
-        "category": "Drykkir",
-        "unit": "stk",
-        "priceBefore": 470,
-        "priceAfter": 475,
-        "percent": 1.06,
-        "amount": 5,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100271496",
-        "name": "Innocent rauðrófu, epla og kirsuberja",
-        "brand": "Innocent",
-        "category": "Drykkir",
-        "unit": "stk",
-        "priceBefore": 470,
-        "priceAfter": 475,
-        "percent": 1.06,
-        "amount": 5,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100247579",
-        "name": "Innocent antioxidant smoothie",
-        "brand": "Innocent",
-        "category": "Drykkir",
-        "unit": "stk",
-        "priceBefore": 470,
-        "priceAfter": 475,
-        "percent": 1.06,
-        "amount": 5,
-        "allTimeLow": false,
-        "allTimeHigh": true
       }
     ],
     "topDecreasesByAmount": [
@@ -2359,9 +2909,9 @@
         "category": "Heimilið",
         "unit": "stk",
         "priceBefore": 4695,
-        "priceAfter": 3999,
-        "percent": -14.82,
-        "amount": -696,
+        "priceAfter": 2999,
+        "percent": -36.12,
+        "amount": -1696,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -2431,6 +2981,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "00600679",
+        "name": "Fiskverzlun Hafliða ýsuflök roð og beinlaus",
+        "brand": "Fiskverzlun Hafliða",
+        "category": "Fiskur",
+        "unit": "KG",
+        "priceBefore": 3999,
+        "priceAfter": 3799,
+        "percent": -5,
+        "amount": -200,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100252503",
         "name": "Grön Balance gluggasprey",
         "brand": "Grön Balance",
@@ -2455,6 +3018,19 @@
         "amount": -129,
         "allTimeLow": true,
         "allTimeHigh": false
+      },
+      {
+        "sku": "100236157",
+        "name": "Fiskverzlun Hafliða þorskhnakkar 1 flokkur",
+        "brand": "Fiskverzlun Hafliða",
+        "category": "Fiskur",
+        "unit": "KG",
+        "priceBefore": 5399,
+        "priceAfter": 5289,
+        "percent": -2.04,
+        "amount": -110,
+        "allTimeLow": false,
+        "allTimeHigh": true
       },
       {
         "sku": "100273355",
@@ -2808,6 +3384,19 @@
         "allTimeHigh": false
       },
       {
+        "sku": "100258901",
+        "name": "Góu bingókúlur hvítar",
+        "brand": "Góu",
+        "category": "Laugardags",
+        "unit": "stk",
+        "priceBefore": 360,
+        "priceAfter": 319,
+        "percent": -11.39,
+        "amount": -41,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
         "sku": "100220971",
         "name": "Better You d-vítamínsprey",
         "brand": "Better You",
@@ -2962,56 +3551,17 @@
         "amount": -15,
         "allTimeLow": true,
         "allTimeHigh": false
-      },
-      {
-        "sku": "100179734",
-        "name": "First Price steikingarolía",
-        "brand": "First Price",
-        "category": "Eldamennskan",
-        "unit": "stk",
-        "priceBefore": 989,
-        "priceAfter": 979,
-        "percent": -1.01,
-        "amount": -10,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100273091",
-        "name": "Grön Balance kiwi 250gr",
-        "brand": "Grön Balance",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 479,
-        "priceAfter": 469,
-        "percent": -2.09,
-        "amount": -10,
-        "allTimeLow": false,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100210860",
-        "name": "First Price eyrnapinnar í boxi",
-        "brand": "First Price",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 190,
-        "priceAfter": 180,
-        "percent": -5.26,
-        "amount": -10,
-        "allTimeLow": true,
-        "allTimeHigh": false
       }
     ]
   },
   "monthly": {
     "comparedTo": "2026-07-28",
-    "changedCount": 633,
-    "increasedCount": 390,
-    "decreasedCount": 243,
-    "comparableCount": 9060,
-    "avgPercentChange": 0.02,
-    "avgPercentChangeProjected": 0.02,
+    "changedCount": 651,
+    "increasedCount": 407,
+    "decreasedCount": 244,
+    "comparableCount": 9059,
+    "avgPercentChange": 0.03,
+    "avgPercentChangeProjected": 0.03,
     "isPartialPeriod": false,
     "actualDays": 30,
     "topIncreases": [
@@ -3108,6 +3658,18 @@
         "priceBefore": 540,
         "priceAfter": 699,
         "percent": 29.44,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100238561",
+        "name": "Rimmel bb krem matte light",
+        "brand": "Rimmel",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 1399,
+        "priceAfter": 1799,
+        "percent": 28.59,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -3328,18 +3890,6 @@
         "allTimeHigh": true
       },
       {
-        "sku": "00600679",
-        "name": "Fiskverzlun Hafliða ýsuflök roð og beinlaus",
-        "brand": "Fiskverzlun Hafliða",
-        "category": "Fiskur",
-        "unit": "KG",
-        "priceBefore": 3499,
-        "priceAfter": 3999,
-        "percent": 14.29,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
         "sku": "100226763",
         "name": "Fiskverzlun Hafliða Fiskréttur Miðjarðarhafsins",
         "brand": "Fiskverzlun Hafliða",
@@ -3384,6 +3934,18 @@
         "priceBefore": 4299,
         "priceAfter": 4899,
         "percent": 13.96,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100194403",
+        "name": "Sítrónur ómeðhöndlaðar",
+        "brand": "",
+        "category": "Ávextir",
+        "unit": "stk",
+        "priceBefore": 399,
+        "priceAfter": 449,
+        "percent": 12.53,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -3602,18 +4164,6 @@
         "percent": 10.01,
         "allTimeLow": false,
         "allTimeHigh": true
-      },
-      {
-        "sku": "01300022",
-        "name": "Lýsi þorskalýsi með sítrónubragði",
-        "brand": "Lýsi",
-        "category": "Morgunmatur og heilsubót",
-        "unit": "stk",
-        "priceBefore": 1290,
-        "priceAfter": 1419,
-        "percent": 10,
-        "allTimeLow": false,
-        "allTimeHigh": true
       }
     ],
     "topDecreases": [
@@ -3650,6 +4200,18 @@
         "priceBefore": 359,
         "priceAfter": 225,
         "percent": -37.33,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100270434",
+        "name": "Duracell hleðslukló usb-c og usb-a",
+        "brand": "Duracell",
+        "category": "Heimilið",
+        "unit": "stk",
+        "priceBefore": 4695,
+        "priceAfter": 2999,
+        "percent": -36.12,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -4014,18 +4576,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100270434",
-        "name": "Duracell hleðslukló usb-c og usb-a",
-        "brand": "Duracell",
-        "category": "Heimilið",
-        "unit": "stk",
-        "priceBefore": 4695,
-        "priceAfter": 3999,
-        "percent": -14.82,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100248248",
         "name": "Espuna chorizo skorin",
         "brand": "Espuna",
@@ -4182,6 +4732,18 @@
         "allTimeHigh": false
       },
       {
+        "sku": "100258901",
+        "name": "Góu bingókúlur hvítar",
+        "brand": "Góu",
+        "category": "Laugardags",
+        "unit": "stk",
+        "priceBefore": 360,
+        "priceAfter": 319,
+        "percent": -11.39,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
         "sku": "100253632",
         "name": "Freyju súkkulaði bombur",
         "brand": "Freyju",
@@ -4196,18 +4758,6 @@
       {
         "sku": "100262553",
         "name": "Freyju súkkulaði með saltkaramellu & rís",
-        "brand": "Freyju",
-        "category": "Laugardags",
-        "unit": "stk",
-        "priceBefore": 450,
-        "priceAfter": 399,
-        "percent": -11.33,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100250078",
-        "name": "Freyju súkkulaði djúpur sterkar",
         "brand": "Freyju",
         "category": "Laugardags",
         "unit": "stk",
@@ -4259,19 +4809,6 @@
         "allTimeHigh": true
       },
       {
-        "sku": "00600679",
-        "name": "Fiskverzlun Hafliða ýsuflök roð og beinlaus",
-        "brand": "Fiskverzlun Hafliða",
-        "category": "Fiskur",
-        "unit": "KG",
-        "priceBefore": 3499,
-        "priceAfter": 3999,
-        "percent": 14.29,
-        "amount": 500,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
         "sku": "100226763",
         "name": "Fiskverzlun Hafliða Fiskréttur Miðjarðarhafsins",
         "brand": "Fiskverzlun Hafliða",
@@ -4307,6 +4844,19 @@
         "priceAfter": 3999,
         "percent": 14.29,
         "amount": 500,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100238561",
+        "name": "Rimmel bb krem matte light",
+        "brand": "Rimmel",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 1399,
+        "priceAfter": 1799,
+        "percent": 28.59,
+        "amount": 400,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -4358,6 +4908,19 @@
         "priceBefore": 2899,
         "priceAfter": 3199,
         "percent": 10.35,
+        "amount": 300,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "00600679",
+        "name": "Fiskverzlun Hafliða ýsuflök roð og beinlaus",
+        "brand": "Fiskverzlun Hafliða",
+        "category": "Fiskur",
+        "unit": "KG",
+        "priceBefore": 3499,
+        "priceAfter": 3799,
+        "percent": 8.57,
         "amount": 300,
         "allTimeLow": false,
         "allTimeHigh": true
@@ -4436,19 +4999,6 @@
         "priceBefore": 3999,
         "priceAfter": 4199,
         "percent": 5,
-        "amount": 200,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100236157",
-        "name": "Fiskverzlun Hafliða þorskhnakkar 1 flokkur",
-        "brand": "Fiskverzlun Hafliða",
-        "category": "Fiskur",
-        "unit": "KG",
-        "priceBefore": 5199,
-        "priceAfter": 5399,
-        "percent": 3.85,
         "amount": 200,
         "allTimeLow": false,
         "allTimeHigh": true
@@ -4779,6 +5329,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100236157",
+        "name": "Fiskverzlun Hafliða þorskhnakkar 1 flokkur",
+        "brand": "Fiskverzlun Hafliða",
+        "category": "Fiskur",
+        "unit": "KG",
+        "priceBefore": 5199,
+        "priceAfter": 5289,
+        "percent": 1.73,
+        "amount": 90,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100271177",
         "name": "Colgate max white purple serum",
         "brand": "Colgate",
@@ -4855,19 +5418,6 @@
         "amount": 70,
         "allTimeLow": false,
         "allTimeHigh": false
-      },
-      {
-        "sku": "100231065",
-        "name": "Grön Balance sætar kartöflur",
-        "brand": "Grön Balance",
-        "category": "Grænmeti",
-        "unit": "stk",
-        "priceBefore": 479,
-        "priceAfter": 549,
-        "percent": 14.61,
-        "amount": 70,
-        "allTimeLow": false,
-        "allTimeHigh": true
       }
     ],
     "topDecreasesByAmount": [
@@ -4878,9 +5428,9 @@
         "category": "Heimilið",
         "unit": "stk",
         "priceBefore": 4695,
-        "priceAfter": 3999,
-        "percent": -14.82,
-        "amount": -696,
+        "priceAfter": 2999,
+        "percent": -36.12,
+        "amount": -1696,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -5525,10 +6075,10 @@
   },
   "monthToDate": {
     "comparedTo": "2026-08-01",
-    "changedCount": 591,
-    "increasedCount": 351,
-    "decreasedCount": 240,
-    "avgPercentChange": 0,
+    "changedCount": 609,
+    "increasedCount": 368,
+    "decreasedCount": 241,
+    "avgPercentChange": 0.01,
     "topIncreases": [
       {
         "sku": "100237822",
@@ -5599,6 +6149,18 @@
         "priceBefore": 540,
         "priceAfter": 699,
         "percent": 29.44,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100238561",
+        "name": "Rimmel bb krem matte light",
+        "brand": "Rimmel",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 1399,
+        "priceAfter": 1799,
+        "percent": 28.59,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -5795,18 +6357,6 @@
         "allTimeHigh": true
       },
       {
-        "sku": "00600679",
-        "name": "Fiskverzlun Hafliða ýsuflök roð og beinlaus",
-        "brand": "Fiskverzlun Hafliða",
-        "category": "Fiskur",
-        "unit": "KG",
-        "priceBefore": 3499,
-        "priceAfter": 3999,
-        "percent": 14.29,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
         "sku": "100226763",
         "name": "Fiskverzlun Hafliða Fiskréttur Miðjarðarhafsins",
         "brand": "Fiskverzlun Hafliða",
@@ -5851,6 +6401,18 @@
         "priceBefore": 4299,
         "priceAfter": 4899,
         "percent": 13.96,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100194403",
+        "name": "Sítrónur ómeðhöndlaðar",
+        "brand": "",
+        "category": "Ávextir",
+        "unit": "stk",
+        "priceBefore": 399,
+        "priceAfter": 449,
+        "percent": 12.53,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -6117,18 +6679,6 @@
         "percent": 8.59,
         "allTimeLow": false,
         "allTimeHigh": true
-      },
-      {
-        "sku": "100259290",
-        "name": "McVities digestive original",
-        "brand": "McVities",
-        "category": "Brauð, kökur og kex",
-        "unit": "stk",
-        "priceBefore": 309,
-        "priceAfter": 335,
-        "percent": 8.41,
-        "allTimeLow": false,
-        "allTimeHigh": true
       }
     ],
     "topDecreases": [
@@ -6153,6 +6703,18 @@
         "priceBefore": 635,
         "priceAfter": 266,
         "percent": -58.11,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100270434",
+        "name": "Duracell hleðslukló usb-c og usb-a",
+        "brand": "Duracell",
+        "category": "Heimilið",
+        "unit": "stk",
+        "priceBefore": 4695,
+        "priceAfter": 2999,
+        "percent": -36.12,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -6493,18 +7055,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100270434",
-        "name": "Duracell hleðslukló usb-c og usb-a",
-        "brand": "Duracell",
-        "category": "Heimilið",
-        "unit": "stk",
-        "priceBefore": 4695,
-        "priceAfter": 3999,
-        "percent": -14.82,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100248248",
         "name": "Espuna chorizo skorin",
         "brand": "Espuna",
@@ -6673,6 +7223,18 @@
         "allTimeHigh": false
       },
       {
+        "sku": "100258901",
+        "name": "Góu bingókúlur hvítar",
+        "brand": "Góu",
+        "category": "Laugardags",
+        "unit": "stk",
+        "priceBefore": 360,
+        "priceAfter": 319,
+        "percent": -11.39,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
         "sku": "100253632",
         "name": "Freyju súkkulaði bombur",
         "brand": "Freyju",
@@ -6719,18 +7281,6 @@
         "percent": -11.14,
         "allTimeLow": true,
         "allTimeHigh": false
-      },
-      {
-        "sku": "100270210",
-        "name": "Koffmann's franskar classic",
-        "brand": "Koffmann's",
-        "category": "Frystivara",
-        "unit": "stk",
-        "priceBefore": 898,
-        "priceAfter": 799,
-        "percent": -11.02,
-        "allTimeLow": true,
-        "allTimeHigh": false
       }
     ],
     "topIncreasesByAmount": [
@@ -6769,19 +7319,6 @@
         "priceBefore": 3199,
         "priceAfter": 3699,
         "percent": 15.63,
-        "amount": 500,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "00600679",
-        "name": "Fiskverzlun Hafliða ýsuflök roð og beinlaus",
-        "brand": "Fiskverzlun Hafliða",
-        "category": "Fiskur",
-        "unit": "KG",
-        "priceBefore": 3499,
-        "priceAfter": 3999,
-        "percent": 14.29,
         "amount": 500,
         "allTimeLow": false,
         "allTimeHigh": true
@@ -6826,6 +7363,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100238561",
+        "name": "Rimmel bb krem matte light",
+        "brand": "Rimmel",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 1399,
+        "priceAfter": 1799,
+        "percent": 28.59,
+        "amount": 400,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "00201534",
         "name": "Nautalund erlend",
         "brand": "",
@@ -6860,6 +7410,19 @@
         "priceBefore": 2899,
         "priceAfter": 3199,
         "percent": 10.35,
+        "amount": 300,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "00600679",
+        "name": "Fiskverzlun Hafliða ýsuflök roð og beinlaus",
+        "brand": "Fiskverzlun Hafliða",
+        "category": "Fiskur",
+        "unit": "KG",
+        "priceBefore": 3499,
+        "priceAfter": 3799,
+        "percent": 8.57,
         "amount": 300,
         "allTimeLow": false,
         "allTimeHigh": true
@@ -6938,19 +7501,6 @@
         "priceBefore": 3999,
         "priceAfter": 4199,
         "percent": 5,
-        "amount": 200,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100236157",
-        "name": "Fiskverzlun Hafliða þorskhnakkar 1 flokkur",
-        "brand": "Fiskverzlun Hafliða",
-        "category": "Fiskur",
-        "unit": "KG",
-        "priceBefore": 5199,
-        "priceAfter": 5399,
-        "percent": 3.85,
         "amount": 200,
         "allTimeLow": false,
         "allTimeHigh": true
@@ -7216,6 +7766,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100236157",
+        "name": "Fiskverzlun Hafliða þorskhnakkar 1 flokkur",
+        "brand": "Fiskverzlun Hafliða",
+        "category": "Fiskur",
+        "unit": "KG",
+        "priceBefore": 5199,
+        "priceAfter": 5289,
+        "percent": 1.73,
+        "amount": 90,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100271177",
         "name": "Colgate max white purple serum",
         "brand": "Colgate",
@@ -7346,6 +7909,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100215845",
+        "name": "Ísfugl kalkúnahakk",
+        "brand": "Ísfugl",
+        "category": "Frystivara",
+        "unit": "stk",
+        "priceBefore": 936,
+        "priceAfter": 999,
+        "percent": 6.73,
+        "amount": 63,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100260641",
         "name": "Ideal Fruits bláber 500g",
         "brand": "Ideal Fruits",
@@ -7355,32 +7931,6 @@
         "priceAfter": 1250,
         "percent": 5.13,
         "amount": 61,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100225252",
-        "name": "Bláber 500g",
-        "brand": "",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 1190,
-        "priceAfter": 1250,
-        "percent": 5.04,
-        "amount": 60,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100216122",
-        "name": "Now adam fjölvítamín",
-        "brand": "Now",
-        "category": "Morgunmatur og heilsubót",
-        "unit": "stk",
-        "priceBefore": 3489,
-        "priceAfter": 3549,
-        "percent": 1.72,
-        "amount": 60,
         "allTimeLow": false,
         "allTimeHigh": true
       }
@@ -7393,9 +7943,9 @@
         "category": "Heimilið",
         "unit": "stk",
         "priceBefore": 4695,
-        "priceAfter": 3999,
-        "percent": -14.82,
-        "amount": -696,
+        "priceAfter": 2999,
+        "percent": -36.12,
+        "amount": -1696,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -8411,7 +8961,7 @@
           "sku": "100236157",
           "name": "Fiskverzlun Hafliða þorskhnakkar 1 flokkur",
           "brand": "Fiskverzlun Hafliða",
-          "price": 4589,
+          "price": 4496,
           "category": "Fiskur"
         },
         {
@@ -9286,7 +9836,7 @@
           "sku": "100267966",
           "name": "Nature Cutlery nature line gaffall og hnífur",
           "brand": "Nature Cutlery",
-          "price": 79,
+          "price": 85,
           "category": "Heimilið"
         },
         {
