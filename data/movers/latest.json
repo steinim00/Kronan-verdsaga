@@ -1,12 +1,48 @@
 {
   "date": "2026-08-28",
   "comparedTo": "2026-08-27",
-  "productCount": 9362,
-  "changedCount": 1,
-  "increasedCount": 1,
+  "productCount": 9353,
+  "changedCount": 5,
+  "increasedCount": 5,
   "decreasedCount": 0,
-  "avgPercentChange": 0,
+  "avgPercentChange": 0.01,
   "topIncreases": [
+    {
+      "sku": "100270081",
+      "name": "Hansa dós null glútenlaus",
+      "brand": "Hansa",
+      "category": "Drykkir",
+      "unit": "stk",
+      "priceBefore": 149,
+      "priceAfter": 189,
+      "percent": 26.85,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100261084",
+      "name": "Cero Coma 0% freyðívín",
+      "brand": "Cero Coma",
+      "category": "Drykkir",
+      "unit": "stk",
+      "priceBefore": 799,
+      "priceAfter": 999,
+      "percent": 25.03,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100180930",
+      "name": "First Price fusilli",
+      "brand": "First Price",
+      "category": "Eldamennskan",
+      "unit": "stk",
+      "priceBefore": 140,
+      "priceAfter": 160,
+      "percent": 14.29,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
     {
       "sku": "100251342",
       "name": "Krónu döðlur ferskar",
@@ -18,10 +54,35 @@
       "percent": 9.08,
       "allTimeLow": false,
       "allTimeHigh": true
+    },
+    {
+      "sku": "100232160",
+      "name": "First Price pistasíuhnetur",
+      "brand": "First Price",
+      "category": "Laugardags",
+      "unit": "stk",
+      "priceBefore": 549,
+      "priceAfter": 589,
+      "percent": 7.29,
+      "allTimeLow": false,
+      "allTimeHigh": true
     }
   ],
   "topDecreases": [],
   "topIncreasesByAmount": [
+    {
+      "sku": "100261084",
+      "name": "Cero Coma 0% freyðívín",
+      "brand": "Cero Coma",
+      "category": "Drykkir",
+      "unit": "stk",
+      "priceBefore": 799,
+      "priceAfter": 999,
+      "percent": 25.03,
+      "amount": 200,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
     {
       "sku": "100251342",
       "name": "Krónu döðlur ferskar",
@@ -34,15 +95,54 @@
       "amount": 54,
       "allTimeLow": false,
       "allTimeHigh": true
+    },
+    {
+      "sku": "100270081",
+      "name": "Hansa dós null glútenlaus",
+      "brand": "Hansa",
+      "category": "Drykkir",
+      "unit": "stk",
+      "priceBefore": 149,
+      "priceAfter": 189,
+      "percent": 26.85,
+      "amount": 40,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100232160",
+      "name": "First Price pistasíuhnetur",
+      "brand": "First Price",
+      "category": "Laugardags",
+      "unit": "stk",
+      "priceBefore": 549,
+      "priceAfter": 589,
+      "percent": 7.29,
+      "amount": 40,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100180930",
+      "name": "First Price fusilli",
+      "brand": "First Price",
+      "category": "Eldamennskan",
+      "unit": "stk",
+      "priceBefore": 140,
+      "priceAfter": 160,
+      "percent": 14.29,
+      "amount": 20,
+      "allTimeLow": false,
+      "allTimeHigh": true
     }
   ],
   "topDecreasesByAmount": [],
   "weekly": {
     "comparedTo": "2026-08-21",
-    "changedCount": 112,
-    "increasedCount": 55,
+    "changedCount": 115,
+    "increasedCount": 58,
     "decreasedCount": 57,
-    "avgPercentChange": -0.03,
+    "avgPercentChange": -0.02,
     "topIncreases": [
       {
         "sku": "100238561",
@@ -69,6 +169,18 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100261084",
+        "name": "Cero Coma 0% freyðívín",
+        "brand": "Cero Coma",
+        "category": "Drykkir",
+        "unit": "stk",
+        "priceBefore": 799,
+        "priceAfter": 999,
+        "percent": 25.03,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100269151",
         "name": "Boursin rjómaostur hvítlauks&kryddjurta",
         "brand": "Boursin",
@@ -89,6 +201,18 @@
         "priceBefore": 1999,
         "priceAfter": 2299,
         "percent": 15.01,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100180930",
+        "name": "First Price fusilli",
+        "brand": "First Price",
+        "category": "Eldamennskan",
+        "unit": "stk",
+        "priceBefore": 140,
+        "priceAfter": 160,
+        "percent": 14.29,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -173,6 +297,18 @@
         "priceBefore": 79,
         "priceAfter": 85,
         "percent": 7.59,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100232160",
+        "name": "First Price pistasíuhnetur",
+        "brand": "First Price",
+        "category": "Laugardags",
+        "unit": "stk",
+        "priceBefore": 549,
+        "priceAfter": 589,
+        "percent": 7.29,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -605,42 +741,6 @@
         "priceBefore": 609,
         "priceAfter": 619,
         "percent": 1.64,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100009524",
-        "name": "Toro kjúklingasúpa rjóma",
-        "brand": "Toro",
-        "category": "Eldamennskan",
-        "unit": "stk",
-        "priceBefore": 315,
-        "priceAfter": 320,
-        "percent": 1.59,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100259899",
-        "name": "Lovemade lasagne 8m+",
-        "brand": "Lovemade",
-        "category": "Börnin",
-        "unit": "stk",
-        "priceBefore": 399,
-        "priceAfter": 405,
-        "percent": 1.5,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100259907",
-        "name": "Lovemade kjúklingur í karrý&grjón 6m+",
-        "brand": "Lovemade",
-        "category": "Börnin",
-        "unit": "stk",
-        "priceBefore": 399,
-        "priceAfter": 405,
-        "percent": 1.5,
         "allTimeLow": false,
         "allTimeHigh": true
       }
@@ -1288,6 +1388,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100261084",
+        "name": "Cero Coma 0% freyðívín",
+        "brand": "Cero Coma",
+        "category": "Drykkir",
+        "unit": "stk",
+        "priceBefore": 799,
+        "priceAfter": 999,
+        "percent": 25.03,
+        "amount": 200,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100263828",
         "name": "Finish uppþvottatöflur quantum",
         "brand": "Finish",
@@ -1405,6 +1518,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100232160",
+        "name": "First Price pistasíuhnetur",
+        "brand": "First Price",
+        "category": "Laugardags",
+        "unit": "stk",
+        "priceBefore": 549,
+        "priceAfter": 589,
+        "percent": 7.29,
+        "amount": 40,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100213156",
         "name": "Palmolive sturtusápa so relaxed",
         "brand": "Palmolive",
@@ -1453,6 +1579,19 @@
         "priceAfter": 825,
         "percent": 3.25,
         "amount": 26,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100180930",
+        "name": "First Price fusilli",
+        "brand": "First Price",
+        "category": "Eldamennskan",
+        "unit": "stk",
+        "priceBefore": 140,
+        "priceAfter": 160,
+        "percent": 14.29,
+        "amount": 20,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -1855,45 +1994,6 @@
         "priceBefore": 255,
         "priceAfter": 260,
         "percent": 1.96,
-        "amount": 5,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100009524",
-        "name": "Toro kjúklingasúpa rjóma",
-        "brand": "Toro",
-        "category": "Eldamennskan",
-        "unit": "stk",
-        "priceBefore": 315,
-        "priceAfter": 320,
-        "percent": 1.59,
-        "amount": 5,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100271495",
-        "name": "Innocent gúrku, epla og sítrónu",
-        "brand": "Innocent",
-        "category": "Drykkir",
-        "unit": "stk",
-        "priceBefore": 470,
-        "priceAfter": 475,
-        "percent": 1.06,
-        "amount": 5,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100271496",
-        "name": "Innocent rauðrófu, epla og kirsuberja",
-        "brand": "Innocent",
-        "category": "Drykkir",
-        "unit": "stk",
-        "priceBefore": 470,
-        "priceAfter": 475,
-        "percent": 1.06,
         "amount": 5,
         "allTimeLow": false,
         "allTimeHigh": true
@@ -2554,12 +2654,12 @@
   },
   "monthly": {
     "comparedTo": "2026-07-29",
-    "changedCount": 638,
-    "increasedCount": 399,
-    "decreasedCount": 239,
-    "comparableCount": 9036,
-    "avgPercentChange": 0.02,
-    "avgPercentChangeProjected": 0.02,
+    "changedCount": 640,
+    "increasedCount": 402,
+    "decreasedCount": 238,
+    "comparableCount": 9027,
+    "avgPercentChange": 0.03,
+    "avgPercentChangeProjected": 0.03,
     "isPartialPeriod": false,
     "actualDays": 30,
     "topIncreases": [
@@ -2706,6 +2806,18 @@
         "percent": 25.05,
         "allTimeLow": false,
         "allTimeHigh": false
+      },
+      {
+        "sku": "100261084",
+        "name": "Cero Coma 0% freyðívín",
+        "brand": "Cero Coma",
+        "category": "Drykkir",
+        "unit": "stk",
+        "priceBefore": 799,
+        "priceAfter": 999,
+        "percent": 25.03,
+        "allTimeLow": false,
+        "allTimeHigh": true
       },
       {
         "sku": "100253362",
@@ -2883,6 +2995,18 @@
         "unit": "KG",
         "priceBefore": 3499,
         "priceAfter": 3999,
+        "percent": 14.29,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100180930",
+        "name": "First Price fusilli",
+        "brand": "First Price",
+        "category": "Eldamennskan",
+        "unit": "stk",
+        "priceBefore": 140,
+        "priceAfter": 160,
         "percent": 14.29,
         "allTimeLow": false,
         "allTimeHigh": true
@@ -3136,30 +3260,6 @@
         "priceBefore": 299,
         "priceAfter": 329,
         "percent": 10.03,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100270463",
-        "name": "Devodier prosciutto parma dop",
-        "brand": "Devodier",
-        "category": "Á brauð",
-        "unit": "stk",
-        "priceBefore": 999,
-        "priceAfter": 1099,
-        "percent": 10.01,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "01300022",
-        "name": "Lýsi þorskalýsi með sítrónubragði",
-        "brand": "Lýsi",
-        "category": "Morgunmatur og heilsubót",
-        "unit": "stk",
-        "priceBefore": 1290,
-        "priceAfter": 1419,
-        "percent": 10,
         "allTimeLow": false,
         "allTimeHigh": true
       }
@@ -3963,6 +4063,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100261084",
+        "name": "Cero Coma 0% freyðívín",
+        "brand": "Cero Coma",
+        "category": "Drykkir",
+        "unit": "stk",
+        "priceBefore": 799,
+        "priceAfter": 999,
+        "percent": 25.03,
+        "amount": 200,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100267997",
         "name": "Fiskverzlun Hafliða ýsubitar roð- og beinlausir",
         "brand": "Fiskverzlun Hafliða",
@@ -4403,19 +4516,6 @@
         "amount": 71,
         "allTimeLow": false,
         "allTimeHigh": true
-      },
-      {
-        "sku": "100273091",
-        "name": "Grön Balance kiwi 250gr",
-        "brand": "Grön Balance",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 399,
-        "priceAfter": 469,
-        "percent": 17.54,
-        "amount": 70,
-        "allTimeLow": false,
-        "allTimeHigh": false
       }
     ],
     "topDecreasesByAmount": [
@@ -4797,19 +4897,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100267434",
-        "name": "Ódýrt nautgripahakk erlent",
-        "brand": "Ódýrt",
-        "category": "Kjöt",
-        "unit": "stk",
-        "priceBefore": 1499,
-        "priceAfter": 1399,
-        "percent": -6.67,
-        "amount": -100,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100272617",
         "name": "UPP 4pk jarðaberja og lime",
         "brand": "UPP",
@@ -5068,14 +5155,27 @@
         "amount": -79,
         "allTimeLow": true,
         "allTimeHigh": false
+      },
+      {
+        "sku": "100236744",
+        "name": "Gestus franskar curly",
+        "brand": "Gestus",
+        "category": "Frystivara",
+        "unit": "stk",
+        "priceBefore": 629,
+        "priceAfter": 550,
+        "percent": -12.56,
+        "amount": -79,
+        "allTimeLow": true,
+        "allTimeHigh": false
       }
     ]
   },
   "monthToDate": {
     "comparedTo": "2026-08-01",
-    "changedCount": 609,
-    "increasedCount": 368,
-    "decreasedCount": 241,
+    "changedCount": 611,
+    "increasedCount": 371,
+    "decreasedCount": 240,
     "avgPercentChange": 0.01,
     "topIncreases": [
       {
@@ -5197,6 +5297,18 @@
         "percent": 25.05,
         "allTimeLow": false,
         "allTimeHigh": false
+      },
+      {
+        "sku": "100261084",
+        "name": "Cero Coma 0% freyðívín",
+        "brand": "Cero Coma",
+        "category": "Drykkir",
+        "unit": "stk",
+        "priceBefore": 799,
+        "priceAfter": 999,
+        "percent": 25.03,
+        "allTimeLow": false,
+        "allTimeHigh": true
       },
       {
         "sku": "100253544",
@@ -5386,6 +5498,18 @@
         "unit": "KG",
         "priceBefore": 3499,
         "priceAfter": 3999,
+        "percent": 14.29,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100180930",
+        "name": "First Price fusilli",
+        "brand": "First Price",
+        "category": "Eldamennskan",
+        "unit": "stk",
+        "priceBefore": 140,
+        "priceAfter": 160,
         "percent": 14.29,
         "allTimeLow": false,
         "allTimeHigh": true
@@ -5651,30 +5775,6 @@
         "priceBefore": 459,
         "priceAfter": 499,
         "percent": 8.71,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100267997",
-        "name": "Fiskverzlun Hafliða ýsubitar roð- og beinlausir",
-        "brand": "Fiskverzlun Hafliða",
-        "category": "Frystivara",
-        "unit": "stk",
-        "priceBefore": 2299,
-        "priceAfter": 2499,
-        "percent": 8.7,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100136335",
-        "name": "Colgate tannbursti barna 6-9 ára",
-        "brand": "Colgate",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 198,
-        "priceAfter": 215,
-        "percent": 8.59,
         "allTimeLow": false,
         "allTimeHigh": true
       }
@@ -6452,6 +6552,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100261084",
+        "name": "Cero Coma 0% freyðívín",
+        "brand": "Cero Coma",
+        "category": "Drykkir",
+        "unit": "stk",
+        "priceBefore": 799,
+        "priceAfter": 999,
+        "percent": 25.03,
+        "amount": 200,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100227575",
         "name": "Bob's Hindber  250g",
         "brand": "Bob's",
@@ -6918,19 +7031,6 @@
         "amount": 63,
         "allTimeLow": false,
         "allTimeHigh": true
-      },
-      {
-        "sku": "100260641",
-        "name": "Ideal Fruits bláber 500g",
-        "brand": "Ideal Fruits",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 1189,
-        "priceAfter": 1250,
-        "percent": 5.13,
-        "amount": 61,
-        "allTimeLow": false,
-        "allTimeHigh": true
       }
     ],
     "topDecreasesByAmount": [
@@ -7299,19 +7399,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100267434",
-        "name": "Ódýrt nautgripahakk erlent",
-        "brand": "Ódýrt",
-        "category": "Kjöt",
-        "unit": "stk",
-        "priceBefore": 1499,
-        "priceAfter": 1399,
-        "percent": -6.67,
-        "amount": -100,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100272617",
         "name": "UPP 4pk jarðaberja og lime",
         "brand": "UPP",
@@ -7581,6 +7668,19 @@
         "priceAfter": 550,
         "percent": -12.56,
         "amount": -79,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100247726",
+        "name": "Better You járn vítamínsprey 10 mg",
+        "brand": "Better You",
+        "category": "Morgunmatur og heilsubót",
+        "unit": "stk",
+        "priceBefore": 2555,
+        "priceAfter": 2480,
+        "percent": -2.94,
+        "amount": -75,
         "allTimeLow": true,
         "allTimeHigh": false
       }
@@ -9165,20 +9265,6 @@
       ],
       "mostExpensive": [
         {
-          "sku": "100263105",
-          "name": "Nocco 12pk ramonade",
-          "brand": "Nocco",
-          "price": 3370,
-          "category": "Drykkir"
-        },
-        {
-          "sku": "100272965",
-          "name": "Nocco 12pk berruba",
-          "brand": "Nocco",
-          "price": 3370,
-          "category": "Drykkir"
-        },
-        {
           "sku": "100255583",
           "name": "Collab 12pk skógarberja",
           "brand": "Collab",
@@ -9197,6 +9283,20 @@
           "name": "Collab 12pk bláberja&rabarbara",
           "brand": "Collab",
           "price": 3330,
+          "category": "Drykkir"
+        },
+        {
+          "sku": "100268977",
+          "name": "Collab 12pk engifer & ferskju",
+          "brand": "Collab",
+          "price": 3330,
+          "category": "Drykkir"
+        },
+        {
+          "sku": "100249617",
+          "name": "Bríó 10 dósir",
+          "brand": "Bríó",
+          "price": 2890,
           "category": "Drykkir"
         }
       ]
