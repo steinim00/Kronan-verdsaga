@@ -1164,6 +1164,16 @@
   </div>
 
 <script>
+  // Sniðgengur skyndiminni (cache) hjá GitHub Pages CDN-inu, sem hefur
+  // stundum haldið í gamlar JSON-skrár lengur en einn sólarhring þrátt
+  // fyrir að daglega keyrslan hafi þegar uppfært þær í repo-inu. Með því
+  // að bæta dagsetningunni við sem "cache-buster" er tryggt að minnsta
+  // kosti ein ný sókn í upprunagögnin eigi sér stað á dag.
+  const CACHE_BUST = new Date().toISOString().slice(0, 10);
+  function withCacheBust(url) {
+    return url + (url.includes("?") ? "&" : "?") + "v=" + CACHE_BUST;
+  }
+
   const contentEl = document.getElementById("content");
   const dateLabelEl = document.getElementById("dateLabel");
   const dateSelectEl = {
@@ -1260,7 +1270,7 @@
   // ---------- data fetching ----------
   async function fetchHistory(sku) {
     try {
-      const res = await fetch(`data/history/${sku}.json`);
+      const res = await fetch(withCacheBust(`data/history/${sku}.json`));
       const data = res.ok ? await res.json() : { h: [] };
       // Sparse encoding: history only has rows where the price actually
       // CHANGED. Extend the last known price forward to the latest date
@@ -1281,7 +1291,7 @@
 
   async function ensureIndexLoaded() {
     if (productIndex) return productIndex;
-    const res = await fetch("data/products-index.json");
+    const res = await fetch(withCacheBust("data/products-index.json"));
     productIndex = res.ok ? await res.json() : [];
     return productIndex;
   }
@@ -1694,7 +1704,7 @@
   async function ensureCategoryTrendsLoaded() {
     if (categoryTrends) return categoryTrends;
     try {
-      const res = await fetch("data/category-trends.json");
+      const res = await fetch(withCacheBust("data/category-trends.json"));
       categoryTrends = res.ok ? await res.json() : {};
     } catch {
       categoryTrends = {};
@@ -1765,7 +1775,7 @@
   async function ensureCategorySubindicesLoaded() {
     if (categorySubindices === null) {
       try {
-        const res = await fetch("data/cpi-categories.json");
+        const res = await fetch(withCacheBust("data/cpi-categories.json"));
         categorySubindices = res.ok ? await res.json() : {};
       } catch {
         categorySubindices = {};
@@ -2130,7 +2140,7 @@
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
-      const res = await fetch(url, { signal: controller.signal });
+      const res = await fetch(withCacheBust(url), { signal: controller.signal });
       clearTimeout(timer);
       if (!res.ok) {
         const err = new Error(`HTTP ${res.status}`);
@@ -2275,7 +2285,7 @@
 
   async function loadCpi() {
     try {
-      const res = await fetch("data/cpi.json");
+      const res = await fetch(withCacheBust("data/cpi.json"));
       cachedCpiData = res.ok ? await res.json() : null;
     } catch (e) {
       cachedCpiData = null;
