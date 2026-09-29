@@ -1,15 +1,15 @@
 {
-  "fetchedAt": "2026-09-28T13:05:57.300Z",
+  "fetchedAt": "2026-09-29T12:16:19.869Z",
   "overall": {
-    "month": "2026M08",
-    "index": 694.6,
-    "monthChangePercent": 0.2,
-    "yearChangePercent": 5.6
+    "month": "2026M09",
+    "index": 697.3,
+    "monthChangePercent": 0.39,
+    "yearChangePercent": 5.9
   },
   "food": {
-    "month": "2026M08",
-    "index": 103.2,
-    "monthChangePercent": 0.36,
-    "yearChangePercent": 4.1
+    "month": "2026M09",
+    "index": 103.5,
+    "monthChangePercent": 0.37,
+    "yearChangePercent": 4
   }
 }
