@@ -1,21 +1,373 @@
 {
-  "date": "2026-10-25",
-  "comparedTo": "2026-10-24",
-  "productCount": 8528,
-  "changedCount": 0,
+  "date": "2026-10-26",
+  "comparedTo": "2026-10-25",
+  "productCount": 8519,
+  "changedCount": 14,
   "increasedCount": 0,
-  "decreasedCount": 0,
-  "avgPercentChange": 0,
+  "decreasedCount": 14,
+  "avgPercentChange": -0.01,
   "topIncreases": [],
-  "topDecreases": [],
+  "topDecreases": [
+    {
+      "sku": "01000614",
+      "name": "Blómkál",
+      "brand": "",
+      "category": "Grænmeti",
+      "unit": "stk",
+      "priceBefore": 699,
+      "priceAfter": 489,
+      "percent": -30.04,
+      "allTimeLow": false,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100153602",
+      "name": "Norðlenska lambalæri með suðrænni kryddmarineringu",
+      "brand": "Norðlenska",
+      "category": "Kjöt",
+      "unit": "KG",
+      "priceBefore": 4599,
+      "priceAfter": 3999,
+      "percent": -13.05,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100274186",
+      "name": "SS kjúklingaálegg reykt",
+      "brand": "SS",
+      "category": "Á brauð",
+      "unit": "stk",
+      "priceBefore": 549,
+      "priceAfter": 499,
+      "percent": -9.11,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100253337",
+      "name": "melóna cantaloup",
+      "brand": "",
+      "category": "Ávextir",
+      "unit": "stk",
+      "priceBefore": 798,
+      "priceAfter": 749,
+      "percent": -6.14,
+      "allTimeLow": false,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100239327",
+      "name": "Oat King orkubiti með súkkulaði og karamellu",
+      "brand": "Oat King",
+      "category": "Morgunmatur og heilsubót",
+      "unit": "stk",
+      "priceBefore": 285,
+      "priceAfter": 274,
+      "percent": -3.86,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100244514",
+      "name": "Oat King orkubiti með súkkulaði",
+      "brand": "Oat King",
+      "category": "Morgunmatur og heilsubót",
+      "unit": "stk",
+      "priceBefore": 285,
+      "priceAfter": 274,
+      "percent": -3.86,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100237227",
+      "name": "Oat King orkubiti með súkkulaðibitum",
+      "brand": "Oat King",
+      "category": "Morgunmatur og heilsubót",
+      "unit": "stk",
+      "priceBefore": 285,
+      "priceAfter": 274,
+      "percent": -3.86,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100237226",
+      "name": "Oat King pure orkubiti",
+      "brand": "Oat King",
+      "category": "Morgunmatur og heilsubót",
+      "unit": "stk",
+      "priceBefore": 285,
+      "priceAfter": 274,
+      "percent": -3.86,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100259149",
+      "name": "Oat King orkubiti super banana",
+      "brand": "Oat King",
+      "category": "Morgunmatur og heilsubót",
+      "unit": "stk",
+      "priceBefore": 285,
+      "priceAfter": 274,
+      "percent": -3.86,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100248109",
+      "name": "Oat King hnetusmjör",
+      "brand": "Oat King",
+      "category": "Morgunmatur og heilsubót",
+      "unit": "stk",
+      "priceBefore": 285,
+      "priceAfter": 274,
+      "percent": -3.86,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "03100926",
+      "name": "Praktisk stíflueyðir",
+      "brand": "Praktisk",
+      "category": "Heimilið",
+      "unit": "stk",
+      "priceBefore": 450,
+      "priceAfter": 441,
+      "percent": -2,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100263424",
+      "name": "Domestos salernissteinn 3in1 citrus",
+      "brand": "Domestos",
+      "category": "Heimilið",
+      "unit": "stk",
+      "priceBefore": 265,
+      "priceAfter": 264,
+      "percent": -0.38,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100253816",
+      "name": "Fairy uppþvottalögur original",
+      "brand": "Fairy",
+      "category": "Heimilið",
+      "unit": "stk",
+      "priceBefore": 279,
+      "priceAfter": 278,
+      "percent": -0.36,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100227274",
+      "name": "Fairy uppþvottalögur sítrónu",
+      "brand": "Fairy",
+      "category": "Heimilið",
+      "unit": "stk",
+      "priceBefore": 279,
+      "priceAfter": 278,
+      "percent": -0.36,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    }
+  ],
   "topIncreasesByAmount": [],
-  "topDecreasesByAmount": [],
+  "topDecreasesByAmount": [
+    {
+      "sku": "100153602",
+      "name": "Norðlenska lambalæri með suðrænni kryddmarineringu",
+      "brand": "Norðlenska",
+      "category": "Kjöt",
+      "unit": "KG",
+      "priceBefore": 4599,
+      "priceAfter": 3999,
+      "percent": -13.05,
+      "amount": -600,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "01000614",
+      "name": "Blómkál",
+      "brand": "",
+      "category": "Grænmeti",
+      "unit": "stk",
+      "priceBefore": 699,
+      "priceAfter": 489,
+      "percent": -30.04,
+      "amount": -210,
+      "allTimeLow": false,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100274186",
+      "name": "SS kjúklingaálegg reykt",
+      "brand": "SS",
+      "category": "Á brauð",
+      "unit": "stk",
+      "priceBefore": 549,
+      "priceAfter": 499,
+      "percent": -9.11,
+      "amount": -50,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100253337",
+      "name": "melóna cantaloup",
+      "brand": "",
+      "category": "Ávextir",
+      "unit": "stk",
+      "priceBefore": 798,
+      "priceAfter": 749,
+      "percent": -6.14,
+      "amount": -49,
+      "allTimeLow": false,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100239327",
+      "name": "Oat King orkubiti með súkkulaði og karamellu",
+      "brand": "Oat King",
+      "category": "Morgunmatur og heilsubót",
+      "unit": "stk",
+      "priceBefore": 285,
+      "priceAfter": 274,
+      "percent": -3.86,
+      "amount": -11,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100244514",
+      "name": "Oat King orkubiti með súkkulaði",
+      "brand": "Oat King",
+      "category": "Morgunmatur og heilsubót",
+      "unit": "stk",
+      "priceBefore": 285,
+      "priceAfter": 274,
+      "percent": -3.86,
+      "amount": -11,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100237227",
+      "name": "Oat King orkubiti með súkkulaðibitum",
+      "brand": "Oat King",
+      "category": "Morgunmatur og heilsubót",
+      "unit": "stk",
+      "priceBefore": 285,
+      "priceAfter": 274,
+      "percent": -3.86,
+      "amount": -11,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100237226",
+      "name": "Oat King pure orkubiti",
+      "brand": "Oat King",
+      "category": "Morgunmatur og heilsubót",
+      "unit": "stk",
+      "priceBefore": 285,
+      "priceAfter": 274,
+      "percent": -3.86,
+      "amount": -11,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100259149",
+      "name": "Oat King orkubiti super banana",
+      "brand": "Oat King",
+      "category": "Morgunmatur og heilsubót",
+      "unit": "stk",
+      "priceBefore": 285,
+      "priceAfter": 274,
+      "percent": -3.86,
+      "amount": -11,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100248109",
+      "name": "Oat King hnetusmjör",
+      "brand": "Oat King",
+      "category": "Morgunmatur og heilsubót",
+      "unit": "stk",
+      "priceBefore": 285,
+      "priceAfter": 274,
+      "percent": -3.86,
+      "amount": -11,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "03100926",
+      "name": "Praktisk stíflueyðir",
+      "brand": "Praktisk",
+      "category": "Heimilið",
+      "unit": "stk",
+      "priceBefore": 450,
+      "priceAfter": 441,
+      "percent": -2,
+      "amount": -9,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100253816",
+      "name": "Fairy uppþvottalögur original",
+      "brand": "Fairy",
+      "category": "Heimilið",
+      "unit": "stk",
+      "priceBefore": 279,
+      "priceAfter": 278,
+      "percent": -0.36,
+      "amount": -1,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100227274",
+      "name": "Fairy uppþvottalögur sítrónu",
+      "brand": "Fairy",
+      "category": "Heimilið",
+      "unit": "stk",
+      "priceBefore": 279,
+      "priceAfter": 278,
+      "percent": -0.36,
+      "amount": -1,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100263424",
+      "name": "Domestos salernissteinn 3in1 citrus",
+      "brand": "Domestos",
+      "category": "Heimilið",
+      "unit": "stk",
+      "priceBefore": 265,
+      "priceAfter": 264,
+      "percent": -0.38,
+      "amount": -1,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    }
+  ],
   "weekly": {
-    "comparedTo": "2026-10-18",
-    "changedCount": 183,
+    "comparedTo": "2026-10-19",
+    "changedCount": 190,
     "increasedCount": 27,
-    "decreasedCount": 156,
-    "avgPercentChange": -0.07,
+    "decreasedCount": 163,
+    "avgPercentChange": -0.08,
     "topIncreases": [
       {
         "sku": "100103286",
@@ -28,18 +380,6 @@
         "percent": 77.95,
         "allTimeLow": false,
         "allTimeHigh": true
-      },
-      {
-        "sku": "100253423",
-        "name": "sellerírót",
-        "brand": "",
-        "category": "Grænmeti",
-        "unit": "stk",
-        "priceBefore": 249,
-        "priceAfter": 298,
-        "percent": 19.68,
-        "allTimeLow": false,
-        "allTimeHigh": false
       },
       {
         "sku": "100253544",
@@ -196,6 +536,18 @@
         "percent": 3.13,
         "allTimeLow": false,
         "allTimeHigh": true
+      },
+      {
+        "sku": "100253423",
+        "name": "sellerírót",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 289,
+        "priceAfter": 298,
+        "percent": 3.11,
+        "allTimeLow": false,
+        "allTimeHigh": false
       },
       {
         "sku": "100265212",
@@ -392,6 +744,18 @@
         "allTimeHigh": false
       },
       {
+        "sku": "01000614",
+        "name": "Blómkál",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 699,
+        "priceAfter": 489,
+        "percent": -30.04,
+        "allTimeLow": false,
+        "allTimeHigh": false
+      },
+      {
         "sku": "02901631",
         "name": "Gillette rakgel satin care sensitive",
         "brand": "Gillette",
@@ -428,6 +792,18 @@
         "allTimeHigh": false
       },
       {
+        "sku": "100153602",
+        "name": "Norðlenska lambalæri með suðrænni kryddmarineringu",
+        "brand": "Norðlenska",
+        "category": "Kjöt",
+        "unit": "KG",
+        "priceBefore": 4599,
+        "priceAfter": 3999,
+        "percent": -13.05,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
         "sku": "100247196",
         "name": "Palmolive handsápa lime",
         "brand": "Palmolive",
@@ -437,6 +813,18 @@
         "priceAfter": 381,
         "percent": -12.41,
         "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100253337",
+        "name": "melóna cantaloup",
+        "brand": "",
+        "category": "Ávextir",
+        "unit": "stk",
+        "priceBefore": 849,
+        "priceAfter": 749,
+        "percent": -11.78,
+        "allTimeLow": false,
         "allTimeHigh": false
       },
       {
@@ -557,18 +945,6 @@
         "priceAfter": 410,
         "percent": -6.82,
         "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100253337",
-        "name": "melóna cantaloup",
-        "brand": "",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 849,
-        "priceAfter": 798,
-        "percent": -6.01,
-        "allTimeLow": false,
         "allTimeHigh": false
       },
       {
@@ -918,30 +1294,6 @@
         "percent": -4.01,
         "allTimeLow": true,
         "allTimeHigh": false
-      },
-      {
-        "sku": "100246600",
-        "name": "Knorr snackpot big carbonara",
-        "brand": "Knorr",
-        "category": "Tilbúnir réttir",
-        "unit": "stk",
-        "priceBefore": 499,
-        "priceAfter": 479,
-        "percent": -4.01,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "04207144",
-        "name": "Knorr svínakjötskraftur",
-        "brand": "Knorr",
-        "category": "Eldamennskan",
-        "unit": "stk",
-        "priceBefore": 250,
-        "priceAfter": 240,
-        "percent": -4,
-        "allTimeLow": true,
-        "allTimeHigh": false
       }
     ],
     "topIncreasesByAmount": [
@@ -1076,19 +1428,6 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100253423",
-        "name": "sellerírót",
-        "brand": "",
-        "category": "Grænmeti",
-        "unit": "stk",
-        "priceBefore": 249,
-        "priceAfter": 298,
-        "percent": 19.68,
-        "amount": 49,
-        "allTimeLow": false,
-        "allTimeHigh": false
-      },
-      {
         "sku": "00900367",
         "name": "melóna dino",
         "brand": "",
@@ -1178,6 +1517,19 @@
         "amount": 10,
         "allTimeLow": false,
         "allTimeHigh": true
+      },
+      {
+        "sku": "100253423",
+        "name": "sellerírót",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 289,
+        "priceAfter": 298,
+        "percent": 3.11,
+        "amount": 9,
+        "allTimeLow": false,
+        "allTimeHigh": false
       },
       {
         "sku": "100262748",
@@ -1299,6 +1651,19 @@
     ],
     "topDecreasesByAmount": [
       {
+        "sku": "100153602",
+        "name": "Norðlenska lambalæri með suðrænni kryddmarineringu",
+        "brand": "Norðlenska",
+        "category": "Kjöt",
+        "unit": "KG",
+        "priceBefore": 4599,
+        "priceAfter": 3999,
+        "percent": -13.05,
+        "amount": -600,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
         "sku": "100272077",
         "name": "Cater Quality nauta carpaccio",
         "brand": "Cater Quality",
@@ -1390,6 +1755,19 @@
         "allTimeHigh": false
       },
       {
+        "sku": "01000614",
+        "name": "Blómkál",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 699,
+        "priceAfter": 489,
+        "percent": -30.04,
+        "amount": -210,
+        "allTimeLow": false,
+        "allTimeHigh": false
+      },
+      {
         "sku": "05002076",
         "name": "Nóa konfekt 1 kg",
         "brand": "Nóa",
@@ -1412,19 +1790,6 @@
         "priceAfter": 356,
         "percent": -28.66,
         "amount": -143,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100269942",
-        "name": "Fiskverzlun Hafliða humarhalar skelflettir",
-        "brand": "Fiskverzlun Hafliða",
-        "category": "Fiskur",
-        "unit": "stk",
-        "priceBefore": 3599,
-        "priceAfter": 3499,
-        "percent": -2.78,
-        "amount": -100,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -1481,16 +1846,16 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100271177",
-        "name": "Colgate max white purple serum",
-        "brand": "Colgate",
-        "category": "Snyrtivara",
+        "sku": "100253337",
+        "name": "melóna cantaloup",
+        "brand": "",
+        "category": "Ávextir",
         "unit": "stk",
-        "priceBefore": 2585,
-        "priceAfter": 2499,
-        "percent": -3.33,
-        "amount": -86,
-        "allTimeLow": true,
+        "priceBefore": 849,
+        "priceAfter": 749,
+        "percent": -11.78,
+        "amount": -100,
+        "allTimeLow": false,
         "allTimeHigh": false
       },
       {
@@ -1517,19 +1882,6 @@
         "percent": -12.41,
         "amount": -54,
         "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100253337",
-        "name": "melóna cantaloup",
-        "brand": "",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 849,
-        "priceAfter": 798,
-        "percent": -6.01,
-        "amount": -51,
-        "allTimeLow": false,
         "allTimeHigh": false
       },
       {
@@ -1951,13 +2303,13 @@
     ]
   },
   "monthly": {
-    "comparedTo": "2026-09-25",
-    "changedCount": 1035,
-    "increasedCount": 229,
-    "decreasedCount": 806,
-    "comparableCount": 8023,
-    "avgPercentChange": -0.24,
-    "avgPercentChangeProjected": -0.24,
+    "comparedTo": "2026-09-26",
+    "changedCount": 1044,
+    "increasedCount": 227,
+    "decreasedCount": 817,
+    "comparableCount": 8018,
+    "avgPercentChange": -0.25,
+    "avgPercentChangeProjected": -0.25,
     "isPartialPeriod": false,
     "actualDays": 30,
     "topIncreases": [
@@ -1984,18 +2336,6 @@
         "percent": 39.22,
         "allTimeLow": false,
         "allTimeHigh": true
-      },
-      {
-        "sku": "100253337",
-        "name": "melóna cantaloup",
-        "brand": "",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 579,
-        "priceAfter": 798,
-        "percent": 37.82,
-        "allTimeLow": false,
-        "allTimeHigh": false
       },
       {
         "sku": "100265376",
@@ -2032,6 +2372,18 @@
         "percent": 30.22,
         "allTimeLow": false,
         "allTimeHigh": true
+      },
+      {
+        "sku": "100253337",
+        "name": "melóna cantaloup",
+        "brand": "",
+        "category": "Ávextir",
+        "unit": "stk",
+        "priceBefore": 579,
+        "priceAfter": 749,
+        "percent": 29.36,
+        "allTimeLow": false,
+        "allTimeHigh": false
       },
       {
         "sku": "01000628",
@@ -2526,18 +2878,6 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100253422",
-        "name": "eggaldin",
-        "brand": "",
-        "category": "Grænmeti",
-        "unit": "stk",
-        "priceBefore": 325,
-        "priceAfter": 345,
-        "percent": 6.15,
-        "allTimeLow": false,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100270775",
         "name": "Gríms þorskur í kentucky hjúp",
         "brand": "Gríms",
@@ -2560,6 +2900,18 @@
         "percent": 5.88,
         "allTimeLow": false,
         "allTimeHigh": false
+      },
+      {
+        "sku": "100251902",
+        "name": "Voxis hálstöflur lakkrís",
+        "brand": "Voxis",
+        "category": "Laugardags",
+        "unit": "stk",
+        "priceBefore": 350,
+        "priceAfter": 370,
+        "percent": 5.71,
+        "allTimeLow": false,
+        "allTimeHigh": true
       }
     ],
     "topDecreases": [
@@ -2669,6 +3021,18 @@
         "priceAfter": 840,
         "percent": -31.15,
         "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "01000614",
+        "name": "Blómkál",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 699,
+        "priceAfter": 489,
+        "percent": -30.04,
+        "allTimeLow": false,
         "allTimeHigh": false
       },
       {
@@ -2812,6 +3176,30 @@
         "priceBefore": 189,
         "priceAfter": 162,
         "percent": -14.29,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100253422",
+        "name": "eggaldin",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 399,
+        "priceAfter": 345,
+        "percent": -13.53,
+        "allTimeLow": false,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100153602",
+        "name": "Norðlenska lambalæri með suðrænni kryddmarineringu",
+        "brand": "Norðlenska",
+        "category": "Kjöt",
+        "unit": "KG",
+        "priceBefore": 4599,
+        "priceAfter": 3999,
+        "percent": -13.05,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -3125,42 +3513,6 @@
         "priceAfter": 199,
         "percent": -7.44,
         "allTimeLow": false,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100257516",
-        "name": "Brait ilmsprey fresh linen áfylling",
-        "brand": "Brait",
-        "category": "Heimilið",
-        "unit": "stk",
-        "priceBefore": 699,
-        "priceAfter": 649,
-        "percent": -7.15,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100257520",
-        "name": "Brait ilmsprey tropical áfylling",
-        "brand": "Brait",
-        "category": "Heimilið",
-        "unit": "stk",
-        "priceBefore": 699,
-        "priceAfter": 649,
-        "percent": -7.15,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100257524",
-        "name": "Brait Ilmsprey blóma áfylling",
-        "brand": "Brait",
-        "category": "Heimilið",
-        "unit": "stk",
-        "priceBefore": 699,
-        "priceAfter": 649,
-        "percent": -7.15,
-        "allTimeLow": true,
         "allTimeHigh": false
       }
     ],
@@ -3504,19 +3856,6 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100253337",
-        "name": "melóna cantaloup",
-        "brand": "",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 579,
-        "priceAfter": 798,
-        "percent": 37.82,
-        "amount": 219,
-        "allTimeLow": false,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100240436",
         "name": "MS góðostur 26% í sneiðum 330gr",
         "brand": "MS",
@@ -3764,6 +4103,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100253337",
+        "name": "melóna cantaloup",
+        "brand": "",
+        "category": "Ávextir",
+        "unit": "stk",
+        "priceBefore": 579,
+        "priceAfter": 749,
+        "percent": 29.36,
+        "amount": 170,
+        "allTimeLow": false,
+        "allTimeHigh": false
+      },
+      {
         "sku": "100238789",
         "name": "Lýsi þorskalýsisperlur",
         "brand": "Lýsi",
@@ -3840,6 +4192,19 @@
         "priceAfter": 3239,
         "percent": -19,
         "amount": -760,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100153602",
+        "name": "Norðlenska lambalæri með suðrænni kryddmarineringu",
+        "brand": "Norðlenska",
+        "category": "Kjöt",
+        "unit": "KG",
+        "priceBefore": 4599,
+        "priceAfter": 3999,
+        "percent": -13.05,
+        "amount": -600,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -4010,6 +4375,19 @@
         "percent": -17.25,
         "amount": -250,
         "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "01000614",
+        "name": "Blómkál",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 699,
+        "priceAfter": 489,
+        "percent": -30.04,
+        "amount": -210,
+        "allTimeLow": false,
         "allTimeHigh": false
       },
       {
@@ -4312,19 +4690,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100271177",
-        "name": "Colgate max white purple serum",
-        "brand": "Colgate",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 2585,
-        "priceAfter": 2499,
-        "percent": -3.33,
-        "amount": -86,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100269293",
         "name": "Gatorade 12pk cool blue",
         "brand": "Gatorade",
@@ -4453,28 +4818,15 @@
         "amount": -60,
         "allTimeLow": true,
         "allTimeHigh": false
-      },
-      {
-        "sku": "100264838",
-        "name": "Tena discreet extra",
-        "brand": "Tena",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 1135,
-        "priceAfter": 1075,
-        "percent": -5.29,
-        "amount": -60,
-        "allTimeLow": true,
-        "allTimeHigh": false
       }
     ]
   },
   "monthToDate": {
     "comparedTo": "2026-10-01",
-    "changedCount": 1022,
+    "changedCount": 1032,
     "increasedCount": 216,
-    "decreasedCount": 806,
-    "avgPercentChange": -0.25,
+    "decreasedCount": 816,
+    "avgPercentChange": -0.26,
     "topIncreases": [
       {
         "sku": "100253802",
@@ -4499,18 +4851,6 @@
         "percent": 39.22,
         "allTimeLow": false,
         "allTimeHigh": true
-      },
-      {
-        "sku": "100253337",
-        "name": "melóna cantaloup",
-        "brand": "",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 579,
-        "priceAfter": 798,
-        "percent": 37.82,
-        "allTimeLow": false,
-        "allTimeHigh": false
       },
       {
         "sku": "100265376",
@@ -4547,6 +4887,18 @@
         "percent": 30.22,
         "allTimeLow": false,
         "allTimeHigh": true
+      },
+      {
+        "sku": "100253337",
+        "name": "melóna cantaloup",
+        "brand": "",
+        "category": "Ávextir",
+        "unit": "stk",
+        "priceBefore": 579,
+        "priceAfter": 749,
+        "percent": 29.36,
+        "allTimeLow": false,
+        "allTimeHigh": false
       },
       {
         "sku": "01000628",
@@ -5187,6 +5539,18 @@
         "allTimeHigh": false
       },
       {
+        "sku": "01000614",
+        "name": "Blómkál",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 699,
+        "priceAfter": 489,
+        "percent": -30.04,
+        "allTimeLow": false,
+        "allTimeHigh": false
+      },
+      {
         "sku": "100112636",
         "name": "Blómkál íslenskt",
         "brand": "",
@@ -5352,6 +5716,18 @@
         "priceAfter": 345,
         "percent": -13.53,
         "allTimeLow": false,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100153602",
+        "name": "Norðlenska lambalæri með suðrænni kryddmarineringu",
+        "brand": "Norðlenska",
+        "category": "Kjöt",
+        "unit": "KG",
+        "priceBefore": 4599,
+        "priceAfter": 3999,
+        "percent": -13.05,
+        "allTimeLow": true,
         "allTimeHigh": false
       },
       {
@@ -5652,30 +6028,6 @@
         "priceAfter": 299,
         "percent": -7.72,
         "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "03700641",
-        "name": "Maille dijon sinnep",
-        "brand": "Maille",
-        "category": "Eldamennskan",
-        "unit": "stk",
-        "priceBefore": 389,
-        "priceAfter": 359,
-        "percent": -7.71,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100136335",
-        "name": "Colgate tannbursti barna 6-9 ára",
-        "brand": "Colgate",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 215,
-        "priceAfter": 199,
-        "percent": -7.44,
-        "allTimeLow": false,
         "allTimeHigh": false
       }
     ],
@@ -6032,19 +6384,6 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100253337",
-        "name": "melóna cantaloup",
-        "brand": "",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 579,
-        "priceAfter": 798,
-        "percent": 37.82,
-        "amount": 219,
-        "allTimeLow": false,
-        "allTimeHigh": false
-      },
-      {
         "sku": "00201402",
         "name": "Kjötborð lambaframhryggjasneiðar",
         "brand": "Kjötborð",
@@ -6279,6 +6618,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100253337",
+        "name": "melóna cantaloup",
+        "brand": "",
+        "category": "Ávextir",
+        "unit": "stk",
+        "priceBefore": 579,
+        "priceAfter": 749,
+        "percent": 29.36,
+        "amount": 170,
+        "allTimeLow": false,
+        "allTimeHigh": false
+      },
+      {
         "sku": "100238789",
         "name": "Lýsi þorskalýsisperlur",
         "brand": "Lýsi",
@@ -6394,6 +6746,19 @@
         "priceAfter": 3239,
         "percent": -19,
         "amount": -760,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100153602",
+        "name": "Norðlenska lambalæri með suðrænni kryddmarineringu",
+        "brand": "Norðlenska",
+        "category": "Kjöt",
+        "unit": "KG",
+        "priceBefore": 4599,
+        "priceAfter": 3999,
+        "percent": -13.05,
+        "amount": -600,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -6577,6 +6942,19 @@
         "percent": -17.25,
         "amount": -250,
         "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "01000614",
+        "name": "Blómkál",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 699,
+        "priceAfter": 489,
+        "percent": -30.04,
+        "amount": -210,
+        "allTimeLow": false,
         "allTimeHigh": false
       },
       {
@@ -6944,19 +7322,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100271177",
-        "name": "Colgate max white purple serum",
-        "brand": "Colgate",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 2585,
-        "priceAfter": 2499,
-        "percent": -3.33,
-        "amount": -86,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100259787",
         "name": "Magnum Mini Billion Almond",
         "brand": "Magnum",
@@ -6966,19 +7331,6 @@
         "priceAfter": 1375,
         "percent": -5.11,
         "amount": -74,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100269293",
-        "name": "Gatorade 12pk cool blue",
-        "brand": "Gatorade",
-        "category": "Drykkir",
-        "unit": "stk",
-        "priceBefore": 2265,
-        "priceAfter": 2199,
-        "percent": -2.91,
-        "amount": -66,
         "allTimeLow": true,
         "allTimeHigh": false
       }
@@ -7430,13 +7782,6 @@
           "category": "Hrekkjavaka"
         },
         {
-          "sku": "100264680",
-          "name": "grasker  Canada halloween",
-          "brand": "",
-          "price": 2279,
-          "category": "Hrekkjavaka"
-        },
-        {
           "sku": "100270895",
           "name": "Hrekkjavaka beinagrind efri hluti",
           "brand": "Hrekkjavaka",
@@ -7454,6 +7799,13 @@
           "sku": "100237268",
           "name": "Trolli halloween",
           "brand": "Trolli",
+          "price": 1099,
+          "category": "Hrekkjavaka"
+        },
+        {
+          "sku": "100273957",
+          "name": "Haribo hrekkjavöku mix",
+          "brand": "Haribo",
           "price": 1099,
           "category": "Hrekkjavaka"
         }
@@ -9007,7 +9359,7 @@
       "brand": "",
       "category": "Grænmeti",
       "changes": 14,
-      "days": 92,
+      "days": 93,
       "lastPrice": 298
     },
     {
@@ -9016,7 +9368,7 @@
       "brand": "",
       "category": "Grænmeti",
       "changes": 11,
-      "days": 92,
+      "days": 93,
       "lastPrice": 329
     },
     {
@@ -9025,17 +9377,8 @@
       "brand": "",
       "category": "Ávextir",
       "changes": 7,
-      "days": 65,
+      "days": 66,
       "lastPrice": 899
-    },
-    {
-      "sku": "00900367",
-      "name": "melóna dino",
-      "brand": "",
-      "category": "Ávextir",
-      "changes": 3,
-      "days": 29,
-      "lastPrice": 689
     },
     {
       "sku": "100253122",
@@ -9043,8 +9386,17 @@
       "brand": "",
       "category": "Grænmeti",
       "changes": 9,
-      "days": 88,
+      "days": 89,
       "lastPrice": 179
+    },
+    {
+      "sku": "00900367",
+      "name": "melóna dino",
+      "brand": "",
+      "category": "Ávextir",
+      "changes": 3,
+      "days": 30,
+      "lastPrice": 689
     }
   ],
   "shrinkflationAlerts": []
