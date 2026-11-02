@@ -1,7 +1,7 @@
 {
-  "date": "2026-11-01",
-  "comparedTo": "2026-10-31",
-  "productCount": 8526,
+  "date": "2026-11-02",
+  "comparedTo": "2026-11-01",
+  "productCount": 8483,
   "changedCount": 0,
   "increasedCount": 0,
   "decreasedCount": 0,
@@ -11,11 +11,11 @@
   "topIncreasesByAmount": [],
   "topDecreasesByAmount": [],
   "weekly": {
-    "comparedTo": "2026-10-25",
-    "changedCount": 338,
+    "comparedTo": "2026-10-26",
+    "changedCount": 323,
     "increasedCount": 63,
-    "decreasedCount": 275,
-    "avgPercentChange": 0.01,
+    "decreasedCount": 260,
+    "avgPercentChange": 0.02,
     "topIncreases": [
       {
         "sku": "100261159",
@@ -620,18 +620,6 @@
     ],
     "topDecreases": [
       {
-        "sku": "01000614",
-        "name": "Blómkál",
-        "brand": "",
-        "category": "Grænmeti",
-        "unit": "stk",
-        "priceBefore": 699,
-        "priceAfter": 489,
-        "percent": -30.04,
-        "allTimeLow": false,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100274300",
         "name": "Klaki granatepla 1,5l",
         "brand": "Klaki",
@@ -712,18 +700,6 @@
         "priceBefore": 499,
         "priceAfter": 430,
         "percent": -13.83,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100153602",
-        "name": "Norðlenska lambalæri með suðrænni kryddmarineringu",
-        "brand": "Norðlenska",
-        "category": "Kjöt",
-        "unit": "KG",
-        "priceBefore": 4599,
-        "priceAfter": 3999,
-        "percent": -13.05,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -812,32 +788,8 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100274186",
-        "name": "SS kjúklingaálegg reykt",
-        "brand": "SS",
-        "category": "Á brauð",
-        "unit": "stk",
-        "priceBefore": 549,
-        "priceAfter": 499,
-        "percent": -9.11,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100218509",
         "name": "Þykkvabæjar gullauga kartöflur 1kg",
-        "brand": "Þykkvabæjar",
-        "category": "Grænmeti",
-        "unit": "stk",
-        "priceBefore": 599,
-        "priceAfter": 549,
-        "percent": -8.35,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100218545",
-        "name": "Þykkvabæjar rauðar kartöflur 1kg",
         "brand": "Þykkvabæjar",
         "category": "Grænmeti",
         "unit": "stk",
@@ -893,18 +845,6 @@
         "priceAfter": 1030,
         "percent": -6.28,
         "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100253337",
-        "name": "melóna cantaloup",
-        "brand": "",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 798,
-        "priceAfter": 749,
-        "percent": -6.14,
-        "allTimeLow": false,
         "allTimeHigh": false
       },
       {
@@ -1216,6 +1156,66 @@
         "priceBefore": 599,
         "priceAfter": 575,
         "percent": -4.01,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100268798",
+        "name": "Sun Lolly ananas",
+        "brand": "Sun Lolly",
+        "category": "Drykkir",
+        "unit": "stk",
+        "priceBefore": 375,
+        "priceAfter": 360,
+        "percent": -4,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100259130",
+        "name": "Sun Lolly jarðarberja",
+        "brand": "Sun Lolly",
+        "category": "Drykkir",
+        "unit": "stk",
+        "priceBefore": 375,
+        "priceAfter": 360,
+        "percent": -4,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100259139",
+        "name": "Sun Lolly hindberja",
+        "brand": "Sun Lolly",
+        "category": "Drykkir",
+        "unit": "stk",
+        "priceBefore": 375,
+        "priceAfter": 360,
+        "percent": -4,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100213930",
+        "name": "Ellas Kitchen skvísa gulrætur, epli og nípur",
+        "brand": "Ellas Kitchen",
+        "category": "Börnin",
+        "unit": "stk",
+        "priceBefore": 250,
+        "priceAfter": 240,
+        "percent": -4,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100233265",
+        "name": "Ellas Kitchen skvísa bláberja, epla, banana og vanillu",
+        "brand": "Ellas Kitchen",
+        "category": "Börnin",
+        "unit": "stk",
+        "priceBefore": 250,
+        "priceAfter": 240,
+        "percent": -4,
         "allTimeLow": true,
         "allTimeHigh": false
       }
@@ -1874,19 +1874,6 @@
     ],
     "topDecreasesByAmount": [
       {
-        "sku": "100153602",
-        "name": "Norðlenska lambalæri með suðrænni kryddmarineringu",
-        "brand": "Norðlenska",
-        "category": "Kjöt",
-        "unit": "KG",
-        "priceBefore": 4599,
-        "priceAfter": 3999,
-        "percent": -13.05,
-        "amount": -600,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100262119",
         "name": "Helvítis beikon & brennivín kryddsulta",
         "brand": "Helvítis",
@@ -1897,19 +1884,6 @@
         "percent": -15.01,
         "amount": -300,
         "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "01000614",
-        "name": "Blómkál",
-        "brand": "",
-        "category": "Grænmeti",
-        "unit": "stk",
-        "priceBefore": 699,
-        "priceAfter": 489,
-        "percent": -30.04,
-        "amount": -210,
-        "allTimeLow": false,
         "allTimeHigh": false
       },
       {
@@ -2277,32 +2251,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100218545",
-        "name": "Þykkvabæjar rauðar kartöflur 1kg",
-        "brand": "Þykkvabæjar",
-        "category": "Grænmeti",
-        "unit": "stk",
-        "priceBefore": 599,
-        "priceAfter": 549,
-        "percent": -8.35,
-        "amount": -50,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100274186",
-        "name": "SS kjúklingaálegg reykt",
-        "brand": "SS",
-        "category": "Á brauð",
-        "unit": "stk",
-        "priceBefore": 549,
-        "priceAfter": 499,
-        "percent": -9.11,
-        "amount": -50,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100241441",
         "name": "Sonax úði+vörn xtreme",
         "brand": "Sonax",
@@ -2339,19 +2287,6 @@
         "percent": -3.77,
         "amount": -49,
         "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100253337",
-        "name": "melóna cantaloup",
-        "brand": "",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 798,
-        "priceAfter": 749,
-        "percent": -6.14,
-        "amount": -49,
-        "allTimeLow": false,
         "allTimeHigh": false
       },
       {
@@ -2522,15 +2457,80 @@
         "amount": -30,
         "allTimeLow": true,
         "allTimeHigh": false
+      },
+      {
+        "sku": "100146566",
+        "name": "Dr. Oetker matarlím",
+        "brand": "Dr. Oetker",
+        "category": "Bakstur",
+        "unit": "stk",
+        "priceBefore": 189,
+        "priceAfter": 159,
+        "percent": -15.87,
+        "amount": -30,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100271039",
+        "name": "Dove sturtu- og raksápa glow",
+        "brand": "Dove",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 639,
+        "priceAfter": 610,
+        "percent": -4.54,
+        "amount": -29,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100246761",
+        "name": "Ajax Universal Wipes 100stk.",
+        "brand": "Ajax",
+        "category": "Heimilið",
+        "unit": "stk",
+        "priceBefore": 726,
+        "priceAfter": 699,
+        "percent": -3.72,
+        "amount": -27,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100263660",
+        "name": "Happy Monkey 10pk jarðarberja & banana smoothie",
+        "brand": "Happy Monkey",
+        "category": "Drykkir",
+        "unit": "stk",
+        "priceBefore": 1099,
+        "priceAfter": 1075,
+        "percent": -2.18,
+        "amount": -24,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100237119",
+        "name": "Urtekram bókhveiti",
+        "brand": "Urtekram",
+        "category": "Bakstur",
+        "unit": "stk",
+        "priceBefore": 699,
+        "priceAfter": 675,
+        "percent": -3.43,
+        "amount": -24,
+        "allTimeLow": true,
+        "allTimeHigh": false
       }
     ]
   },
   "monthly": {
-    "comparedTo": "2026-10-02",
-    "changedCount": 1251,
-    "increasedCount": 247,
-    "decreasedCount": 1004,
-    "comparableCount": 8104,
+    "comparedTo": "2026-10-03",
+    "changedCount": 1231,
+    "increasedCount": 243,
+    "decreasedCount": 988,
+    "comparableCount": 8075,
     "avgPercentChange": -0.29,
     "avgPercentChangeProjected": -0.29,
     "isPartialPeriod": false,
@@ -2669,18 +2669,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100268241",
-        "name": "Round Lab sólarvörn birch juice",
-        "brand": "Round Lab",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 2899,
-        "priceAfter": 3499,
-        "percent": 20.7,
-        "allTimeLow": false,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100253122",
         "name": "paprika rauð",
         "brand": "",
@@ -2689,18 +2677,6 @@
         "priceBefore": 149,
         "priceAfter": 179,
         "percent": 20.13,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100239435",
-        "name": "Elizabeth Arden honey drops",
-        "brand": "Elizabeth Arden",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 2449,
-        "priceAfter": 2899,
-        "percent": 18.37,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -3113,18 +3089,6 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100264421",
-        "name": "Vanish blettahreinsir gel",
-        "brand": "Vanish",
-        "category": "Heimilið",
-        "unit": "stk",
-        "priceBefore": 799,
-        "priceAfter": 849,
-        "percent": 6.26,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
         "sku": "100253426",
         "name": "epli greenstar",
         "brand": "",
@@ -3135,6 +3099,42 @@
         "percent": 6.06,
         "allTimeLow": false,
         "allTimeHigh": true
+      },
+      {
+        "sku": "100253419",
+        "name": "Melinda epli gul.",
+        "brand": "Melinda",
+        "category": "Ávextir",
+        "unit": "stk",
+        "priceBefore": 99,
+        "priceAfter": 105,
+        "percent": 6.06,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "00201404",
+        "name": "Kjötborð lambagrillleggir",
+        "brand": "Kjötborð",
+        "category": "Kjöt",
+        "unit": "KG",
+        "priceBefore": 3399,
+        "priceAfter": 3599,
+        "percent": 5.88,
+        "allTimeLow": false,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100212361",
+        "name": "Mars 70 gr",
+        "brand": "Mars",
+        "category": "Laugardags",
+        "unit": "stk",
+        "priceBefore": 170,
+        "priceAfter": 180,
+        "percent": 5.88,
+        "allTimeLow": false,
+        "allTimeHigh": false
       }
     ],
     "topDecreases": [
@@ -3211,18 +3211,6 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100112636",
-        "name": "Blómkál íslenskt",
-        "brand": "",
-        "category": "Grænmeti",
-        "unit": "stk",
-        "priceBefore": 898,
-        "priceAfter": 699,
-        "percent": -22.16,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100248004",
         "name": "Guli miðinn liðaktín forte",
         "brand": "Guli miðinn",
@@ -3291,18 +3279,6 @@
         "priceBefore": 1195,
         "priceAfter": 995,
         "percent": -16.74,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100273472",
-        "name": "Arencia holy hyssop serum 12",
-        "brand": "Arencia",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 4795,
-        "priceAfter": 3995,
-        "percent": -16.68,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -3387,18 +3363,6 @@
         "priceBefore": 4599,
         "priceAfter": 3999,
         "percent": -13.05,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100273477",
-        "name": "Arencia honey glazed collagen varamaski",
-        "brand": "Arencia",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 3995,
-        "priceAfter": 3495,
-        "percent": -12.52,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -3691,18 +3655,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100218545",
-        "name": "Þykkvabæjar rauðar kartöflur 1kg",
-        "brand": "Þykkvabæjar",
-        "category": "Grænmeti",
-        "unit": "stk",
-        "priceBefore": 599,
-        "priceAfter": 549,
-        "percent": -8.35,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100272077",
         "name": "Cater Quality nauta carpaccio",
         "brand": "Cater Quality",
@@ -3735,6 +3687,54 @@
         "priceBefore": 736,
         "priceAfter": 675,
         "percent": -8.29,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100250771",
+        "name": "Grön Balance kjúklingabaunir",
+        "brand": "Grön Balance",
+        "category": "Eldamennskan",
+        "unit": "stk",
+        "priceBefore": 170,
+        "priceAfter": 156,
+        "percent": -8.24,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100255901",
+        "name": "El Taco Truck chipotle mayo",
+        "brand": "El Taco Truck",
+        "category": "Mjólkurvörur og egg",
+        "unit": "stk",
+        "priceBefore": 685,
+        "priceAfter": 629,
+        "percent": -8.18,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100180930",
+        "name": "First Price fusilli",
+        "brand": "First Price",
+        "category": "Eldamennskan",
+        "unit": "stk",
+        "priceBefore": 149,
+        "priceAfter": 137,
+        "percent": -8.05,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100225376",
+        "name": "Gestus tzatziki sósa",
+        "brand": "Gestus",
+        "category": "Mjólkurvörur og egg",
+        "unit": "stk",
+        "priceBefore": 499,
+        "priceAfter": 459,
+        "percent": -8.02,
         "allTimeLow": true,
         "allTimeHigh": false
       }
@@ -3780,19 +3780,6 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100268241",
-        "name": "Round Lab sólarvörn birch juice",
-        "brand": "Round Lab",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 2899,
-        "priceAfter": 3499,
-        "percent": 20.7,
-        "amount": 600,
-        "allTimeLow": false,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100272881",
         "name": "BioTechUSA 100% mysuprótein 900gr súkkulaði",
         "brand": "BioTechUSA",
@@ -3828,19 +3815,6 @@
         "priceAfter": 6498,
         "percent": 8.32,
         "amount": 499,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100239435",
-        "name": "Elizabeth Arden honey drops",
-        "brand": "Elizabeth Arden",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 2449,
-        "priceAfter": 2899,
-        "percent": 18.37,
-        "amount": 450,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -4389,6 +4363,32 @@
         "amount": 120,
         "allTimeLow": false,
         "allTimeHigh": true
+      },
+      {
+        "sku": "100219185",
+        "name": "Ali kjúklingabringur 100%",
+        "brand": "Ali",
+        "category": "Kjöt",
+        "unit": "KG",
+        "priceBefore": 3449,
+        "priceAfter": 3560,
+        "percent": 3.22,
+        "amount": 111,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "00201533",
+        "name": "Kjötborð ungnautasnitsel",
+        "brand": "Kjötborð",
+        "category": "Kjöt",
+        "unit": "KG",
+        "priceBefore": 5298,
+        "priceAfter": 5399,
+        "percent": 1.91,
+        "amount": 101,
+        "allTimeLow": false,
+        "allTimeHigh": true
       }
     ],
     "topDecreasesByAmount": [
@@ -4404,19 +4404,6 @@
         "amount": -1900,
         "allTimeLow": false,
         "allTimeHigh": true
-      },
-      {
-        "sku": "100273472",
-        "name": "Arencia holy hyssop serum 12",
-        "brand": "Arencia",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 4795,
-        "priceAfter": 3995,
-        "percent": -16.68,
-        "amount": -800,
-        "allTimeLow": true,
-        "allTimeHigh": false
       },
       {
         "sku": "100248004",
@@ -4453,19 +4440,6 @@
         "priceBefore": 5999,
         "priceAfter": 5499,
         "percent": -8.33,
-        "amount": -500,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100273477",
-        "name": "Arencia honey glazed collagen varamaski",
-        "brand": "Arencia",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 3995,
-        "priceAfter": 3495,
-        "percent": -12.52,
         "amount": -500,
         "allTimeLow": true,
         "allTimeHigh": false
@@ -4662,19 +4636,6 @@
         "priceAfter": 399,
         "percent": -33.39,
         "amount": -200,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100112636",
-        "name": "Blómkál íslenskt",
-        "brand": "",
-        "category": "Grænmeti",
-        "unit": "stk",
-        "priceBefore": 898,
-        "priceAfter": 699,
-        "percent": -22.16,
-        "amount": -199,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -4887,32 +4848,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100273667",
-        "name": "Round Lab birch juice maski (10ea)",
-        "brand": "Round Lab",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 3499,
-        "priceAfter": 3399,
-        "percent": -2.86,
-        "amount": -100,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100273675",
-        "name": "Round Lab dokdo augnkrem",
-        "brand": "Round Lab",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 3499,
-        "priceAfter": 3399,
-        "percent": -2.86,
-        "amount": -100,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100270410",
         "name": "L'Oréal Men serum power age",
         "brand": "L'Oréal Men",
@@ -4934,32 +4869,6 @@
         "priceBefore": 2699,
         "priceAfter": 2599,
         "percent": -3.71,
-        "amount": -100,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100268236",
-        "name": "Round Lab dokdo hreinsir 150ml",
-        "brand": "Round Lab",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 2499,
-        "priceAfter": 2399,
-        "percent": -4,
-        "amount": -100,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100273676",
-        "name": "Round Lab pine cica hreinsir",
-        "brand": "Round Lab",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 2499,
-        "priceAfter": 2399,
-        "percent": -4,
         "amount": -100,
         "allTimeLow": true,
         "allTimeHigh": false
@@ -5041,15 +4950,106 @@
         "amount": -90,
         "allTimeLow": true,
         "allTimeHigh": false
+      },
+      {
+        "sku": "100260289",
+        "name": "Brit hundamatur adult small chicken",
+        "brand": "Brit",
+        "category": "Dýrin",
+        "unit": "stk",
+        "priceBefore": 2550,
+        "priceAfter": 2465,
+        "percent": -3.33,
+        "amount": -85,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100261742",
+        "name": "Elvital glycolic gloss inject treatment",
+        "brand": "Elvital",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 2399,
+        "priceAfter": 2315,
+        "percent": -3.5,
+        "amount": -84,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100270405",
+        "name": "Elvital serum growth booster",
+        "brand": "Elvital",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 2449,
+        "priceAfter": 2375,
+        "percent": -3.02,
+        "amount": -74,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100259787",
+        "name": "Magnum Mini Billion Almond",
+        "brand": "Magnum",
+        "category": "Frystivara",
+        "unit": "stk",
+        "priceBefore": 1449,
+        "priceAfter": 1375,
+        "percent": -5.11,
+        "amount": -74,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100261741",
+        "name": "Elvital glycolic gloss leave in serum",
+        "brand": "Elvital",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 2045,
+        "priceAfter": 1975,
+        "percent": -3.42,
+        "amount": -70,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100258829",
+        "name": "Garnier augnkrem vitamin c",
+        "brand": "Garnier",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 1999,
+        "priceAfter": 1929,
+        "percent": -3.5,
+        "amount": -70,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100179798",
+        "name": "Lambi salernispappír 12stk",
+        "brand": "Lambi",
+        "category": "Heimilið",
+        "unit": "stk",
+        "priceBefore": 1350,
+        "priceAfter": 1280,
+        "percent": -5.19,
+        "amount": -70,
+        "allTimeLow": true,
+        "allTimeHigh": false
       }
     ]
   },
   "monthToDate": {
-    "comparedTo": null,
+    "comparedTo": "2026-11-01",
     "changedCount": 0,
     "increasedCount": 0,
     "decreasedCount": 0,
-    "avgPercentChange": null,
+    "avgPercentChange": 0,
     "topIncreases": [],
     "topDecreases": [],
     "topIncreasesByAmount": [],
@@ -5570,13 +5570,6 @@
       ],
       "mostExpensive": [
         {
-          "sku": "100272398",
-          "name": "Starbucks hylki houseblend",
-          "brand": "Starbucks",
-          "price": 2249,
-          "category": "Heitir drykkir"
-        },
-        {
           "sku": "100267237",
           "name": "Caffe Borbone kaffibaunir crema superiore",
           "brand": "Caffe Borbone",
@@ -5602,6 +5595,13 @@
           "name": "Jóladagatal Belmio kaffihylki",
           "brand": "Jóladagatal",
           "price": 1990,
+          "category": "Heitir drykkir"
+        },
+        {
+          "sku": "100270946",
+          "name": "Jacobs instant kaffi",
+          "brand": "Jacobs",
+          "price": 1899,
           "category": "Heitir drykkir"
         }
       ]
@@ -6800,24 +6800,24 @@
           "category": "Snyrtivara"
         },
         {
-          "sku": "100273465",
-          "name": "Arencia retinal booster shot",
-          "brand": "Arencia",
-          "price": 5295,
-          "category": "Snyrtivara"
-        },
-        {
-          "sku": "100273462",
-          "name": "Arencia vitamin c booster shot",
-          "brand": "Arencia",
-          "price": 5295,
-          "category": "Snyrtivara"
-        },
-        {
           "sku": "100272252",
           "name": "Refectocil augabrúnalitur two go penni svartur",
           "brand": "Refectocil",
           "price": 5199,
+          "category": "Snyrtivara"
+        },
+        {
+          "sku": "100272253",
+          "name": "Refectocil augabrúnalitur two go penni brúnn",
+          "brand": "Refectocil",
+          "price": 5199,
+          "category": "Snyrtivara"
+        },
+        {
+          "sku": "100263473",
+          "name": "Minetan brúnkufroða workout ready",
+          "brand": "Minetan",
+          "price": 4999,
           "category": "Snyrtivara"
         }
       ]
@@ -7034,13 +7034,6 @@
       ],
       "mostExpensive": [
         {
-          "sku": "100273929",
-          "name": "Arencia holy hyssop serum 30",
-          "brand": "Arencia",
-          "price": 4995,
-          "category": "Óskilgreint"
-        },
-        {
           "sku": "100266825",
           "name": "Krónu kjúklingalasagne",
           "brand": "Krónu",
@@ -7067,6 +7060,13 @@
           "brand": "Tjikký",
           "price": 990,
           "category": "Óskilgreint"
+        },
+        {
+          "sku": "100209861",
+          "name": "Vínber græn Autumn crisp 750 g",
+          "brand": "",
+          "price": 879,
+          "category": "Óskilgreint"
         }
       ]
     }
@@ -7078,7 +7078,7 @@
       "brand": "",
       "category": "Grænmeti",
       "changes": 14,
-      "days": 99,
+      "days": 100,
       "lastPrice": 298
     },
     {
@@ -7087,7 +7087,7 @@
       "brand": "Happy Hydrate",
       "category": "Morgunmatur og heilsubót",
       "changes": 2,
-      "days": 15,
+      "days": 16,
       "lastPrice": 1898
     },
     {
@@ -7096,17 +7096,8 @@
       "brand": "",
       "category": "Grænmeti",
       "changes": 11,
-      "days": 99,
+      "days": 100,
       "lastPrice": 329
-    },
-    {
-      "sku": "100253363",
-      "name": "melóna græn",
-      "brand": "",
-      "category": "Ávextir",
-      "changes": 7,
-      "days": 72,
-      "lastPrice": 899
     },
     {
       "sku": "100004511",
@@ -7116,6 +7107,15 @@
       "changes": 3,
       "days": 31,
       "lastPrice": 265
+    },
+    {
+      "sku": "100253363",
+      "name": "melóna græn",
+      "brand": "",
+      "category": "Ávextir",
+      "changes": 7,
+      "days": 73,
+      "lastPrice": 899
     }
   ],
   "shrinkflationAlerts": []
