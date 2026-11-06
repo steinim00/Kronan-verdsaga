@@ -1,57 +1,21 @@
 {
-  "date": "2026-11-05",
-  "comparedTo": "2026-11-04",
+  "date": "2026-11-06",
+  "comparedTo": "2026-11-05",
   "productCount": 8463,
-  "changedCount": 16,
-  "increasedCount": 14,
+  "changedCount": 7,
+  "increasedCount": 5,
   "decreasedCount": 2,
   "avgPercentChange": 0.01,
   "topIncreases": [
     {
-      "sku": "100269340",
-      "name": "Happy Hydrate jóli",
-      "brand": "Happy Hydrate",
-      "category": "Morgunmatur og heilsubót",
+      "sku": "100273362",
+      "name": "Dove sturtusápa sandalwood & vanilla",
+      "brand": "Dove",
+      "category": "Snyrtivara",
       "unit": "stk",
-      "priceBefore": 1599,
-      "priceAfter": 1898,
-      "percent": 18.7,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100113126",
-      "name": "T&A romain salat",
-      "brand": "T&A",
-      "category": "Grænmeti",
-      "unit": "stk",
-      "priceBefore": 998,
-      "priceAfter": 1149,
-      "percent": 15.13,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100269337",
-      "name": "Go Fitness mysuprótein vanillu",
-      "brand": "Go Fitness",
-      "category": "Morgunmatur og heilsubót",
-      "unit": "stk",
-      "priceBefore": 4369,
-      "priceAfter": 4980,
-      "percent": 13.98,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100269338",
-      "name": "Go Fitness mysuprótein súkkulaði",
-      "brand": "Go Fitness",
-      "category": "Morgunmatur og heilsubót",
-      "unit": "stk",
-      "priceBefore": 4369,
-      "priceAfter": 4980,
-      "percent": 13.98,
+      "priceBefore": 399,
+      "priceAfter": 539,
+      "percent": 35.09,
       "allTimeLow": false,
       "allTimeHigh": true
     },
@@ -61,223 +25,86 @@
       "brand": "Domestos",
       "category": "Heimilið",
       "unit": "stk",
-      "priceBefore": 449,
-      "priceAfter": 499,
-      "percent": 11.14,
+      "priceBefore": 499,
+      "priceAfter": 549,
+      "percent": 10.02,
       "allTimeLow": false,
       "allTimeHigh": true
     },
     {
-      "sku": "100267628",
-      "name": "Domestos salernishreinsir lime",
+      "sku": "100272054",
+      "name": "Domestos power foam floral burst",
       "brand": "Domestos",
       "category": "Heimilið",
       "unit": "stk",
-      "priceBefore": 349,
-      "priceAfter": 379,
-      "percent": 8.6,
+      "priceBefore": 499,
+      "priceAfter": 549,
+      "percent": 10.02,
       "allTimeLow": false,
       "allTimeHigh": true
     },
     {
-      "sku": "05000048",
-      "name": "Góu hraunbitar",
-      "brand": "Góu",
-      "category": "Laugardags",
+      "sku": "100264537",
+      "name": "Dove sturtusápa gentle pamper",
+      "brand": "Dove",
+      "category": "Snyrtivara",
       "unit": "stk",
-      "priceBefore": 490,
-      "priceAfter": 529,
-      "percent": 7.96,
+      "priceBefore": 569,
+      "priceAfter": 599,
+      "percent": 5.27,
       "allTimeLow": false,
       "allTimeHigh": true
     },
     {
-      "sku": "100253423",
-      "name": "sellerírót",
-      "brand": "",
-      "category": "Grænmeti",
+      "sku": "100202825",
+      "name": "Dove sturtusápa extra fresh",
+      "brand": "Dove",
+      "category": "Snyrtivara",
       "unit": "stk",
-      "priceBefore": 279,
-      "priceAfter": 298,
-      "percent": 6.81,
-      "allTimeLow": false,
-      "allTimeHigh": false
-    },
-    {
-      "sku": "100200113",
-      "name": "Kjarnafæði lambagúllas",
-      "brand": "Kjarnafæði",
-      "category": "Kjöt",
-      "unit": "KG",
-      "priceBefore": 4229,
-      "priceAfter": 4499,
-      "percent": 6.38,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100267257",
-      "name": "Holle lífræn þurrmjólk 2",
-      "brand": "Holle",
-      "category": "Börnin",
-      "unit": "stk",
-      "priceBefore": 2299,
-      "priceAfter": 2399,
-      "percent": 4.35,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100271411",
-      "name": "Prima chiliolía kaldpressuð",
-      "brand": "Prima",
-      "category": "Eldamennskan",
-      "unit": "stk",
-      "priceBefore": 550,
-      "priceAfter": 570,
-      "percent": 3.64,
-      "allTimeLow": false,
-      "allTimeHigh": false
-    },
-    {
-      "sku": "100174011",
-      "name": "Aspas grænn 450g",
-      "brand": "",
-      "category": "Grænmeti",
-      "unit": "stk",
-      "priceBefore": 1439,
-      "priceAfter": 1489,
-      "percent": 3.47,
-      "allTimeLow": false,
-      "allTimeHigh": false
-    },
-    {
-      "sku": "100247270",
-      "name": "Klettasalat Naturmed",
-      "brand": "",
-      "category": "Grænmeti",
-      "unit": "stk",
-      "priceBefore": 329,
-      "priceAfter": 339,
-      "percent": 3.04,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100265681",
-      "name": "Goodies llama puffs ostur & laukur",
-      "brand": "Goodies",
-      "category": "Börnin",
-      "unit": "stk",
-      "priceBefore": 229,
-      "priceAfter": 231,
-      "percent": 0.87,
+      "priceBefore": 519,
+      "priceAfter": 539,
+      "percent": 3.85,
       "allTimeLow": false,
       "allTimeHigh": true
     }
   ],
   "topDecreases": [
     {
-      "sku": "100265957",
-      "name": "Klaki dós djúsí appelsínu",
-      "brand": "Klaki",
-      "category": "Drykkir",
+      "sku": "100265335",
+      "name": "Til hamingju smart súkkulaðidropar",
+      "brand": "Til hamingju",
+      "category": "Bakstur",
       "unit": "stk",
-      "priceBefore": 190,
-      "priceAfter": 186,
-      "percent": -2.11,
+      "priceBefore": 435,
+      "priceAfter": 399,
+      "percent": -8.28,
       "allTimeLow": true,
       "allTimeHigh": false
     },
     {
-      "sku": "100266143",
-      "name": "General Mills cocoa puffs 731g",
-      "brand": "General Mills",
-      "category": "Morgunmatur og heilsubót",
+      "sku": "100272055",
+      "name": "Domestos power foam",
+      "brand": "Domestos",
+      "category": "Heimilið",
       "unit": "stk",
-      "priceBefore": 1499,
-      "priceAfter": 1490,
-      "percent": -0.6,
+      "priceBefore": 575,
+      "priceAfter": 549,
+      "percent": -4.52,
       "allTimeLow": true,
       "allTimeHigh": false
     }
   ],
   "topIncreasesByAmount": [
     {
-      "sku": "100269337",
-      "name": "Go Fitness mysuprótein vanillu",
-      "brand": "Go Fitness",
-      "category": "Morgunmatur og heilsubót",
+      "sku": "100273362",
+      "name": "Dove sturtusápa sandalwood & vanilla",
+      "brand": "Dove",
+      "category": "Snyrtivara",
       "unit": "stk",
-      "priceBefore": 4369,
-      "priceAfter": 4980,
-      "percent": 13.98,
-      "amount": 611,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100269338",
-      "name": "Go Fitness mysuprótein súkkulaði",
-      "brand": "Go Fitness",
-      "category": "Morgunmatur og heilsubót",
-      "unit": "stk",
-      "priceBefore": 4369,
-      "priceAfter": 4980,
-      "percent": 13.98,
-      "amount": 611,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100269340",
-      "name": "Happy Hydrate jóli",
-      "brand": "Happy Hydrate",
-      "category": "Morgunmatur og heilsubót",
-      "unit": "stk",
-      "priceBefore": 1599,
-      "priceAfter": 1898,
-      "percent": 18.7,
-      "amount": 299,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100200113",
-      "name": "Kjarnafæði lambagúllas",
-      "brand": "Kjarnafæði",
-      "category": "Kjöt",
-      "unit": "KG",
-      "priceBefore": 4229,
-      "priceAfter": 4499,
-      "percent": 6.38,
-      "amount": 270,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100113126",
-      "name": "T&A romain salat",
-      "brand": "T&A",
-      "category": "Grænmeti",
-      "unit": "stk",
-      "priceBefore": 998,
-      "priceAfter": 1149,
-      "percent": 15.13,
-      "amount": 151,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100267257",
-      "name": "Holle lífræn þurrmjólk 2",
-      "brand": "Holle",
-      "category": "Börnin",
-      "unit": "stk",
-      "priceBefore": 2299,
-      "priceAfter": 2399,
-      "percent": 4.35,
-      "amount": 100,
+      "priceBefore": 399,
+      "priceAfter": 539,
+      "percent": 35.09,
+      "amount": 140,
       "allTimeLow": false,
       "allTimeHigh": true
     },
@@ -287,140 +114,112 @@
       "brand": "Domestos",
       "category": "Heimilið",
       "unit": "stk",
-      "priceBefore": 449,
-      "priceAfter": 499,
-      "percent": 11.14,
+      "priceBefore": 499,
+      "priceAfter": 549,
+      "percent": 10.02,
       "amount": 50,
       "allTimeLow": false,
       "allTimeHigh": true
     },
     {
-      "sku": "100174011",
-      "name": "Aspas grænn 450g",
-      "brand": "",
-      "category": "Grænmeti",
-      "unit": "stk",
-      "priceBefore": 1439,
-      "priceAfter": 1489,
-      "percent": 3.47,
-      "amount": 50,
-      "allTimeLow": false,
-      "allTimeHigh": false
-    },
-    {
-      "sku": "05000048",
-      "name": "Góu hraunbitar",
-      "brand": "Góu",
-      "category": "Laugardags",
-      "unit": "stk",
-      "priceBefore": 490,
-      "priceAfter": 529,
-      "percent": 7.96,
-      "amount": 39,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100267628",
-      "name": "Domestos salernishreinsir lime",
+      "sku": "100272054",
+      "name": "Domestos power foam floral burst",
       "brand": "Domestos",
       "category": "Heimilið",
       "unit": "stk",
-      "priceBefore": 349,
-      "priceAfter": 379,
-      "percent": 8.6,
+      "priceBefore": 499,
+      "priceAfter": 549,
+      "percent": 10.02,
+      "amount": 50,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100264537",
+      "name": "Dove sturtusápa gentle pamper",
+      "brand": "Dove",
+      "category": "Snyrtivara",
+      "unit": "stk",
+      "priceBefore": 569,
+      "priceAfter": 599,
+      "percent": 5.27,
       "amount": 30,
       "allTimeLow": false,
       "allTimeHigh": true
     },
     {
-      "sku": "100271411",
-      "name": "Prima chiliolía kaldpressuð",
-      "brand": "Prima",
-      "category": "Eldamennskan",
+      "sku": "100202825",
+      "name": "Dove sturtusápa extra fresh",
+      "brand": "Dove",
+      "category": "Snyrtivara",
       "unit": "stk",
-      "priceBefore": 550,
-      "priceAfter": 570,
-      "percent": 3.64,
+      "priceBefore": 519,
+      "priceAfter": 539,
+      "percent": 3.85,
       "amount": 20,
-      "allTimeLow": false,
-      "allTimeHigh": false
-    },
-    {
-      "sku": "100253423",
-      "name": "sellerírót",
-      "brand": "",
-      "category": "Grænmeti",
-      "unit": "stk",
-      "priceBefore": 279,
-      "priceAfter": 298,
-      "percent": 6.81,
-      "amount": 19,
-      "allTimeLow": false,
-      "allTimeHigh": false
-    },
-    {
-      "sku": "100247270",
-      "name": "Klettasalat Naturmed",
-      "brand": "",
-      "category": "Grænmeti",
-      "unit": "stk",
-      "priceBefore": 329,
-      "priceAfter": 339,
-      "percent": 3.04,
-      "amount": 10,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100265681",
-      "name": "Goodies llama puffs ostur & laukur",
-      "brand": "Goodies",
-      "category": "Börnin",
-      "unit": "stk",
-      "priceBefore": 229,
-      "priceAfter": 231,
-      "percent": 0.87,
-      "amount": 2,
       "allTimeLow": false,
       "allTimeHigh": true
     }
   ],
   "topDecreasesByAmount": [
     {
-      "sku": "100266143",
-      "name": "General Mills cocoa puffs 731g",
-      "brand": "General Mills",
-      "category": "Morgunmatur og heilsubót",
+      "sku": "100265335",
+      "name": "Til hamingju smart súkkulaðidropar",
+      "brand": "Til hamingju",
+      "category": "Bakstur",
       "unit": "stk",
-      "priceBefore": 1499,
-      "priceAfter": 1490,
-      "percent": -0.6,
-      "amount": -9,
+      "priceBefore": 435,
+      "priceAfter": 399,
+      "percent": -8.28,
+      "amount": -36,
       "allTimeLow": true,
       "allTimeHigh": false
     },
     {
-      "sku": "100265957",
-      "name": "Klaki dós djúsí appelsínu",
-      "brand": "Klaki",
-      "category": "Drykkir",
+      "sku": "100272055",
+      "name": "Domestos power foam",
+      "brand": "Domestos",
+      "category": "Heimilið",
       "unit": "stk",
-      "priceBefore": 190,
-      "priceAfter": 186,
-      "percent": -2.11,
-      "amount": -4,
+      "priceBefore": 575,
+      "priceAfter": 549,
+      "percent": -4.52,
+      "amount": -26,
       "allTimeLow": true,
       "allTimeHigh": false
     }
   ],
   "weekly": {
-    "comparedTo": "2026-10-29",
-    "changedCount": 31,
+    "comparedTo": "2026-10-30",
+    "changedCount": 32,
     "increasedCount": 20,
-    "decreasedCount": 11,
+    "decreasedCount": 12,
     "avgPercentChange": 0.01,
     "topIncreases": [
+      {
+        "sku": "100273362",
+        "name": "Dove sturtusápa sandalwood & vanilla",
+        "brand": "Dove",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 399,
+        "priceAfter": 539,
+        "percent": 35.09,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100272053",
+        "name": "Domestos power foam limescale remover",
+        "brand": "Domestos",
+        "category": "Heimilið",
+        "unit": "stk",
+        "priceBefore": 449,
+        "priceAfter": 549,
+        "percent": 22.27,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
       {
         "sku": "100269337",
         "name": "Go Fitness mysuprótein vanillu",
@@ -470,30 +269,6 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100242137",
-        "name": "Diana Lys teljós 10 tíma",
-        "brand": "Diana Lys",
-        "category": "Heimilið",
-        "unit": "stk",
-        "priceBefore": 715,
-        "priceAfter": 799,
-        "percent": 11.75,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100272053",
-        "name": "Domestos power foam limescale remover",
-        "brand": "Domestos",
-        "category": "Heimilið",
-        "unit": "stk",
-        "priceBefore": 449,
-        "priceAfter": 499,
-        "percent": 11.14,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
         "sku": "100253122",
         "name": "paprika rauð",
         "brand": "",
@@ -506,14 +281,14 @@
         "allTimeHigh": true
       },
       {
-        "sku": "05000048",
-        "name": "Góu hraunbitar",
-        "brand": "Góu",
-        "category": "Laugardags",
+        "sku": "100272054",
+        "name": "Domestos power foam floral burst",
+        "brand": "Domestos",
+        "category": "Heimilið",
         "unit": "stk",
-        "priceBefore": 480,
-        "priceAfter": 529,
-        "percent": 10.21,
+        "priceBefore": 499,
+        "priceAfter": 549,
+        "percent": 10.02,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -530,14 +305,14 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100142251",
-        "name": "Whole Earth hnetusmjör crunchy",
-        "brand": "Whole Earth",
-        "category": "Á brauð",
+        "sku": "05000048",
+        "name": "Góu hraunbitar",
+        "brand": "Góu",
+        "category": "Laugardags",
         "unit": "stk",
-        "priceBefore": 550,
-        "priceAfter": 590,
-        "percent": 7.27,
+        "priceBefore": 490,
+        "priceAfter": 529,
+        "percent": 7.96,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -566,6 +341,18 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100264537",
+        "name": "Dove sturtusápa gentle pamper",
+        "brand": "Dove",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 569,
+        "priceAfter": 599,
+        "percent": 5.27,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100267257",
         "name": "Holle lífræn þurrmjólk 2",
         "brand": "Holle",
@@ -578,14 +365,14 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100256380",
-        "name": "Egils hvítöl gler",
-        "brand": "Egils",
-        "category": "Drykkir",
+        "sku": "100202825",
+        "name": "Dove sturtusápa extra fresh",
+        "brand": "Dove",
+        "category": "Snyrtivara",
         "unit": "stk",
-        "priceBefore": 248,
-        "priceAfter": 258,
-        "percent": 4.03,
+        "priceBefore": 519,
+        "priceAfter": 539,
+        "percent": 3.85,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -622,18 +409,6 @@
         "priceBefore": 679,
         "priceAfter": 699,
         "percent": 2.95,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "05000050",
-        "name": "Góu æðibitar",
-        "brand": "Góu",
-        "category": "Laugardags",
-        "unit": "stk",
-        "priceBefore": 480,
-        "priceAfter": 490,
-        "percent": 2.08,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -700,14 +475,14 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100270055",
-        "name": "Guli miðinn kreatín 300g",
-        "brand": "Guli miðinn",
-        "category": "Morgunmatur og heilsubót",
+        "sku": "100265335",
+        "name": "Til hamingju smart súkkulaðidropar",
+        "brand": "Til hamingju",
+        "category": "Bakstur",
         "unit": "stk",
-        "priceBefore": 1879,
-        "priceAfter": 1689,
-        "percent": -10.11,
+        "priceBefore": 435,
+        "priceAfter": 399,
+        "percent": -8.28,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -721,6 +496,18 @@
         "priceAfter": 304,
         "percent": -7.6,
         "allTimeLow": false,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100272055",
+        "name": "Domestos power foam",
+        "brand": "Domestos",
+        "category": "Heimilið",
+        "unit": "stk",
+        "priceBefore": 575,
+        "priceAfter": 549,
+        "percent": -4.52,
+        "allTimeLow": true,
         "allTimeHigh": false
       },
       {
@@ -837,6 +624,32 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100273362",
+        "name": "Dove sturtusápa sandalwood & vanilla",
+        "brand": "Dove",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 399,
+        "priceAfter": 539,
+        "percent": 35.09,
+        "amount": 140,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100272053",
+        "name": "Domestos power foam limescale remover",
+        "brand": "Domestos",
+        "category": "Heimilið",
+        "unit": "stk",
+        "priceBefore": 449,
+        "priceAfter": 549,
+        "percent": 22.27,
+        "amount": 100,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100267257",
         "name": "Holle lífræn þurrmjólk 2",
         "brand": "Holle",
@@ -846,19 +659,6 @@
         "priceAfter": 2399,
         "percent": 4.35,
         "amount": 100,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100242137",
-        "name": "Diana Lys teljós 10 tíma",
-        "brand": "Diana Lys",
-        "category": "Heimilið",
-        "unit": "stk",
-        "priceBefore": 715,
-        "priceAfter": 799,
-        "percent": 11.75,
-        "amount": 84,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -876,14 +676,14 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100272053",
-        "name": "Domestos power foam limescale remover",
+        "sku": "100272054",
+        "name": "Domestos power foam floral burst",
         "brand": "Domestos",
         "category": "Heimilið",
         "unit": "stk",
-        "priceBefore": 449,
-        "priceAfter": 499,
-        "percent": 11.14,
+        "priceBefore": 499,
+        "priceAfter": 549,
+        "percent": 10.02,
         "amount": 50,
         "allTimeLow": false,
         "allTimeHigh": true
@@ -894,23 +694,10 @@
         "brand": "Góu",
         "category": "Laugardags",
         "unit": "stk",
-        "priceBefore": 480,
+        "priceBefore": 490,
         "priceAfter": 529,
-        "percent": 10.21,
-        "amount": 49,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100142251",
-        "name": "Whole Earth hnetusmjör crunchy",
-        "brand": "Whole Earth",
-        "category": "Á brauð",
-        "unit": "stk",
-        "priceBefore": 550,
-        "priceAfter": 590,
-        "percent": 7.27,
-        "amount": 40,
+        "percent": 7.96,
+        "amount": 39,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -928,6 +715,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100264537",
+        "name": "Dove sturtusápa gentle pamper",
+        "brand": "Dove",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 569,
+        "priceAfter": 599,
+        "percent": 5.27,
+        "amount": 30,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100253123",
         "name": "paprika orange",
         "brand": "",
@@ -937,6 +737,19 @@
         "priceAfter": 198,
         "percent": 13.14,
         "amount": 23,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100202825",
+        "name": "Dove sturtusápa extra fresh",
+        "brand": "Dove",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 519,
+        "priceAfter": 539,
+        "percent": 3.85,
+        "amount": 20,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -993,19 +806,6 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100256380",
-        "name": "Egils hvítöl gler",
-        "brand": "Egils",
-        "category": "Drykkir",
-        "unit": "stk",
-        "priceBefore": 248,
-        "priceAfter": 258,
-        "percent": 4.03,
-        "amount": 10,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
         "sku": "100247270",
         "name": "Klettasalat Naturmed",
         "brand": "",
@@ -1014,19 +814,6 @@
         "priceBefore": 329,
         "priceAfter": 339,
         "percent": 3.04,
-        "amount": 10,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "05000050",
-        "name": "Góu æðibitar",
-        "brand": "Góu",
-        "category": "Laugardags",
-        "unit": "stk",
-        "priceBefore": 480,
-        "priceAfter": 490,
-        "percent": 2.08,
         "amount": 10,
         "allTimeLow": false,
         "allTimeHigh": true
@@ -1060,19 +847,6 @@
     ],
     "topDecreasesByAmount": [
       {
-        "sku": "100270055",
-        "name": "Guli miðinn kreatín 300g",
-        "brand": "Guli miðinn",
-        "category": "Morgunmatur og heilsubót",
-        "unit": "stk",
-        "priceBefore": 1879,
-        "priceAfter": 1689,
-        "percent": -10.11,
-        "amount": -190,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100274051",
         "name": "Sun-Maid súkkulaðirúsínur",
         "brand": "Sun-Maid",
@@ -1082,6 +856,32 @@
         "priceAfter": 445,
         "percent": -25.71,
         "amount": -154,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100265335",
+        "name": "Til hamingju smart súkkulaðidropar",
+        "brand": "Til hamingju",
+        "category": "Bakstur",
+        "unit": "stk",
+        "priceBefore": 435,
+        "priceAfter": 399,
+        "percent": -8.28,
+        "amount": -36,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100272055",
+        "name": "Domestos power foam",
+        "brand": "Domestos",
+        "category": "Heimilið",
+        "unit": "stk",
+        "priceBefore": 575,
+        "priceAfter": 549,
+        "percent": -4.52,
+        "amount": -26,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -1205,13 +1005,13 @@
     ]
   },
   "monthly": {
-    "comparedTo": "2026-10-06",
-    "changedCount": 1031,
-    "increasedCount": 199,
-    "decreasedCount": 832,
+    "comparedTo": "2026-10-07",
+    "changedCount": 891,
+    "increasedCount": 200,
+    "decreasedCount": 691,
     "comparableCount": 8133,
-    "avgPercentChange": -0.2,
-    "avgPercentChangeProjected": -0.2,
+    "avgPercentChange": -0.15,
+    "avgPercentChangeProjected": -0.15,
     "isPartialPeriod": false,
     "actualDays": 30,
     "topIncreases": [
@@ -1288,6 +1088,18 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100273362",
+        "name": "Dove sturtusápa sandalwood & vanilla",
+        "brand": "Dove",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 410,
+        "priceAfter": 539,
+        "percent": 31.46,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "03101199",
         "name": "Neutral mýkingarefni",
         "brand": "Neutral",
@@ -1358,6 +1170,18 @@
         "percent": 22.92,
         "allTimeLow": false,
         "allTimeHigh": false
+      },
+      {
+        "sku": "100272053",
+        "name": "Domestos power foam limescale remover",
+        "brand": "Domestos",
+        "category": "Heimilið",
+        "unit": "stk",
+        "priceBefore": 449,
+        "priceAfter": 549,
+        "percent": 22.27,
+        "allTimeLow": false,
+        "allTimeHigh": true
       },
       {
         "sku": "100260148",
@@ -1492,18 +1316,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100272053",
-        "name": "Domestos power foam limescale remover",
-        "brand": "Domestos",
-        "category": "Heimilið",
-        "unit": "stk",
-        "priceBefore": 449,
-        "priceAfter": 499,
-        "percent": 11.14,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
         "sku": "100260320",
         "name": "Dove 6pk sápustykki pink",
         "brand": "Dove",
@@ -1584,6 +1396,18 @@
         "priceBefore": 199,
         "priceAfter": 219,
         "percent": 10.05,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100272054",
+        "name": "Domestos power foam floral burst",
+        "brand": "Domestos",
+        "category": "Heimilið",
+        "unit": "stk",
+        "priceBefore": 499,
+        "priceAfter": 549,
+        "percent": 10.02,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -1790,30 +1614,6 @@
         "percent": 6.06,
         "allTimeLow": false,
         "allTimeHigh": true
-      },
-      {
-        "sku": "00201404",
-        "name": "Kjötborð lambagrillleggir",
-        "brand": "Kjötborð",
-        "category": "Kjöt",
-        "unit": "KG",
-        "priceBefore": 3399,
-        "priceAfter": 3599,
-        "percent": 5.88,
-        "allTimeLow": false,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100212361",
-        "name": "Mars 70 gr",
-        "brand": "Mars",
-        "category": "Laugardags",
-        "unit": "stk",
-        "priceBefore": 170,
-        "priceAfter": 180,
-        "percent": 5.88,
-        "allTimeLow": false,
-        "allTimeHigh": false
       }
     ],
     "topDecreases": [
@@ -2130,18 +1930,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100248612",
-        "name": "First Price ananas í sneiðum",
-        "brand": "First Price",
-        "category": "Eldamennskan",
-        "unit": "stk",
-        "priceBefore": 259,
-        "priceAfter": 233,
-        "percent": -10.04,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100250957",
         "name": "Skare carpaccio",
         "brand": "Skare",
@@ -2286,18 +2074,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100250771",
-        "name": "Grön Balance kjúklingabaunir",
-        "brand": "Grön Balance",
-        "category": "Eldamennskan",
-        "unit": "stk",
-        "priceBefore": 170,
-        "priceAfter": 156,
-        "percent": -8.24,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100255901",
         "name": "El Taco Truck chipotle mayo",
         "brand": "El Taco Truck",
@@ -2370,18 +2146,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100179739",
-        "name": "First Price hrísgrjón í suðupoka",
-        "brand": "First Price",
-        "category": "Eldamennskan",
-        "unit": "stk",
-        "priceBefore": 150,
-        "priceAfter": 139,
-        "percent": -7.33,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100255827",
         "name": "El Taco Truck smokey spice mix",
         "brand": "El Taco Truck",
@@ -2394,18 +2158,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100236744",
-        "name": "Gestus franskar curly",
-        "brand": "Gestus",
-        "category": "Frystivara",
-        "unit": "stk",
-        "priceBefore": 579,
-        "priceAfter": 539,
-        "percent": -6.91,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100269221",
         "name": "Göteborgs utvalda súrdeigskex",
         "brand": "Göteborgs",
@@ -2414,6 +2166,54 @@
         "priceBefore": 220,
         "priceAfter": 205,
         "percent": -6.82,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100270757",
+        "name": "Garnier salicylic serum mask",
+        "brand": "Garnier",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 440,
+        "priceAfter": 410,
+        "percent": -6.82,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100212041",
+        "name": "Three Star heimiliseldspýtur",
+        "brand": "Three Star",
+        "category": "Heimilið",
+        "unit": "stk",
+        "priceBefore": 150,
+        "priceAfter": 140,
+        "percent": -6.67,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100248756",
+        "name": "Fun Light þykkni pink lemonade",
+        "brand": "Fun Light",
+        "category": "Drykkir",
+        "unit": "stk",
+        "priceBefore": 395,
+        "priceAfter": 370,
+        "percent": -6.33,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100262495",
+        "name": "General Mills honey nut cheerios 725gr",
+        "brand": "General Mills",
+        "category": "Morgunmatur og heilsubót",
+        "unit": "stk",
+        "priceBefore": 1099,
+        "priceAfter": 1030,
+        "percent": -6.28,
         "allTimeLow": true,
         "allTimeHigh": false
       }
@@ -3044,6 +2844,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100273362",
+        "name": "Dove sturtusápa sandalwood & vanilla",
+        "brand": "Dove",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 410,
+        "priceAfter": 539,
+        "percent": 31.46,
+        "amount": 129,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100103286",
         "name": "Grasker skraut mix stór",
         "brand": "",
@@ -3053,19 +2866,6 @@
         "priceAfter": 799,
         "percent": 18.55,
         "amount": 125,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100219187",
-        "name": "Ali kjúklingalæri úrb 100 %",
-        "brand": "Ali",
-        "category": "Kjöt",
-        "unit": "KG",
-        "priceBefore": 4179,
-        "priceAfter": 4299,
-        "percent": 2.87,
-        "amount": 120,
         "allTimeLow": false,
         "allTimeHigh": true
       }
@@ -3350,19 +3150,6 @@
         "brand": "Fiskverzlun Hafliða",
         "category": "Fiskur",
         "unit": "stk",
-        "priceBefore": 3599,
-        "priceAfter": 3499,
-        "percent": -2.78,
-        "amount": -100,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100224015",
-        "name": "SS Hvítlaukspipar læri",
-        "brand": "SS",
-        "category": "Kjöt",
-        "unit": "KG",
         "priceBefore": 3599,
         "priceAfter": 3499,
         "percent": -2.78,
@@ -3720,16 +3507,53 @@
         "amount": -60,
         "allTimeLow": true,
         "allTimeHigh": false
+      },
+      {
+        "sku": "100264838",
+        "name": "Tena discreet extra",
+        "brand": "Tena",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 1135,
+        "priceAfter": 1075,
+        "percent": -5.29,
+        "amount": -60,
+        "allTimeLow": true,
+        "allTimeHigh": false
       }
     ]
   },
   "monthToDate": {
     "comparedTo": "2026-11-01",
-    "changedCount": 26,
-    "increasedCount": 16,
-    "decreasedCount": 10,
+    "changedCount": 32,
+    "increasedCount": 20,
+    "decreasedCount": 12,
     "avgPercentChange": 0.01,
     "topIncreases": [
+      {
+        "sku": "100273362",
+        "name": "Dove sturtusápa sandalwood & vanilla",
+        "brand": "Dove",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 399,
+        "priceAfter": 539,
+        "percent": 35.09,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100272053",
+        "name": "Domestos power foam limescale remover",
+        "brand": "Domestos",
+        "category": "Heimilið",
+        "unit": "stk",
+        "priceBefore": 449,
+        "priceAfter": 549,
+        "percent": 22.27,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
       {
         "sku": "100269337",
         "name": "Go Fitness mysuprótein vanillu",
@@ -3779,18 +3603,6 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100272053",
-        "name": "Domestos power foam limescale remover",
-        "brand": "Domestos",
-        "category": "Heimilið",
-        "unit": "stk",
-        "priceBefore": 449,
-        "priceAfter": 499,
-        "percent": 11.14,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
         "sku": "100253122",
         "name": "paprika rauð",
         "brand": "",
@@ -3799,6 +3611,18 @@
         "priceBefore": 179,
         "priceAfter": 198,
         "percent": 10.61,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100272054",
+        "name": "Domestos power foam floral burst",
+        "brand": "Domestos",
+        "category": "Heimilið",
+        "unit": "stk",
+        "priceBefore": 499,
+        "priceAfter": 549,
+        "percent": 10.02,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -3851,6 +3675,18 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100264537",
+        "name": "Dove sturtusápa gentle pamper",
+        "brand": "Dove",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 569,
+        "priceAfter": 599,
+        "percent": 5.27,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100267257",
         "name": "Holle lífræn þurrmjólk 2",
         "brand": "Holle",
@@ -3859,6 +3695,18 @@
         "priceBefore": 2299,
         "priceAfter": 2399,
         "percent": 4.35,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100202825",
+        "name": "Dove sturtusápa extra fresh",
+        "brand": "Dove",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 519,
+        "priceAfter": 539,
+        "percent": 3.85,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -3961,6 +3809,18 @@
         "allTimeHigh": false
       },
       {
+        "sku": "100265335",
+        "name": "Til hamingju smart súkkulaðidropar",
+        "brand": "Til hamingju",
+        "category": "Bakstur",
+        "unit": "stk",
+        "priceBefore": 435,
+        "priceAfter": 399,
+        "percent": -8.28,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
         "sku": "00900316",
         "name": "Avókadó í lausu",
         "brand": "",
@@ -3970,6 +3830,18 @@
         "priceAfter": 304,
         "percent": -7.6,
         "allTimeLow": false,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100272055",
+        "name": "Domestos power foam",
+        "brand": "Domestos",
+        "category": "Heimilið",
+        "unit": "stk",
+        "priceBefore": 575,
+        "priceAfter": 549,
+        "percent": -4.52,
+        "allTimeLow": true,
         "allTimeHigh": false
       },
       {
@@ -4086,6 +3958,32 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100273362",
+        "name": "Dove sturtusápa sandalwood & vanilla",
+        "brand": "Dove",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 399,
+        "priceAfter": 539,
+        "percent": 35.09,
+        "amount": 140,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100272053",
+        "name": "Domestos power foam limescale remover",
+        "brand": "Domestos",
+        "category": "Heimilið",
+        "unit": "stk",
+        "priceBefore": 449,
+        "priceAfter": 549,
+        "percent": 22.27,
+        "amount": 100,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100267257",
         "name": "Holle lífræn þurrmjólk 2",
         "brand": "Holle",
@@ -4112,14 +4010,14 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100272053",
-        "name": "Domestos power foam limescale remover",
+        "sku": "100272054",
+        "name": "Domestos power foam floral burst",
         "brand": "Domestos",
         "category": "Heimilið",
         "unit": "stk",
-        "priceBefore": 449,
-        "priceAfter": 499,
-        "percent": 11.14,
+        "priceBefore": 499,
+        "priceAfter": 549,
+        "percent": 10.02,
         "amount": 50,
         "allTimeLow": false,
         "allTimeHigh": true
@@ -4151,6 +4049,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100264537",
+        "name": "Dove sturtusápa gentle pamper",
+        "brand": "Dove",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 569,
+        "priceAfter": 599,
+        "percent": 5.27,
+        "amount": 30,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100253123",
         "name": "paprika orange",
         "brand": "",
@@ -4160,6 +4071,19 @@
         "priceAfter": 198,
         "percent": 13.14,
         "amount": 23,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100202825",
+        "name": "Dove sturtusápa extra fresh",
+        "brand": "Dove",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 519,
+        "priceAfter": 539,
+        "percent": 3.85,
+        "amount": 20,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -4266,6 +4190,32 @@
         "priceAfter": 445,
         "percent": -25.71,
         "amount": -154,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100265335",
+        "name": "Til hamingju smart súkkulaðidropar",
+        "brand": "Til hamingju",
+        "category": "Bakstur",
+        "unit": "stk",
+        "priceBefore": 435,
+        "priceAfter": 399,
+        "percent": -8.28,
+        "amount": -36,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100272055",
+        "name": "Domestos power foam",
+        "brand": "Domestos",
+        "category": "Heimilið",
+        "unit": "stk",
+        "priceBefore": 575,
+        "priceAfter": 549,
+        "percent": -4.52,
+        "amount": -26,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -6411,7 +6361,7 @@
       "brand": "Happy Hydrate",
       "category": "Morgunmatur og heilsubót",
       "changes": 4,
-      "days": 19,
+      "days": 20,
       "lastPrice": 1898
     },
     {
@@ -6420,7 +6370,7 @@
       "brand": "",
       "category": "Grænmeti",
       "changes": 16,
-      "days": 103,
+      "days": 104,
       "lastPrice": 298
     },
     {
@@ -6429,17 +6379,8 @@
       "brand": "",
       "category": "Grænmeti",
       "changes": 11,
-      "days": 103,
+      "days": 104,
       "lastPrice": 329
-    },
-    {
-      "sku": "100266143",
-      "name": "General Mills cocoa puffs 731g",
-      "brand": "General Mills",
-      "category": "Morgunmatur og heilsubót",
-      "changes": 2,
-      "days": 19,
-      "lastPrice": 1490
     },
     {
       "sku": "100253122",
@@ -6447,8 +6388,17 @@
       "brand": "",
       "category": "Grænmeti",
       "changes": 10,
-      "days": 99,
+      "days": 100,
       "lastPrice": 198
+    },
+    {
+      "sku": "100266143",
+      "name": "General Mills cocoa puffs 731g",
+      "brand": "General Mills",
+      "category": "Morgunmatur og heilsubót",
+      "changes": 2,
+      "days": 20,
+      "lastPrice": 1490
     }
   ],
   "shrinkflationAlerts": []
