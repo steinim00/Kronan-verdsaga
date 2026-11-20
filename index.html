@@ -2039,6 +2039,14 @@
   }
 
 
+
+  function frozenChange(c, label) {
+    if (!c) return `${label}: engin gögn`;
+    const cls = c.amount > 0 ? "up" : c.amount < 0 ? "down" : "";
+    const sign = c.amount > 0 ? "+" : "";
+    return `${label}: <span class="${cls}">${sign}${new Intl.NumberFormat("is-IS").format(c.amount)} kr (${c.percent == null ? "—" : fmtPercent(c.percent)})</span>`;
+  }
+
   let frozenCache = null;
   let frozenFilter = "";
   let frozenCategory = "";
@@ -2049,13 +2057,13 @@
       if (frozenCache === null) frozenCache = await fetchJson("data/frozen-prices.json");
       const all = frozenCache.products || [];
       if (all.length === 0) {
-        contentEl.innerHTML = `<div class="status">${frozenCache.tags && frozenCache.tags.length === 0 ? "Fann ekkert tag fyrir fryst verð í API-inu hjá Krónunni — skriftan þarf að fá rétt tag (FROZEN_TAG_SLUG)." : "Engin vörunúmer með frystu verði fundust ennþá."}</div>`;
+        contentEl.innerHTML = `<div class="status">Engin vörunúmer með frystu verði fundust ennþá.</div>`;
         return;
       }
       const cats = [...new Set(all.map((p) => (p.categoryPath || "").split("/")[0].trim()).filter(Boolean))].sort();
       contentEl.innerHTML = `
         <div class="section-label">Vörur með frystu verði samkvæmt Krónunni</div>
-        <p style="font-size:11px; color:var(--ink-faint); margin:-4px 0 12px;">Vörunúmer sem Krónan sjálf merkir sem „fryst verð“. Listinn sækist daglega. (${all.length} vörunúmer)</p>
+        <p style="font-size:11px; color:var(--ink-faint); margin:-4px 0 12px;">Vörur sem Krónan segir að séu með frystu verði til og með 31. desember 2026 (<a href="https://kronan.is/frysting-voruverds" target="_blank" rel="noopener">kronan.is/frysting-voruverds</a>). Listinn sækist daglega. (${all.length} vörunúmer)</p>
         <select id="frozenCategorySelect" class="extremes-category-select">
           <option value="">Allir flokkar</option>
           ${cats.map((c) => `<option value="${c.replace(/"/g,'&quot;')}" ${c === frozenCategory ? "selected" : ""}>${c}</option>`).join("")}
@@ -2082,7 +2090,8 @@
               <div class="name">${p.name}</div>
               <div class="percent">${fmtISKUnit(price, unit)}</div>
               <div class="meta">${metaLine({ category, brand: p.brand })}</div>
-              <div class="prices">fryst frá ${fmtDateShort(p.frozenSince || frozenCache.date)} · ${p.sku}</div>
+              <div class="prices">${frozenChange(p.sinceBase, "Frá " + fmtDateShort(frozenCache.baseDate || "2026-09-23"))}</div>
+              <div class="prices">${frozenChange(p.beforeBase, "2 dögum fyrr (" + (frozenCache.beforeDate ? fmtDateShort(frozenCache.beforeDate) : "—") + " → " + fmtDateShort(frozenCache.baseDate || "2026-09-23") + ")")} · ${p.sku}</div>
             </div>`;
         }).join("");
         attachLineClicks(listEl);
