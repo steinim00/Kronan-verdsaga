@@ -1,1 +1,75 @@
-{"date":"2026-11-20","tags":null,"products":[]}
+{
+  "date": "2026-11-20",
+  "tags": [],
+  "availableTags": [
+    {
+      "slug": "has_health_cart_points",
+      "name": "Heillakarfan"
+    },
+    {
+      "slug": "frozen_goods",
+      "name": "Frystivara"
+    },
+    {
+      "slug": "low_price",
+      "name": "Ódýrt"
+    },
+    {
+      "slug": "tooth_friendly",
+      "name": "Tannvænt"
+    },
+    {
+      "slug": "evropublomid",
+      "name": "Evrópublómið"
+    },
+    {
+      "slug": "new_product",
+      "name": "Nýtt"
+    },
+    {
+      "slug": "kronan_recommends",
+      "name": "Krónan mælir með"
+    },
+    {
+      "slug": "lactosefree",
+      "name": "Laktósafrítt"
+    },
+    {
+      "slug": "bio",
+      "name": "Lífrænt"
+    },
+    {
+      "slug": "vegan",
+      "name": "Vegan"
+    },
+    {
+      "slug": "icelandic",
+      "name": "Íslenskt"
+    },
+    {
+      "slug": "fairtrade",
+      "name": "Fairtrade"
+    },
+    {
+      "slug": "keyhole",
+      "name": "Skráargatið"
+    },
+    {
+      "slug": "season_best",
+      "name": "Árstíðabundið"
+    },
+    {
+      "slug": "svanurinn",
+      "name": "Svanurinn"
+    },
+    {
+      "slug": "nespresso",
+      "name": "Nespresso"
+    },
+    {
+      "slug": "glutenfree",
+      "name": "Glútenlaust"
+    }
+  ],
+  "products": []
+}
