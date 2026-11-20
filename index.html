@@ -1062,6 +1062,7 @@
           <button type="button" class="view-tab active" data-view="overview">Yfirlit</button>
           <button type="button" class="view-tab" data-view="extremes">Öfgar í verði</button>
           <button type="button" class="view-tab" data-view="stats">Tölfræði</button>
+          <button type="button" class="view-tab" data-view="frozen">Fryst verð</button>
         </div>
 
         <div class="range-tabs" id="rangeTabs">
@@ -1982,6 +1983,7 @@
     renderCategoryBreakdown(rangeData(currentMovers, currentRange));
     if (currentView === "extremes") { renderExtremesView(); return; }
     if (currentView === "stats") { renderStatsView(); return; }
+    if (currentView === "frozen") { renderFrozenView(); return; }
     if (currentView === "hourly") { renderHourlyView(); return; }
     renderOverviewView();
   }
@@ -2033,6 +2035,63 @@
       attachLineClicks(contentEl);
     } catch (e) {
       showRetryError(contentEl, e, renderHourlyView);
+    }
+  }
+
+
+  let frozenCache = null;
+  let frozenFilter = "";
+  let frozenCategory = "";
+
+  async function renderFrozenView() {
+    contentEl.innerHTML = skeletonHtml();
+    try {
+      if (frozenCache === null) frozenCache = await fetchJson("data/frozen-prices.json");
+      const all = frozenCache.products || [];
+      if (all.length === 0) {
+        contentEl.innerHTML = `<div class="status">${frozenCache.tags && frozenCache.tags.length === 0 ? "Fann ekkert tag fyrir fryst verð í API-inu hjá Krónunni — skriftan þarf að fá rétt tag (FROZEN_TAG_SLUG)." : "Engin vörunúmer með frystu verði fundust ennþá."}</div>`;
+        return;
+      }
+      const cats = [...new Set(all.map((p) => (p.categoryPath || "").split("/")[0].trim()).filter(Boolean))].sort();
+      contentEl.innerHTML = `
+        <div class="section-label">Vörur með frystu verði samkvæmt Krónunni</div>
+        <p style="font-size:11px; color:var(--ink-faint); margin:-4px 0 12px;">Vörunúmer sem Krónan sjálf merkir sem „fryst verð“. Listinn sækist daglega. (${all.length} vörunúmer)</p>
+        <select id="frozenCategorySelect" class="extremes-category-select">
+          <option value="">Allir flokkar</option>
+          ${cats.map((c) => `<option value="${c.replace(/"/g,'&quot;')}" ${c === frozenCategory ? "selected" : ""}>${c}</option>`).join("")}
+        </select>
+        <input id="frozenFilterInput" class="search-input" style="margin:8px 0 12px;" placeholder="Sía eftir nafni eða vörunúmeri…" value="${frozenFilter.replace(/"/g,'&quot;')}" autocomplete="off" />
+        <div id="frozenList"></div>
+      `;
+      const listEl = document.getElementById("frozenList");
+      function draw() {
+        const q = frozenFilter.trim().toLowerCase();
+        const items = all.filter((p) => {
+          const cat = (p.categoryPath || "").split("/")[0].trim();
+          if (frozenCategory && cat !== frozenCategory) return false;
+          return !q || p.name.toLowerCase().includes(q) || String(p.sku).includes(q) || (p.brand || "").toLowerCase().includes(q);
+        });
+        if (items.length === 0) { listEl.innerHTML = '<div class="empty">Engar vörur passa við síuna.</div>'; return; }
+        listEl.innerHTML = items.map((p) => {
+          const category = (p.categoryPath || "").split("/")[0].trim();
+          const unit = p.chargedByWeight ? p.baseComparisonUnit : null;
+          const price = p.chargedByWeight && p.pricePerKilo != null ? p.pricePerKilo : p.price;
+          return `
+            <div class="line" data-sku="${p.sku}" data-name="${p.name.replace(/"/g,'&quot;')}" data-brand="${(p.brand||"").replace(/"/g,'&quot;')}" data-category="${category.replace(/"/g,'&quot;')}">
+              <div class="line-icon">${categoryIconSvg(category)}</div>
+              <div class="name">${p.name}</div>
+              <div class="percent">${fmtISKUnit(price, unit)}</div>
+              <div class="meta">${metaLine({ category, brand: p.brand })}</div>
+              <div class="prices">fryst frá ${fmtDateShort(p.frozenSince || frozenCache.date)} · ${p.sku}</div>
+            </div>`;
+        }).join("");
+        attachLineClicks(listEl);
+      }
+      document.getElementById("frozenCategorySelect").addEventListener("change", (e) => { frozenCategory = e.target.value; draw(); });
+      document.getElementById("frozenFilterInput").addEventListener("input", (e) => { frozenFilter = e.target.value; draw(); });
+      draw();
+    } catch (e) {
+      showRetryError(contentEl, e, renderFrozenView);
     }
   }
 

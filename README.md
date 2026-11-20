@@ -108,6 +108,13 @@ ekkert build-skref, engin bakenda-þjónusta þarf að keyra.
 - Vöruflokkatákn (23 handteiknuð SVG-tákn, lituð í vörumerkjalitum
   Krónunnar) fyrir framan hverja vöru
 
+**Fryst verð**
+- Vörunúmer sem Krónan sjálf merkir sem „fryst verð“ (sótt daglega úr
+  `GET /products/tags/` + `/products/by-tag/{slug}/`, vistað í
+  `data/frozen-prices.json`, með dagsetningu hvenær varan sást fyrst
+  frosin). Ef sjálfvirk greining á tagginu velur rangt má þvinga það með
+  umhverfisbreytunni `FROZEN_TAG_SLUG`.
+
 **Öfgar í verði**
 - 5 ódýrustu og 5 dýrustu vörur, annaðhvort af öllum vörunúmerum eða
   innan valins vöruflokks

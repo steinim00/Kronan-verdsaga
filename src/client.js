@@ -76,6 +76,9 @@ export function makeClient(accessToken) {
     getCategoryProducts: (slug, page = 1) =>
       request(`/categories/${encodeURIComponent(slug)}/products/?page=${page}`),
     // Max 100 SKUs per call (enforced by the API).
+    getTags: () => request("/products/tags/"),
+    getProductsByTag: (slug, page = 1) =>
+      request(`/products/by-tag/${encodeURIComponent(slug)}/?page=${page}`),
     batchLookup: (skus) => request("/products/batch/", { method: "POST", body: { skus } }),
   };
 }
