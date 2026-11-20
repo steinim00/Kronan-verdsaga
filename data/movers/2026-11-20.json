@@ -2,10 +2,10 @@
   "date": "2026-11-20",
   "comparedTo": "2026-11-19",
   "productCount": 8629,
-  "changedCount": 23,
+  "changedCount": 25,
   "increasedCount": 4,
-  "decreasedCount": 19,
-  "avgPercentChange": -0.01,
+  "decreasedCount": 21,
+  "avgPercentChange": -0.02,
   "topIncreases": [
     {
       "sku": "00900369",
@@ -57,6 +57,30 @@
     }
   ],
   "topDecreases": [
+    {
+      "sku": "100271623",
+      "name": "Esti grísk jógúrt vanillu 10% 1kg",
+      "brand": "Esti",
+      "category": "Mjólkurvörur og egg",
+      "unit": "stk",
+      "priceBefore": 899,
+      "priceAfter": 399,
+      "percent": -55.62,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100271617",
+      "name": "Esti grísk jógúrt 10% 1kg",
+      "brand": "Esti",
+      "category": "Mjólkurvörur og egg",
+      "unit": "stk",
+      "priceBefore": 799,
+      "priceAfter": 399,
+      "percent": -50.06,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
     {
       "sku": "100274047",
       "name": "Sun-Maid súkkulaðirúsínur piparköku",
@@ -342,6 +366,32 @@
   ],
   "topDecreasesByAmount": [
     {
+      "sku": "100271623",
+      "name": "Esti grísk jógúrt vanillu 10% 1kg",
+      "brand": "Esti",
+      "category": "Mjólkurvörur og egg",
+      "unit": "stk",
+      "priceBefore": 899,
+      "priceAfter": 399,
+      "percent": -55.62,
+      "amount": -500,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100271617",
+      "name": "Esti grísk jógúrt 10% 1kg",
+      "brand": "Esti",
+      "category": "Mjólkurvörur og egg",
+      "unit": "stk",
+      "priceBefore": 799,
+      "priceAfter": 399,
+      "percent": -50.06,
+      "amount": -400,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
       "sku": "100274047",
       "name": "Sun-Maid súkkulaðirúsínur piparköku",
       "brand": "Sun-Maid",
@@ -591,10 +641,10 @@
   ],
   "weekly": {
     "comparedTo": "2026-11-13",
-    "changedCount": 230,
+    "changedCount": 232,
     "increasedCount": 93,
-    "decreasedCount": 137,
-    "avgPercentChange": 0,
+    "decreasedCount": 139,
+    "avgPercentChange": -0.01,
     "topIncreases": [
       {
         "sku": "100234453",
@@ -1199,6 +1249,30 @@
     ],
     "topDecreases": [
       {
+        "sku": "100271623",
+        "name": "Esti grísk jógúrt vanillu 10% 1kg",
+        "brand": "Esti",
+        "category": "Mjólkurvörur og egg",
+        "unit": "stk",
+        "priceBefore": 899,
+        "priceAfter": 399,
+        "percent": -55.62,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100271617",
+        "name": "Esti grísk jógúrt 10% 1kg",
+        "brand": "Esti",
+        "category": "Mjólkurvörur og egg",
+        "unit": "stk",
+        "priceBefore": 799,
+        "priceAfter": 399,
+        "percent": -50.06,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
         "sku": "100248030",
         "name": "Til hamingju trönuber",
         "brand": "Til hamingju",
@@ -1771,30 +1845,6 @@
         "priceBefore": 410,
         "priceAfter": 396,
         "percent": -3.41,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "05200042",
-        "name": "Palacio túnfiskur í olíu",
-        "brand": "Palacio",
-        "category": "Eldamennskan",
-        "unit": "stk",
-        "priceBefore": 475,
-        "priceAfter": 459,
-        "percent": -3.37,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "01900027",
-        "name": "Ljóma smjörlíki",
-        "brand": "Ljóma",
-        "category": "Mjólkurvörur og egg",
-        "unit": "stk",
-        "priceBefore": 480,
-        "priceAfter": 464,
-        "percent": -3.33,
         "allTimeLow": true,
         "allTimeHigh": false
       }
@@ -2453,6 +2503,19 @@
     ],
     "topDecreasesByAmount": [
       {
+        "sku": "100271623",
+        "name": "Esti grísk jógúrt vanillu 10% 1kg",
+        "brand": "Esti",
+        "category": "Mjólkurvörur og egg",
+        "unit": "stk",
+        "priceBefore": 899,
+        "priceAfter": 399,
+        "percent": -55.62,
+        "amount": -500,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
         "sku": "100272194",
         "name": "Colgate rafhlöðutannbursti max white",
         "brand": "Colgate",
@@ -2462,6 +2525,19 @@
         "priceAfter": 1999,
         "percent": -18.37,
         "amount": -450,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100271617",
+        "name": "Esti grísk jógúrt 10% 1kg",
+        "brand": "Esti",
+        "category": "Mjólkurvörur og egg",
+        "unit": "stk",
+        "priceBefore": 799,
+        "priceAfter": 399,
+        "percent": -50.06,
+        "amount": -400,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -3075,43 +3151,17 @@
         "amount": -16,
         "allTimeLow": true,
         "allTimeHigh": false
-      },
-      {
-        "sku": "100266559",
-        "name": "Home Fashion servíettur eco blóma 33x33",
-        "brand": "Home Fashion",
-        "category": "Heimilið",
-        "unit": "stk",
-        "priceBefore": 665,
-        "priceAfter": 649,
-        "percent": -2.41,
-        "amount": -16,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100269444",
-        "name": "Home Fashion servíettur íslenski fáninn 33x40cm",
-        "brand": "Home Fashion",
-        "category": "Heimilið",
-        "unit": "stk",
-        "priceBefore": 665,
-        "priceAfter": 649,
-        "percent": -2.41,
-        "amount": -16,
-        "allTimeLow": true,
-        "allTimeHigh": false
       }
     ]
   },
   "monthly": {
     "comparedTo": "2026-10-21",
-    "changedCount": 793,
+    "changedCount": 794,
     "increasedCount": 192,
-    "decreasedCount": 601,
+    "decreasedCount": 602,
     "comparableCount": 7961,
-    "avgPercentChange": -0.1,
-    "avgPercentChangeProjected": -0.1,
+    "avgPercentChange": -0.11,
+    "avgPercentChangeProjected": -0.11,
     "isPartialPeriod": false,
     "actualDays": 30,
     "topIncreases": [
@@ -3718,6 +3768,30 @@
     ],
     "topDecreases": [
       {
+        "sku": "100271623",
+        "name": "Esti grísk jógúrt vanillu 10% 1kg",
+        "brand": "Esti",
+        "category": "Mjólkurvörur og egg",
+        "unit": "stk",
+        "priceBefore": 999,
+        "priceAfter": 399,
+        "percent": -60.06,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100271617",
+        "name": "Esti grísk jógúrt 10% 1kg",
+        "brand": "Esti",
+        "category": "Mjólkurvörur og egg",
+        "unit": "stk",
+        "priceBefore": 799,
+        "priceAfter": 399,
+        "percent": -50.06,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
         "sku": "100248030",
         "name": "Til hamingju trönuber",
         "brand": "Til hamingju",
@@ -4102,18 +4176,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100271623",
-        "name": "Esti grísk jógúrt vanillu 10% 1kg",
-        "brand": "Esti",
-        "category": "Mjólkurvörur og egg",
-        "unit": "stk",
-        "priceBefore": 999,
-        "priceAfter": 899,
-        "percent": -10.01,
-        "allTimeLow": false,
-        "allTimeHigh": false
-      },
-      {
         "sku": "05000120",
         "name": "Toblerone 100g",
         "brand": "Toblerone",
@@ -4302,18 +4364,6 @@
         "priceBefore": 480,
         "priceAfter": 439,
         "percent": -8.54,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100218509",
-        "name": "Þykkvabæjar gullauga kartöflur 1kg",
-        "brand": "Þykkvabæjar",
-        "category": "Grænmeti",
-        "unit": "stk",
-        "priceBefore": 599,
-        "priceAfter": 549,
-        "percent": -8.35,
         "allTimeLow": true,
         "allTimeHigh": false
       }
@@ -5024,6 +5074,19 @@
         "allTimeHigh": false
       },
       {
+        "sku": "100271623",
+        "name": "Esti grísk jógúrt vanillu 10% 1kg",
+        "brand": "Esti",
+        "category": "Mjólkurvörur og egg",
+        "unit": "stk",
+        "priceBefore": 999,
+        "priceAfter": 399,
+        "percent": -60.06,
+        "amount": -600,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
         "sku": "100272194",
         "name": "Colgate rafhlöðutannbursti max white",
         "brand": "Colgate",
@@ -5033,6 +5096,19 @@
         "priceAfter": 1999,
         "percent": -20.01,
         "amount": -500,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100271617",
+        "name": "Esti grísk jógúrt 10% 1kg",
+        "brand": "Esti",
+        "category": "Mjólkurvörur og egg",
+        "unit": "stk",
+        "priceBefore": 799,
+        "priceAfter": 399,
+        "percent": -50.06,
+        "amount": -400,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -5453,19 +5529,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100271623",
-        "name": "Esti grísk jógúrt vanillu 10% 1kg",
-        "brand": "Esti",
-        "category": "Mjólkurvörur og egg",
-        "unit": "stk",
-        "priceBefore": 999,
-        "priceAfter": 899,
-        "percent": -10.01,
-        "amount": -100,
-        "allTimeLow": false,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100273216",
         "name": "Mezete classic hummus m/ brauðstöngum",
         "brand": "Mezete",
@@ -5607,28 +5670,15 @@
         "amount": -70,
         "allTimeLow": true,
         "allTimeHigh": false
-      },
-      {
-        "sku": "100258829",
-        "name": "Garnier augnkrem vitamin c",
-        "brand": "Garnier",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 1999,
-        "priceAfter": 1929,
-        "percent": -3.5,
-        "amount": -70,
-        "allTimeLow": true,
-        "allTimeHigh": false
       }
     ]
   },
   "monthToDate": {
     "comparedTo": "2026-11-01",
-    "changedCount": 395,
+    "changedCount": 396,
     "increasedCount": 143,
-    "decreasedCount": 252,
-    "avgPercentChange": 0.02,
+    "decreasedCount": 253,
+    "avgPercentChange": 0.01,
     "topIncreases": [
       {
         "sku": "100265611",
@@ -6233,6 +6283,30 @@
     ],
     "topDecreases": [
       {
+        "sku": "100271623",
+        "name": "Esti grísk jógúrt vanillu 10% 1kg",
+        "brand": "Esti",
+        "category": "Mjólkurvörur og egg",
+        "unit": "stk",
+        "priceBefore": 999,
+        "priceAfter": 399,
+        "percent": -60.06,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100271617",
+        "name": "Esti grísk jógúrt 10% 1kg",
+        "brand": "Esti",
+        "category": "Mjólkurvörur og egg",
+        "unit": "stk",
+        "priceBefore": 799,
+        "priceAfter": 399,
+        "percent": -50.06,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
         "sku": "100248030",
         "name": "Til hamingju trönuber",
         "brand": "Til hamingju",
@@ -6494,18 +6568,6 @@
         "priceAfter": 899,
         "percent": -10.01,
         "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100271623",
-        "name": "Esti grísk jógúrt vanillu 10% 1kg",
-        "brand": "Esti",
-        "category": "Mjólkurvörur og egg",
-        "unit": "stk",
-        "priceBefore": 999,
-        "priceAfter": 899,
-        "percent": -10.01,
-        "allTimeLow": false,
         "allTimeHigh": false
       },
       {
@@ -6817,18 +6879,6 @@
         "priceBefore": 105,
         "priceAfter": 99,
         "percent": -5.71,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "02000025",
-        "name": "Royal lyftiduft 200gr",
-        "brand": "Royal",
-        "category": "Bakstur",
-        "unit": "stk",
-        "priceBefore": 356,
-        "priceAfter": 336,
-        "percent": -5.62,
         "allTimeLow": true,
         "allTimeHigh": false
       }
@@ -7526,6 +7576,19 @@
         "allTimeHigh": false
       },
       {
+        "sku": "100271623",
+        "name": "Esti grísk jógúrt vanillu 10% 1kg",
+        "brand": "Esti",
+        "category": "Mjólkurvörur og egg",
+        "unit": "stk",
+        "priceBefore": 999,
+        "priceAfter": 399,
+        "percent": -60.06,
+        "amount": -600,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
         "sku": "100272194",
         "name": "Colgate rafhlöðutannbursti max white",
         "brand": "Colgate",
@@ -7535,6 +7598,19 @@
         "priceAfter": 1999,
         "percent": -18.37,
         "amount": -450,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100271617",
+        "name": "Esti grísk jógúrt 10% 1kg",
+        "brand": "Esti",
+        "category": "Mjólkurvörur og egg",
+        "unit": "stk",
+        "priceBefore": 799,
+        "priceAfter": 399,
+        "percent": -50.06,
+        "amount": -400,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -7796,19 +7872,6 @@
         "percent": -10.01,
         "amount": -100,
         "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100271623",
-        "name": "Esti grísk jógúrt vanillu 10% 1kg",
-        "brand": "Esti",
-        "category": "Mjólkurvörur og egg",
-        "unit": "stk",
-        "priceBefore": 999,
-        "priceAfter": 899,
-        "percent": -10.01,
-        "amount": -100,
-        "allTimeLow": false,
         "allTimeHigh": false
       },
       {
@@ -8120,19 +8183,6 @@
         "priceAfter": 290,
         "percent": -11.85,
         "amount": -39,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100271120",
-        "name": "Nóa rjómasúkkulaði hreint 200g",
-        "brand": "Nóa",
-        "category": "Laugardags",
-        "unit": "stk",
-        "priceBefore": 692,
-        "priceAfter": 656,
-        "percent": -5.2,
-        "amount": -36,
         "allTimeLow": true,
         "allTimeHigh": false
       }
