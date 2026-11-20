@@ -109,11 +109,13 @@ ekkert build-skref, engin bakenda-þjónusta þarf að keyra.
   Krónunnar) fyrir framan hverja vöru
 
 **Fryst verð**
-- Vörunúmer sem Krónan sjálf merkir sem „fryst verð“ (sótt daglega úr
-  `GET /products/tags/` + `/products/by-tag/{slug}/`, vistað í
-  `data/frozen-prices.json`, með dagsetningu hvenær varan sást fyrst
-  frosin). Ef sjálfvirk greining á tagginu velur rangt má þvinga það með
-  umhverfisbreytunni `FROZEN_TAG_SLUG`.
+- Vörunúmerin sem Krónan segir að séu með frystu verði, lesin af
+  https://kronan.is/frysting-voruverds (API-ið hefur ekkert tag fyrir
+  þetta). Núverandi verð er sótt með `/products/batch/` og vistað í
+  `data/frozen-prices.json`, ásamt verðbreytingu frá 23. sept. og frá
+  21.→23. sept. (reiknað úr daglegu verðmyndunum; hægt að breyta
+  viðmiðsdegi með `FROZEN_BASE_DATE`). Vörur sem eru ekki í verðmyndunum
+  fá „engin gögn“.
 
 **Öfgar í verði**
 - 5 ódýrustu og 5 dýrustu vörur, annaðhvort af öllum vörunúmerum eða
