@@ -7,6 +7,7 @@ import { buildIndex } from "./buildIndex.js";
 import { updateHistory } from "./updateHistory.js";
 import { fetchCpi, fetchCategorySubindices } from "./fetchCpi.js";
 import { computeCategoryTrends } from "./computeCategoryTrends.js";
+import { fetchFrozenPrices } from "./fetchFrozenPrices.js";
 import { computeWeekdayStats } from "./computeWeekdayStats.js";
 
 const SNAPSHOT_DIR = new URL("../data/snapshots/", import.meta.url);
@@ -87,6 +88,13 @@ async function main() {
     await computeWeekdayStats();
   } catch (err) {
     console.log(`  Vikudagatölfræði mistókst (halda samt áfram): ${err.message}`);
+  }
+
+  try {
+    console.log("Sæki vörur með frystu verði frá Krónunni...");
+    await fetchFrozenPrices(client, date);
+  } catch (err) {
+    console.log(`  Fryst verð mistókst (halda samt áfram): ${err.message}`);
   }
 
   try {
