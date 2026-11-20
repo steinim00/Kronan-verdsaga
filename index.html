@@ -2039,6 +2039,14 @@
   }
 
 
+
+  function frozenChange(c, label) {
+    if (!c) return `${label}: engin gögn`;
+    const cls = c.amount > 0 ? "up" : c.amount < 0 ? "down" : "";
+    const sign = c.amount > 0 ? "+" : "";
+    return `${label}: <span class="${cls}">${sign}${new Intl.NumberFormat("is-IS").format(c.amount)} kr (${c.percent == null ? "—" : fmtPercent(c.percent)})</span>`;
+  }
+
   let frozenCache = null;
   let frozenFilter = "";
   let frozenCategory = "";
@@ -2082,7 +2090,8 @@
               <div class="name">${p.name}</div>
               <div class="percent">${fmtISKUnit(price, unit)}</div>
               <div class="meta">${metaLine({ category, brand: p.brand })}</div>
-              <div class="prices">fryst frá ${fmtDateShort(p.frozenSince || frozenCache.date)} · ${p.sku}</div>
+              <div class="prices">${frozenChange(p.sinceBase, "Frá " + fmtDateShort(frozenCache.baseDate || "2026-09-23"))}</div>
+              <div class="prices">${frozenChange(p.beforeBase, "2 dögum fyrr (" + (frozenCache.beforeDate ? fmtDateShort(frozenCache.beforeDate) : "—") + " → " + fmtDateShort(frozenCache.baseDate || "2026-09-23") + ")")} · ${p.sku}</div>
             </div>`;
         }).join("");
         attachLineClicks(listEl);
