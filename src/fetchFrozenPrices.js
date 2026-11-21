@@ -84,6 +84,30 @@ async function readPrev() {
   }
 }
 
+// Fjöldi daga þar sem verð á miða hækkaði / lækkaði milli verðmynda frá
+// viðmiðsdegi (sku -> { rises, falls }).
+async function countChanges(skuSet, fromDate) {
+  const files = (await readdir(SNAPSHOT_DIR)).filter((f) => f.endsWith(".json") && f.slice(0, 10) >= fromDate).sort();
+  const counts = new Map();
+  let prev = null;
+  for (const f of files) {
+    const snap = JSON.parse(await readFile(new URL(f, SNAPSHOT_DIR), "utf-8"));
+    const cur = new Map();
+    for (const p of snap.products) if (skuSet.has(p.sku)) cur.set(p.sku, p.price);
+    if (prev) {
+      for (const [sku, price] of cur) {
+        const before = prev.get(sku);
+        if (before == null || before === price) continue;
+        const c = counts.get(sku) ?? { rises: 0, falls: 0 };
+        if (price > before) c.rises++; else c.falls++;
+        counts.set(sku, c);
+      }
+    }
+    prev = cur;
+  }
+  return counts;
+}
+
 // client má vera null (engin aðgangstóken): þá er nýjasta daglega verðmyndin
 // notuð fyrir núverandi verð.
 export async function fetchFrozenPrices(client, date) {
@@ -107,6 +131,8 @@ export async function fetchFrozenPrices(client, date) {
   const base = await pricesAt(BASE_DATE);
   const before = await pricesAt(shiftDate(BASE_DATE, -DAYS_BEFORE));
 
+  const counts = await countChanges(new Set(current.map((p) => p.sku)), BASE_DATE);
+
   const products = current
     .map((p) => {
       const b = base.prices.get(p.sku);
@@ -119,6 +145,8 @@ export async function fetchFrozenPrices(client, date) {
         shelfBefore: change(o?.price, b?.price),
         kgSince: p.chargedByWeight ? change(b?.kg, p.pricePerKilo) : null, // kílóverð (vigtarvörur)
         kgBefore: p.chargedByWeight ? change(o?.kg, b?.kg) : null,
+        rises: counts.get(p.sku)?.rises ?? 0, // fjöldi hækkana á verði á miða frá viðmiðsdegi
+        falls: counts.get(p.sku)?.falls ?? 0,
         freezeCmp: change(freezePrices.get(p.sku), unitPrice(p)), // núverandi (kg)verð vs. verð Krónunnar við frystingu
       };
     })

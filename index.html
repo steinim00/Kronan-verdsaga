@@ -2088,12 +2088,15 @@
       frozenChange(p.shelfBefore, `2 dögum fyrr, miði (${before} → ${base})`),
       p.chargedByWeight ? frozenChange(p.kgBefore, `2 dögum fyrr, kílóverð`) : "",
     ].filter(Boolean);
+    rows.push(`Hækkanir: ${p.rises || 0} · Lækkanir: ${p.falls || 0}`);
     return rows.join("<br>") + ` · ${p.sku}`;
   }
 
   let frozenCache = null;
   let frozenFilter = "";
   let frozenCategory = "";
+  let frozenSort = "name";
+  let frozenHideUnchanged = false;
 
   async function renderFrozenView() {
     contentEl.innerHTML = skeletonHtml();
@@ -2113,6 +2116,11 @@
           ${cats.map((c) => `<option value="${c.replace(/"/g,'&quot;')}" ${c === frozenCategory ? "selected" : ""}>${c}</option>`).join("")}
         </select>
         <input id="frozenFilterInput" class="search-input" style="margin:8px 0 12px;" placeholder="Sía eftir nafni eða vörunúmeri…" value="${frozenFilter.replace(/"/g,'&quot;')}" autocomplete="off" />
+        <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom:12px;">
+          <select id="frozenSortSelect" class="extremes-category-select" style="margin:0;" aria-label="Raða"><option value="name" ${frozenSort === "name" ? "selected" : ""}>Nafn</option><option value="pctUp" ${frozenSort === "pctUp" ? "selected" : ""}>Mest hækkun (%)</option><option value="pctDown" ${frozenSort === "pctDown" ? "selected" : ""}>Mest lækkun (%)</option><option value="rises" ${frozenSort === "rises" ? "selected" : ""}>Flestar hækkanir</option><option value="falls" ${frozenSort === "falls" ? "selected" : ""}>Flestar lækkanir</option></select>
+          <label style="font-size:12px; cursor:pointer;"><input type="checkbox" id="frozenHideUnchanged" ${frozenHideUnchanged ? "checked" : ""} /> Fela vörur sem hafa ekki breyst</label>
+          <span id="frozenCount" style="font-size:11px; color:var(--ink-faint);"></span>
+        </div>
         <div id="frozenList"></div>
       `;
       const listEl = document.getElementById("frozenList");
@@ -2121,8 +2129,22 @@
         const items = all.filter((p) => {
           const cat = (p.categoryPath || "").split("/")[0].trim();
           if (frozenCategory && cat !== frozenCategory) return false;
+          if (frozenHideUnchanged && !p.rises && !p.falls) return false;
           return !q || p.name.toLowerCase().includes(q) || String(p.sku).includes(q) || (p.brand || "").toLowerCase().includes(q);
         });
+        const pct = (p) => (p.shelfSince && p.shelfSince.percent != null ? p.shelfSince.percent : null);
+        const byNum = (get, dir) => (a, b) => {
+          const x = get(a), y = get(b);
+          if (x == null && y == null) return 0;
+          if (x == null) return 1;
+          if (y == null) return -1;
+          return dir * (y - x) || a.name.localeCompare(b.name, "is");
+        };
+        if (frozenSort === "pctUp") items.sort(byNum(pct, 1));
+        else if (frozenSort === "pctDown") items.sort(byNum(pct, -1));
+        else if (frozenSort === "rises") items.sort(byNum((p) => p.rises || 0, 1));
+        else if (frozenSort === "falls") items.sort(byNum((p) => p.falls || 0, 1));
+        document.getElementById("frozenCount").textContent = `${items.length} / ${all.length} vörur sýndar`;
         if (items.length === 0) { listEl.innerHTML = '<div class="empty">Engar vörur passa við síuna.</div>'; return; }
         listEl.innerHTML = items.map((p) => {
           const category = (p.categoryPath || "").split("/")[0].trim();
@@ -2140,6 +2162,8 @@
         attachLineClicks(listEl);
       }
       document.getElementById("frozenCategorySelect").addEventListener("change", (e) => { frozenCategory = e.target.value; draw(); });
+      document.getElementById("frozenSortSelect").addEventListener("change", (e) => { frozenSort = e.target.value; draw(); });
+      document.getElementById("frozenHideUnchanged").addEventListener("change", (e) => { frozenHideUnchanged = e.target.checked; draw(); });
       document.getElementById("frozenFilterInput").addEventListener("input", (e) => { frozenFilter = e.target.value; draw(); });
       draw();
     } catch (e) {
