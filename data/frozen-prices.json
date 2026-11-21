@@ -5,13 +5,9 @@
   "beforeDate": "2026-09-21",
   "missingSkus": [
     "100231427",
-    "100259670",
     "100206680",
-    "100270774",
     "100264740",
-    "100255250",
     "100266823",
-    "100267366",
     "100267376",
     "100266826",
     "100272563",
@@ -20,9 +16,7 @@
     "100261708",
     "100248945",
     "100273455",
-    "100189061",
     "100143680",
-    "100252411",
     "100179509",
     "100237313",
     "100273091",
@@ -32,13 +26,9 @@
     "100225513",
     "100269733",
     "100269734",
-    "100264862",
     "100233230",
-    "100269147",
-    "100250291",
     "100227516",
     "100252163",
-    "100273921",
     "100262672",
     "100201669",
     "100262674",
@@ -55,12 +45,7 @@
     "100256578",
     "100268046",
     "100268047",
-    "100247450",
-    "100179825",
-    "100201844",
-    "100259634",
-    "100269071",
-    "100268962"
+    "100201844"
   ],
   "products": [
     {
@@ -2317,6 +2302,42 @@
       }
     },
     {
+      "sku": "100179825",
+      "name": "First Price kattamatur með fiski í álboxi",
+      "brand": "First Price",
+      "price": 94,
+      "discountedPrice": 94,
+      "onSale": false,
+      "pricePerKilo": null,
+      "chargedByWeight": false,
+      "baseComparisonUnit": "KG",
+      "categoryPath": "Dýrin / Kettir / Kattamatur",
+      "frozenSince": "2026-11-21",
+      "priceAtFreeze": 96,
+      "shelfSince": {
+        "from": 96,
+        "to": 94,
+        "amount": -2,
+        "percent": -2.08
+      },
+      "shelfBefore": {
+        "from": 96,
+        "to": 96,
+        "amount": 0,
+        "percent": 0
+      },
+      "kgSince": null,
+      "kgBefore": null,
+      "rises": 0,
+      "falls": 1,
+      "freezeCmp": {
+        "from": 96,
+        "to": 94,
+        "amount": -2,
+        "percent": -2.08
+      }
+    },
+    {
       "sku": "100245153",
       "name": "First Price kattamatur með fuglakjöti",
       "brand": "First Price",
@@ -4143,6 +4164,32 @@
       }
     },
     {
+      "sku": "100269147",
+      "name": "First Price sósujafnari ljós",
+      "brand": "First Price",
+      "price": 195,
+      "discountedPrice": 195,
+      "onSale": false,
+      "pricePerKilo": null,
+      "chargedByWeight": false,
+      "baseComparisonUnit": "KG",
+      "categoryPath": "Eldamennskan / Pakkasúpur og -sósur / Pakkasósur",
+      "frozenSince": "2026-11-21",
+      "priceAtFreeze": 195,
+      "shelfSince": null,
+      "shelfBefore": null,
+      "kgSince": null,
+      "kgBefore": null,
+      "rises": 0,
+      "falls": 0,
+      "freezeCmp": {
+        "from": 195,
+        "to": 195,
+        "amount": 0,
+        "percent": 0
+      }
+    },
+    {
       "sku": "100207663",
       "name": "First Price spaghetti",
       "brand": "First Price",
@@ -4392,6 +4439,42 @@
         "to": 289,
         "amount": -30,
         "percent": -9.4
+      }
+    },
+    {
+      "sku": "100250291",
+      "name": "First Price súkkulaði hafrakex",
+      "brand": "First Price",
+      "price": 415,
+      "discountedPrice": 415,
+      "onSale": false,
+      "pricePerKilo": null,
+      "chargedByWeight": false,
+      "baseComparisonUnit": "KG",
+      "categoryPath": "Brauð, kökur og kex / Kex / Kex og smákökur",
+      "frozenSince": "2026-11-21",
+      "priceAtFreeze": 415,
+      "shelfSince": {
+        "from": 415,
+        "to": 415,
+        "amount": 0,
+        "percent": 0
+      },
+      "shelfBefore": {
+        "from": 415,
+        "to": 415,
+        "amount": 0,
+        "percent": 0
+      },
+      "kgSince": null,
+      "kgBefore": null,
+      "rises": 0,
+      "falls": 0,
+      "freezeCmp": {
+        "from": 415,
+        "to": 415,
+        "amount": 0,
+        "percent": 0
       }
     },
     {
@@ -7003,6 +7086,42 @@
       }
     },
     {
+      "sku": "100259670",
+      "name": "Gestus íspinnar caramel",
+      "brand": "Gestus",
+      "price": 599,
+      "discountedPrice": 599,
+      "onSale": false,
+      "pricePerKilo": null,
+      "chargedByWeight": false,
+      "baseComparisonUnit": "LTR",
+      "categoryPath": "Frystivara / Ís og eftirréttir / Ís og eftirréttir",
+      "frozenSince": "2026-11-21",
+      "priceAtFreeze": 599,
+      "shelfSince": {
+        "from": 599,
+        "to": 599,
+        "amount": 0,
+        "percent": 0
+      },
+      "shelfBefore": {
+        "from": 599,
+        "to": 599,
+        "amount": 0,
+        "percent": 0
+      },
+      "kgSince": null,
+      "kgBefore": null,
+      "rises": 0,
+      "falls": 0,
+      "freezeCmp": {
+        "from": 599,
+        "to": 599,
+        "amount": 0,
+        "percent": 0
+      }
+    },
+    {
       "sku": "100268784",
       "name": "Gestus íspinnar classic",
       "brand": "Gestus",
@@ -7410,6 +7529,32 @@
       "freezeCmp": {
         "from": 299,
         "to": 299,
+        "amount": 0,
+        "percent": 0
+      }
+    },
+    {
+      "sku": "100189061",
+      "name": "Gestus Klementínur 900 gr",
+      "brand": "Gestus",
+      "price": 640,
+      "discountedPrice": 640,
+      "onSale": false,
+      "pricePerKilo": null,
+      "chargedByWeight": false,
+      "baseComparisonUnit": "KG",
+      "categoryPath": "Ávextir / Suðrænir og sítrusávextir / Sítrusávextir",
+      "frozenSince": "2026-11-21",
+      "priceAtFreeze": 640,
+      "shelfSince": null,
+      "shelfBefore": null,
+      "kgSince": null,
+      "kgBefore": null,
+      "rises": 0,
+      "falls": 0,
+      "freezeCmp": {
+        "from": 640,
+        "to": 640,
         "amount": 0,
         "percent": 0
       }
@@ -8120,6 +8265,32 @@
       "freezeCmp": {
         "from": 249,
         "to": 249,
+        "amount": 0,
+        "percent": 0
+      }
+    },
+    {
+      "sku": "100252411",
+      "name": "Gestus radísur",
+      "brand": "Gestus",
+      "price": 369,
+      "discountedPrice": 369,
+      "onSale": false,
+      "pricePerKilo": null,
+      "chargedByWeight": false,
+      "baseComparisonUnit": "KG",
+      "categoryPath": "Grænmeti / Kartöflur og rótargrænmeti / Rótargrænmeti",
+      "frozenSince": "2026-11-21",
+      "priceAtFreeze": 369,
+      "shelfSince": null,
+      "shelfBefore": null,
+      "kgSince": null,
+      "kgBefore": null,
+      "rises": 0,
+      "falls": 0,
+      "freezeCmp": {
+        "from": 369,
+        "to": 369,
         "amount": 0,
         "percent": 0
       }
@@ -9748,6 +9919,32 @@
         "to": 269,
         "amount": -30,
         "percent": -10.03
+      }
+    },
+    {
+      "sku": "100270774",
+      "name": "Grön Balance bláber frosin",
+      "brand": "Grön Balance",
+      "price": 499,
+      "discountedPrice": 499,
+      "onSale": false,
+      "pricePerKilo": null,
+      "chargedByWeight": false,
+      "baseComparisonUnit": "KG",
+      "categoryPath": "Frystivara / Ávextir og grænmeti / Ávextir og grænmeti",
+      "frozenSince": "2026-11-21",
+      "priceAtFreeze": 499,
+      "shelfSince": null,
+      "shelfBefore": null,
+      "kgSince": null,
+      "kgBefore": null,
+      "rises": 0,
+      "falls": 0,
+      "freezeCmp": {
+        "from": 499,
+        "to": 499,
+        "amount": 0,
+        "percent": 0
       }
     },
     {
@@ -12282,6 +12479,27 @@
       }
     },
     {
+      "sku": "100273921",
+      "name": "Grön Balance lasagneplötur heilhveiti",
+      "brand": "Grön Balance",
+      "price": 449,
+      "discountedPrice": 449,
+      "onSale": false,
+      "pricePerKilo": null,
+      "chargedByWeight": false,
+      "baseComparisonUnit": "KG",
+      "categoryPath": "Eldamennskan / Ítalía / Pasta",
+      "frozenSince": "2026-11-21",
+      "priceAtFreeze": null,
+      "shelfSince": null,
+      "shelfBefore": null,
+      "kgSince": null,
+      "kgBefore": null,
+      "rises": 0,
+      "falls": 0,
+      "freezeCmp": null
+    },
+    {
       "sku": "100092616",
       "name": "Grön Balance laukur",
       "brand": "Grön Balance",
@@ -13373,6 +13591,42 @@
       }
     },
     {
+      "sku": "100259634",
+      "name": "Grön Balance skvísa epla, ananas & ferskju",
+      "brand": "Grön Balance",
+      "price": 116,
+      "discountedPrice": 116,
+      "onSale": false,
+      "pricePerKilo": null,
+      "chargedByWeight": false,
+      "baseComparisonUnit": "KG",
+      "categoryPath": "Börnin / Barnamatur / Skvísur",
+      "frozenSince": "2026-11-21",
+      "priceAtFreeze": 116,
+      "shelfSince": {
+        "from": 116,
+        "to": 116,
+        "amount": 0,
+        "percent": 0
+      },
+      "shelfBefore": {
+        "from": 116,
+        "to": 116,
+        "amount": 0,
+        "percent": 0
+      },
+      "kgSince": null,
+      "kgBefore": null,
+      "rises": 0,
+      "falls": 0,
+      "freezeCmp": {
+        "from": 116,
+        "to": 116,
+        "amount": 0,
+        "percent": 0
+      }
+    },
+    {
       "sku": "100240484",
       "name": "Grön Balance skvísa ferskju,epla,banana & mangó",
       "brand": "Grön Balance",
@@ -14336,6 +14590,42 @@
         "from": 419,
         "to": 377,
         "amount": -42,
+        "percent": -10.02
+      }
+    },
+    {
+      "sku": "100247450",
+      "name": "Grön Balance þvaglekabindi",
+      "brand": "Grön Balance",
+      "price": 449,
+      "discountedPrice": 449,
+      "onSale": false,
+      "pricePerKilo": null,
+      "chargedByWeight": false,
+      "baseComparisonUnit": "STK",
+      "categoryPath": "Snyrtivara / Hreinlætisvara / Tíðavörur",
+      "frozenSince": "2026-11-21",
+      "priceAtFreeze": 499,
+      "shelfSince": {
+        "from": 449,
+        "to": 449,
+        "amount": 0,
+        "percent": 0
+      },
+      "shelfBefore": {
+        "from": 449,
+        "to": 449,
+        "amount": 0,
+        "percent": 0
+      },
+      "kgSince": null,
+      "kgBefore": null,
+      "rises": 0,
+      "falls": 0,
+      "freezeCmp": {
+        "from": 499,
+        "to": 449,
+        "amount": -50,
         "percent": -10.02
       }
     },
@@ -16279,6 +16569,32 @@
       }
     },
     {
+      "sku": "100269071",
+      "name": "Krónu ávaxta yatsy",
+      "brand": "Krónu",
+      "price": 999,
+      "discountedPrice": 999,
+      "onSale": false,
+      "pricePerKilo": null,
+      "chargedByWeight": false,
+      "baseComparisonUnit": "STK",
+      "categoryPath": "Jólin / Hóhóhó / Hóhóhó",
+      "frozenSince": "2026-11-21",
+      "priceAtFreeze": 999,
+      "shelfSince": null,
+      "shelfBefore": null,
+      "kgSince": null,
+      "kgBefore": null,
+      "rises": 0,
+      "falls": 0,
+      "freezeCmp": {
+        "from": 999,
+        "to": 999,
+        "amount": 0,
+        "percent": 0
+      }
+    },
+    {
       "sku": "100269259",
       "name": "Krónu berja skyrsmoothie",
       "brand": "Krónu",
@@ -17143,6 +17459,32 @@
       "freezeCmp": {
         "from": 1899,
         "to": 1899,
+        "amount": 0,
+        "percent": 0
+      }
+    },
+    {
+      "sku": "100255250",
+      "name": "Krónu harðfiskur sneiðar þorskur",
+      "brand": "Krónu",
+      "price": 2299,
+      "discountedPrice": 2299,
+      "onSale": false,
+      "pricePerKilo": null,
+      "chargedByWeight": false,
+      "baseComparisonUnit": "KG",
+      "categoryPath": "Fiskur / Fiskur / Harðfiskur",
+      "frozenSince": "2026-11-21",
+      "priceAtFreeze": 2299,
+      "shelfSince": null,
+      "shelfBefore": null,
+      "kgSince": null,
+      "kgBefore": null,
+      "rises": 0,
+      "falls": 0,
+      "freezeCmp": {
+        "from": 2299,
+        "to": 2299,
         "amount": 0,
         "percent": 0
       }
@@ -18079,6 +18421,42 @@
       "freezeCmp": {
         "from": 295,
         "to": 295,
+        "amount": 0,
+        "percent": 0
+      }
+    },
+    {
+      "sku": "100267366",
+      "name": "Krónu ostarúnstykki skinku og osti",
+      "brand": "Krónu",
+      "price": 639,
+      "discountedPrice": 639,
+      "onSale": false,
+      "pricePerKilo": null,
+      "chargedByWeight": false,
+      "baseComparisonUnit": "KG",
+      "categoryPath": "Á ferðinni / Tilbúið til að borða / Samlokur",
+      "frozenSince": "2026-11-21",
+      "priceAtFreeze": 639,
+      "shelfSince": {
+        "from": 639,
+        "to": 639,
+        "amount": 0,
+        "percent": 0
+      },
+      "shelfBefore": {
+        "from": 639,
+        "to": 639,
+        "amount": 0,
+        "percent": 0
+      },
+      "kgSince": null,
+      "kgBefore": null,
+      "rises": 0,
+      "falls": 0,
+      "freezeCmp": {
+        "from": 639,
+        "to": 639,
         "amount": 0,
         "percent": 0
       }
@@ -19031,6 +19409,32 @@
       "freezeCmp": {
         "from": 2739,
         "to": 2739,
+        "amount": 0,
+        "percent": 0
+      }
+    },
+    {
+      "sku": "100268962",
+      "name": "Krónu veislublöðrur",
+      "brand": "Krónu",
+      "price": 349,
+      "discountedPrice": 349,
+      "onSale": false,
+      "pricePerKilo": null,
+      "chargedByWeight": false,
+      "baseComparisonUnit": "STK",
+      "categoryPath": "Heimilið / Skreytingar og borðbúnaður / Einnota borðbúnaður",
+      "frozenSince": "2026-11-21",
+      "priceAtFreeze": 349,
+      "shelfSince": null,
+      "shelfBefore": null,
+      "kgSince": null,
+      "kgBefore": null,
+      "rises": 0,
+      "falls": 0,
+      "freezeCmp": {
+        "from": 349,
+        "to": 349,
         "amount": 0,
         "percent": 0
       }
@@ -20952,6 +21356,32 @@
       "freezeCmp": {
         "from": 4099,
         "to": 4099,
+        "amount": 0,
+        "percent": 0
+      }
+    },
+    {
+      "sku": "100264862",
+      "name": "Ódýrt laufabrauð",
+      "brand": "Ódýrt",
+      "price": 1299,
+      "discountedPrice": 1299,
+      "onSale": false,
+      "pricePerKilo": null,
+      "chargedByWeight": false,
+      "baseComparisonUnit": "KG",
+      "categoryPath": "Jólin / Jólasmákökur / Jólasmákökur",
+      "frozenSince": "2026-11-21",
+      "priceAtFreeze": 1299,
+      "shelfSince": null,
+      "shelfBefore": null,
+      "kgSince": null,
+      "kgBefore": null,
+      "rises": 0,
+      "falls": 0,
+      "freezeCmp": {
+        "from": 1299,
+        "to": 1299,
         "amount": 0,
         "percent": 0
       }
