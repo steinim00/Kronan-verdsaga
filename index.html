@@ -1645,7 +1645,7 @@
   let frozenSkuSetPromise = null;
   function loadFrozenSkus() {
     if (!frozenSkuSetPromise) {
-      frozenSkuSetPromise = fetch(withCacheBust("data/frozen-prices.json"))
+      frozenSkuSetPromise = fetch("data/frozen-prices.json", { cache: "no-cache" })
         .then((r) => (r.ok ? r.json() : { products: [] }))
         .then((d) => new Set((d.products || []).map((p) => String(p.sku))))
         .catch(() => new Set());
@@ -2101,7 +2101,13 @@
   async function renderFrozenView() {
     contentEl.innerHTML = skeletonHtml();
     try {
-      if (frozenCache === null) frozenCache = await fetchJson("data/frozen-prices.json");
+      // no-cache: endurstaðfestir alltaf við netþjóninn, svo gömul útgáfa úr skyndiminni vafrans
+      // (án nýrra reita) valdi ekki villum.
+      if (frozenCache === null) {
+        const res = await fetch("data/frozen-prices.json", { cache: "no-cache" });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        frozenCache = await res.json();
+      }
       const all = frozenCache.products || [];
       if (all.length === 0) {
         contentEl.innerHTML = `<div class="status">Engin vörunúmer með frystu verði fundust ennþá.</div>`;
@@ -2118,7 +2124,7 @@
         <input id="frozenFilterInput" class="search-input" style="margin:8px 0 12px;" placeholder="Sía eftir nafni eða vörunúmeri…" value="${frozenFilter.replace(/"/g,'&quot;')}" autocomplete="off" />
         <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom:12px;">
           <select id="frozenSortSelect" class="extremes-category-select" style="margin:0;" aria-label="Raða"><option value="name" ${frozenSort === "name" ? "selected" : ""}>Nafn</option><option value="pctUp" ${frozenSort === "pctUp" ? "selected" : ""}>Mest hækkun (%)</option><option value="pctDown" ${frozenSort === "pctDown" ? "selected" : ""}>Mest lækkun (%)</option><option value="rises" ${frozenSort === "rises" ? "selected" : ""}>Flestar hækkanir</option><option value="falls" ${frozenSort === "falls" ? "selected" : ""}>Flestar lækkanir</option></select>
-          <label style="font-size:12px; cursor:pointer;"><input type="checkbox" id="frozenHideUnchanged" ${frozenHideUnchanged ? "checked" : ""} /> Fela vörur sem hafa ekki breyst</label>
+          <label style="font-size:12px; cursor:pointer;"><input type="checkbox" id="frozenHideUnchanged" ${frozenHideUnchanged ? "checked" : ""} /> Fela vörur á sama verði og 23. sept.</label>
           <span id="frozenCount" style="font-size:11px; color:var(--ink-faint);"></span>
         </div>
         <div id="frozenList"></div>
@@ -2129,7 +2135,11 @@
         const items = all.filter((p) => {
           const cat = (p.categoryPath || "").split("/")[0].trim();
           if (frozenCategory && cat !== frozenCategory) return false;
-          if (frozenHideUnchanged && !p.rises && !p.falls) return false;
+          if (frozenHideUnchanged) {
+            // Sama verð og 23. sept.: verð á miða óbreytt (og kílóverð líka fyrir vigtarvörur).
+            const same = p.shelfSince && p.shelfSince.amount === 0 && (!p.chargedByWeight || (p.kgSince && p.kgSince.amount === 0));
+            if (same) return false;
+          }
           return !q || p.name.toLowerCase().includes(q) || String(p.sku).includes(q) || (p.brand || "").toLowerCase().includes(q);
         });
         const pct = (p) => (p.shelfSince && p.shelfSince.percent != null ? p.shelfSince.percent : null);
