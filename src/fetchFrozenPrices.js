@@ -29,7 +29,7 @@ async function pricesAt(date) {
   const file = [...files].reverse().find((f) => f.slice(0, 10) <= date);
   if (!file) return { date: null, prices: new Map() };
   const snap = JSON.parse(await readFile(new URL(file, SNAPSHOT_DIR), "utf-8"));
-  return { date: file.slice(0, 10), prices: new Map(snap.products.map((p) => [p.sku, unitPrice(p)])) };
+  return { date: file.slice(0, 10), prices: new Map(snap.products.map((p) => [p.sku, { price: p.price, kg: p.chargedByWeight ? p.pricePerKilo : null }])) };
 }
 
 function change(from, to) {
@@ -53,10 +53,21 @@ export function parseFrozenSkus(html) {
   return [...skus];
 }
 
-async function fetchPageSkus() {
+// Síðan felur líka í sér JSON með "priceAtFreeze" (verðið sem Krónan
+// miðar frystinguna við) fyrir hverja vöru: ..."slug":"<sku>-...","src":"...","priceAtFreeze":N
+// Fyrir vigtarvörur er það kílóverð, annars verð á einingu.
+export function parseFreezePrices(html) {
+  const out = new Map();
+  const re = /slug\\?":\\?"(\d+)-[^"\\]*\\?",\\?"src\\?":\\?"[^"\\]*\\?",\\?"priceAtFreeze\\?":(\d+)/g;
+  for (const m of html.matchAll(re)) out.set(m[1], Number(m[2]));
+  return out;
+}
+
+async function fetchPage() {
   const res = await fetch(PAGE_URL);
   if (!res.ok) throw new Error(`${PAGE_URL} -> ${res.status}`);
-  return parseFrozenSkus(await res.text());
+  const html = await res.text();
+  return { skus: parseFrozenSkus(html), freezePrices: parseFreezePrices(html) };
 }
 
 async function latestSnapshotProducts() {
@@ -76,7 +87,7 @@ async function readPrev() {
 // client má vera null (engin aðgangstóken): þá er nýjasta daglega verðmyndin
 // notuð fyrir núverandi verð.
 export async function fetchFrozenPrices(client, date) {
-  const skus = await fetchPageSkus();
+  const { skus, freezePrices } = await fetchPage();
   if (skus.length === 0) throw new Error("Fann engar vörur með 'Fryst verð!' á síðu Krónunnar — sleppi uppfærslu.");
   console.log(`  ${skus.length} vörunúmer merkt "Fryst verð!" á ${PAGE_URL}`);
 
@@ -97,12 +108,20 @@ export async function fetchFrozenPrices(client, date) {
   const before = await pricesAt(shiftDate(BASE_DATE, -DAYS_BEFORE));
 
   const products = current
-    .map((p) => ({
-      ...p,
-      frozenSince: firstSeen.get(p.sku) ?? date,
-      sinceBase: change(base.prices.get(p.sku), unitPrice(p)),
-      beforeBase: change(before.prices.get(p.sku), base.prices.get(p.sku)),
-    }))
+    .map((p) => {
+      const b = base.prices.get(p.sku);
+      const o = before.prices.get(p.sku);
+      return {
+        ...p,
+        frozenSince: firstSeen.get(p.sku) ?? date,
+        priceAtFreeze: freezePrices.get(p.sku) ?? null, // verð við frystingu skv. Krónunni (kg-verð fyrir vigtarvörur)
+        shelfSince: change(b?.price, p.price), // verð á miða
+        shelfBefore: change(o?.price, b?.price),
+        kgSince: p.chargedByWeight ? change(b?.kg, p.pricePerKilo) : null, // kílóverð (vigtarvörur)
+        kgBefore: p.chargedByWeight ? change(o?.kg, b?.kg) : null,
+        freezeCmp: change(freezePrices.get(p.sku), unitPrice(p)), // núverandi (kg)verð vs. verð Krónunnar við frystingu
+      };
+    })
     .sort((a, b) => a.name.localeCompare(b.name, "is"));
 
   await mkdir(new URL("../data/", import.meta.url), { recursive: true });

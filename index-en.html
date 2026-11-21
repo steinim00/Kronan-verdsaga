@@ -1536,6 +1536,19 @@
     return `${label}: <span class="${cls}">${sign}${new Intl.NumberFormat("is-IS").format(c.amount)} kr (${c.percent == null ? "—" : fmtPercent(c.percent)})</span>`;
   }
 
+  function frozenLines(p) {
+    const base = fmtDateShort(frozenCache.baseDate || "2026-09-23");
+    const before = frozenCache.beforeDate ? fmtDateShort(frozenCache.beforeDate) : "—";
+    const rows = [
+      frozenChange(p.shelfSince, `Shelf price since ${base}`),
+      p.chargedByWeight ? frozenChange(p.kgSince, `Price per kg since ${base}`) : "",
+      p.priceAtFreeze != null ? frozenChange(p.freezeCmp, `vs. Krónan's freeze price (${fmtISKUnit(p.priceAtFreeze, p.chargedByWeight ? "kg" : null)})`) : "",
+      frozenChange(p.shelfBefore, `2 days before, shelf (${before} → ${base})`),
+      p.chargedByWeight ? frozenChange(p.kgBefore, `2 days before, per kg`) : "",
+    ].filter(Boolean);
+    return rows.join("<br>") + ` · ${p.sku}`;
+  }
+
   let frozenCache = null;
   let frozenFilter = "";
   let frozenCategory = "";
@@ -1579,8 +1592,7 @@
               <div class="name">${p.name}</div>
               <div class="percent">${fmtISKUnit(price, unit)}</div>
               <div class="meta">${metaLine({ category, brand: p.brand })}</div>
-              <div class="prices">${frozenChange(p.sinceBase, "Since " + fmtDateShort(frozenCache.baseDate || "2026-09-23"))}</div>
-              <div class="prices">${frozenChange(p.beforeBase, "2 days before (" + (frozenCache.beforeDate ? fmtDateShort(frozenCache.beforeDate) : "—") + " → " + fmtDateShort(frozenCache.baseDate || "2026-09-23") + ")")} · ${p.sku}</div>
+              <div class="prices">${frozenLines(p)}</div>
             </div>`;
         }).join("");
         attachLineClicks(listEl);
