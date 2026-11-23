@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-22",
+  "date": "2026-11-23",
   "source": "https://kronan.is/frysting-voruverds",
   "baseDate": "2026-09-23",
   "beforeDate": "2026-09-21",
@@ -4597,7 +4597,7 @@
       "baseComparisonUnit": "STK",
       "categoryPath": "Heimilið / Þrif / Tuskur og svampar",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": 136,
+      "priceAtFreeze": null,
       "shelfSince": {
         "from": 136,
         "to": 136,
@@ -4614,12 +4614,7 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": {
-        "from": 136,
-        "to": 136,
-        "amount": 0,
-        "percent": 0
-      }
+      "freezeCmp": null
     },
     {
       "sku": "100228940",
@@ -9758,7 +9753,7 @@
       "baseComparisonUnit": "STK",
       "categoryPath": "Börnin / Barnasnyrtivara / Barnasnyrtivörur",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 143,
       "shelfSince": {
         "from": 143,
         "to": 143,
@@ -9775,7 +9770,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 143,
+        "to": 143,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100201329",
@@ -10890,7 +10890,7 @@
       "baseComparisonUnit": "LTR",
       "categoryPath": "Heimilið / Þvottur / Þvottaefni",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 744,
       "shelfSince": {
         "from": 744,
         "to": 744,
@@ -10907,7 +10907,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 744,
+        "to": 744,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100201841",
@@ -10921,7 +10926,7 @@
       "baseComparisonUnit": "LTR",
       "categoryPath": "Heimilið / Þvottur / Þvottaefni",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": 648,
+      "priceAtFreeze": null,
       "shelfSince": {
         "from": 648,
         "to": 648,
@@ -10938,12 +10943,7 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": {
-        "from": 648,
-        "to": 648,
-        "amount": 0,
-        "percent": 0
-      }
+      "freezeCmp": null
     },
     {
       "sku": "100252503",
@@ -13802,42 +13802,6 @@
       "freezeCmp": {
         "from": 1199,
         "to": 1199,
-        "amount": 0,
-        "percent": 0
-      }
-    },
-    {
-      "sku": "100251657",
-      "name": "Grön Balance sólarvörn lotion  spf30",
-      "brand": "Grön Balance",
-      "price": 1341,
-      "discountedPrice": 1341,
-      "onSale": false,
-      "pricePerKilo": null,
-      "chargedByWeight": false,
-      "baseComparisonUnit": "LTR",
-      "categoryPath": "Snyrtivara / Húðumhirða / Sólarvörur",
-      "frozenSince": "2026-11-20",
-      "priceAtFreeze": 1341,
-      "shelfSince": {
-        "from": 1341,
-        "to": 1341,
-        "amount": 0,
-        "percent": 0
-      },
-      "shelfBefore": {
-        "from": 1341,
-        "to": 1341,
-        "amount": 0,
-        "percent": 0
-      },
-      "kgSince": null,
-      "kgBefore": null,
-      "rises": 0,
-      "falls": 0,
-      "freezeCmp": {
-        "from": 1341,
-        "to": 1341,
         "amount": 0,
         "percent": 0
       }

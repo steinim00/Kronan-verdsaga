@@ -1,300 +1,750 @@
 {
-  "date": "2026-11-22",
-  "comparedTo": "2026-11-21",
-  "productCount": 8720,
-  "changedCount": 11,
-  "increasedCount": 10,
-  "decreasedCount": 1,
-  "avgPercentChange": 0.01,
+  "date": "2026-11-23",
+  "comparedTo": "2026-11-22",
+  "productCount": 8710,
+  "changedCount": 29,
+  "increasedCount": 15,
+  "decreasedCount": 14,
+  "avgPercentChange": 0.03,
   "topIncreases": [
     {
-      "sku": "100272338",
-      "name": "EOS raksápa vanilla bliss",
-      "brand": "EOS",
-      "category": "Snyrtivara",
+      "sku": "100271623",
+      "name": "Esti grísk jógúrt vanillu 10% 1kg",
+      "brand": "Esti",
+      "category": "Mjólkurvörur og egg",
       "unit": "stk",
-      "priceBefore": 995,
-      "priceAfter": 1195,
-      "percent": 20.1,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100270368",
-      "name": "Brushworks carving brush nr.17",
-      "brand": "Brushworks",
-      "category": "Snyrtivara",
-      "unit": "stk",
-      "priceBefore": 799,
+      "priceBefore": 399,
       "priceAfter": 899,
-      "percent": 12.52,
+      "percent": 125.31,
       "allTimeLow": false,
-      "allTimeHigh": true
+      "allTimeHigh": false
     },
     {
-      "sku": "100243827",
-      "name": "Fixa álpappír 2x20 m",
-      "brand": "Fixa",
-      "category": "Heimilið",
+      "sku": "100271617",
+      "name": "Esti grísk jógúrt 10% 1kg",
+      "brand": "Esti",
+      "category": "Mjólkurvörur og egg",
       "unit": "stk",
-      "priceBefore": 769,
-      "priceAfter": 849,
-      "percent": 10.4,
+      "priceBefore": 399,
+      "priceAfter": 799,
+      "percent": 100.25,
       "allTimeLow": false,
       "allTimeHigh": true
     },
     {
-      "sku": "100272344",
-      "name": "EOS body wash coconut waters",
-      "brand": "EOS",
+      "sku": "100273361",
+      "name": "Dove men + care deo stick clean comfort",
+      "brand": "Dove",
       "category": "Snyrtivara",
       "unit": "stk",
-      "priceBefore": 2495,
-      "priceAfter": 2695,
-      "percent": 8.02,
+      "priceBefore": 410,
+      "priceAfter": 599,
+      "percent": 46.1,
       "allTimeLow": false,
       "allTimeHigh": true
     },
     {
-      "sku": "100272345",
-      "name": "EOS body wash vanilla",
-      "brand": "EOS",
+      "sku": "100253544",
+      "name": "iceberg - jöklasalat",
+      "brand": "",
+      "category": "Grænmeti",
+      "unit": "stk",
+      "priceBefore": 359,
+      "priceAfter": 398,
+      "percent": 10.86,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100253122",
+      "name": "paprika rauð",
+      "brand": "",
+      "category": "Grænmeti",
+      "unit": "stk",
+      "priceBefore": 207,
+      "priceAfter": 229,
+      "percent": 10.63,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100260320",
+      "name": "Dove 6pk sápustykki pink",
+      "brand": "Dove",
       "category": "Snyrtivara",
       "unit": "stk",
-      "priceBefore": 2495,
-      "priceAfter": 2695,
-      "percent": 8.02,
+      "priceBefore": 999,
+      "priceAfter": 1099,
+      "percent": 10.01,
       "allTimeLow": false,
       "allTimeHigh": true
     },
     {
-      "sku": "100272340",
-      "name": "EOS body wash pink champagne",
-      "brand": "EOS",
+      "sku": "100265360",
+      "name": "VAXA salvía",
+      "brand": "VAXA",
+      "category": "Grænmeti",
+      "unit": "stk",
+      "priceBefore": 419,
+      "priceAfter": 449,
+      "percent": 7.16,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "00900316",
+      "name": "Avókadó í lausu",
+      "brand": "",
+      "category": "Ávextir",
+      "unit": "stk",
+      "priceBefore": 299,
+      "priceAfter": 319,
+      "percent": 6.69,
+      "allTimeLow": false,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100253123",
+      "name": "paprika orange",
+      "brand": "",
+      "category": "Grænmeti",
+      "unit": "stk",
+      "priceBefore": 207,
+      "priceAfter": 219,
+      "percent": 5.8,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "02201699",
+      "name": "Myllu vinar svamptertubotnar",
+      "brand": "Myllu",
+      "category": "Brauð, kökur og kex",
+      "unit": "stk",
+      "priceBefore": 1140,
+      "priceAfter": 1199,
+      "percent": 5.18,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100265982",
+      "name": "Bob's jarðarber 400g",
+      "brand": "Bob's",
+      "category": "Ávextir",
+      "unit": "stk",
+      "priceBefore": 1199,
+      "priceAfter": 1249,
+      "percent": 4.17,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "03400133",
+      "name": "Knorr spaghetteria carbonara",
+      "brand": "Knorr",
+      "category": "Tilbúnir réttir",
+      "unit": "stk",
+      "priceBefore": 310,
+      "priceAfter": 320,
+      "percent": 3.23,
+      "allTimeLow": false,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "03700005",
+      "name": "Tabasco sósa",
+      "brand": "Tabasco",
+      "category": "Eldamennskan",
+      "unit": "stk",
+      "priceBefore": 420,
+      "priceAfter": 430,
+      "percent": 2.38,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100255734",
+      "name": "Ripper raspberry lemon",
+      "brand": "Ripper",
+      "category": "Morgunmatur og heilsubót",
+      "unit": "stk",
+      "priceBefore": 4790,
+      "priceAfter": 4890,
+      "percent": 2.09,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100262882",
+      "name": "Vaseline varasalvi mini creme brulée",
+      "brand": "Vaseline",
       "category": "Snyrtivara",
       "unit": "stk",
-      "priceBefore": 2495,
-      "priceAfter": 2695,
-      "percent": 8.02,
+      "priceBefore": 359,
+      "priceAfter": 360,
+      "percent": 0.28,
       "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100272343",
-      "name": "EOS body lotion vanilla cashmere",
-      "brand": "EOS",
-      "category": "Snyrtivara",
-      "unit": "stk",
-      "priceBefore": 2495,
-      "priceAfter": 2695,
-      "percent": 8.02,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100272339",
-      "name": "EOS body lotion pink champagne",
-      "brand": "EOS",
-      "category": "Snyrtivara",
-      "unit": "stk",
-      "priceBefore": 2495,
-      "priceAfter": 2695,
-      "percent": 8.02,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100272346",
-      "name": "EOS body lotion coconut",
-      "brand": "EOS",
-      "category": "Snyrtivara",
-      "unit": "stk",
-      "priceBefore": 2495,
-      "priceAfter": 2695,
-      "percent": 8.02,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100123719",
-      "name": "Paperbird álpappír 30 cm x 7,6m",
-      "brand": "Paperbird",
-      "category": "Heimilið",
-      "unit": "stk",
-      "priceBefore": 449,
-      "priceAfter": 479,
-      "percent": 6.68,
-      "allTimeLow": false,
-      "allTimeHigh": true
+      "allTimeHigh": false
     }
   ],
   "topDecreases": [
     {
-      "sku": "100264852",
-      "name": "Brushworks tan removal mitt",
-      "brand": "Brushworks",
-      "category": "Snyrtivara",
+      "sku": "100253499",
+      "name": "greip rautt",
+      "brand": "",
+      "category": "Ávextir",
       "unit": "stk",
-      "priceBefore": 1999,
-      "priceAfter": 1399,
-      "percent": -30.02,
+      "priceBefore": 249,
+      "priceAfter": 176,
+      "percent": -29.32,
+      "allTimeLow": false,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100272811",
+      "name": "Indomie 5pk núðlur mi goreng",
+      "brand": "Indomie",
+      "category": "Eldamennskan",
+      "unit": "stk",
+      "priceBefore": 699,
+      "priceAfter": 595,
+      "percent": -14.88,
       "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100262692",
+      "name": "Indomie 5pk núðlur kjúklinga",
+      "brand": "Indomie",
+      "category": "Eldamennskan",
+      "unit": "stk",
+      "priceBefore": 699,
+      "priceAfter": 595,
+      "percent": -14.88,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "02500241",
+      "name": "MS jólajógúrt með jarðarberjum",
+      "brand": "MS",
+      "category": "Mjólkurvörur og egg",
+      "unit": "stk",
+      "priceBefore": 299,
+      "priceAfter": 270,
+      "percent": -9.7,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100253423",
+      "name": "sellerírót",
+      "brand": "",
+      "category": "Grænmeti",
+      "unit": "stk",
+      "priceBefore": 269,
+      "priceAfter": 259,
+      "percent": -3.72,
+      "allTimeLow": false,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100269963",
+      "name": "Gevalia kaffi malað rauður",
+      "brand": "Gevalia",
+      "category": "Heitir drykkir",
+      "unit": "stk",
+      "priceBefore": 1180,
+      "priceAfter": 1140,
+      "percent": -3.39,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "02100727",
+      "name": "Kuchenmeister marsipankaka",
+      "brand": "Kuchenmeister",
+      "category": "Brauð, kökur og kex",
+      "unit": "stk",
+      "priceBefore": 440,
+      "priceAfter": 426,
+      "percent": -3.18,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "02201409",
+      "name": "Kuchenmeister vanillukaka m/súkkulaði",
+      "brand": "Kuchenmeister",
+      "category": "Brauð, kökur og kex",
+      "unit": "stk",
+      "priceBefore": 440,
+      "priceAfter": 426,
+      "percent": -3.18,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100253789",
+      "name": "Vatnsmelóna rauð",
+      "brand": "",
+      "category": "Ávextir",
+      "unit": "stk",
+      "priceBefore": 975,
+      "priceAfter": 949,
+      "percent": -2.67,
+      "allTimeLow": false,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100106911",
+      "name": "Perur í pakka",
+      "brand": "",
+      "category": "Ávextir",
+      "unit": "stk",
+      "priceBefore": 459,
+      "priceAfter": 449,
+      "percent": -2.18,
+      "allTimeLow": false,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100257664",
+      "name": "Ripper fruit punch",
+      "brand": "Ripper",
+      "category": "Morgunmatur og heilsubót",
+      "unit": "stk",
+      "priceBefore": 4999,
+      "priceAfter": 4890,
+      "percent": -2.18,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100271118",
+      "name": "Fruit bowl ávaxtastangir jarðarberja",
+      "brand": "Fruit bowl",
+      "category": "Börnin",
+      "unit": "stk",
+      "priceBefore": 490,
+      "priceAfter": 480,
+      "percent": -2.04,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100227562",
+      "name": "Duracell CR2016 coin rafhlöður",
+      "brand": "Duracell",
+      "category": "Heimilið",
+      "unit": "stk",
+      "priceBefore": 725,
+      "priceAfter": 715,
+      "percent": -1.38,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100271408",
+      "name": "Prima hvítlauksolía kaldpressuð",
+      "brand": "Prima",
+      "category": "Eldamennskan",
+      "unit": "stk",
+      "priceBefore": 599,
+      "priceAfter": 594,
+      "percent": -0.83,
+      "allTimeLow": false,
       "allTimeHigh": false
     }
   ],
   "topIncreasesByAmount": [
     {
-      "sku": "100272338",
-      "name": "EOS raksápa vanilla bliss",
-      "brand": "EOS",
-      "category": "Snyrtivara",
+      "sku": "100271623",
+      "name": "Esti grísk jógúrt vanillu 10% 1kg",
+      "brand": "Esti",
+      "category": "Mjólkurvörur og egg",
       "unit": "stk",
-      "priceBefore": 995,
-      "priceAfter": 1195,
-      "percent": 20.1,
-      "amount": 200,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100272344",
-      "name": "EOS body wash coconut waters",
-      "brand": "EOS",
-      "category": "Snyrtivara",
-      "unit": "stk",
-      "priceBefore": 2495,
-      "priceAfter": 2695,
-      "percent": 8.02,
-      "amount": 200,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100272345",
-      "name": "EOS body wash vanilla",
-      "brand": "EOS",
-      "category": "Snyrtivara",
-      "unit": "stk",
-      "priceBefore": 2495,
-      "priceAfter": 2695,
-      "percent": 8.02,
-      "amount": 200,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100272340",
-      "name": "EOS body wash pink champagne",
-      "brand": "EOS",
-      "category": "Snyrtivara",
-      "unit": "stk",
-      "priceBefore": 2495,
-      "priceAfter": 2695,
-      "percent": 8.02,
-      "amount": 200,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100272343",
-      "name": "EOS body lotion vanilla cashmere",
-      "brand": "EOS",
-      "category": "Snyrtivara",
-      "unit": "stk",
-      "priceBefore": 2495,
-      "priceAfter": 2695,
-      "percent": 8.02,
-      "amount": 200,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100272339",
-      "name": "EOS body lotion pink champagne",
-      "brand": "EOS",
-      "category": "Snyrtivara",
-      "unit": "stk",
-      "priceBefore": 2495,
-      "priceAfter": 2695,
-      "percent": 8.02,
-      "amount": 200,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100272346",
-      "name": "EOS body lotion coconut",
-      "brand": "EOS",
-      "category": "Snyrtivara",
-      "unit": "stk",
-      "priceBefore": 2495,
-      "priceAfter": 2695,
-      "percent": 8.02,
-      "amount": 200,
-      "allTimeLow": false,
-      "allTimeHigh": true
-    },
-    {
-      "sku": "100270368",
-      "name": "Brushworks carving brush nr.17",
-      "brand": "Brushworks",
-      "category": "Snyrtivara",
-      "unit": "stk",
-      "priceBefore": 799,
+      "priceBefore": 399,
       "priceAfter": 899,
-      "percent": 12.52,
+      "percent": 125.31,
+      "amount": 500,
+      "allTimeLow": false,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100271617",
+      "name": "Esti grísk jógúrt 10% 1kg",
+      "brand": "Esti",
+      "category": "Mjólkurvörur og egg",
+      "unit": "stk",
+      "priceBefore": 399,
+      "priceAfter": 799,
+      "percent": 100.25,
+      "amount": 400,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100273361",
+      "name": "Dove men + care deo stick clean comfort",
+      "brand": "Dove",
+      "category": "Snyrtivara",
+      "unit": "stk",
+      "priceBefore": 410,
+      "priceAfter": 599,
+      "percent": 46.1,
+      "amount": 189,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100260320",
+      "name": "Dove 6pk sápustykki pink",
+      "brand": "Dove",
+      "category": "Snyrtivara",
+      "unit": "stk",
+      "priceBefore": 999,
+      "priceAfter": 1099,
+      "percent": 10.01,
       "amount": 100,
       "allTimeLow": false,
       "allTimeHigh": true
     },
     {
-      "sku": "100243827",
-      "name": "Fixa álpappír 2x20 m",
-      "brand": "Fixa",
-      "category": "Heimilið",
+      "sku": "100255734",
+      "name": "Ripper raspberry lemon",
+      "brand": "Ripper",
+      "category": "Morgunmatur og heilsubót",
       "unit": "stk",
-      "priceBefore": 769,
-      "priceAfter": 849,
-      "percent": 10.4,
-      "amount": 80,
+      "priceBefore": 4790,
+      "priceAfter": 4890,
+      "percent": 2.09,
+      "amount": 100,
       "allTimeLow": false,
       "allTimeHigh": true
     },
     {
-      "sku": "100123719",
-      "name": "Paperbird álpappír 30 cm x 7,6m",
-      "brand": "Paperbird",
-      "category": "Heimilið",
+      "sku": "02201699",
+      "name": "Myllu vinar svamptertubotnar",
+      "brand": "Myllu",
+      "category": "Brauð, kökur og kex",
       "unit": "stk",
-      "priceBefore": 449,
-      "priceAfter": 479,
-      "percent": 6.68,
+      "priceBefore": 1140,
+      "priceAfter": 1199,
+      "percent": 5.18,
+      "amount": 59,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100265982",
+      "name": "Bob's jarðarber 400g",
+      "brand": "Bob's",
+      "category": "Ávextir",
+      "unit": "stk",
+      "priceBefore": 1199,
+      "priceAfter": 1249,
+      "percent": 4.17,
+      "amount": 50,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100253544",
+      "name": "iceberg - jöklasalat",
+      "brand": "",
+      "category": "Grænmeti",
+      "unit": "stk",
+      "priceBefore": 359,
+      "priceAfter": 398,
+      "percent": 10.86,
+      "amount": 39,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100265360",
+      "name": "VAXA salvía",
+      "brand": "VAXA",
+      "category": "Grænmeti",
+      "unit": "stk",
+      "priceBefore": 419,
+      "priceAfter": 449,
+      "percent": 7.16,
       "amount": 30,
       "allTimeLow": false,
       "allTimeHigh": true
+    },
+    {
+      "sku": "100253122",
+      "name": "paprika rauð",
+      "brand": "",
+      "category": "Grænmeti",
+      "unit": "stk",
+      "priceBefore": 207,
+      "priceAfter": 229,
+      "percent": 10.63,
+      "amount": 22,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "00900316",
+      "name": "Avókadó í lausu",
+      "brand": "",
+      "category": "Ávextir",
+      "unit": "stk",
+      "priceBefore": 299,
+      "priceAfter": 319,
+      "percent": 6.69,
+      "amount": 20,
+      "allTimeLow": false,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100253123",
+      "name": "paprika orange",
+      "brand": "",
+      "category": "Grænmeti",
+      "unit": "stk",
+      "priceBefore": 207,
+      "priceAfter": 219,
+      "percent": 5.8,
+      "amount": 12,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "03400133",
+      "name": "Knorr spaghetteria carbonara",
+      "brand": "Knorr",
+      "category": "Tilbúnir réttir",
+      "unit": "stk",
+      "priceBefore": 310,
+      "priceAfter": 320,
+      "percent": 3.23,
+      "amount": 10,
+      "allTimeLow": false,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "03700005",
+      "name": "Tabasco sósa",
+      "brand": "Tabasco",
+      "category": "Eldamennskan",
+      "unit": "stk",
+      "priceBefore": 420,
+      "priceAfter": 430,
+      "percent": 2.38,
+      "amount": 10,
+      "allTimeLow": false,
+      "allTimeHigh": true
+    },
+    {
+      "sku": "100262882",
+      "name": "Vaseline varasalvi mini creme brulée",
+      "brand": "Vaseline",
+      "category": "Snyrtivara",
+      "unit": "stk",
+      "priceBefore": 359,
+      "priceAfter": 360,
+      "percent": 0.28,
+      "amount": 1,
+      "allTimeLow": false,
+      "allTimeHigh": false
     }
   ],
   "topDecreasesByAmount": [
     {
-      "sku": "100264852",
-      "name": "Brushworks tan removal mitt",
-      "brand": "Brushworks",
-      "category": "Snyrtivara",
+      "sku": "100257664",
+      "name": "Ripper fruit punch",
+      "brand": "Ripper",
+      "category": "Morgunmatur og heilsubót",
       "unit": "stk",
-      "priceBefore": 1999,
-      "priceAfter": 1399,
-      "percent": -30.02,
-      "amount": -600,
+      "priceBefore": 4999,
+      "priceAfter": 4890,
+      "percent": -2.18,
+      "amount": -109,
       "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100272811",
+      "name": "Indomie 5pk núðlur mi goreng",
+      "brand": "Indomie",
+      "category": "Eldamennskan",
+      "unit": "stk",
+      "priceBefore": 699,
+      "priceAfter": 595,
+      "percent": -14.88,
+      "amount": -104,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100262692",
+      "name": "Indomie 5pk núðlur kjúklinga",
+      "brand": "Indomie",
+      "category": "Eldamennskan",
+      "unit": "stk",
+      "priceBefore": 699,
+      "priceAfter": 595,
+      "percent": -14.88,
+      "amount": -104,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100253499",
+      "name": "greip rautt",
+      "brand": "",
+      "category": "Ávextir",
+      "unit": "stk",
+      "priceBefore": 249,
+      "priceAfter": 176,
+      "percent": -29.32,
+      "amount": -73,
+      "allTimeLow": false,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100269963",
+      "name": "Gevalia kaffi malað rauður",
+      "brand": "Gevalia",
+      "category": "Heitir drykkir",
+      "unit": "stk",
+      "priceBefore": 1180,
+      "priceAfter": 1140,
+      "percent": -3.39,
+      "amount": -40,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "02500241",
+      "name": "MS jólajógúrt með jarðarberjum",
+      "brand": "MS",
+      "category": "Mjólkurvörur og egg",
+      "unit": "stk",
+      "priceBefore": 299,
+      "priceAfter": 270,
+      "percent": -9.7,
+      "amount": -29,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100253789",
+      "name": "Vatnsmelóna rauð",
+      "brand": "",
+      "category": "Ávextir",
+      "unit": "stk",
+      "priceBefore": 975,
+      "priceAfter": 949,
+      "percent": -2.67,
+      "amount": -26,
+      "allTimeLow": false,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "02100727",
+      "name": "Kuchenmeister marsipankaka",
+      "brand": "Kuchenmeister",
+      "category": "Brauð, kökur og kex",
+      "unit": "stk",
+      "priceBefore": 440,
+      "priceAfter": 426,
+      "percent": -3.18,
+      "amount": -14,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "02201409",
+      "name": "Kuchenmeister vanillukaka m/súkkulaði",
+      "brand": "Kuchenmeister",
+      "category": "Brauð, kökur og kex",
+      "unit": "stk",
+      "priceBefore": 440,
+      "priceAfter": 426,
+      "percent": -3.18,
+      "amount": -14,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100227562",
+      "name": "Duracell CR2016 coin rafhlöður",
+      "brand": "Duracell",
+      "category": "Heimilið",
+      "unit": "stk",
+      "priceBefore": 725,
+      "priceAfter": 715,
+      "percent": -1.38,
+      "amount": -10,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100271118",
+      "name": "Fruit bowl ávaxtastangir jarðarberja",
+      "brand": "Fruit bowl",
+      "category": "Börnin",
+      "unit": "stk",
+      "priceBefore": 490,
+      "priceAfter": 480,
+      "percent": -2.04,
+      "amount": -10,
+      "allTimeLow": true,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100106911",
+      "name": "Perur í pakka",
+      "brand": "",
+      "category": "Ávextir",
+      "unit": "stk",
+      "priceBefore": 459,
+      "priceAfter": 449,
+      "percent": -2.18,
+      "amount": -10,
+      "allTimeLow": false,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100253423",
+      "name": "sellerírót",
+      "brand": "",
+      "category": "Grænmeti",
+      "unit": "stk",
+      "priceBefore": 269,
+      "priceAfter": 259,
+      "percent": -3.72,
+      "amount": -10,
+      "allTimeLow": false,
+      "allTimeHigh": false
+    },
+    {
+      "sku": "100271408",
+      "name": "Prima hvítlauksolía kaldpressuð",
+      "brand": "Prima",
+      "category": "Eldamennskan",
+      "unit": "stk",
+      "priceBefore": 599,
+      "priceAfter": 594,
+      "percent": -0.83,
+      "amount": -5,
+      "allTimeLow": false,
       "allTimeHigh": false
     }
   ],
   "weekly": {
-    "comparedTo": "2026-11-15",
-    "changedCount": 184,
-    "increasedCount": 83,
-    "decreasedCount": 101,
-    "avgPercentChange": 0,
+    "comparedTo": "2026-11-16",
+    "changedCount": 183,
+    "increasedCount": 75,
+    "decreasedCount": 108,
+    "avgPercentChange": 0.01,
     "topIncreases": [
       {
         "sku": "100234453",
@@ -309,14 +759,14 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100253499",
-        "name": "greip rautt",
-        "brand": "",
-        "category": "Ávextir",
+        "sku": "100273361",
+        "name": "Dove men + care deo stick clean comfort",
+        "brand": "Dove",
+        "category": "Snyrtivara",
         "unit": "stk",
-        "priceBefore": 178,
-        "priceAfter": 249,
-        "percent": 39.89,
+        "priceBefore": 410,
+        "priceAfter": 599,
+        "percent": 46.1,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -341,6 +791,18 @@
         "priceBefore": 560,
         "priceAfter": 649,
         "percent": 15.89,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100253122",
+        "name": "paprika rauð",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 198,
+        "priceAfter": 229,
+        "percent": 15.66,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -429,14 +891,26 @@
         "allTimeHigh": false
       },
       {
-        "sku": "02201133",
-        "name": "La Baguette snittubrauð",
-        "brand": "La Baguette",
-        "category": "Frystivara",
+        "sku": "100253544",
+        "name": "iceberg - jöklasalat",
+        "brand": "",
+        "category": "Grænmeti",
         "unit": "stk",
-        "priceBefore": 449,
-        "priceAfter": 499,
-        "percent": 11.14,
+        "priceBefore": 359,
+        "priceAfter": 398,
+        "percent": 10.86,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100253123",
+        "name": "paprika orange",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 198,
+        "priceAfter": 219,
+        "percent": 10.61,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -489,26 +963,14 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100131146",
-        "name": "Zendium tannkrem fresh+white",
-        "brand": "Zendium",
+        "sku": "100260320",
+        "name": "Dove 6pk sápustykki pink",
+        "brand": "Dove",
         "category": "Snyrtivara",
         "unit": "stk",
-        "priceBefore": 410,
-        "priceAfter": 450,
-        "percent": 9.76,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "02901181",
-        "name": "Zendium tannkrem classic",
-        "brand": "Zendium",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 410,
-        "priceAfter": 450,
-        "percent": 9.76,
+        "priceBefore": 999,
+        "priceAfter": 1099,
+        "percent": 10.01,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -521,18 +983,6 @@
         "priceBefore": 599,
         "priceAfter": 655,
         "percent": 9.35,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100265982",
-        "name": "Bob's jarðarber 400g",
-        "brand": "Bob's",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 1099,
-        "priceAfter": 1199,
-        "percent": 9.1,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -681,18 +1131,6 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100226609",
-        "name": "Dove derma spa brúnkukrem medium",
-        "brand": "Dove",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 636,
-        "priceAfter": 686,
-        "percent": 7.86,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
         "sku": "100198433",
         "name": "Goða pedersen salami",
         "brand": "Goða",
@@ -729,6 +1167,18 @@
         "allTimeHigh": true
       },
       {
+        "sku": "00900316",
+        "name": "Avókadó í lausu",
+        "brand": "",
+        "category": "Ávextir",
+        "unit": "stk",
+        "priceBefore": 299,
+        "priceAfter": 319,
+        "percent": 6.69,
+        "allTimeLow": false,
+        "allTimeHigh": false
+      },
+      {
         "sku": "100123719",
         "name": "Paperbird álpappír 30 cm x 7,6m",
         "brand": "Paperbird",
@@ -739,30 +1189,6 @@
         "percent": 6.68,
         "allTimeLow": false,
         "allTimeHigh": true
-      },
-      {
-        "sku": "03701239",
-        "name": "Maille old style sinnep",
-        "brand": "Maille",
-        "category": "Eldamennskan",
-        "unit": "stk",
-        "priceBefore": 465,
-        "priceAfter": 495,
-        "percent": 6.45,
-        "allTimeLow": false,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "03701112",
-        "name": "Maille hunangs dijon sinnep",
-        "brand": "Maille",
-        "category": "Eldamennskan",
-        "unit": "stk",
-        "priceBefore": 445,
-        "priceAfter": 470,
-        "percent": 5.62,
-        "allTimeLow": false,
-        "allTimeHigh": false
       },
       {
         "sku": "100243351",
@@ -784,6 +1210,18 @@
         "unit": "stk",
         "priceBefore": 599,
         "priceAfter": 630,
+        "percent": 5.18,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "02201699",
+        "name": "Myllu vinar svamptertubotnar",
+        "brand": "Myllu",
+        "category": "Brauð, kökur og kex",
+        "unit": "stk",
+        "priceBefore": 1140,
+        "priceAfter": 1199,
         "percent": 5.18,
         "allTimeLow": false,
         "allTimeHigh": true
@@ -837,18 +1275,6 @@
         "allTimeHigh": true
       },
       {
-        "sku": "02500241",
-        "name": "MS jólajógúrt með jarðarberjum",
-        "brand": "MS",
-        "category": "Mjólkurvörur og egg",
-        "unit": "stk",
-        "priceBefore": 285,
-        "priceAfter": 299,
-        "percent": 4.91,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
         "sku": "100274015",
         "name": "Egils 6pk mix",
         "brand": "Egils",
@@ -873,67 +1299,55 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100253122",
-        "name": "paprika rauð",
-        "brand": "",
-        "category": "Grænmeti",
+        "sku": "100265982",
+        "name": "Bob's jarðarber 400g",
+        "brand": "Bob's",
+        "category": "Ávextir",
         "unit": "stk",
-        "priceBefore": 198,
-        "priceAfter": 207,
-        "percent": 4.55,
+        "priceBefore": 1199,
+        "priceAfter": 1249,
+        "percent": 4.17,
         "allTimeLow": false,
         "allTimeHigh": true
       },
       {
-        "sku": "100253123",
-        "name": "paprika orange",
+        "sku": "100269086",
+        "name": "SS próteinbiti",
+        "brand": "SS",
+        "category": "Kjöt",
+        "unit": "stk",
+        "priceBefore": 529,
+        "priceAfter": 550,
+        "percent": 3.97,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100269154",
+        "name": "The Laughing Cow ostur 8stk",
+        "brand": "The Laughing Cow",
+        "category": "Mjólkurvörur og egg",
+        "unit": "stk",
+        "priceBefore": 480,
+        "priceAfter": 499,
+        "percent": 3.96,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "01000593",
+        "name": "Blaðlaukur",
         "brand": "",
         "category": "Grænmeti",
         "unit": "stk",
-        "priceBefore": 198,
-        "priceAfter": 207,
-        "percent": 4.55,
+        "priceBefore": 159,
+        "priceAfter": 165,
+        "percent": 3.77,
         "allTimeLow": false,
         "allTimeHigh": true
       }
     ],
     "topDecreases": [
-      {
-        "sku": "100271623",
-        "name": "Esti grísk jógúrt vanillu 10% 1kg",
-        "brand": "Esti",
-        "category": "Mjólkurvörur og egg",
-        "unit": "stk",
-        "priceBefore": 899,
-        "priceAfter": 399,
-        "percent": -55.62,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100271617",
-        "name": "Esti grísk jógúrt 10% 1kg",
-        "brand": "Esti",
-        "category": "Mjólkurvörur og egg",
-        "unit": "stk",
-        "priceBefore": 799,
-        "priceAfter": 399,
-        "percent": -50.06,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100248030",
-        "name": "Til hamingju trönuber",
-        "brand": "Til hamingju",
-        "category": "Laugardags",
-        "unit": "stk",
-        "priceBefore": 385,
-        "priceAfter": 225,
-        "percent": -41.56,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
       {
         "sku": "100264852",
         "name": "Brushworks tan removal mitt",
@@ -983,18 +1397,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100273981",
-        "name": "Takis dracula",
-        "brand": "Takis",
-        "category": "Laugardags",
-        "unit": "stk",
-        "priceBefore": 459,
-        "priceAfter": 370,
-        "percent": -19.39,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100273813",
         "name": "Jólabjór Fur áfengislaust jólaöl",
         "brand": "Jólabjór",
@@ -1003,6 +1405,30 @@
         "priceBefore": 399,
         "priceAfter": 329,
         "percent": -17.54,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100272811",
+        "name": "Indomie 5pk núðlur mi goreng",
+        "brand": "Indomie",
+        "category": "Eldamennskan",
+        "unit": "stk",
+        "priceBefore": 699,
+        "priceAfter": 595,
+        "percent": -14.88,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100262692",
+        "name": "Indomie 5pk núðlur kjúklinga",
+        "brand": "Indomie",
+        "category": "Eldamennskan",
+        "unit": "stk",
+        "priceBefore": 699,
+        "priceAfter": 595,
+        "percent": -14.88,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -1016,6 +1442,18 @@
         "priceAfter": 299,
         "percent": -14.33,
         "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100253423",
+        "name": "sellerírót",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 298,
+        "priceAfter": 259,
+        "percent": -13.09,
+        "allTimeLow": false,
         "allTimeHigh": false
       },
       {
@@ -1088,18 +1526,6 @@
         "priceAfter": 294,
         "percent": -9.82,
         "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100253423",
-        "name": "sellerírót",
-        "brand": "",
-        "category": "Grænmeti",
-        "unit": "stk",
-        "priceBefore": 298,
-        "priceAfter": 269,
-        "percent": -9.73,
-        "allTimeLow": false,
         "allTimeHigh": false
       },
       {
@@ -1208,6 +1634,18 @@
         "priceAfter": 1396,
         "percent": -5.61,
         "allTimeLow": false,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "02500241",
+        "name": "MS jólajógúrt með jarðarberjum",
+        "brand": "MS",
+        "category": "Mjólkurvörur og egg",
+        "unit": "stk",
+        "priceBefore": 285,
+        "priceAfter": 270,
+        "percent": -5.26,
+        "allTimeLow": true,
         "allTimeHigh": false
       },
       {
@@ -1331,18 +1769,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "02000381",
-        "name": "Til hamingju gróft kókosmjöl",
-        "brand": "Til hamingju",
-        "category": "Bakstur",
-        "unit": "stk",
-        "priceBefore": 299,
-        "priceAfter": 288,
-        "percent": -3.68,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100268969",
         "name": "Til hamingju kasjúhnetur jógúrt",
         "brand": "Til hamingju",
@@ -1351,6 +1777,18 @@
         "priceBefore": 399,
         "priceAfter": 385,
         "percent": -3.51,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100269963",
+        "name": "Gevalia kaffi malað rauður",
+        "brand": "Gevalia",
+        "category": "Heitir drykkir",
+        "unit": "stk",
+        "priceBefore": 1180,
+        "priceAfter": 1140,
+        "percent": -3.39,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -1391,6 +1829,30 @@
         "allTimeHigh": false
       },
       {
+        "sku": "02100727",
+        "name": "Kuchenmeister marsipankaka",
+        "brand": "Kuchenmeister",
+        "category": "Brauð, kökur og kex",
+        "unit": "stk",
+        "priceBefore": 440,
+        "priceAfter": 426,
+        "percent": -3.18,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "02201409",
+        "name": "Kuchenmeister vanillukaka m/súkkulaði",
+        "brand": "Kuchenmeister",
+        "category": "Brauð, kökur og kex",
+        "unit": "stk",
+        "priceBefore": 440,
+        "priceAfter": 426,
+        "percent": -3.18,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
         "sku": "100268968",
         "name": "Til hamingju kasjúhnetur súkkulaði & jógúrt",
         "brand": "Til hamingju",
@@ -1399,18 +1861,6 @@
         "priceBefore": 449,
         "priceAfter": 435,
         "percent": -3.12,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "04700409",
-        "name": "Til hamingju þurrkuð epli",
-        "brand": "Til hamingju",
-        "category": "Morgunmatur og heilsubót",
-        "unit": "stk",
-        "priceBefore": 536,
-        "priceAfter": 520,
-        "percent": -2.99,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -1657,6 +2107,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100273361",
+        "name": "Dove men + care deo stick clean comfort",
+        "brand": "Dove",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 410,
+        "priceAfter": 599,
+        "percent": 46.1,
+        "amount": 189,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100224057",
         "name": "Norðlenska lambaprime í hvítlauks og rósmarín marineringu",
         "brand": "Norðlenska",
@@ -1709,14 +2172,14 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100265982",
-        "name": "Bob's jarðarber 400g",
-        "brand": "Bob's",
-        "category": "Ávextir",
+        "sku": "100260320",
+        "name": "Dove 6pk sápustykki pink",
+        "brand": "Dove",
+        "category": "Snyrtivara",
         "unit": "stk",
-        "priceBefore": 1099,
-        "priceAfter": 1199,
-        "percent": 9.1,
+        "priceBefore": 999,
+        "priceAfter": 1099,
+        "percent": 10.01,
         "amount": 100,
         "allTimeLow": false,
         "allTimeHigh": true
@@ -1730,6 +2193,19 @@
         "priceBefore": 1299,
         "priceAfter": 1399,
         "percent": 7.7,
+        "amount": 100,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100255734",
+        "name": "Ripper raspberry lemon",
+        "brand": "Ripper",
+        "category": "Morgunmatur og heilsubót",
+        "unit": "stk",
+        "priceBefore": 4790,
+        "priceAfter": 4890,
+        "percent": 2.09,
         "amount": 100,
         "allTimeLow": false,
         "allTimeHigh": true
@@ -1787,19 +2263,6 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100253499",
-        "name": "greip rautt",
-        "brand": "",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 178,
-        "priceAfter": 249,
-        "percent": 39.89,
-        "amount": 71,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
         "sku": "100256645",
         "name": "Praktisk rúðuvökvi 4l",
         "brand": "Praktisk",
@@ -1809,6 +2272,19 @@
         "priceAfter": 920,
         "percent": 8.24,
         "amount": 70,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "02201699",
+        "name": "Myllu vinar svamptertubotnar",
+        "brand": "Myllu",
+        "category": "Brauð, kökur og kex",
+        "unit": "stk",
+        "priceBefore": 1140,
+        "priceAfter": 1199,
+        "percent": 5.18,
+        "amount": 59,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -1826,27 +2302,14 @@
         "allTimeHigh": true
       },
       {
-        "sku": "02201133",
-        "name": "La Baguette snittubrauð",
-        "brand": "La Baguette",
-        "category": "Frystivara",
+        "sku": "100265982",
+        "name": "Bob's jarðarber 400g",
+        "brand": "Bob's",
+        "category": "Ávextir",
         "unit": "stk",
-        "priceBefore": 449,
-        "priceAfter": 499,
-        "percent": 11.14,
-        "amount": 50,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100226609",
-        "name": "Dove derma spa brúnkukrem medium",
-        "brand": "Dove",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 636,
-        "priceAfter": 686,
-        "percent": 7.86,
+        "priceBefore": 1199,
+        "priceAfter": 1249,
+        "percent": 4.17,
         "amount": 50,
         "allTimeLow": false,
         "allTimeHigh": true
@@ -1904,28 +2367,15 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100131146",
-        "name": "Zendium tannkrem fresh+white",
-        "brand": "Zendium",
-        "category": "Snyrtivara",
+        "sku": "100253544",
+        "name": "iceberg - jöklasalat",
+        "brand": "",
+        "category": "Grænmeti",
         "unit": "stk",
-        "priceBefore": 410,
-        "priceAfter": 450,
-        "percent": 9.76,
-        "amount": 40,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "02901181",
-        "name": "Zendium tannkrem classic",
-        "brand": "Zendium",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 410,
-        "priceAfter": 450,
-        "percent": 9.76,
-        "amount": 40,
+        "priceBefore": 359,
+        "priceAfter": 398,
+        "percent": 10.86,
+        "amount": 39,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -1982,6 +2432,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100253122",
+        "name": "paprika rauð",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 198,
+        "priceAfter": 229,
+        "percent": 15.66,
+        "amount": 31,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100239131",
         "name": "Avókadó Hass 700g",
         "brand": "",
@@ -2034,19 +2497,6 @@
         "allTimeHigh": true
       },
       {
-        "sku": "03701239",
-        "name": "Maille old style sinnep",
-        "brand": "Maille",
-        "category": "Eldamennskan",
-        "unit": "stk",
-        "priceBefore": 465,
-        "priceAfter": 495,
-        "percent": 6.45,
-        "amount": 30,
-        "allTimeLow": false,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100234347",
         "name": "Hvítlaukur solo",
         "brand": "",
@@ -2056,32 +2506,6 @@
         "priceAfter": 629,
         "percent": 5.01,
         "amount": 30,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100227575",
-        "name": "Bob's Hindber  250g",
-        "brand": "Bob's",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 1149,
-        "priceAfter": 1179,
-        "percent": 2.61,
-        "amount": 30,
-        "allTimeLow": false,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100226610",
-        "name": "Dove derma spa brúnkukrem dark",
-        "brand": "Dove",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 659,
-        "priceAfter": 686,
-        "percent": 4.1,
-        "amount": 27,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -2112,17 +2536,17 @@
         "allTimeHigh": false
       },
       {
-        "sku": "03701112",
-        "name": "Maille hunangs dijon sinnep",
-        "brand": "Maille",
-        "category": "Eldamennskan",
+        "sku": "100253123",
+        "name": "paprika orange",
+        "brand": "",
+        "category": "Grænmeti",
         "unit": "stk",
-        "priceBefore": 445,
-        "priceAfter": 470,
-        "percent": 5.62,
-        "amount": 25,
+        "priceBefore": 198,
+        "priceAfter": 219,
+        "percent": 10.61,
+        "amount": 21,
         "allTimeLow": false,
-        "allTimeHigh": false
+        "allTimeHigh": true
       },
       {
         "sku": "100269086",
@@ -2149,6 +2573,32 @@
         "amount": 21,
         "allTimeLow": false,
         "allTimeHigh": true
+      },
+      {
+        "sku": "100269537",
+        "name": "Emmessís jólanammitoppur",
+        "brand": "Emmessís",
+        "category": "Laugardags",
+        "unit": "stk",
+        "priceBefore": 1199,
+        "priceAfter": 1220,
+        "percent": 1.75,
+        "amount": 21,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "00900316",
+        "name": "Avókadó í lausu",
+        "brand": "",
+        "category": "Ávextir",
+        "unit": "stk",
+        "priceBefore": 299,
+        "priceAfter": 319,
+        "percent": 6.69,
+        "amount": 20,
+        "allTimeLow": false,
+        "allTimeHigh": false
       }
     ],
     "topDecreasesByAmount": [
@@ -2166,32 +2616,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100271623",
-        "name": "Esti grísk jógúrt vanillu 10% 1kg",
-        "brand": "Esti",
-        "category": "Mjólkurvörur og egg",
-        "unit": "stk",
-        "priceBefore": 899,
-        "priceAfter": 399,
-        "percent": -55.62,
-        "amount": -500,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100271617",
-        "name": "Esti grísk jógúrt 10% 1kg",
-        "brand": "Esti",
-        "category": "Mjólkurvörur og egg",
-        "unit": "stk",
-        "priceBefore": 799,
-        "priceAfter": 399,
-        "percent": -50.06,
-        "amount": -400,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100263362",
         "name": "Garnier sjampó hairfood pineapple",
         "brand": "Garnier",
@@ -2201,19 +2625,6 @@
         "priceAfter": 799,
         "percent": -27.3,
         "amount": -300,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100248030",
-        "name": "Til hamingju trönuber",
-        "brand": "Til hamingju",
-        "category": "Laugardags",
-        "unit": "stk",
-        "priceBefore": 385,
-        "priceAfter": 225,
-        "percent": -41.56,
-        "amount": -160,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -2254,6 +2665,45 @@
         "percent": -8.89,
         "amount": -144,
         "allTimeLow": false,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100257664",
+        "name": "Ripper fruit punch",
+        "brand": "Ripper",
+        "category": "Morgunmatur og heilsubót",
+        "unit": "stk",
+        "priceBefore": 4999,
+        "priceAfter": 4890,
+        "percent": -2.18,
+        "amount": -109,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100272811",
+        "name": "Indomie 5pk núðlur mi goreng",
+        "brand": "Indomie",
+        "category": "Eldamennskan",
+        "unit": "stk",
+        "priceBefore": 699,
+        "priceAfter": 595,
+        "percent": -14.88,
+        "amount": -104,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100262692",
+        "name": "Indomie 5pk núðlur kjúklinga",
+        "brand": "Indomie",
+        "category": "Eldamennskan",
+        "unit": "stk",
+        "priceBefore": 699,
+        "priceAfter": 595,
+        "percent": -14.88,
+        "amount": -104,
+        "allTimeLow": true,
         "allTimeHigh": false
       },
       {
@@ -2305,19 +2755,6 @@
         "priceAfter": 1100,
         "percent": -7.56,
         "amount": -90,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100273981",
-        "name": "Takis dracula",
-        "brand": "Takis",
-        "category": "Laugardags",
-        "unit": "stk",
-        "priceBefore": 459,
-        "priceAfter": 370,
-        "percent": -19.39,
-        "amount": -89,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -2439,6 +2876,19 @@
         "allTimeHigh": false
       },
       {
+        "sku": "100269963",
+        "name": "Gevalia kaffi malað rauður",
+        "brand": "Gevalia",
+        "category": "Heitir drykkir",
+        "unit": "stk",
+        "priceBefore": 1180,
+        "priceAfter": 1140,
+        "percent": -3.39,
+        "amount": -40,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
         "sku": "100271821",
         "name": "Hleðsla 250ml próteinkaffi",
         "brand": "Hleðsla",
@@ -2449,6 +2899,19 @@
         "percent": -11.85,
         "amount": -39,
         "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100253423",
+        "name": "sellerírót",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 298,
+        "priceAfter": 259,
+        "percent": -13.09,
+        "amount": -39,
+        "allTimeLow": false,
         "allTimeHigh": false
       },
       {
@@ -2569,19 +3032,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100253423",
-        "name": "sellerírót",
-        "brand": "",
-        "category": "Grænmeti",
-        "unit": "stk",
-        "priceBefore": 298,
-        "priceAfter": 269,
-        "percent": -9.73,
-        "amount": -29,
-        "allTimeLow": false,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100149277",
         "name": "Hellmann's majónes",
         "brand": "Hellmann's",
@@ -2605,6 +3055,19 @@
         "percent": -1.72,
         "amount": -24,
         "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100253789",
+        "name": "Vatnsmelóna rauð",
+        "brand": "",
+        "category": "Ávextir",
+        "unit": "stk",
+        "priceBefore": 969,
+        "priceAfter": 949,
+        "percent": -2.06,
+        "amount": -20,
+        "allTimeLow": false,
         "allTimeHigh": false
       },
       {
@@ -2764,19 +3227,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "04700409",
-        "name": "Til hamingju þurrkuð epli",
-        "brand": "Til hamingju",
-        "category": "Morgunmatur og heilsubót",
-        "unit": "stk",
-        "priceBefore": 536,
-        "priceAfter": 520,
-        "percent": -2.99,
-        "amount": -16,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "01900027",
         "name": "Ljóma smjörlíki",
         "brand": "Ljóma",
@@ -2805,13 +3255,13 @@
     ]
   },
   "monthly": {
-    "comparedTo": "2026-10-23",
-    "changedCount": 690,
-    "increasedCount": 198,
-    "decreasedCount": 492,
-    "comparableCount": 7947,
-    "avgPercentChange": 0.05,
-    "avgPercentChangeProjected": 0.05,
+    "comparedTo": "2026-10-24",
+    "changedCount": 704,
+    "increasedCount": 203,
+    "decreasedCount": 501,
+    "comparableCount": 7938,
+    "avgPercentChange": 0.06,
+    "avgPercentChangeProjected": 0.06,
     "isPartialPeriod": false,
     "actualDays": 30,
     "topIncreases": [
@@ -2900,14 +3350,14 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100253499",
-        "name": "greip rautt",
-        "brand": "",
-        "category": "Ávextir",
+        "sku": "100273361",
+        "name": "Dove men + care deo stick clean comfort",
+        "brand": "Dove",
+        "category": "Snyrtivara",
         "unit": "stk",
-        "priceBefore": 179,
-        "priceAfter": 249,
-        "percent": 39.11,
+        "priceBefore": 410,
+        "priceAfter": 599,
+        "percent": 46.1,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -2924,6 +3374,18 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100253122",
+        "name": "paprika rauð",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 179,
+        "priceAfter": 229,
+        "percent": 27.93,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100230040",
         "name": "Paprika sweet mini",
         "brand": "",
@@ -2932,6 +3394,18 @@
         "priceBefore": 389,
         "priceAfter": 489,
         "percent": 25.71,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100253123",
+        "name": "paprika orange",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 175,
+        "priceAfter": 219,
+        "percent": 25.14,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -2956,6 +3430,18 @@
         "priceBefore": 449,
         "priceAfter": 549,
         "percent": 22.27,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100253544",
+        "name": "iceberg - jöklasalat",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 329,
+        "priceAfter": 398,
+        "percent": 20.97,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -3008,18 +3494,6 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100253123",
-        "name": "paprika orange",
-        "brand": "",
-        "category": "Grænmeti",
-        "unit": "stk",
-        "priceBefore": 175,
-        "priceAfter": 207,
-        "percent": 18.29,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
         "sku": "100254550",
         "name": "Appolo stjörnurúlla gul",
         "brand": "Appolo",
@@ -3056,14 +3530,14 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100253122",
-        "name": "paprika rauð",
-        "brand": "",
-        "category": "Grænmeti",
+        "sku": "100265982",
+        "name": "Bob's jarðarber 400g",
+        "brand": "Bob's",
+        "category": "Ávextir",
         "unit": "stk",
-        "priceBefore": 179,
-        "priceAfter": 207,
-        "percent": 15.64,
+        "priceBefore": 1089,
+        "priceAfter": 1249,
+        "percent": 14.69,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -3236,18 +3710,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100253789",
-        "name": "Vatnsmelóna rauð",
-        "brand": "",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 869,
-        "priceAfter": 975,
-        "percent": 12.2,
-        "allTimeLow": false,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100242137",
         "name": "Diana Lys teljós 10 tíma",
         "brand": "Diana Lys",
@@ -3344,18 +3806,6 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100265982",
-        "name": "Bob's jarðarber 400g",
-        "brand": "Bob's",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 1089,
-        "priceAfter": 1199,
-        "percent": 10.1,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
         "sku": "100224217",
         "name": "High5 orkugel með hindberjabragði",
         "brand": "High5",
@@ -3417,30 +3867,6 @@
       }
     ],
     "topDecreases": [
-      {
-        "sku": "100271623",
-        "name": "Esti grísk jógúrt vanillu 10% 1kg",
-        "brand": "Esti",
-        "category": "Mjólkurvörur og egg",
-        "unit": "stk",
-        "priceBefore": 999,
-        "priceAfter": 399,
-        "percent": -60.06,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100271617",
-        "name": "Esti grísk jógúrt 10% 1kg",
-        "brand": "Esti",
-        "category": "Mjólkurvörur og egg",
-        "unit": "stk",
-        "priceBefore": 799,
-        "priceAfter": 399,
-        "percent": -50.06,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
       {
         "sku": "100248030",
         "name": "Til hamingju trönuber",
@@ -3634,6 +4060,42 @@
         "allTimeHigh": false
       },
       {
+        "sku": "100272811",
+        "name": "Indomie 5pk núðlur mi goreng",
+        "brand": "Indomie",
+        "category": "Eldamennskan",
+        "unit": "stk",
+        "priceBefore": 699,
+        "priceAfter": 595,
+        "percent": -14.88,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100262692",
+        "name": "Indomie 5pk núðlur kjúklinga",
+        "brand": "Indomie",
+        "category": "Eldamennskan",
+        "unit": "stk",
+        "priceBefore": 699,
+        "priceAfter": 595,
+        "percent": -14.88,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100253423",
+        "name": "sellerírót",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 298,
+        "priceAfter": 259,
+        "percent": -13.09,
+        "allTimeLow": false,
+        "allTimeHigh": false
+      },
+      {
         "sku": "100153602",
         "name": "Norðlenska lambalæri með suðrænni kryddmarineringu",
         "brand": "Norðlenska",
@@ -3690,6 +4152,18 @@
         "priceBefore": 3069,
         "priceAfter": 2699,
         "percent": -12.06,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100253634",
+        "name": "kiwi",
+        "brand": "",
+        "category": "Ávextir",
+        "unit": "stk",
+        "priceBefore": 92,
+        "priceAfter": 81,
+        "percent": -11.96,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -3802,6 +4276,18 @@
         "allTimeHigh": false
       },
       {
+        "sku": "100271623",
+        "name": "Esti grísk jógúrt vanillu 10% 1kg",
+        "brand": "Esti",
+        "category": "Mjólkurvörur og egg",
+        "unit": "stk",
+        "priceBefore": 999,
+        "priceAfter": 899,
+        "percent": -10.01,
+        "allTimeLow": false,
+        "allTimeHigh": false
+      },
+      {
         "sku": "05000120",
         "name": "Toblerone 100g",
         "brand": "Toblerone",
@@ -3811,18 +4297,6 @@
         "priceAfter": 294,
         "percent": -9.82,
         "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100253423",
-        "name": "sellerírót",
-        "brand": "",
-        "category": "Grænmeti",
-        "unit": "stk",
-        "priceBefore": 298,
-        "priceAfter": 269,
-        "percent": -9.73,
-        "allTimeLow": false,
         "allTimeHigh": false
       },
       {
@@ -3874,18 +4348,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "00900316",
-        "name": "Avókadó í lausu",
-        "brand": "",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 329,
-        "priceAfter": 299,
-        "percent": -9.12,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100051305",
         "name": "Lindu Suðusúkkulaði",
         "brand": "Lindu",
@@ -3894,18 +4356,6 @@
         "priceBefore": 549,
         "priceAfter": 499,
         "percent": -9.11,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100253634",
-        "name": "kiwi",
-        "brand": "",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 89,
-        "priceAfter": 81,
-        "percent": -8.99,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -4371,6 +4821,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100273361",
+        "name": "Dove men + care deo stick clean comfort",
+        "brand": "Dove",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 410,
+        "priceAfter": 599,
+        "percent": 46.1,
+        "amount": 189,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100224057",
         "name": "Norðlenska lambaprime í hvítlauks og rósmarín marineringu",
         "brand": "Norðlenska",
@@ -4423,6 +4886,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100265982",
+        "name": "Bob's jarðarber 400g",
+        "brand": "Bob's",
+        "category": "Ávextir",
+        "unit": "stk",
+        "priceBefore": 1089,
+        "priceAfter": 1249,
+        "percent": 14.69,
+        "amount": 160,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100235266",
         "name": "Úrvals harðfiskur þorskur 100g",
         "brand": "Úrvals",
@@ -4460,32 +4936,6 @@
         "amount": 120,
         "allTimeLow": false,
         "allTimeHigh": true
-      },
-      {
-        "sku": "100265982",
-        "name": "Bob's jarðarber 400g",
-        "brand": "Bob's",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 1089,
-        "priceAfter": 1199,
-        "percent": 10.1,
-        "amount": 110,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100253789",
-        "name": "Vatnsmelóna rauð",
-        "brand": "",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 869,
-        "priceAfter": 975,
-        "percent": 12.2,
-        "amount": 106,
-        "allTimeLow": false,
-        "allTimeHigh": false
       },
       {
         "sku": "100235278",
@@ -4553,6 +5003,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100260320",
+        "name": "Dove 6pk sápustykki pink",
+        "brand": "Dove",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 999,
+        "priceAfter": 1099,
+        "percent": 10.01,
+        "amount": 100,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100267257",
         "name": "Holle lífræn þurrmjólk 2",
         "brand": "Holle",
@@ -4561,6 +5024,19 @@
         "priceBefore": 2299,
         "priceAfter": 2399,
         "percent": 4.35,
+        "amount": 100,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100255734",
+        "name": "Ripper raspberry lemon",
+        "brand": "Ripper",
+        "category": "Morgunmatur og heilsubót",
+        "unit": "stk",
+        "priceBefore": 4790,
+        "priceAfter": 4890,
+        "percent": 2.09,
         "amount": 100,
         "allTimeLow": false,
         "allTimeHigh": true
@@ -4642,32 +5118,6 @@
         "amount": 80,
         "allTimeLow": false,
         "allTimeHigh": true
-      },
-      {
-        "sku": "100211861",
-        "name": "Nan 1 þurrmjólk 0-6m",
-        "brand": "Nan",
-        "category": "Börnin",
-        "unit": "stk",
-        "priceBefore": 1980,
-        "priceAfter": 2060,
-        "percent": 4.04,
-        "amount": 80,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100247183",
-        "name": "Nan 2 þurrmjólk 6-24 mán",
-        "brand": "Nan",
-        "category": "Börnin",
-        "unit": "stk",
-        "priceBefore": 1980,
-        "priceAfter": 2060,
-        "percent": 4.04,
-        "amount": 80,
-        "allTimeLow": false,
-        "allTimeHigh": true
       }
     ],
     "topDecreasesByAmount": [
@@ -4737,19 +5187,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100271623",
-        "name": "Esti grísk jógúrt vanillu 10% 1kg",
-        "brand": "Esti",
-        "category": "Mjólkurvörur og egg",
-        "unit": "stk",
-        "priceBefore": 999,
-        "priceAfter": 399,
-        "percent": -60.06,
-        "amount": -600,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100272194",
         "name": "Colgate rafhlöðutannbursti max white",
         "brand": "Colgate",
@@ -4759,19 +5196,6 @@
         "priceAfter": 1999,
         "percent": -20.01,
         "amount": -500,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100271617",
-        "name": "Esti grísk jógúrt 10% 1kg",
-        "brand": "Esti",
-        "category": "Mjólkurvörur og egg",
-        "unit": "stk",
-        "priceBefore": 799,
-        "priceAfter": 399,
-        "percent": -50.06,
-        "amount": -400,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -5010,6 +5434,45 @@
         "allTimeHigh": false
       },
       {
+        "sku": "100257664",
+        "name": "Ripper fruit punch",
+        "brand": "Ripper",
+        "category": "Morgunmatur og heilsubót",
+        "unit": "stk",
+        "priceBefore": 4999,
+        "priceAfter": 4890,
+        "percent": -2.18,
+        "amount": -109,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100272811",
+        "name": "Indomie 5pk núðlur mi goreng",
+        "brand": "Indomie",
+        "category": "Eldamennskan",
+        "unit": "stk",
+        "priceBefore": 699,
+        "priceAfter": 595,
+        "percent": -14.88,
+        "amount": -104,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100262692",
+        "name": "Indomie 5pk núðlur kjúklinga",
+        "brand": "Indomie",
+        "category": "Eldamennskan",
+        "unit": "stk",
+        "priceBefore": 699,
+        "priceAfter": 595,
+        "percent": -14.88,
+        "amount": -104,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
         "sku": "100265045",
         "name": "Cosrx 6 peptide skin booster serum",
         "brand": "Cosrx",
@@ -5150,6 +5613,19 @@
         "percent": -10.01,
         "amount": -100,
         "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100271623",
+        "name": "Esti grísk jógúrt vanillu 10% 1kg",
+        "brand": "Esti",
+        "category": "Mjólkurvörur og egg",
+        "unit": "stk",
+        "priceBefore": 999,
+        "priceAfter": 899,
+        "percent": -10.01,
+        "amount": -100,
+        "allTimeLow": false,
         "allTimeHigh": false
       },
       {
@@ -5294,41 +5770,15 @@
         "amount": -70,
         "allTimeLow": true,
         "allTimeHigh": false
-      },
-      {
-        "sku": "100258829",
-        "name": "Garnier augnkrem vitamin c",
-        "brand": "Garnier",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 1999,
-        "priceAfter": 1929,
-        "percent": -3.5,
-        "amount": -70,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100179798",
-        "name": "Lambi salernispappír 12stk",
-        "brand": "Lambi",
-        "category": "Heimilið",
-        "unit": "stk",
-        "priceBefore": 1350,
-        "priceAfter": 1280,
-        "percent": -5.19,
-        "amount": -70,
-        "allTimeLow": true,
-        "allTimeHigh": false
       }
     ]
   },
   "monthToDate": {
     "comparedTo": "2026-11-01",
-    "changedCount": 410,
-    "increasedCount": 154,
-    "decreasedCount": 256,
-    "avgPercentChange": 0.02,
+    "changedCount": 426,
+    "increasedCount": 160,
+    "decreasedCount": 266,
+    "avgPercentChange": 0.03,
     "topIncreases": [
       {
         "sku": "100265611",
@@ -5367,14 +5817,14 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100253499",
-        "name": "greip rautt",
-        "brand": "",
-        "category": "Ávextir",
+        "sku": "100273361",
+        "name": "Dove men + care deo stick clean comfort",
+        "brand": "Dove",
+        "category": "Snyrtivara",
         "unit": "stk",
-        "priceBefore": 179,
-        "priceAfter": 249,
-        "percent": 39.11,
+        "priceBefore": 410,
+        "priceAfter": 599,
+        "percent": 46.1,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -5391,6 +5841,18 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100253122",
+        "name": "paprika rauð",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 179,
+        "priceAfter": 229,
+        "percent": 27.93,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100230040",
         "name": "Paprika sweet mini",
         "brand": "",
@@ -5403,6 +5865,18 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100253123",
+        "name": "paprika orange",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 175,
+        "priceAfter": 219,
+        "percent": 25.14,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100272053",
         "name": "Domestos power foam limescale remover",
         "brand": "Domestos",
@@ -5411,6 +5885,18 @@
         "priceBefore": 449,
         "priceAfter": 549,
         "percent": 22.27,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100253544",
+        "name": "iceberg - jöklasalat",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 329,
+        "priceAfter": 398,
+        "percent": 20.97,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -5463,18 +5949,6 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100253123",
-        "name": "paprika orange",
-        "brand": "",
-        "category": "Grænmeti",
-        "unit": "stk",
-        "priceBefore": 175,
-        "priceAfter": 207,
-        "percent": 18.29,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
         "sku": "100254550",
         "name": "Appolo stjörnurúlla gul",
         "brand": "Appolo",
@@ -5499,14 +5973,14 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100253122",
-        "name": "paprika rauð",
-        "brand": "",
-        "category": "Grænmeti",
+        "sku": "100265982",
+        "name": "Bob's jarðarber 400g",
+        "brand": "Bob's",
+        "category": "Ávextir",
         "unit": "stk",
-        "priceBefore": 179,
-        "priceAfter": 207,
-        "percent": 15.64,
+        "priceBefore": 1089,
+        "priceAfter": 1249,
+        "percent": 14.69,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -5679,18 +6153,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100253789",
-        "name": "Vatnsmelóna rauð",
-        "brand": "",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 869,
-        "priceAfter": 975,
-        "percent": 12.2,
-        "allTimeLow": false,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100253496",
         "name": "Appelsínur",
         "brand": "",
@@ -5775,18 +6237,6 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100265982",
-        "name": "Bob's jarðarber 400g",
-        "brand": "Bob's",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 1089,
-        "priceAfter": 1199,
-        "percent": 10.1,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
         "sku": "100255730",
         "name": "BioTechUSA mysuprótein vanillu 28g",
         "brand": "BioTechUSA",
@@ -5843,6 +6293,18 @@
         "priceBefore": 499,
         "priceAfter": 549,
         "percent": 10.02,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100260320",
+        "name": "Dove 6pk sápustykki pink",
+        "brand": "Dove",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 999,
+        "priceAfter": 1099,
+        "percent": 10.01,
         "allTimeLow": false,
         "allTimeHigh": true
       },
@@ -5907,55 +6369,19 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100253544",
-        "name": "iceberg - jöklasalat",
+        "sku": "100253789",
+        "name": "Vatnsmelóna rauð",
         "brand": "",
-        "category": "Grænmeti",
+        "category": "Ávextir",
         "unit": "stk",
-        "priceBefore": 329,
-        "priceAfter": 359,
-        "percent": 9.12,
+        "priceBefore": 869,
+        "priceAfter": 949,
+        "percent": 9.21,
         "allTimeLow": false,
         "allTimeHigh": false
-      },
-      {
-        "sku": "100235277",
-        "name": "Úrvals harðfiskur þorskur 300g",
-        "brand": "Úrvals",
-        "category": "Fiskur",
-        "unit": "stk",
-        "priceBefore": 4399,
-        "priceAfter": 4799,
-        "percent": 9.09,
-        "allTimeLow": false,
-        "allTimeHigh": true
       }
     ],
     "topDecreases": [
-      {
-        "sku": "100271623",
-        "name": "Esti grísk jógúrt vanillu 10% 1kg",
-        "brand": "Esti",
-        "category": "Mjólkurvörur og egg",
-        "unit": "stk",
-        "priceBefore": 999,
-        "priceAfter": 399,
-        "percent": -60.06,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100271617",
-        "name": "Esti grísk jógúrt 10% 1kg",
-        "brand": "Esti",
-        "category": "Mjólkurvörur og egg",
-        "unit": "stk",
-        "priceBefore": 799,
-        "priceAfter": 399,
-        "percent": -50.06,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
       {
         "sku": "100248030",
         "name": "Til hamingju trönuber",
@@ -6113,6 +6539,30 @@
         "allTimeHigh": false
       },
       {
+        "sku": "100272811",
+        "name": "Indomie 5pk núðlur mi goreng",
+        "brand": "Indomie",
+        "category": "Eldamennskan",
+        "unit": "stk",
+        "priceBefore": 699,
+        "priceAfter": 595,
+        "percent": -14.88,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100262692",
+        "name": "Indomie 5pk núðlur kjúklinga",
+        "brand": "Indomie",
+        "category": "Eldamennskan",
+        "unit": "stk",
+        "priceBefore": 699,
+        "priceAfter": 595,
+        "percent": -14.88,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
         "sku": "100273786",
         "name": "Maarud tortilla mix",
         "brand": "Maarud",
@@ -6122,6 +6572,18 @@
         "priceAfter": 445,
         "percent": -14.26,
         "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100253423",
+        "name": "sellerírót",
+        "brand": "",
+        "category": "Grænmeti",
+        "unit": "stk",
+        "priceBefore": 298,
+        "priceAfter": 259,
+        "percent": -13.09,
+        "allTimeLow": false,
         "allTimeHigh": false
       },
       {
@@ -6233,6 +6695,18 @@
         "allTimeHigh": false
       },
       {
+        "sku": "100271623",
+        "name": "Esti grísk jógúrt vanillu 10% 1kg",
+        "brand": "Esti",
+        "category": "Mjólkurvörur og egg",
+        "unit": "stk",
+        "priceBefore": 999,
+        "priceAfter": 899,
+        "percent": -10.01,
+        "allTimeLow": false,
+        "allTimeHigh": false
+      },
+      {
         "sku": "05000120",
         "name": "Toblerone 100g",
         "brand": "Toblerone",
@@ -6242,18 +6716,6 @@
         "priceAfter": 294,
         "percent": -9.82,
         "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100253423",
-        "name": "sellerírót",
-        "brand": "",
-        "category": "Grænmeti",
-        "unit": "stk",
-        "priceBefore": 298,
-        "priceAfter": 269,
-        "percent": -9.73,
-        "allTimeLow": false,
         "allTimeHigh": false
       },
       {
@@ -6289,18 +6751,6 @@
         "priceBefore": 172,
         "priceAfter": 156,
         "percent": -9.3,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "00900316",
-        "name": "Avókadó í lausu",
-        "brand": "",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 329,
-        "priceAfter": 299,
-        "percent": -9.12,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -6821,6 +7271,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100273361",
+        "name": "Dove men + care deo stick clean comfort",
+        "brand": "Dove",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 410,
+        "priceAfter": 599,
+        "percent": 46.1,
+        "amount": 189,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100224057",
         "name": "Norðlenska lambaprime í hvítlauks og rósmarín marineringu",
         "brand": "Norðlenska",
@@ -6873,6 +7336,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100265982",
+        "name": "Bob's jarðarber 400g",
+        "brand": "Bob's",
+        "category": "Ávextir",
+        "unit": "stk",
+        "priceBefore": 1089,
+        "priceAfter": 1249,
+        "percent": 14.69,
+        "amount": 160,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100235266",
         "name": "Úrvals harðfiskur þorskur 100g",
         "brand": "Úrvals",
@@ -6912,19 +7388,6 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100265982",
-        "name": "Bob's jarðarber 400g",
-        "brand": "Bob's",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 1089,
-        "priceAfter": 1199,
-        "percent": 10.1,
-        "amount": 110,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
         "sku": "100270055",
         "name": "Guli miðinn kreatín 300g",
         "brand": "Guli miðinn",
@@ -6934,19 +7397,6 @@
         "priceAfter": 1799,
         "percent": 6.51,
         "amount": 110,
-        "allTimeLow": false,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100253789",
-        "name": "Vatnsmelóna rauð",
-        "brand": "",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 869,
-        "priceAfter": 975,
-        "percent": 12.2,
-        "amount": 106,
         "allTimeLow": false,
         "allTimeHigh": false
       },
@@ -7016,6 +7466,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100260320",
+        "name": "Dove 6pk sápustykki pink",
+        "brand": "Dove",
+        "category": "Snyrtivara",
+        "unit": "stk",
+        "priceBefore": 999,
+        "priceAfter": 1099,
+        "percent": 10.01,
+        "amount": 100,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
         "sku": "100267257",
         "name": "Holle lífræn þurrmjólk 2",
         "brand": "Holle",
@@ -7024,6 +7487,19 @@
         "priceBefore": 2299,
         "priceAfter": 2399,
         "percent": 4.35,
+        "amount": 100,
+        "allTimeLow": false,
+        "allTimeHigh": true
+      },
+      {
+        "sku": "100255734",
+        "name": "Ripper raspberry lemon",
+        "brand": "Ripper",
+        "category": "Morgunmatur og heilsubót",
+        "unit": "stk",
+        "priceBefore": 4790,
+        "priceAfter": 4890,
+        "percent": 2.09,
         "amount": 100,
         "allTimeLow": false,
         "allTimeHigh": true
@@ -7094,6 +7570,19 @@
         "allTimeHigh": true
       },
       {
+        "sku": "100253789",
+        "name": "Vatnsmelóna rauð",
+        "brand": "",
+        "category": "Ávextir",
+        "unit": "stk",
+        "priceBefore": 869,
+        "priceAfter": 949,
+        "percent": 9.21,
+        "amount": 80,
+        "allTimeLow": false,
+        "allTimeHigh": false
+      },
+      {
         "sku": "100260641",
         "name": "Ideal Fruits bláber 500g",
         "brand": "Ideal Fruits",
@@ -7120,19 +7609,6 @@
         "allTimeHigh": true
       },
       {
-        "sku": "100253499",
-        "name": "greip rautt",
-        "brand": "",
-        "category": "Ávextir",
-        "unit": "stk",
-        "priceBefore": 179,
-        "priceAfter": 249,
-        "percent": 39.11,
-        "amount": 70,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
         "sku": "100256645",
         "name": "Praktisk rúðuvökvi 4l",
         "brand": "Praktisk",
@@ -7155,32 +7631,6 @@
         "priceAfter": 1149,
         "percent": 6.49,
         "amount": 70,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "100204609",
-        "name": "Lýsi d3-vítamín",
-        "brand": "Lýsi",
-        "category": "Morgunmatur og heilsubót",
-        "unit": "stk",
-        "priceBefore": 1280,
-        "priceAfter": 1350,
-        "percent": 5.47,
-        "amount": 70,
-        "allTimeLow": false,
-        "allTimeHigh": true
-      },
-      {
-        "sku": "01000593",
-        "name": "Blaðlaukur",
-        "brand": "",
-        "category": "Grænmeti",
-        "unit": "stk",
-        "priceBefore": 99,
-        "priceAfter": 165,
-        "percent": 66.67,
-        "amount": 66,
         "allTimeLow": false,
         "allTimeHigh": true
       }
@@ -7239,19 +7689,6 @@
         "allTimeHigh": false
       },
       {
-        "sku": "100271623",
-        "name": "Esti grísk jógúrt vanillu 10% 1kg",
-        "brand": "Esti",
-        "category": "Mjólkurvörur og egg",
-        "unit": "stk",
-        "priceBefore": 999,
-        "priceAfter": 399,
-        "percent": -60.06,
-        "amount": -600,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
         "sku": "100272194",
         "name": "Colgate rafhlöðutannbursti max white",
         "brand": "Colgate",
@@ -7261,19 +7698,6 @@
         "priceAfter": 1999,
         "percent": -18.37,
         "amount": -450,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100271617",
-        "name": "Esti grísk jógúrt 10% 1kg",
-        "brand": "Esti",
-        "category": "Mjólkurvörur og egg",
-        "unit": "stk",
-        "priceBefore": 799,
-        "priceAfter": 399,
-        "percent": -50.06,
-        "amount": -400,
         "allTimeLow": true,
         "allTimeHigh": false
       },
@@ -7421,6 +7845,45 @@
         "allTimeHigh": false
       },
       {
+        "sku": "100257664",
+        "name": "Ripper fruit punch",
+        "brand": "Ripper",
+        "category": "Morgunmatur og heilsubót",
+        "unit": "stk",
+        "priceBefore": 4999,
+        "priceAfter": 4890,
+        "percent": -2.18,
+        "amount": -109,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100272811",
+        "name": "Indomie 5pk núðlur mi goreng",
+        "brand": "Indomie",
+        "category": "Eldamennskan",
+        "unit": "stk",
+        "priceBefore": 699,
+        "priceAfter": 595,
+        "percent": -14.88,
+        "amount": -104,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100262692",
+        "name": "Indomie 5pk núðlur kjúklinga",
+        "brand": "Indomie",
+        "category": "Eldamennskan",
+        "unit": "stk",
+        "priceBefore": 699,
+        "priceAfter": 595,
+        "percent": -14.88,
+        "amount": -104,
+        "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
         "sku": "100265045",
         "name": "Cosrx 6 peptide skin booster serum",
         "brand": "Cosrx",
@@ -7535,6 +7998,19 @@
         "percent": -10.01,
         "amount": -100,
         "allTimeLow": true,
+        "allTimeHigh": false
+      },
+      {
+        "sku": "100271623",
+        "name": "Esti grísk jógúrt vanillu 10% 1kg",
+        "brand": "Esti",
+        "category": "Mjólkurvörur og egg",
+        "unit": "stk",
+        "priceBefore": 999,
+        "priceAfter": 899,
+        "percent": -10.01,
+        "amount": -100,
+        "allTimeLow": false,
         "allTimeHigh": false
       },
       {
@@ -7807,32 +8283,6 @@
         "priceAfter": 1159,
         "percent": -3.34,
         "amount": -40,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100273221",
-        "name": "Dr.PawPaw hair&body mist tropical haze",
-        "brand": "Dr.PawPaw",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 1199,
-        "priceAfter": 1159,
-        "percent": -3.34,
-        "amount": -40,
-        "allTimeLow": true,
-        "allTimeHigh": false
-      },
-      {
-        "sku": "100264523",
-        "name": "Cerave smoothing cleanser",
-        "brand": "Cerave",
-        "category": "Snyrtivara",
-        "unit": "stk",
-        "priceBefore": 3998,
-        "priceAfter": 3959,
-        "percent": -0.98,
-        "amount": -39,
         "allTimeLow": true,
         "allTimeHigh": false
       }
@@ -8294,7 +8744,7 @@
           "sku": "00300627",
           "name": "KEA hangilæri úrbeinað",
           "brand": "KEA",
-          "price": 15598,
+          "price": 14038,
           "category": "Kjöt"
         },
         {
@@ -9833,8 +10283,17 @@
       "brand": "Brynild",
       "category": "Laugardags",
       "changes": 2,
-      "days": 8,
+      "days": 9,
       "lastPrice": 650
+    },
+    {
+      "sku": "02500241",
+      "name": "MS jólajógúrt með jarðarberjum",
+      "brand": "MS",
+      "category": "Mjólkurvörur og egg",
+      "changes": 2,
+      "days": 9,
+      "lastPrice": 270
     },
     {
       "sku": "100134163",
@@ -9842,7 +10301,7 @@
       "brand": "MS",
       "category": "Mjólkurvörur og egg",
       "changes": 3,
-      "days": 15,
+      "days": 16,
       "lastPrice": 698
     },
     {
@@ -9850,9 +10309,9 @@
       "name": "sellerírót",
       "brand": "",
       "category": "Grænmeti",
-      "changes": 17,
-      "days": 120,
-      "lastPrice": 269
+      "changes": 18,
+      "days": 121,
+      "lastPrice": 259
     },
     {
       "sku": "100264957",
@@ -9860,17 +10319,8 @@
       "brand": "Freyju",
       "category": "Laugardags",
       "changes": 2,
-      "days": 15,
+      "days": 16,
       "lastPrice": 430
-    },
-    {
-      "sku": "100269340",
-      "name": "Happy Hydrate jóli",
-      "brand": "Happy Hydrate",
-      "category": "Morgunmatur og heilsubót",
-      "changes": 4,
-      "days": 36,
-      "lastPrice": 1898
     }
   ],
   "shrinkflationAlerts": []
