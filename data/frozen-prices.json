@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-23",
+  "date": "2026-11-24",
   "source": "https://kronan.is/frysting-voruverds",
   "baseDate": "2026-09-23",
   "beforeDate": "2026-09-21",
@@ -15,7 +15,6 @@
     "100273560",
     "100261708",
     "100248945",
-    "100273455",
     "100143680",
     "100179509",
     "100237313",
@@ -2637,7 +2636,7 @@
       "baseComparisonUnit": "STK",
       "categoryPath": "Heitir drykkir / Te / Te",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": 19,
+      "priceAtFreeze": 199,
       "shelfSince": {
         "from": 199,
         "to": 199,
@@ -2655,10 +2654,10 @@
       "rises": 0,
       "falls": 0,
       "freezeCmp": {
-        "from": 19,
+        "from": 199,
         "to": 199,
-        "amount": 180,
-        "percent": 947.37
+        "amount": 0,
+        "percent": 0
       }
     },
     {
@@ -2817,7 +2816,7 @@
       "baseComparisonUnit": "STK",
       "categoryPath": "Heimilið / Þrif / Tuskur og svampar",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": 499,
+      "priceAtFreeze": 49,
       "shelfSince": {
         "from": 499,
         "to": 499,
@@ -2835,10 +2834,10 @@
       "rises": 0,
       "falls": 0,
       "freezeCmp": {
-        "from": 499,
+        "from": 49,
         "to": 499,
-        "amount": 0,
-        "percent": 0
+        "amount": 450,
+        "percent": 918.37
       }
     },
     {
@@ -2948,8 +2947,8 @@
       "sku": "100273234",
       "name": "First Price naglalakkhreinsir",
       "brand": "First Price",
-      "price": 390,
-      "discountedPrice": 390,
+      "price": 382,
+      "discountedPrice": 382,
       "onSale": false,
       "pricePerKilo": null,
       "chargedByWeight": false,
@@ -2959,9 +2958,9 @@
       "priceAtFreeze": 390,
       "shelfSince": {
         "from": 390,
-        "to": 390,
-        "amount": 0,
-        "percent": 0
+        "to": 382,
+        "amount": -8,
+        "percent": -2.05
       },
       "shelfBefore": {
         "from": 390,
@@ -2972,12 +2971,12 @@
       "kgSince": null,
       "kgBefore": null,
       "rises": 0,
-      "falls": 0,
+      "falls": 1,
       "freezeCmp": {
         "from": 390,
-        "to": 390,
-        "amount": 0,
-        "percent": 0
+        "to": 382,
+        "amount": -8,
+        "percent": -2.05
       }
     },
     {
@@ -5476,6 +5475,32 @@
       }
     },
     {
+      "sku": "100274533",
+      "name": "First Price uppþvottatöflur 2in1 60stk",
+      "brand": "First Price",
+      "price": 749,
+      "discountedPrice": 749,
+      "onSale": false,
+      "pricePerKilo": null,
+      "chargedByWeight": false,
+      "baseComparisonUnit": "STK",
+      "categoryPath": "Heimilið / Þrif / Eldhúsið og uppvask",
+      "frozenSince": "2026-11-24",
+      "priceAtFreeze": 749,
+      "shelfSince": null,
+      "shelfBefore": null,
+      "kgSince": null,
+      "kgBefore": null,
+      "rises": 0,
+      "falls": 0,
+      "freezeCmp": {
+        "from": 749,
+        "to": 749,
+        "amount": 0,
+        "percent": 0
+      }
+    },
+    {
       "sku": "100211385",
       "name": "First Price uppþvottavélagljái",
       "brand": "First Price",
@@ -5667,7 +5692,7 @@
       "baseComparisonUnit": "STK",
       "categoryPath": "Heimilið / Þrif / Tuskur og svampar",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": 299,
+      "priceAtFreeze": null,
       "shelfSince": {
         "from": 299,
         "to": 299,
@@ -5684,12 +5709,7 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": {
-        "from": 299,
-        "to": 299,
-        "amount": 0,
-        "percent": 0
-      }
+      "freezeCmp": null
     },
     {
       "sku": "100184655",
@@ -5831,42 +5851,6 @@
       "freezeCmp": {
         "from": 599,
         "to": 599,
-        "amount": 0,
-        "percent": 0
-      }
-    },
-    {
-      "sku": "100270042",
-      "name": "Gestus baguette fræ & sjávarsalt",
-      "brand": "Gestus",
-      "price": 329,
-      "discountedPrice": 329,
-      "onSale": false,
-      "pricePerKilo": null,
-      "chargedByWeight": false,
-      "baseComparisonUnit": "KG",
-      "categoryPath": "Frystivara / Brauð og sætabrauð / Brauð",
-      "frozenSince": "2026-11-20",
-      "priceAtFreeze": 329,
-      "shelfSince": {
-        "from": 329,
-        "to": 329,
-        "amount": 0,
-        "percent": 0
-      },
-      "shelfBefore": {
-        "from": 329,
-        "to": 329,
-        "amount": 0,
-        "percent": 0
-      },
-      "kgSince": null,
-      "kgBefore": null,
-      "rises": 0,
-      "falls": 0,
-      "freezeCmp": {
-        "from": 329,
-        "to": 329,
         "amount": 0,
         "percent": 0
       }
@@ -6171,7 +6155,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Frystivara / Franskar / Franskar og djúpsteiking",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": 579,
+      "priceAtFreeze": null,
       "shelfSince": {
         "from": 579,
         "to": 539,
@@ -6188,12 +6172,7 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 1,
-      "freezeCmp": {
-        "from": 579,
-        "to": 539,
-        "amount": -40,
-        "percent": -6.91
-      }
+      "freezeCmp": null
     },
     {
       "sku": "100224696",
@@ -10926,7 +10905,7 @@
       "baseComparisonUnit": "LTR",
       "categoryPath": "Heimilið / Þvottur / Þvottaefni",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 648,
       "shelfSince": {
         "from": 648,
         "to": 648,
@@ -10943,7 +10922,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 648,
+        "to": 648,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100252503",
@@ -11345,8 +11329,8 @@
       "sku": "100248955",
       "name": "Grön Balance handspritt 70ml",
       "brand": "Grön Balance",
-      "price": 380,
-      "discountedPrice": 380,
+      "price": 372,
+      "discountedPrice": 372,
       "onSale": false,
       "pricePerKilo": null,
       "chargedByWeight": false,
@@ -11356,9 +11340,9 @@
       "priceAtFreeze": 449,
       "shelfSince": {
         "from": 380,
-        "to": 380,
-        "amount": 0,
-        "percent": 0
+        "to": 372,
+        "amount": -8,
+        "percent": -2.11
       },
       "shelfBefore": {
         "from": 380,
@@ -11369,12 +11353,12 @@
       "kgSince": null,
       "kgBefore": null,
       "rises": 0,
-      "falls": 0,
+      "falls": 1,
       "freezeCmp": {
         "from": 449,
-        "to": 380,
-        "amount": -69,
-        "percent": -15.37
+        "to": 372,
+        "amount": -77,
+        "percent": -17.15
       }
     },
     {
@@ -12763,7 +12747,7 @@
       "baseComparisonUnit": "STK",
       "categoryPath": "Heimilið / Þrif / Tuskur og svampar",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": 359,
+      "priceAtFreeze": null,
       "shelfSince": {
         "from": 359,
         "to": 359,
@@ -12780,12 +12764,7 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": {
-        "from": 359,
-        "to": 359,
-        "amount": 0,
-        "percent": 0
-      }
+      "freezeCmp": null
     },
     {
       "sku": "100255930",
@@ -13890,7 +13869,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Frystivara / Ávextir og grænmeti / Ávextir og grænmeti",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 295,
       "shelfSince": {
         "from": 295,
         "to": 295,
@@ -13907,7 +13886,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 295,
+        "to": 295,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100239684",
@@ -15102,7 +15086,7 @@
       "name": "Krónan lífrænt hnetusmjör fínt",
       "brand": "Krónan lífrænt",
       "price": 495,
-      "discountedPrice": 371,
+      "discountedPrice": 299,
       "onSale": true,
       "pricePerKilo": null,
       "chargedByWeight": false,
@@ -15138,7 +15122,7 @@
       "name": "Krónan lífrænt hnetusmjör gróft",
       "brand": "Krónan lífrænt",
       "price": 495,
-      "discountedPrice": 371,
+      "discountedPrice": 299,
       "onSale": true,
       "pricePerKilo": null,
       "chargedByWeight": false,
@@ -16004,7 +15988,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Brauð, kökur og kex / Brauð / Hrökkbrauð, rís- og maískökur",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": 299,
+      "priceAtFreeze": null,
       "shelfSince": {
         "from": 299,
         "to": 299,
@@ -16021,12 +16005,7 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": {
-        "from": 299,
-        "to": 299,
-        "amount": 0,
-        "percent": 0
-      }
+      "freezeCmp": null
     },
     {
       "sku": "100267601",
@@ -16966,7 +16945,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Á ferðinni / Tilbúið til að borða / Samlokur",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 739,
       "shelfSince": {
         "from": 739,
         "to": 739,
@@ -16983,7 +16962,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 739,
+        "to": 739,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100262529",
@@ -17223,7 +17207,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Á ferðinni / Tilbúið til að borða / Samlokur",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": 949,
+      "priceAtFreeze": null,
       "shelfSince": {
         "from": 949,
         "to": 949,
@@ -17240,12 +17224,7 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": {
-        "from": 949,
-        "to": 949,
-        "amount": 0,
-        "percent": 0
-      }
+      "freezeCmp": null
     },
     {
       "sku": "100269258",
@@ -19049,7 +19028,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Á ferðinni / Tilbúið til að borða / Matar- og salatbakkar",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": 729,
+      "priceAtFreeze": null,
       "shelfSince": {
         "from": 729,
         "to": 729,
@@ -19066,12 +19045,7 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": {
-        "from": 729,
-        "to": 729,
-        "amount": 0,
-        "percent": 0
-      }
+      "freezeCmp": null
     },
     {
       "sku": "100256525",
@@ -20053,7 +20027,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Kjöt / Lambakjöt / Nautakjöt",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": 719,
+      "priceAtFreeze": null,
       "shelfSince": {
         "from": 719,
         "to": 719,
@@ -20070,12 +20044,7 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": {
-        "from": 719,
-        "to": 719,
-        "amount": 0,
-        "percent": 0
-      }
+      "freezeCmp": null
     },
     {
       "sku": "100267401",
@@ -20865,7 +20834,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Kjöt / Fuglakjöt / Kjúklingur",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": 3399,
+      "priceAtFreeze": null,
       "shelfSince": {
         "from": 2549,
         "to": 2549,
@@ -20892,12 +20861,7 @@
       },
       "rises": 0,
       "falls": 0,
-      "freezeCmp": {
-        "from": 3399,
-        "to": 3399,
-        "amount": 0,
-        "percent": 0
-      }
+      "freezeCmp": null
     },
     {
       "sku": "100262940",
@@ -21249,7 +21213,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Kjöt / Lambakjöt / Lambakjöt",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 2699,
       "shelfSince": {
         "from": 1835,
         "to": 1619,
@@ -21276,7 +21240,12 @@
       },
       "rises": 0,
       "falls": 2,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 2699,
+        "to": 2699,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100191286",
@@ -21485,6 +21454,32 @@
       "freezeCmp": {
         "from": 560,
         "to": 560,
+        "amount": 0,
+        "percent": 0
+      }
+    },
+    {
+      "sku": "100273455",
+      "name": "Ódýrt nautgripahakk",
+      "brand": "Ódýrt",
+      "price": 1453,
+      "discountedPrice": 1453,
+      "onSale": false,
+      "pricePerKilo": null,
+      "chargedByWeight": false,
+      "baseComparisonUnit": "KG",
+      "categoryPath": "Kjöt / Lambakjöt / Nautakjöt",
+      "frozenSince": "2026-11-24",
+      "priceAtFreeze": 1453,
+      "shelfSince": null,
+      "shelfBefore": null,
+      "kgSince": null,
+      "kgBefore": null,
+      "rises": 0,
+      "falls": 0,
+      "freezeCmp": {
+        "from": 1453,
+        "to": 1453,
         "amount": 0,
         "percent": 0
       }
