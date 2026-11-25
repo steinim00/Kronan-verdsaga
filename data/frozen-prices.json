@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-24",
+  "date": "2026-11-25",
   "source": "https://kronan.is/frysting-voruverds",
   "baseDate": "2026-09-23",
   "beforeDate": "2026-09-21",
@@ -923,7 +923,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Eldamennskan / Niðursuðuvara / Niðursoðnir ávextir",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": 250,
+      "priceAtFreeze": 2,
       "shelfSince": {
         "from": 250,
         "to": 245,
@@ -941,10 +941,10 @@
       "rises": 0,
       "falls": 1,
       "freezeCmp": {
-        "from": 250,
+        "from": 2,
         "to": 245,
-        "amount": -5,
-        "percent": -2
+        "amount": 243,
+        "percent": 12150
       }
     },
     {
@@ -2636,7 +2636,7 @@
       "baseComparisonUnit": "STK",
       "categoryPath": "Heitir drykkir / Te / Te",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": 199,
+      "priceAtFreeze": null,
       "shelfSince": {
         "from": 199,
         "to": 199,
@@ -2653,12 +2653,7 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": {
-        "from": 199,
-        "to": 199,
-        "amount": 0,
-        "percent": 0
-      }
+      "freezeCmp": null
     },
     {
       "sku": "100251494",
@@ -2816,7 +2811,7 @@
       "baseComparisonUnit": "STK",
       "categoryPath": "Heimilið / Þrif / Tuskur og svampar",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": 49,
+      "priceAtFreeze": null,
       "shelfSince": {
         "from": 499,
         "to": 499,
@@ -2833,12 +2828,7 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": {
-        "from": 49,
-        "to": 499,
-        "amount": 450,
-        "percent": 918.37
-      }
+      "freezeCmp": null
     },
     {
       "sku": "100179875",
@@ -19414,6 +19404,32 @@
       }
     },
     {
+      "sku": "100270057",
+      "name": "Krónu wellington rauðrófusteik",
+      "brand": "Krónu",
+      "price": 2799,
+      "discountedPrice": 2799,
+      "onSale": false,
+      "pricePerKilo": null,
+      "chargedByWeight": false,
+      "baseComparisonUnit": "KG",
+      "categoryPath": "Jólin / Jólasteikin / Jólasteikin",
+      "frozenSince": "2026-11-25",
+      "priceAtFreeze": 2799,
+      "shelfSince": null,
+      "shelfBefore": null,
+      "kgSince": null,
+      "kgBefore": null,
+      "rises": 0,
+      "falls": 0,
+      "freezeCmp": {
+        "from": 2799,
+        "to": 2799,
+        "amount": 0,
+        "percent": 0
+      }
+    },
+    {
       "sku": "100246268",
       "name": "Krónu þunnir pokar með höldum",
       "brand": "Krónu",
@@ -20027,7 +20043,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Kjöt / Lambakjöt / Nautakjöt",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 719,
       "shelfSince": {
         "from": 719,
         "to": 719,
@@ -20044,7 +20060,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 719,
+        "to": 719,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100267401",
@@ -20152,6 +20173,58 @@
         "to": 1145,
         "amount": -8,
         "percent": -0.69
+      }
+    },
+    {
+      "sku": "100269864",
+      "name": "Ódýrt hangiframpartur úrbeinaður",
+      "brand": "Ódýrt",
+      "price": 8358,
+      "discountedPrice": 8358,
+      "onSale": false,
+      "pricePerKilo": 4399,
+      "chargedByWeight": true,
+      "baseComparisonUnit": "KG",
+      "categoryPath": "Jólin / Hangikjöt / Hangikjöt",
+      "frozenSince": "2026-11-25",
+      "priceAtFreeze": 8358,
+      "shelfSince": null,
+      "shelfBefore": null,
+      "kgSince": null,
+      "kgBefore": null,
+      "rises": 0,
+      "falls": 0,
+      "freezeCmp": {
+        "from": 8358,
+        "to": 4399,
+        "amount": -3959,
+        "percent": -47.37
+      }
+    },
+    {
+      "sku": "100269865",
+      "name": "Ódýrt hangilæri úrbeinað",
+      "brand": "Ódýrt",
+      "price": 11198,
+      "discountedPrice": 11198,
+      "onSale": false,
+      "pricePerKilo": 5599,
+      "chargedByWeight": true,
+      "baseComparisonUnit": "KG",
+      "categoryPath": "Jólin / Hangikjöt / Hangikjöt",
+      "frozenSince": "2026-11-25",
+      "priceAtFreeze": 11198,
+      "shelfSince": null,
+      "shelfBefore": null,
+      "kgSince": null,
+      "kgBefore": null,
+      "rises": 0,
+      "falls": 0,
+      "freezeCmp": {
+        "from": 11198,
+        "to": 5599,
+        "amount": -5599,
+        "percent": -50
       }
     },
     {
@@ -20660,7 +20733,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Frystivara / Kjöt / Kjöt",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": 1999,
+      "priceAtFreeze": null,
       "shelfSince": {
         "from": 1999,
         "to": 1959,
@@ -20677,12 +20750,7 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 1,
-      "freezeCmp": {
-        "from": 1999,
-        "to": 1959,
-        "amount": -40,
-        "percent": -2
-      }
+      "freezeCmp": null
     },
     {
       "sku": "100272123",
@@ -20834,7 +20902,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Kjöt / Fuglakjöt / Kjúklingur",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 3399,
       "shelfSince": {
         "from": 2549,
         "to": 2549,
@@ -20861,7 +20929,12 @@
       },
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 3399,
+        "to": 3399,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100262940",
