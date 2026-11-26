@@ -1,50 +1,50 @@
 {
   "Ávextir": {
-    "month": "2026M10",
-    "index": 105.2,
-    "monthChangePercent": -0.45,
-    "yearChangePercent": 5.8
+    "month": "2026M11",
+    "index": 104.8,
+    "monthChangePercent": -0.33,
+    "yearChangePercent": 3.5
   },
   "Grænmeti": {
-    "month": "2026M10",
-    "index": 103.5,
-    "monthChangePercent": -0.2,
-    "yearChangePercent": 4.3
+    "month": "2026M11",
+    "index": 103.3,
+    "monthChangePercent": -0.15,
+    "yearChangePercent": 3.9
   },
   "Tilbúnir réttir": {
-    "month": "2026M10",
-    "index": 103.4,
-    "monthChangePercent": -0.14,
-    "yearChangePercent": 3.3
+    "month": "2026M11",
+    "index": 103.3,
+    "monthChangePercent": -0.08,
+    "yearChangePercent": 3.2
   },
   "Fiskur": {
-    "month": "2026M10",
-    "index": 112.4,
-    "monthChangePercent": 1.41,
-    "yearChangePercent": 13.7
+    "month": "2026M11",
+    "index": 112.5,
+    "monthChangePercent": 0.1,
+    "yearChangePercent": 12.4
   },
   "Kjöt": {
-    "month": "2026M10",
-    "index": 105,
-    "monthChangePercent": 2.2,
-    "yearChangePercent": 5
+    "month": "2026M11",
+    "index": 104.9,
+    "monthChangePercent": -0.09,
+    "yearChangePercent": 4.2
   },
   "Mjólkurvörur og egg": {
-    "month": "2026M10",
-    "index": 105.2,
-    "monthChangePercent": 0.44,
+    "month": "2026M11",
+    "index": 104.6,
+    "monthChangePercent": -0.58,
     "yearChangePercent": 4.7
   },
   "Drykkir": {
-    "month": "2026M10",
-    "index": 102.1,
-    "monthChangePercent": 0.13,
-    "yearChangePercent": 1.7
+    "month": "2026M11",
+    "index": 101.9,
+    "monthChangePercent": -0.14,
+    "yearChangePercent": 1.6
   },
   "Brauð, kökur og kex": {
-    "month": "2026M10",
-    "index": 102.6,
-    "monthChangePercent": -0.21,
-    "yearChangePercent": 2.7
+    "month": "2026M11",
+    "index": 102.2,
+    "monthChangePercent": -0.42,
+    "yearChangePercent": 2.2
   }
 }

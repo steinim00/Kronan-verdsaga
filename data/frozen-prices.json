@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-25",
+  "date": "2026-11-26",
   "source": "https://kronan.is/frysting-voruverds",
   "baseDate": "2026-09-23",
   "beforeDate": "2026-09-21",
@@ -20231,8 +20231,8 @@
       "sku": "100266151",
       "name": "Ódýrt hindber frosin 500g",
       "brand": "Ódýrt",
-      "price": 899,
-      "discountedPrice": 899,
+      "price": 890,
+      "discountedPrice": 890,
       "onSale": false,
       "pricePerKilo": null,
       "chargedByWeight": false,
@@ -20242,9 +20242,9 @@
       "priceAtFreeze": 920,
       "shelfSince": {
         "from": 920,
-        "to": 899,
-        "amount": -21,
-        "percent": -2.28
+        "to": 890,
+        "amount": -30,
+        "percent": -3.26
       },
       "shelfBefore": {
         "from": 920,
@@ -20255,12 +20255,12 @@
       "kgSince": null,
       "kgBefore": null,
       "rises": 0,
-      "falls": 2,
+      "falls": 3,
       "freezeCmp": {
         "from": 920,
-        "to": 899,
-        "amount": -21,
-        "percent": -2.28
+        "to": 890,
+        "amount": -30,
+        "percent": -3.26
       }
     },
     {
@@ -20519,8 +20519,8 @@
       "sku": "100265370",
       "name": "Ódýrt jarðarber frosin 1kg",
       "brand": "Ódýrt",
-      "price": 544,
-      "discountedPrice": 544,
+      "price": 533,
+      "discountedPrice": 533,
       "onSale": false,
       "pricePerKilo": null,
       "chargedByWeight": false,
@@ -20530,9 +20530,9 @@
       "priceAtFreeze": 544,
       "shelfSince": {
         "from": 544,
-        "to": 544,
-        "amount": 0,
-        "percent": 0
+        "to": 533,
+        "amount": -11,
+        "percent": -2.02
       },
       "shelfBefore": {
         "from": 544,
@@ -20543,12 +20543,12 @@
       "kgSince": null,
       "kgBefore": null,
       "rises": 0,
-      "falls": 0,
+      "falls": 1,
       "freezeCmp": {
         "from": 544,
-        "to": 544,
-        "amount": 0,
-        "percent": 0
+        "to": 533,
+        "amount": -11,
+        "percent": -2.02
       }
     },
     {
@@ -21499,8 +21499,8 @@
       "sku": "100265372",
       "name": "Ódýrt mangó frosið 1kg",
       "brand": "Ódýrt",
-      "price": 560,
-      "discountedPrice": 560,
+      "price": 548,
+      "discountedPrice": 548,
       "onSale": false,
       "pricePerKilo": null,
       "chargedByWeight": false,
@@ -21510,9 +21510,9 @@
       "priceAtFreeze": 560,
       "shelfSince": {
         "from": 560,
-        "to": 560,
-        "amount": 0,
-        "percent": 0
+        "to": 548,
+        "amount": -12,
+        "percent": -2.14
       },
       "shelfBefore": {
         "from": 560,
@@ -21523,12 +21523,12 @@
       "kgSince": null,
       "kgBefore": null,
       "rises": 0,
-      "falls": 0,
+      "falls": 1,
       "freezeCmp": {
         "from": 560,
-        "to": 560,
-        "amount": 0,
-        "percent": 0
+        "to": 548,
+        "amount": -12,
+        "percent": -2.14
       }
     },
     {
