@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-26",
+  "date": "2026-11-27",
   "source": "https://kronan.is/frysting-voruverds",
   "baseDate": "2026-09-23",
   "beforeDate": "2026-09-21",
@@ -15,6 +15,7 @@
     "100273560",
     "100261708",
     "100248945",
+    "100211457",
     "100143680",
     "100179509",
     "100237313",
@@ -303,8 +304,8 @@
       "sku": "100179728",
       "name": "First Price asíur",
       "brand": "First Price",
-      "price": 343,
-      "discountedPrice": 343,
+      "price": 327,
+      "discountedPrice": 327,
       "onSale": false,
       "pricePerKilo": null,
       "chargedByWeight": false,
@@ -314,9 +315,9 @@
       "priceAtFreeze": 350,
       "shelfSince": {
         "from": 350,
-        "to": 343,
-        "amount": -7,
-        "percent": -2
+        "to": 327,
+        "amount": -23,
+        "percent": -6.57
       },
       "shelfBefore": {
         "from": 350,
@@ -327,12 +328,12 @@
       "kgSince": null,
       "kgBefore": null,
       "rises": 0,
-      "falls": 1,
+      "falls": 2,
       "freezeCmp": {
         "from": 350,
-        "to": 343,
-        "amount": -7,
-        "percent": -2
+        "to": 327,
+        "amount": -23,
+        "percent": -6.57
       }
     },
     {
@@ -844,8 +845,8 @@
       "name": "First Price dönsk salami",
       "brand": "First Price",
       "price": 519,
-      "discountedPrice": 519,
-      "onSale": false,
+      "discountedPrice": 259,
+      "onSale": true,
       "pricePerKilo": null,
       "chargedByWeight": false,
       "baseComparisonUnit": "KG",
@@ -923,7 +924,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Eldamennskan / Niðursuðuvara / Niðursoðnir ávextir",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": 2,
+      "priceAtFreeze": 250,
       "shelfSince": {
         "from": 250,
         "to": 245,
@@ -941,10 +942,10 @@
       "rises": 0,
       "falls": 1,
       "freezeCmp": {
-        "from": 2,
+        "from": 250,
         "to": 245,
-        "amount": 243,
-        "percent": 12150
+        "amount": -5,
+        "percent": -2
       }
     },
     {
@@ -2173,7 +2174,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Heitir drykkir / Kaffi / Instant kaffi og kaffirjómi",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 299,
       "shelfSince": {
         "from": 299,
         "to": 299,
@@ -2190,7 +2191,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 299,
+        "to": 299,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100179738",
@@ -2636,7 +2642,7 @@
       "baseComparisonUnit": "STK",
       "categoryPath": "Heitir drykkir / Te / Te",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 199,
       "shelfSince": {
         "from": 199,
         "to": 199,
@@ -2653,7 +2659,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 199,
+        "to": 199,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100251494",
@@ -2811,7 +2822,7 @@
       "baseComparisonUnit": "STK",
       "categoryPath": "Heimilið / Þrif / Tuskur og svampar",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 499,
       "shelfSince": {
         "from": 499,
         "to": 499,
@@ -2828,7 +2839,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 499,
+        "to": 499,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100179875",
@@ -2878,7 +2894,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Morgunmatur og heilsubót / Morgunmatur / Múslí",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 480,
       "shelfSince": {
         "from": 480,
         "to": 480,
@@ -2895,7 +2911,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 480,
+        "to": 480,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100184650",
@@ -3269,7 +3290,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Eldamennskan / Pakkasúpur og -sósur / Kartöflumús, raspur og þurrkað grænmeti",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 130,
       "shelfSince": {
         "from": 130,
         "to": 130,
@@ -3286,7 +3307,12 @@
       "kgBefore": null,
       "rises": 1,
       "falls": 1,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 130,
+        "to": 130,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100216001",
@@ -4586,7 +4612,7 @@
       "baseComparisonUnit": "STK",
       "categoryPath": "Heimilið / Þrif / Tuskur og svampar",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 136,
       "shelfSince": {
         "from": 136,
         "to": 136,
@@ -4603,7 +4629,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 136,
+        "to": 136,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100228940",
@@ -4617,7 +4648,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Bakstur / Hveiti, mjöl og sykur / Sykur og sæta",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 176,
       "shelfSince": {
         "from": 176,
         "to": 156,
@@ -4634,7 +4665,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 2,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 176,
+        "to": 156,
+        "amount": -20,
+        "percent": -11.36
+      }
     },
     {
       "sku": "100270319",
@@ -5682,7 +5718,7 @@
       "baseComparisonUnit": "STK",
       "categoryPath": "Heimilið / Þrif / Tuskur og svampar",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 299,
       "shelfSince": {
         "from": 299,
         "to": 299,
@@ -5699,7 +5735,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 299,
+        "to": 299,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100184655",
@@ -5877,6 +5918,42 @@
       "freezeCmp": {
         "from": 126,
         "to": 126,
+        "amount": 0,
+        "percent": 0
+      }
+    },
+    {
+      "sku": "100234339",
+      "name": "Gestus baunir sugar snaps",
+      "brand": "Gestus",
+      "price": 449,
+      "discountedPrice": 449,
+      "onSale": false,
+      "pricePerKilo": null,
+      "chargedByWeight": false,
+      "baseComparisonUnit": "KG",
+      "categoryPath": "Grænmeti / Annað grænmeti / Annað grænmeti",
+      "frozenSince": "2026-11-27",
+      "priceAtFreeze": 449,
+      "shelfSince": {
+        "from": 449,
+        "to": 449,
+        "amount": 0,
+        "percent": 0
+      },
+      "shelfBefore": {
+        "from": 399,
+        "to": 449,
+        "amount": 50,
+        "percent": 12.53
+      },
+      "kgSince": null,
+      "kgBefore": null,
+      "rises": 1,
+      "falls": 1,
+      "freezeCmp": {
+        "from": 449,
+        "to": 449,
         "amount": 0,
         "percent": 0
       }
@@ -6145,7 +6222,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Frystivara / Franskar / Franskar og djúpsteiking",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 579,
       "shelfSince": {
         "from": 579,
         "to": 539,
@@ -6162,7 +6239,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 1,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 579,
+        "to": 539,
+        "amount": -40,
+        "percent": -6.91
+      }
     },
     {
       "sku": "100224696",
@@ -6454,7 +6536,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Mjólkurvörur og egg / Ostar / Harðir ostar",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 899,
       "shelfSince": {
         "from": 899,
         "to": 899,
@@ -6471,7 +6553,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 899,
+        "to": 899,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100266864",
@@ -7607,7 +7694,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Brauð, kökur og kex / Brauð / Hrökkbrauð, rís- og maískökur",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 339,
       "shelfSince": {
         "from": 339,
         "to": 339,
@@ -7624,7 +7711,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 339,
+        "to": 339,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100227484",
@@ -8070,7 +8162,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Eldamennskan / Ítalía / Tómatvörur",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 599,
       "shelfSince": {
         "from": 599,
         "to": 589,
@@ -8087,7 +8179,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 1,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 599,
+        "to": 589,
+        "amount": -10,
+        "percent": -1.67
+      }
     },
     {
       "sku": "100225474",
@@ -8945,7 +9042,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Eldamennskan / Ítalía / Pestó og antipasta",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 498,
       "shelfSince": {
         "from": 498,
         "to": 498,
@@ -8962,7 +9059,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 498,
+        "to": 498,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100225461",
@@ -10720,7 +10822,7 @@
       "baseComparisonUnit": "LTR",
       "categoryPath": "Snyrtivara / Hreinlætisvara / Handsápa",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 390,
       "shelfSince": {
         "from": 390,
         "to": 382,
@@ -10737,7 +10839,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 1,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 390,
+        "to": 382,
+        "amount": -8,
+        "percent": -2.05
+      }
     },
     {
       "sku": "100255065",
@@ -11471,7 +11578,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Eldamennskan / Ítalía / Pasta",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 249,
       "shelfSince": {
         "from": 249,
         "to": 249,
@@ -11488,7 +11595,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 249,
+        "to": 249,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100201671",
@@ -12464,14 +12576,19 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Eldamennskan / Ítalía / Pasta",
       "frozenSince": "2026-11-21",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 449,
       "shelfSince": null,
       "shelfBefore": null,
       "kgSince": null,
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 449,
+        "to": 449,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100092616",
@@ -12737,7 +12854,7 @@
       "baseComparisonUnit": "STK",
       "categoryPath": "Heimilið / Þrif / Tuskur og svampar",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 359,
       "shelfSince": {
         "from": 359,
         "to": 359,
@@ -12754,7 +12871,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 359,
+        "to": 359,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100255930",
@@ -12804,7 +12926,7 @@
       "baseComparisonUnit": "LTR",
       "categoryPath": "Mjólkurvörur og egg / Jurtamjólkurvara / Jurtamjólk",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 309,
       "shelfSince": {
         "from": 309,
         "to": 309,
@@ -12821,7 +12943,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 309,
+        "to": 309,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100208268",
@@ -15227,7 +15354,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Bakstur / Hveiti, mjöl og sykur / Sykur og sæta",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 599,
       "shelfSince": {
         "from": 599,
         "to": 599,
@@ -15244,7 +15371,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 599,
+        "to": 599,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100272373",
@@ -15978,7 +16110,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Brauð, kökur og kex / Brauð / Hrökkbrauð, rís- og maískökur",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 299,
       "shelfSince": {
         "from": 299,
         "to": 299,
@@ -15995,7 +16127,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 299,
+        "to": 299,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100267601",
@@ -17197,7 +17334,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Á ferðinni / Tilbúið til að borða / Samlokur",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 949,
       "shelfSince": {
         "from": 949,
         "to": 949,
@@ -17214,7 +17351,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 949,
+        "to": 949,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100269258",
@@ -19018,7 +19160,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Á ferðinni / Tilbúið til að borða / Matar- og salatbakkar",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 729,
       "shelfSince": {
         "from": 729,
         "to": 729,
@@ -19035,7 +19177,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 729,
+        "to": 729,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100256525",
@@ -20733,7 +20880,7 @@
       "baseComparisonUnit": "KG",
       "categoryPath": "Frystivara / Kjöt / Kjöt",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 1999,
       "shelfSince": {
         "from": 1999,
         "to": 1959,
@@ -20750,7 +20897,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 1,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 1999,
+        "to": 1959,
+        "amount": -40,
+        "percent": -2
+      }
     },
     {
       "sku": "100272123",
@@ -21440,7 +21592,7 @@
       "baseComparisonUnit": "LTR",
       "categoryPath": "Mjólkurvörur og egg / Kaldar sósur og meðlæti / Kaldar sósur",
       "frozenSince": "2026-11-20",
-      "priceAtFreeze": null,
+      "priceAtFreeze": 305,
       "shelfSince": {
         "from": 305,
         "to": 305,
@@ -21457,7 +21609,12 @@
       "kgBefore": null,
       "rises": 0,
       "falls": 0,
-      "freezeCmp": null
+      "freezeCmp": {
+        "from": 305,
+        "to": 305,
+        "amount": 0,
+        "percent": 0
+      }
     },
     {
       "sku": "100220475",
